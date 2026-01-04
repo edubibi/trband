@@ -1,0 +1,5 @@
+VIDEOS_PARA_YOUTUBE/
+*.zip
+*.bat
+*.py
+__pycache__/
