@@ -1,0 +1,12 @@
+¡Hola!
+
+Este es tu regalo musical especial: "One thousand of Color Notes".
+
+Tienes dos formas de disfrutarlo:
+
+1. **SOLO_MUSICA.html**: Haz doble clic aquí si quieres ir directo a la música. Es un reproductor sencillo, sin distracciones, solo tú y las canciones.
+2. **ABRIR_DISCO.html**: Esta es la experiencia completa, con el diseño visual del sitio web, videos y más detalles.
+
+Para compartir esto con tu amigo, simplemente envíale la carpeta completa "DISCO_REGALO_PARA_TU_AMIGO" (puedes comprimirla en un archivo ZIP si es más fácil).
+
+¡Que lo disfrutes!
