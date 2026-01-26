@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Thousand Color Notes - Regalo Especial</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+
+    <main class="player-container">
+        <div class="glass-card">
+            <div class="top-nav">
+                <span>Reproduciendo Ahora</span>
+                <button id="playlistBtn">Lista</button>
+            </div>
+
+            <div class="cover-wrapper">
+                <div class="cover-ring"></div>
+                <img id="coverImg" src="cover.jpg" alt="Cover">
+            </div>
+
+            <div class="song-info">
+                <h1 id="songTitle">Cargando canciones...</h1>
+                <p id="artist">J.J. Almela</p>
+            </div>
+
+            <div class="progress-area">
+                <div class="time">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="prevBtn" class="control-btn secondary">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 6h2v12H6zm3.5 6L18 6v12z" />
+                    </svg>
+                </button>
+                <button id="playBtn" class="control-btn primary">
+                    <svg id="playIcon" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
+                    <svg id="pauseIcon" class="hidden" viewBox="0 0 24 24">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                    </svg>
+                </button>
+                <button id="nextBtn" class="control-btn secondary">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="playlistLayer" class="playlist-layer hidden">
+            <div class="playlist-card glass-card">
+                <div class="playlist-header">
+                    <h2>Tu Regalo: 1000 Color Notes</h2>
+                    <button id="closePlaylist">×</button>
+                </div>
+                <ul id="songList"></ul>
+            </div>
+        </div>
+    </main>
+
+    <audio id="audioElement"></audio>
+    <script src="script.js"></script>
+</body>
+
+</html>

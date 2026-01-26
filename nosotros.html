@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - The Research Band</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #EFEDE2;
+            /* Beige like the screenshot */
+            --text-color: #333;
+            --accent-red: #D9381E;
+            --accent-purple: #D946EF;
+            --accent-green: #4ADE80;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            margin: 0;
+            font-family: var(--font-serif);
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Abstract Geometric Shapes (Background) */
+        .shape {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.9;
+        }
+
+        .shape-circle {
+            top: -50px;
+            left: -50px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at 30% 30%, #FF0055, #8B0000);
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.6;
+        }
+
+        /* The distinct colourful lines from screenshot imitation */
+        .line-vertical-purple {
+            top: 20%;
+            left: 10%;
+            width: 20px;
+            height: 200px;
+            background: linear-gradient(to bottom, #Fcd34d, #e879f9, #a855f7);
+            border-radius: 10px;
+        }
+
+        .line-green-diagonal {
+            top: 10%;
+            left: 30%;
+            width: 300px;
+            height: 20px;
+            background: linear-gradient(to right, #Fcd34d, #4ade80);
+            transform: rotate(-45deg);
+            border-radius: 10px;
+        }
+
+        .line-red-steps {
+            top: 5%;
+            right: 5%;
+            width: 250px;
+            height: 250px;
+            /* Using SVG for complex step shape would be better, but CSS border hack for simple logic */
+            border-top: 30px solid #f97316;
+            border-right: 30px solid #ef4444;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        .line-wave {
+            top: 30%;
+            right: 15%;
+            width: 200px;
+            height: 50px;
+            /* Simple wave approx */
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 Q30,5 60,20 T120,20" fill="none" stroke="%2322d3ee" stroke-width="8"/></svg>') repeat-x;
+            background-size: contain;
+            transform: rotate(10deg);
+        }
+
+        .line-yellow-arc {
+            top: 60%;
+            left: -20px;
+            width: 150px;
+            height: 300px;
+            border-right: 30px solid #fef08a;
+            border-radius: 0 150px 150px 0;
+            opacity: 0.8;
+        }
+
+        /* Content Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-title {
+            align-self: flex-start;
+            margin-left: 20%;
+            font-size: 2rem;
+            letter-spacing: 5px;
+            color: #8B0000;
+            /* Dark red text */
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        /* Bio Layout */
+        .bio-section {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+            width: 90%;
+        }
+
+        .profile-img-container {
+            flex: 0 0 300px;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 100%;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid #555;
+            /* Thin dark border */
+        }
+
+        /* The vertical thin line divider */
+        .vertical-divider {
+            width: 4px;
+            background-color: #554d38;
+            /* Dark olive/brown */
+            height: 400px;
+            /* Adjust based on text */
+            margin-top: 20px;
+        }
+
+        .text-content {
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        .name-title {
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .role-subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .bio-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .bio-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bio-text li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .bio-text li:before {
+            content: "-";
+            position: absolute;
+            left: 0;
+        }
+
+        .highlight-word {
+            font-weight: bold;
+            color: #000;
+        }
+
+        /* Navigation Button to return */
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 100;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .bio-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header-title {
+                margin-left: 0;
+                text-align: center;
+                align-self: center;
+            }
+
+            .vertical-divider {
+                display: none;
+            }
+
+            .text-content {
+                padding-left: 0;
+                text-align: left;
+            }
+        }
+
+        /* --- ANIMATIONS --- */
+
+        /* Keyframes */
+        @keyframes float-vertical {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes float-horizontal {
+            0% {
+                transform: translateX(0px) rotate(-45deg);
+            }
+
+            50% {
+                transform: translateX(15px) rotate(-45deg);
+            }
+
+            100% {
+                transform: translateX(0px) rotate(-45deg);
+            }
+        }
+
+        @keyframes rotate-slow {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes sway {
+            0% {
+                transform: rotate(10deg);
+            }
+
+            50% {
+                transform: rotate(15deg) scale(1.05);
+            }
+
+            100% {
+                transform: rotate(10deg);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes entrance-fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply Animations */
+        .shape-circle {
+            animation: pulse-glow 8s infinite ease-in-out;
+        }
+
+        .line-vertical-purple {
+            animation: float-vertical 6s infinite ease-in-out;
+        }
+
+        .line-green-diagonal {
+            animation: float-horizontal 7s infinite ease-in-out;
+        }
+
+        .line-red-steps {
+            /* Keep static or subtle rotate? Let's float it slowly */
+            animation: float-vertical 9s infinite ease-in-out reverse;
+        }
+
+        .line-wave {
+            animation: sway 5s infinite ease-in-out;
+        }
+
+        .line-yellow-arc {
+            transform-origin: top right;
+            animation: sway 10s infinite ease-in-out alternate;
+        }
+
+        /* Profile Image Animation */
+        .profile-img-container {
+            animation: entrance-fade-up 1.2s ease-out forwards;
+        }
+
+        .profile-img {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.27), box-shadow 0.4s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.03) rotate(-1deg);
+            box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-red);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Shapes -->
+    <div class="shape shape-circle"></div>
+    <div class="shape line-vertical-purple"></div>
+    <div class="shape line-green-diagonal"></div>
+    <div class="shape line-red-steps"></div>
+    <div class="shape line-wave"></div>
+    <div class="shape line-yellow-arc"></div>
+
+    <a href="index.html" class="nav-back">VOLVER A INICIO</a>
+
+    <div class="container">
+        <h1 class="header-title">sobre nosotros</h1>
+
+        <div class="bio-section">
+            <div class="profile-img-container">
+                <img src="assets/miembros/EDUARDO/01Edu Research Clip parque1 CUADRO.png" alt="Eduardo Ramírez"
+                    class="profile-img">
+            </div>
+
+            <!-- Decorative line divider from screenshot -->
+            <div class="vertical-divider"></div>
+
+            <div class="text-content">
+                <h2 class="name-title">Eduardo Ramírez de Cartagena "EDU"</h2>
+
+                <p class="role-subtitle">Músico, compositor, arreglista, cantante y productor.</p>
+                <p style="font-style: italic; margin-bottom: 20px;">Instrumentos: Voz solista, bajo y guitarra.</p>
+
+                <div class="bio-text">
+                    <ul>
+                        <li>Empecé en esto de la música con 15 años y mi primer grupo se llamó "EXISTENCE". Rock
+                            sinfónico o algo así.</li>
+                        <li>Continué tocando como mercenario bajista en diferentes grupos y en orquestas pequeñas.</li>
+                        <li>Seguí acompañando a diferentes artistas y estilos, desde flamenco pop, rock, heavy rock,
+                            pop, etc... de todo.</li>
+                        <li>Luego entré como cantante de estúdio de grabación, haciendo doblajes cantados de películas,
+                            jingles de publicidad y discos, montones de discos para artistas muy relevantes.</li>
+                        <li>Y por fin entre como productor musical en varias empresas y televisiones de este pais.</li>
+                        <li>Fuí socio fundador del grupo <strong>CADILLAC</strong> y ahora sigo en mi carrera con este
+                            grupo, <strong>THE RESEARCH BAND</strong>, haciendo lo que más me gusta:<br>
+                            <span class="highlight-word">Componer</span>, arreglar, tocar y cantar.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Space for other members if needed later, but focusing on Edu as per screenshot -->
+    </div>
+
+    <!-- Collaborators Section -->
+    <div class="container" id="collaborators" style="max-width: 1400px; margin-top: 80px;">
+        <h2 class="header-title"
+            style="margin-left: 0; text-align: center; width: 100%; font-size: 2.5rem; margin-bottom: 40px;">
+            COLABORADORES</h2>
+
+        <div class="grid-collaborators">
+
+            <!-- Jose -->
+            <div class="collab-card" onclick="openMember('jose')">
+                <img src="assets/miembros/Jose de LUCAS/jose_new_photo.jpg" alt="Jose de Lucas">
+                <h3>Jose de Lucas</h3>
+                <p>Guitarra y voz</p>
+            </div>
+
+            <!-- Ricardo -->
+            <div class="collab-card" onclick="openMember('ricardo')">
+                <img src="assets/miembros/RICARDO/ricardo_new_photo.jpg" alt="Ricardo Castro">
+                <h3>Ricardo Castro</h3>
+                <p>Teclado y voz</p>
+            </div>
+
+            <!-- Javier -->
+            <div class="collab-card" onclick="openMember('javier')">
+                <img src="assets/javier(actual).jpg" alt="Javier de Juan">
+                <h3>Javier de Juan Romeu</h3>
+                <p>Batería y Compositor</p>
+                <p class="small-note">Ex-Compañero en CADILLAC</p>
+            </div>
+
+            <!-- Lotfy -->
+            <div class="collab-card" onclick="openMember('lotfy')">
+                <img src="assets/lotfy sonrie.png" alt="Lotfy B. Amor">
+                <h3>Lotfy B. Amor</h3>
+                <p>Compositor y Cantante</p>
+            </div>
+
+            <!-- JJ Almela -->
+            <div class="collab-card" onclick="openMember('jjalmela')">
+                <img src="assets/miembros/JJ_ALMELA_profile.png" alt="JJ Almela">
+                <h3>JJ Almela</h3>
+                <p>Piano y Producción</p>
+            </div>
+
+            <!-- Luca -->
+            <div class="collab-card" onclick="openMember('luca')">
+                <img src="assets/miembros/Luca/profile.jpg" alt="Luca Fiammetti">
+                <h3>Luca Fiammetti</h3>
+                <p class="highlight-text">Actual Guitarra de TRBandmusic</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Member Details Modal -->
+    <div class="player-container" id="memberModal" style="display: none;">
+        <button class="close-btn" onclick="closeMember()">×</button>
+        <div class="member-content-wrapper">
+            <div class="member-left"><img src="" id="modalImg" class="member-modal-img"></div>
+            <div class="member-right">
+                <h2 id="modalName" class="member-name">Nombre</h2>
+                <p id="modalRole" class="member-role">Rol</p>
+                <div class="member-scroll-area">
+                    <div class="info-block">
+                        <h4>Historia y Trayectoria / Curriculum</h4>
+                        <p id="modalBio" class="member-text">...</p>
+                    </div>
+                    <div class="info-block" id="discBlock">
+                        <h4>Discografía Destacada</h4>
+                        <ul id="modalDiscography" class="member-list">
+                            <!-- List items -->
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Videos / Trayectoria Artística Personal</h4>
+                        <div id="modalVideos" class="member-text">
+                            <!-- Helper Text or Video Links -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Styles for Grid and Modal -->
+    <style>
+        .grid-collaborators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .collab-card {
+            background: rgba(0, 0, 0, 0.7);
+            /* Dark transparent */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+        }
+
+        .collab-card:hover {
+            transform: translateY(-10px);
+            background: rgba(0, 0, 0, 0.85);
+            /* Darker on hover */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent-red);
+        }
+
+        .collab-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-red);
+            /* Accent border */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            margin-bottom: 15px;
+        }
+
+        .collab-card h3 {
+            font-size: 1.1rem;
+            margin: 10px 0 5px;
+            color: #fff;
+            /* White Title */
+        }
+
+        .collab-card p {
+            font-size: 0.9rem;
+            color: #ccc;
+            /* Light Gray Text */
+            margin: 0;
+            font-style: italic;
+        }
+
+        .small-note {
+            font-size: 0.75rem !important;
+            color: var(--accent-red) !important;
+            margin-top: 5px !important;
+        }
+
+        .highlight-text {
+            color: var(--accent-purple) !important;
+            font-weight: bold;
+        }
+
+        /* MODAL STYLES (Adapted to Beige Theme) */
+        .player-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .member-content-wrapper {
+            background: #EFEDE2;
+            /* Matching page bg */
+            width: 90%;
+            max-width: 1000px;
+            height: 80vh;
+            border-radius: 20px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .member-left {
+            width: 40%;
+            background: #e5e2d1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .member-modal-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 4px solid #fff;
+        }
+
+        .member-right {
+            width: 60%;
+            padding: 40px;
+            overflow-y: auto;
+            text-align: left;
+            /* Reset text align */
+        }
+
+        .member-name {
+            font-size: 2.5rem;
+            color: #8B0000;
+            margin: 0 0 5px 0;
+            font-family: var(--font-serif);
+        }
+
+        .member-role {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .info-block h4 {
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: #333;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .member-text,
+        .member-list li {
+            color: #444;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .member-list {
+            padding-left: 20px;
+        }
+
+        .member-list li {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .member-content-wrapper {
+                flex-direction: column;
+                height: 90vh;
+                overflow-y: auto;
+            }
+
+            .member-left,
+            .member-right {
+                width: 100%;
+                height: auto;
+                padding: 20px;
+            }
+
+            .close-btn {
+                top: 10px;
+                right: 10px;
+                color: #8B0000;
+                /* Dark on mobile as it might overlap beige */
+            }
+        }
+    </style>
+
+    <script>
+        // Data Object for Collaborators (Migrated from index.html)
+        const memberData = {
+            'jose': {
+                name: 'Jose de Lucas',
+                role: 'Guitarra y voz',
+                img: 'assets/miembros/Jose de LUCAS/jose_new_photo.jpg',
+                bio: `Cantante, compositor y arreglista. Guitarras eléctricas y acústicas.<br><br><strong>ACTUALMENTE:</strong><br>Cantante y guitarrista de acompañamiento en: Pistones, Cadillac, La Década Prodigiosa, The Research Band y Estudio 80.<br><br><strong>FORMACIONES ANTERIORES:</strong><br>Scooters, 40º Grados, Pistones, Antifaces, Daltónicos, Asunto Tornasol, La Década Prodigiosa, Orquesta Xucar, Cadillac, Orquesta Templo, El Nombre de la Rosa, Estudio 80.`,
+                discs: ['Ganador Concurso Pop Regional (1985)', 'Estudio Pentágono (1985)', 'Estudio Eurosonic (2001)'],
+                videos: 'Amplia trayectoria en directos y grabaciones de estudio.'
+            },
+            'ricardo': {
+                name: 'Ricardo Castro',
+                role: 'Teclado y voz',
+                img: 'assets/miembros/RICARDO/ricardo_new_photo.jpg',
+                bio: `Pianista, arreglista, compositor y productor.<br><br>Gana el Mustifestival Internacional David en Barcelona durante 3 años consecutivos. Ha acompañado a artistas de la talla de Antonio Vega, Betty Misiego, Javier Andreu (La Frontera), Cadillac, La Orquesta Mondragón.<br><br>Pianista del Gran Casino de Madrid de Torrelodones durante 8 años.`,
+                discs: ['Jazz Fusion Vol.1', 'Pop Hits 80s', 'Arreglos para Sonogrand'],
+                videos: 'Sesiones de estudio y directos con grandes artistas.'
+            },
+            'javier': {
+                name: 'Javier de Juan Romeu',
+                role: 'Batería y Compositor',
+                img: 'assets/javier(actual).jpg',
+                bio: 'Ex-Batería de CADILLAC. Pionero de la batería electrónica en España. Ha tocado con grandes artistas y en producciones internacionales. <br><br><strong>Currículum Europeo:</strong> <a href="https://all-conductors-of-eurovision.blogspot.com/1988/04/javier-de-juan.html" target="_blank" style="color: var(--accent-red); text-decoration: underline;">Ver Perfil / Eurovisión</a>',
+                discs: ['Cadillac - Pensando en ti', 'La Década Prodigiosa', 'Proyectos en solitario'],
+                videos: '<strong>Música Destacada:</strong><br>KALI CHILI<br><audio controls style="width:100%; margin-top:5px; margin-bottom:15px;"><source src="assets/KALI_CHILI.mp3" type="audio/mpeg">Tu navegador no soporta el audio.</audio><br><em>Más audios próximamente...</em>'
+            },
+            'lotfy': {
+                name: 'Lotfy B. Amor',
+                role: 'Compositor y Cantante',
+                img: 'assets/lotfy sonrie.png',
+                bio: 'Compositor internacional con éxitos en varios idiomas. Su estilo fusiona culturas y ritmos, aportando una riqueza única a The Research Band.',
+                discs: ['Hit Single 1', 'Album Internacional'],
+                videos: 'Actuaciones internacionales...'
+            },
+            'jjalmela': {
+                name: 'JJ Almela',
+                role: 'Piano, Producción y Arreglos',
+                img: 'assets/miembros/JJ_ALMELA_profile.png',
+                bio: `Músico, compositor y arreglista con amplia trayectoria. Pianista de Jazz, Productor Musical y Director Artístico para compañías como SONY, EMI, RCA, FONOGRAM, COLUMBIA.<br><br> Ha compuesto para TV, Cine y Documentales.<br><br> <strong>Web Oficial:</strong> <a href="https://www.jjalmela.com" target="_blank" style="color: var(--accent-red); text-decoration: underline;" >www.jjalmela.com</a>`,
+                discs: ['Productor en SONY/EMI/RCA', 'Compositor Cine/TV'],
+                videos: 'Visita su web para ver su extensa obra.'
+            },
+            'luca': {
+                name: 'Luca Fiammetti',
+                role: 'Actual Guitarra de TRBandmusic',
+                img: 'assets/miembros/Luca/profile.jpg',
+                bio: `<strong>Nombre completo:</strong> Luca Alessandro Fiammetti<br> <strong>Edad:</strong> 36 años<br> <strong>Origen:</strong> Nacido en Génova, Italia. Reside en Manilva, Málaga.<br><br> <strong>Trayectoria Musical:</strong><br> Formado en el Conservatorio Paganini de Génova, especializado en jazz moderno. En Manilva, lidera un trío llamado “Mediterráneo Azul”.<br><br> <strong>Filosofía:</strong><br> Espiritual, introspectivo, amante del mar y la improvisación.`,
+                discs: ['Mediterráneo Azul - Fusión', 'Colaboraciones Jazz Moderno'],
+                videos: 'Actuaciones con Mediterráneo Azul y TRBand.'
+            }
+        };
+
+        function openMember(id) {
+            const data = memberData[id];
+            if (!data) return;
+
+            document.getElementById('modalImg').src = data.img;
+            document.getElementById('modalName').textContent = data.name;
+            document.getElementById('modalRole').textContent = data.role;
+            document.getElementById('modalBio').innerHTML = data.bio;
+
+            const discList = document.getElementById('modalDiscography');
+            discList.innerHTML = '';
+            if (data.discs) {
+                data.discs.forEach(disc => {
+                    const li = document.createElement('li');
+                    li.textContent = disc;
+                    discList.appendChild(li);
+                });
+            }
+
+            const videoContainer = document.getElementById('modalVideos');
+            videoContainer.innerHTML = data.videos || 'Información disponible próximamente.';
+
+            document.getElementById('memberModal').style.display = 'flex';
+        }
+
+        function closeMember() {
+            document.getElementById('memberModal').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
