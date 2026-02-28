@@ -1151,6 +1151,120 @@
                 height: 120px;
             }
         }
+
+        /* Fursona Banner Styles */
+        .fursona-banner {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto 40px;
+            text-align: left;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, background 0.3s;
+        }
+
+        .fursona-banner:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 0, 0, 0.75);
+            border-color: var(--accent);
+        }
+
+        .fursona-banner img {
+            width: 150px;
+            height: 150px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .banner-content {
+            flex: 1;
+        }
+
+        .banner-content h2 {
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .banner-content h3 {
+            font-size: 2.2rem;
+            margin: 0 0 10px 0;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .banner-content p {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .banner-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-banner {
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
+        }
+
+        .btn-banner.primary {
+            background: var(--accent);
+            color: #1a1a2e;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+        }
+
+        .btn-banner.primary:hover {
+            background: #fff;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-banner.secondary {
+            background: #a020f0;
+            /* Purple for NFT */
+            color: white;
+            box-shadow: 0 0 15px rgba(160, 32, 240, 0.3);
+        }
+
+        .btn-banner.secondary:hover {
+            background: #bf40ff;
+            box-shadow: 0 0 25px rgba(160, 32, 240, 0.5);
+        }
+
+        @media (max-width: 600px) {
+            .fursona-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .banner-btns {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 
@@ -1164,11 +1278,15 @@
         <div class="logo-area"><img src="assets/logo_trb.png" alt="TRB Logo" class="header-logo"><span
                 class="header-title">THE
                 RESEARCH BAND</span></div>
-        <nav class="main-nav"><a href="#" class="nav-link active">Inicio</a><a href="nosotros.html"
-                class="nav-link">Nosotros</a><a href="nosotros.html#collaborators" class="nav-link">Colaboradores</a><a
-                href="#iliada" class="nav-link">Mi Iliada</a><a href="#gallery" class="nav-link">Galería</a><a href="#"
-                class="nav-link" onclick="openPlayer(); return false;">Música</a><a href="#contact"
-                class="nav-link">Contacto</a></nav>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link active">Inicio</a>
+            <a href="nosotros.html" class="nav-link">Nosotros</a>
+            <a href="iliada.html" class="nav-link">Mi Iliada</a>
+            <a href="galeria.html" class="nav-link">Galería</a>
+            <a href="fursona-genesis.html" class="nav-link">Fursona Genesis</a>
+            <a href="musica.html" class="nav-link">Música</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
     </header>
     <main class="landing-content">
         <!-- Hero Section -->
@@ -1180,7 +1298,8 @@
         <!-- Bio Section (Founder) -->
         <section id="biography" class="bio-section">
             <div class="bio-main-card"><img src="assets/miembros/EDUARDO/01Edu Research Clip parque1 CUADRO.png"
-                    alt="Eduardo" class="bio-main-img" onclick="openMember('eduardo')" style="cursor: pointer;">
+                    alt="Eduardo" class="bio-main-img" onclick="window.location.href='nosotros.html'"
+                    style="cursor: pointer;">
                 <div class="bio-content">
                     <h3>Eduardo Ramírez</h3>
                     <p class="role-highlight">Fundador & Alma Mater</p>
@@ -1192,230 +1311,24 @@
                 </div>
             </div>
         </section>
-        <!-- Collaborators Section REMOVED (Migrated to nosotros.html) -->
-        <!-- Mi Iliada Section (History) -->
-        <section id="iliada" class="bio-section">
-            <h2 class="section-title">Mi Iliada</h2>
-            <div class="bio-main-card">
-                <!-- Intro Content: Image+Text -->
-                <div class="iliada-content">
-                    <div class="iliada-img-wrapper"><img src="assets/Logos Branding trband/Portada TRBAND para NEOX.png"
-                            alt="Mi Iliada Portada"></div>
-                    <div class="iliada-text-wrapper">
-                        <h3
-                            style="color: var(--accent); font-size: 1.8rem; margin-bottom: 20px; text-transform: uppercase;">
-                            Qué es “Mi Ilíada”</h3>
-                        <p style="margin-bottom: 30px; line-height: 1.6;">Mi Ilíada es el relato
-                            de mi recorrido vital y creativo contado como una épica íntima. No
-                            habla de héroes invencibles ni de victorias gloriosas,
-                            sino de procesos,
-                            caídas,
-                            aprendizajes y decisiones que han ido dando forma a mi mirada
-                            artística. <br><br>Aquí conviven la vida personal y la trayectoria
-                            creativa,
-                            porque nunca han sido cosas distintas. </p>
-                        <h3
-                            style="color: var(--accent); font-size: 1.8rem; margin-bottom: 20px; text-transform: uppercase;">
-                            Por qué llamarlo así</h3>
-                        <p style="margin-bottom: 20px; line-height: 1.6;">En La Ilíada,
-                            la guerra no es el centro: lo es la ira,
-                            la pérdida,
-                            el honor y la fragilidad humana. Del mismo modo,
-                            mi Ilíada no enumera logros,
-                            sino que narra las tensiones,
-                            los conflictos internos y los momentos clave que han construido mi
-                            identidad artística. </p>
-                        <blockquote
-                            style="border-left: 3px solid var(--accent); padding-left: 20px; font-style: italic; color: #fff;">
-                            Cada etapa es una batalla.<br>Cada obra,
-                            una consecuencia. </blockquote>
+
+        <!-- Fursona Collection Banner -->
+        <section class="bio-section" style="padding-top: 20px; min-height: auto;">
+            <div class="fursona-banner">
+                <img src="static/images/fursona-genesis-portada.png" alt="Fursona Genesis">
+                <div class="banner-content">
+                    <h2>NUEVA COLECCIÓN NFT</h2>
+                    <h3>FURSONA GENESIS</h3>
+                    <p>10,197 avatares únicos en Polygon blockchain</p>
+                    <div class="banner-btns">
+                        <a href="fursona-genesis.html" class="btn-banner primary">VER COLECCIÓN</a>
+                        <a href="https://fursona-genesis.nfts2.me/" target="_blank" class="btn-banner secondary">MINTEAR
+                            AHORA</a>
                     </div>
                 </div>
-                <p class="role-highlight" style="font-size: 1.5rem; color: var(--accent); margin-bottom: 30px;">
-                    Videoteca & Trayectoria</p>
-
-                <!-- NEW CATEGORY NAVIGATION -->
-                <div class="video-categories">
-                    <div class="category-card" onclick="openVideoModal('cat-colab')">
-                        <div class="category-bg-icon">🤝</div>
-                        <h3>Colaboradores</h3>
-                        <p style="color: #bbb; margin-top: 5px; font-size: 0.8rem;">JJ Almela & Friends</p>
-                    </div>
-
-                    <div class="category-card" onclick="openVideoModal('cat-cadillac')">
-                        <div class="category-bg-icon">🎸</div>
-                        <h3>Historia de Cadillac</h3>
-                        <p style="color: #bbb; margin-top: 5px; font-size: 0.8rem;">El Origen</p>
-                    </div>
-
-                    <div class="category-card" onclick="openVideoModal('cat-trband')">
-                        <div class="category-bg-icon">🎬</div>
-                        <h3>Producciones TRBand</h3>
-                        <p style="color: #bbb; margin-top: 5px; font-size: 0.8rem;">Videoclips & Promos</p>
-                    </div>
-                </div>
-
-                <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 20px;">
-                    (Haga clic en una categoría para ver los vídeos)</p>
             </div>
         </section>
-        <!-- Gallery Section -->
-        <section id="gallery" class="gallery-section">
-            <h2 class="section-title">Nuestra Galería</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_03.jpg" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_04.jpg" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_05.png" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_07.png" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_08.jpg" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_09.png" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_11.png" loading="lazy"></div>
-            </div>
-        </section>
-
     </main>
-    <!-- VIDEO CATEGORY MODALS -->
-    <!-- 1. Collaborators -->
-    <div class="player-container" id="cat-colab" style="display: none; z-index: 3000;">
-        <button class="close-btn" onclick="closeVideoModal('cat-colab')">×</button>
-        <div class="video-modal-content">
-            <h2 style="color: var(--accent); margin-bottom: 30px; text-transform: uppercase;">Colaboradores</h2>
-            <div class="video-modal-grid">
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/AdiuQFxy8AY" frameborder="0" allowfullscreen></iframe>
-                    <div class="video-title">Música JJ Almela - Eduardo Ramírez (1)</div>
-                </div>
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/MIFyoXaUReo" frameborder="0" allowfullscreen></iframe>
-                    <div class="video-title">Música JJ Almela - Eduardo Ramírez (2)</div>
-                </div>
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/2OLwmBi8PXE" frameborder="0" allowfullscreen></iframe>
-                    <div class="video-title">Música JJ Almela - Eduardo Ramírez (3)</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. Cadillac History -->
-    <div class="player-container" id="cat-cadillac" style="display: none; z-index: 3000;">
-        <button class="close-btn" onclick="closeVideoModal('cat-cadillac')">×</button>
-        <div class="video-modal-content">
-            <h2 style="color: var(--accent); margin-bottom: 30px; text-transform: uppercase;">Historia de Cadillac</h2>
-            <div class="video-modal-grid">
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/-rHi7dmZOjk" frameborder="0" allowfullscreen></iframe>
-                    <div class="video-title">Historia de Cadillac - Parte 1</div>
-                </div>
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/N2JFenwTLA0" frameborder="0" allowfullscreen></iframe>
-                    <div class="video-title">Historia de Cadillac - Parte 2</div>
-                </div>
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/alaG1jLjJm4" frameborder="0" allowfullscreen></iframe>
-                    <div class="video-title">Historia de Cadillac - Parte 3</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. TRBand Productions -->
-    <div class="player-container" id="cat-trband" style="display: none; z-index: 3000;">
-        <button class="close-btn" onclick="closeVideoModal('cat-trband')">×</button>
-        <div class="video-modal-content">
-            <h2 style="color: var(--accent); margin-bottom: 30px; text-transform: uppercase;">Producciones TRBandMusic
-            </h2>
-            <div class="video-modal-grid">
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/9zcAxkehCuk" frameborder="0" allowfullscreen></iframe>
-                    <div class="video-title">Videoclip "El Boy" - TRBandMusic</div>
-                </div>
-                <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/PYiLYz7gIjo" frameborder="0" allowfullscreen></iframe>
-                    <div class="video-title">Promo Galería 3D - TRBandMusic</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openVideoModal(id) {
-            document.getElementById(id).style.display = 'flex';
-        }
-        function closeVideoModal(id) {
-            const modal = document.getElementById(id);
-            const iframes = modal.querySelectorAll('iframe');
-            iframes.forEach(iframe => {
-                const src = iframe.src;
-                iframe.src = src; // Reload to stop video
-            });
-            modal.style.display = 'none';
-        }
-    </script>
-
-    <!-- Member Details Modal -->
-    <div class="player-container" id="memberModal" style="display: none; z-index: 2001;"><button class="close-btn"
-            onclick="closeMember()">×</button>
-        <div class="member-content-wrapper">
-            <div class="member-left"><img src="" id="modalImg" class="member-modal-img"></div>
-            <div class="member-right">
-                <h2 id="modalName" class="member-name">Nombre</h2>
-                <p id="modalRole" class="member-role">Rol</p>
-                <div class="member-scroll-area">
-                    <div class="info-block">
-                        <h4>Historia y Trayectoria / Curriculum</h4>
-                        <p id="modalBio" class="member-text">...</p>
-                    </div>
-                    <div class="info-block">
-                        <h4>Discografía Destacada</h4>
-                        <ul id="modalDiscography" class="member-list">
-                            <!-- List items -->
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h4>Videos / Trayectoria Artística Personal</h4>
-                        <div id="modalVideos" class="member-text">
-                            <!-- Helper Text or Video Links -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Music Player Modal -->
-    <div class="player-container" id="musicModal"><button class="close-btn" onclick="closePlayer()">×</button>
-        <div class="now-playing">
-            <!-- Branding Inside -->
-            <div class="brand-header"><img src="assets/logo_trb.png" class="brand-logo">
-                <div class="brand-title">THE rESEARCH BAND</div>
-            </div><img src="assets/portada_jazz.png" class="album-art" id="coverDisplay"
-                onerror="this.src='https://via.placeholder.com/300/000000/FFFFFF?text=Music'">
-            <div class="track-info">
-                <h2 id="trackTitle">Selecciona una canción</h2>
-                <p id="trackArtist">Mis Discos</p>
-            </div>
-            <div class="controls"><audio id="audioPlayer" controls></audio>
-                <div class="buttons"><button class="btn" onclick="prevTrack()">⏮</button><button class="btn btn-main"
-                        onclick="togglePlay()">⏯</button><button class="btn" onclick="nextTrack()">⏭</button></div>
-            </div>
-        </div>
-        <!-- PLAYLIST (Right Side) -->
-        <div class="playlist-panel">
-            <div class="playlist-header">
-                <div class="tabs"><button class="tab active" onclick="switchTab('all')" id="tabAll">📚
-                        Biblioteca</button><button class="tab" onclick="switchTab('fav')" id="tabFav">⭐
-                        Mi Playlist <span id="favCount">(0)</span></button></div>
-                <div class="search-row"><input type="text" id="searchInput" placeholder="🔍 Buscar..."
-                        onkeyup="filterPlaylist()"></div>
-                <div class="search-row" id="importRow"><label for="fileInput" class="action-btn" title="Añadir Local"
-                        style="flex:1">📂 Añadir</label><button class="action-btn" onclick="searchWeb()"
-                        title="Buscar en Web" style="flex:1">🌐 Web</button></div>
-                <input type="file" id="fileInput" multiple accept="audio/*" style="display:none"
-                    onchange="importFiles(this)">
-            </div>
-            <ul class="track-list" id="playlist"></ul>
-        </div>
-    </div>
     <script>
         // DEBUG LAUNCHER
         // alert("Iniciando script de música..."); 

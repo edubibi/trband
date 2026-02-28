@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FURSONA GENESIS - THE RESEARCH BAND</title>
+    <style>
+        :root {
+            --primary: #ffffff;
+            --secondary: #a0a0a0;
+            --accent: #00f2ff;
+            --bg-glass: rgba(255, 255, 255, 0.1);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #1a1a2e;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-y: auto;
+            overflow-x: hidden;
+            flex-direction: column;
+        }
+
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- HEADER --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .header-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent);
+        }
+
+        /* --- CONTENT --- */
+        .landing-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 140px;
+            padding-bottom: 60px;
+        }
+
+        .nft-hero {
+            text-align: center;
+            margin-bottom: 60px;
+            width: 90%;
+            max-width: 900px;
+        }
+
+        .section-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-align: center;
+        }
+
+        .nft-desc {
+            font-size: 1.2rem;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-mint {
+            display: inline-block;
+            background: #a020f0;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(160, 32, 240, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-mint:hover {
+            background: #bf40ff;
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(160, 32, 240, 0.6);
+        }
+
+        .gallery-section {
+            width: 90%;
+            max-width: 1400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gallery-grid {
+            column-count: 3;
+            column-gap: 20px;
+            width: 100%;
+        }
+
+        .gallery-item {
+            margin-bottom: 20px;
+            break-inside: avoid;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            z-index: 10;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        .author-footer {
+            margin-top: 60px;
+            width: 100%;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                column-count: 1;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .main-header {
+                padding: 10px 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .main-nav {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-link {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-layer">
+        <video id="bgVideo" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="assets/video/background_compressed.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="assets/logo_trb.png" alt="TRB Logo" class="header-logo">
+            <span class="header-title">THE RESEARCH BAND</span>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="nosotros.html" class="nav-link">Nosotros</a>
+            <a href="iliada.html" class="nav-link">Mi Ilíada</a>
+            <a href="galeria.html" class="nav-link">Galería</a>
+            <a href="fursona-genesis.html" class="nav-link active">Fursona Genesis</a>
+            <a href="musica.html" class="nav-link">Música</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="landing-content">
+        <header class="nft-hero">
+            <h1 class="section-title">FURSONA GENESIS</h1>
+            <p class="nft-desc">
+                Colección de 10,197 avatares antropomórficos únicos como NFTs en Polygon blockchain.
+            </p>
+            <a href="https://fursona-genesis.nfts2.me/" target="_blank" class="btn-mint">MINTEAR AHORA</a>
+        </header>
+
+        <section id="gallery" class="gallery-section">
+            <h2 class="section-title" style="font-size: 2rem;">Galería de Muestra</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="static/images/fursona-genesis-portada.png" loading="lazy"></div>
+                <!-- Add more sample images here if available, or just keep the portada for now -->
+            </div>
+        </section>
+    </main>
+
+    <div class="author-footer">
+        <div style="display: flex; align-items: center; font-weight: 700; margin-bottom: 20px;">
+            <span style="margin-right: 8px;">produced by THEM</span>
+            <img src="assets/them_logo.png" alt="THEM" style="height: 30px;">
+        </div>
+        <div style="font-weight: 700;">eduardo ramírez de cartagena &copy; 2026</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Ilíada - THE RESEARCH BAND</title>
+    <style>
+        :root {
+            --primary: #ffffff;
+            --secondary: #a0a0a0;
+            --accent: #00f2ff;
+            --bg-glass: rgba(255, 255, 255, 0.1);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #1a1a2e;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-y: auto;
+            overflow-x: hidden;
+            flex-direction: column;
+        }
+
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- HEADER --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .header-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent);
+        }
+
+        /* --- CONTENT --- */
+        .landing-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .bio-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .bio-main-card {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, background 0.3s;
+        }
+
+        .iliada-content {
+            display: flex;
+            gap: 40px;
+            align-items: stretch;
+            text-align: left;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .iliada-img-wrapper {
+            flex: 1 1 300px;
+            min-width: 280px;
+        }
+
+        .iliada-img-wrapper img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--accent);
+            object-fit: cover;
+        }
+
+        .iliada-text-wrapper {
+            flex: 1 1 300px;
+            min-width: 280px;
+            color: #ddd;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .role-highlight {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 5px 0 15px;
+        }
+
+        /* --- VIDEO MODALS --- */
+        .player-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3000;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            width: 90%;
+            max-width: 1000px;
+            height: 80vh;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: fadeInModal 0.5s ease;
+        }
+
+        @keyframes fadeInModal {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -45%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .video-modal-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            overflow-y: auto;
+            align-items: center;
+        }
+
+        .video-modal-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .video-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .video-card iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+        }
+
+        .video-title {
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #ccc;
+            text-align: center;
+        }
+
+        .video-categories {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .category-card {
+            width: 280px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .category-card h3 {
+            font-size: 1.4rem;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .category-bg-icon {
+            position: absolute;
+            font-size: 8rem;
+            color: rgba(255, 255, 255, 0.03);
+            z-index: 1;
+        }
+
+        /* --- FOOTER --- */
+        .author-footer {
+            margin-top: 60px;
+            width: 100%;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .iliada-content {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .main-header {
+                padding: 10px 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .main-nav {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-link {
+                font-size: 0.75rem;
+            }
+
+            .category-card {
+                width: 100%;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-layer">
+        <video id="bgVideo" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="assets/video/background_compressed.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="assets/logo_trb.png" alt="TRB Logo" class="header-logo">
+            <span class="header-title">THE RESEARCH BAND</span>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="nosotros.html" class="nav-link">Nosotros</a>
+            <a href="iliada.html" class="nav-link active">Mi Ilíada</a>
+            <a href="galeria.html" class="nav-link">Galería</a>
+            <a href="fursona-genesis.html" class="nav-link">Fursona Genesis</a>
+            <a href="musica.html" class="nav-link">Música</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="landing-content">
+        <h2 class="section-title">Mi Ilíada</h2>
+
+        <section class="bio-section">
+            <div class="bio-main-card">
+                <div class="iliada-content">
+                    <div class="iliada-img-wrapper">
+                        <img src="assets/Logos Branding trband/Portada TRBAND para NEOX.png" alt="Mi Ilíada Portada">
+                    </div>
+                    <div class="iliada-text-wrapper">
+                        <h3
+                            style="color: var(--accent); font-size: 1.8rem; margin-bottom: 20px; text-transform: uppercase;">
+                            Qué es “Mi Ilíada”</h3>
+                        <p style="margin-bottom: 30px; line-height: 1.6;">Mi Ilíada es el relato de mi recorrido vital y
+                            creativo contado como una épica íntima. No habla de héroes invencibles ni de victorias
+                            gloriosas, sino de procesos, caídas, aprendizajes y decisiones que han ido dando forma a mi
+                            mirada artística. <br><br>Aquí conviven la vida personal y la trayectoria creativa, porque
+                            nunca han sido cosas distintas.</p>
+                        <h3
+                            style="color: var(--accent); font-size: 1.8rem; margin-bottom: 20px; text-transform: uppercase;">
+                            Por qué llamarlo así</h3>
+                        <p style="margin-bottom: 20px; line-height: 1.6;">En La Ilíada, la guerra no es el centro: lo es
+                            la ira, la pérdida, el honor y la fragilidad humana. Del mismo modo, mi Ilíada no enumera
+                            logros, sino que narra las tensiones, los conflictos internos y los momentos clave que han
+                            construido mi identidad artística. </p>
+                        <blockquote
+                            style="border-left: 3px solid var(--accent); padding-left: 20px; font-style: italic; color: #fff;">
+                            Cada etapa es una batalla.<br>Cada obra, una consecuencia. </blockquote>
+                    </div>
+                </div>
+
+                <p class="role-highlight" style="font-size: 1.5rem; margin-bottom: 30px;">Videoteca & Trayectoria</p>
+
+                <div class="video-categories">
+                    <div class="category-card" onclick="openVideoModal('cat-colab')">
+                        <div class="category-bg-icon">🤝</div>
+                        <h3>Colaboradores</h3>
+                        <p style="color: #bbb; margin-top: 5px; font-size: 0.8rem;">JJ Almela & Friends</p>
+                    </div>
+                    <div class="category-card" onclick="openVideoModal('cat-cadillac')">
+                        <div class="category-bg-icon">🎸</div>
+                        <h3>Historia de Cadillac</h3>
+                        <p style="color: #bbb; margin-top: 5px; font-size: 0.8rem;">El Origen</p>
+                    </div>
+                    <div class="category-card" onclick="openVideoModal('cat-trband')">
+                        <div class="category-bg-icon">🎬</div>
+                        <h3>Producciones TRBand</h3>
+                        <p style="color: #bbb; margin-top: 5px; font-size: 0.8rem;">Videoclips & Promos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- VIDEO MODALS -->
+    <div class="player-container" id="cat-colab">
+        <button class="close-btn" onclick="closeVideoModal('cat-colab')">×</button>
+        <div class="video-modal-content">
+            <h2 style="color: var(--accent); margin-bottom: 30px; text-transform: uppercase;">Colaboradores</h2>
+            <div class="video-modal-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/AdiuQFxy8AY" allowfullscreen></iframe>
+                    <div class="video-title">Música JJ Almela - Eduardo Ramírez (1)</div>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/MIFyoXaUReo" allowfullscreen></iframe>
+                    <div class="video-title">Música JJ Almela - Eduardo Ramírez (2)</div>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/2OLwmBi8PXE" allowfullscreen></iframe>
+                    <div class="video-title">Música JJ Almela - Eduardo Ramírez (3)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="player-container" id="cat-cadillac">
+        <button class="close-btn" onclick="closeVideoModal('cat-cadillac')">×</button>
+        <div class="video-modal-content">
+            <h2 style="color: var(--accent); margin-bottom: 30px; text-transform: uppercase;">Historia de Cadillac</h2>
+            <div class="video-modal-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/-rHi7dmZOjk" allowfullscreen></iframe>
+                    <div class="video-title">Historia de Cadillac - Parte 1</div>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/N2JFenwTLA0" allowfullscreen></iframe>
+                    <div class="video-title">Historia de Cadillac - Parte 2</div>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/alaG1jLjJm4" allowfullscreen></iframe>
+                    <div class="video-title">Historia de Cadillac - Parte 3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="player-container" id="cat-trband">
+        <button class="close-btn" onclick="closeVideoModal('cat-trband')">×</button>
+        <div class="video-modal-content">
+            <h2 style="color: var(--accent); margin-bottom: 30px; text-transform: uppercase;">Producciones TRBandMusic
+            </h2>
+            <div class="video-modal-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/9zcAxkehCuk" allowfullscreen></iframe>
+                    <div class="video-title">Videoclip "El Boy" - TRBandMusic</div>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/PYiLYz7gIjo" allowfullscreen></iframe>
+                    <div class="video-title">Promo Galería 3D - TRBandMusic</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="author-footer">
+        <div style="display: flex; align-items: center; font-weight: 700; margin-bottom: 20px;">
+            <span style="margin-right: 8px;">produced by THEM</span>
+            <img src="assets/them_logo.png" alt="THEM" style="height: 30px;">
+        </div>
+        <div style="font-weight: 700;">eduardo ramírez de cartagena &copy; 2026</div>
+    </div>
+
+    <script>
+        function openVideoModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+        function closeVideoModal(id) {
+            const modal = document.getElementById(id);
+            const iframes = modal.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                const src = iframe.src;
+                iframe.src = src; // Reload to stop video
+            });
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
