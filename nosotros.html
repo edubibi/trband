@@ -123,81 +123,107 @@
             font-weight: 700;
         }
 
-        /* Bio Layout */
-        .bio-section {
+        /* Glassmorphism Card Style (from iliada.html) */
+        .bio-main-card {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 20px;
             display: flex;
-            gap: 50px;
-            align-items: flex-start;
-            width: 90%;
-        }
-
-        .profile-img-container {
-            flex: 0 0 300px;
-            position: relative;
-        }
-
-        .profile-img {
+            flex-direction: column;
+            align-items: center;
             width: 100%;
-            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
-            border: 2px solid #555;
-            /* Thin dark border */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, background 0.3s;
+            margin: 0 auto;
+            max-width: 1200px;
         }
 
-        /* The vertical thin line divider */
-        .vertical-divider {
-            width: 4px;
-            background-color: #554d38;
-            /* Dark olive/brown */
-            height: 400px;
-            /* Adjust based on text */
-            margin-top: 20px;
+        .bio-content-layout {
+            display: flex;
+            gap: 40px;
+            align-items: stretch;
+            text-align: left;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
         }
 
-        .text-content {
-            flex: 1;
-            padding-left: 20px;
+        .bio-img-wrapper {
+            flex: 1 1 300px;
+            min-width: 280px;
+            max-width: 400px;
+        }
+
+        .bio-img-wrapper img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--accent);
+            object-fit: cover;
+        }
+
+        .bio-text-wrapper {
+            flex: 1 1 400px;
+            min-width: 300px;
+            color: #ddd;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            /* overflow-y: auto; */
         }
 
         .name-title {
-            font-size: 1.8rem;
-            font-style: italic;
-            margin-bottom: 10px;
-            color: #333;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .role-subtitle {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 30px;
-            font-weight: 400;
+        .role-highlight {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 5px 0 25px;
+            font-size: 1.1rem;
         }
 
         .bio-text {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #444;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #ccc;
         }
 
         .bio-text ul {
             list-style: none;
             padding: 0;
+            margin-top: 20px;
         }
 
         .bio-text li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             position: relative;
-            padding-left: 15px;
+            padding-left: 20px;
         }
 
         .bio-text li:before {
-            content: "-";
+            content: "•";
             position: absolute;
             left: 0;
+            color: var(--accent);
         }
 
         .highlight-word {
             font-weight: bold;
-            color: #000;
+            color: #fff;
+            /* Changed to white for better contrast on dark background */
         }
 
         /* Navigation Button to return */
@@ -363,59 +389,153 @@
             border-color: var(--accent-red);
             cursor: pointer;
         }
+
+        /* --- HEADER --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .header-title-nav {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: white;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #00f2ff;
+        }
+
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 10px 20px;
+                flex-direction: column;
+                gap: 10px;
+                background: rgba(0, 0, 0, 0.9);
+            }
+
+            .main-nav {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-link {
+                font-size: 0.75rem;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <div class="bg-layer">
+        <video id="bgVideo" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="assets/video/background_compressed.mp4" type="video/mp4">
+        </video>
+    </div>
 
-    <!-- Background Shapes -->
-    <div class="shape shape-circle"></div>
-    <div class="shape line-vertical-purple"></div>
-    <div class="shape line-green-diagonal"></div>
-    <div class="shape line-red-steps"></div>
-    <div class="shape line-wave"></div>
-    <div class="shape line-yellow-arc"></div>
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="assets/logo_trb.png" alt="TRB Logo" class="header-logo">
+            <span class="header-title-nav">THE RESEARCH BAND</span>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="nosotros.html" class="nav-link active">Nosotros</a>
+            <a href="iliada.html" class="nav-link">Mi Ilíada</a>
+            <a href="galeria.html" class="nav-link">Galería</a>
+            <a href="fursona-genesis.html" class="nav-link">Fursona Genesis</a>
+            <a href="musica.html" class="nav-link">Música</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
 
-    <a href="index.html" class="nav-back">VOLVER A INICIO</a>
+    <div class="container" style="padding-top: 140px; padding-bottom: 60px;">
+        <h1 class="header-title" style="text-align: center; margin-bottom: 60px;">sobre nosotros</h1>
 
-    <div class="container">
-        <h1 class="header-title">sobre nosotros</h1>
+        <div class="bio-main-card">
+            <div class="bio-content-layout">
+                <div class="bio-img-wrapper">
+                    <img src="assets/miembros/EDUARDO/01Edu Research Clip parque1 CUADRO.png" alt="Eduardo Ramírez"
+                        class="profile-img">
+                </div>
+                <div class="bio-text-wrapper">
+                    <h2 class="name-title">Eduardo Ramírez de Cartagena "EDU"</h2>
+                    <p class="role-highlight">Músico, compositor, arreglista, cantante y productor.</p>
 
-        <div class="bio-section">
-            <div class="profile-img-container">
-                <img src="assets/miembros/EDUARDO/01Edu Research Clip parque1 CUADRO.png" alt="Eduardo Ramírez"
-                    class="profile-img">
-            </div>
+                    <div class="bio-text">
+                        <p>El corazón de <strong>THE rESEARCH BAND</strong>. Más que un grupo, una ideología artística y
+                            musical.</p>
 
-            <!-- Decorative line divider from screenshot -->
-            <div class="vertical-divider"></div>
+                        <p>Eduardo es el motor creativo: compone, hace los arreglos, canta y produce. Su visión ha
+                            guiado a la banda a través de una evolución constante, fusionando géneros y explorando
+                            nuevas fronteras sonoras.</p>
 
-            <div class="text-content">
-                <h2 class="name-title">Eduardo Ramírez de Cartagena "EDU"</h2>
+                        <h4
+                            style="margin: 25px 0 15px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
+                            Trayectoria y Logros</h4>
+                        <ul>
+                            <li>Socio fundador del mítico grupo <strong>CADILLAC</strong>.</li>
+                            <li>Arquitecto del sonido distintivo de TRB.</li>
+                            <li>Compositor de toda la discografía original.</li>
+                            <li>Productor musical en las principales televisiones del país.</li>
+                            <li>Voz en innumerables bandas sonoras y jingles publicitarios.</li>
+                        </ul>
 
-                <p class="role-subtitle">Músico, compositor, arreglista, cantante y productor.</p>
-                <p style="font-style: italic; margin-bottom: 20px;">Instrumentos: Voz solista, bajo y guitarra.</p>
-
-                <div class="bio-text">
-                    <ul>
-                        <li>Empecé en esto de la música con 15 años y mi primer grupo se llamó "EXISTENCE". Rock
-                            sinfónico o algo así.</li>
-                        <li>Continué tocando como mercenario bajista en diferentes grupos y en orquestas pequeñas.</li>
-                        <li>Seguí acompañando a diferentes artistas y estilos, desde flamenco pop, rock, heavy rock,
-                            pop, etc... de todo.</li>
-                        <li>Luego entré como cantante de estúdio de grabación, haciendo doblajes cantados de películas,
-                            jingles de publicidad y discos, montones de discos para artistas muy relevantes.</li>
-                        <li>Y por fin entre como productor musical en varias empresas y televisiones de este pais.</li>
-                        <li>Fuí socio fundador del grupo <strong>CADILLAC</strong> y ahora sigo en mi carrera con este
-                            grupo, <strong>THE RESEARCH BAND</strong>, haciendo lo que más me gusta:<br>
-                            <span class="highlight-word">Componer</span>, arreglar, tocar y cantar.
-                        </li>
-                    </ul>
+                        <p style="margin-top: 30px; font-style: italic; color: var(--secondary);">Instrumentos: Voz
+                            solista, bajo y guitarra.</p>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Space for other members if needed later, but focusing on Edu as per screenshot -->
     </div>
 
     <!-- Collaborators Section -->
