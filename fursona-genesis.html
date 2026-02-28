@@ -151,40 +151,83 @@
             box-shadow: 0 0 30px rgba(160, 32, 240, 0.6);
         }
 
-        .gallery-section {
-            width: 90%;
+        /* --- GALLERY LAYOUT --- */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 30px;
+            width: 95%;
             max-width: 1400px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin-top: 20px;
         }
 
-        .gallery-grid {
-            column-count: 3;
-            column-gap: 20px;
+        .main-portada-box {
+            position: sticky;
+            top: 120px;
+        }
+
+        .main-portada-box img {
             width: 100%;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
         }
 
-        .gallery-item {
-            margin-bottom: 20px;
-            break-inside: avoid;
-            border-radius: 12px;
+        .samples-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .sample-item {
+            aspect-ratio: 1 / 1;
+            border-radius: 10px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
         }
 
-        .gallery-item img {
+        .sample-item img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            transition: transform 0.5s;
+            transition: transform 0.5s ease;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.02);
-            z-index: 10;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        .sample-item:hover {
+            transform: scale(1.08);
             border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+            z-index: 5;
+        }
+
+        .sample-item:hover img {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 1000px) {
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+
+            .main-portada-box {
+                position: relative;
+                top: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .samples-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
         }
 
         /* --- FOOTER --- */
@@ -362,11 +405,40 @@
             <a href="https://fursona-genesis.nfts2.me/" target="_blank" class="btn-mint">MINTEAR AHORA</a>
         </header>
 
-        <section id="gallery" class="gallery-section">
-            <h2 class="section-title" style="font-size: 2rem;">Galería de Muestra</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="static/images/fursona-genesis-portada.png" loading="lazy"></div>
-                <!-- Add more sample images here if available, or just keep the portada for now -->
+        <section id="gallery" class="gallery-container">
+            <div class="main-portada-box">
+                <h2 class="section-title" style="font-size: 2rem; text-align: left; margin-top: 0;">PORTADA</h2>
+                <img src="static/images/fursona-genesis-portada.png" alt="Fursona Genesis Main">
+            </div>
+
+            <div class="gallery-samples">
+                <h2 class="section-title" style="font-size: 2rem; text-align: left; margin-top: 0;">MUESTRAS</h2>
+                <div class="samples-grid">
+                    <div class="sample-item"><img src="static/images/fursona-samples/01.jpg" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/400/000000/FFFFFF?text=NFT+01'"></div>
+                    <div class="sample-item"><img src="static/images/fursona-samples/02.jpg" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/400/000000/FFFFFF?text=NFT+02'"></div>
+                    <div class="sample-item"><img src="static/images/fursona-samples/03.jpg" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/400/000000/FFFFFF?text=NFT+03'"></div>
+                    <div class="sample-item"><img src="static/images/fursona-samples/04.jpg" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/400/000000/FFFFFF?text=NFT+04'"></div>
+                    <div class="sample-item"><img src="static/images/fursona-samples/05.jpg" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/400/000000/FFFFFF?text=NFT+05'"></div>
+                    <div class="sample-item"><img src="static/images/fursona-samples/06.jpg" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/400/000000/FFFFFF?text=NFT+06'"></div>
+                    <div class="sample-item"><img src="static/images/fursona-samples/07.jpg" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/400/000000/FFFFFF?text=NFT+07'"></div>
+                    <div class="sample-item"><img src="static/images/fursona-samples/08.jpg" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/400/000000/FFFFFF?text=NFT+08'"></div>
+                    <div class="sample-item"><img src="static/images/fursona-samples/09.jpg" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/400/000000/FFFFFF?text=NFT+09'"></div>
+                    <div class="sample-item"><img src="static/images/fursona-samples/10.jpg" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/400/000000/FFFFFF?text=NFT+10'"></div>
+                    <div class="sample-item"><img src="static/images/fursona-samples/11.jpg" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/400/000000/FFFFFF?text=NFT+11'"></div>
+                    <div class="sample-item"><img src="static/images/fursona-samples/12.jpg" loading="lazy"
+                            onerror="this.src='https://via.placeholder.com/400/000000/FFFFFF?text=NFT+12'"></div>
+                </div>
             </div>
         </section>
     </main>
