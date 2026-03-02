@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FURSONA GENESIS - THE RESEARCH BAND</title>
+    <title>QUANTUM DEITIES - THE RESEARCH BAND</title>
     <style>
         :root {
             --primary: #ffffff;
@@ -132,38 +132,37 @@
 
         .btn-mint {
             display: inline-block;
-            background: #a020f0;
-            color: white;
+            background: var(--accent);
+            color: black;
             padding: 15px 40px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 50px;
             font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(160, 32, 240, 0.4);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .btn-mint:hover {
-            background: #bf40ff;
+            background: #fff;
             transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(160, 32, 240, 0.6);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.6);
         }
 
         /* --- GALLERY LAYOUT --- */
         .gallery-container {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1fr;
             gap: 30px;
             width: 95%;
-            max-width: 1400px;
+            max-width: 900px;
             margin-top: 20px;
         }
 
         .main-portada-box {
-            position: sticky;
-            top: 120px;
+            text-align: center;
         }
 
         .main-portada-box img {
@@ -171,63 +170,6 @@
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .samples-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .sample-item {
-            aspect-ratio: 1 / 1;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-        }
-
-        .sample-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .sample-item:hover {
-            transform: scale(1.08);
-            border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
-            z-index: 5;
-        }
-
-        .sample-item:hover img {
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 1000px) {
-            .gallery-container {
-                grid-template-columns: 1fr;
-            }
-
-            .main-portada-box {
-                position: relative;
-                top: 0;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .samples-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
         }
 
         /* --- FOOTER --- */
@@ -240,38 +182,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        @media (max-width: 900px) {
-            .gallery-grid {
-                column-count: 2;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .gallery-grid {
-                column-count: 1;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .main-header {
-                padding: 10px 20px;
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .main-nav {
-                gap: 10px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-link {
-                font-size: 0.75rem;
-            }
         }
 
         /* --- MUSIC CONTROL --- */
@@ -300,15 +210,6 @@
             box-shadow: 0 0 15px var(--accent);
         }
 
-        .music-icon {
-            color: white;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Animated bars when playing */
         .music-bars {
             display: flex;
             align-items: flex-end;
@@ -321,19 +222,10 @@
             background: var(--accent);
             height: 3px;
             border-radius: 1px;
-            animation: none;
         }
 
         .playing .bar {
             animation: dance 0.8s infinite ease-in-out;
-        }
-
-        .playing .bar:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .playing .bar:nth-child(3) {
-            animation-delay: 0.4s;
         }
 
         @keyframes dance {
@@ -360,7 +252,6 @@
             transform: translateX(10px);
             transition: all 0.3s ease;
             pointer-events: none;
-            border: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -395,105 +286,29 @@
             <a href="nosotros.html" class="nav-link">Nosotros</a>
             <a href="iliada.html" class="nav-link">Mi Ilíada</a>
             <a href="galeria.html" class="nav-link">Galería</a>
-            <a href="quantum-deities.html" class="nav-link">Quantum Deities</a>
+            <a href="fursona-genesis.html" class="nav-link">Fursona Genesis</a>
             <a href="musica.html" class="nav-link">Música</a>
             <a href="contacto.html" class="nav-link">Contacto</a>
         </nav>
     </header>
 
     <main class="landing-content">
-        <div class="header-hero">
-            <h1 class="main-title">FURSONA GENESIS</h1>
+        <div class="nft-hero">
+            <h1 class="section-title">QUANTUM DEITIES</h1>
             <p class="nft-desc">
-                Colección de más de 21,590 avatares antropomórficos únicos como NFTs en Polygon blockchain.
+                164 UNIQUE NFTs · FORGED AT THE NEXUS OF AI · CYBER MYTHOLOGY
             </p>
-
-            <!-- Promo for All 3 Collections -->
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
-                <!-- Genesis 1 -->
-                <div
-                    style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 25px; max-width: 280px; backdrop-filter: blur(10px);">
-                    <h2 style="color: #fff; margin-bottom: 5px; font-size: 1.1rem; letter-spacing: 1px;">FURSONA GENESIS
-                        1</h2>
-                    <p style="color: #aaa; margin-bottom: 15px; font-size: 0.8rem;">10,197 AVATARES</p>
-                    <a href="https://fursona-genesis.nfts2.me/" target="_blank" class="btn-mint"
-                        style="padding: 10px 20px; font-size: 0.8rem; border-color: #fff; color: #fff; background: transparent;">MINT
-                        G1</a>
-                </div>
-
-                <!-- Genesis 2 -->
-                <div
-                    style="background: rgba(0, 242, 255, 0.1); border: 1px solid var(--accent); border-radius: 12px; padding: 25px; max-width: 280px; backdrop-filter: blur(10px);">
-                    <h2 style="color: var(--accent); margin-bottom: 5px; font-size: 1.1rem; letter-spacing: 1px;">
-                        FURSONA GENESIS 2</h2>
-                    <p style="color: #fff; margin-bottom: 15px; font-size: 0.8rem;">11,393 NUEVOS</p>
-                    <a href="https://fursona-genesis-2.nfts2.me/" target="_blank" class="btn-mint"
-                        style="background: var(--accent); color: #000; padding: 10px 20px; font-size: 0.8rem; box-shadow: none;">MINT
-                        G2</a>
-                </div>
-
+            <div style="margin-bottom: 40px;">
+                <a href="https://quantum-deities-1premium.nfts2.me/" target="_blank" class="btn-mint">MINT EN
+                    POLYGON</a>
             </div>
+
+            <section class="gallery-container">
+                <div class="main-portada-box">
+                    <img src="static/images/quantum-deities-banner.png" alt="Quantum Deities Portada">
+                </div>
+            </section>
         </div>
-        </header>
-
-        <!-- SECTION: GENESIS 1 -->
-        <section id="genesis1" class="gallery-container"
-            style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px;">
-            <div class="main-portada-box">
-                <h2 class="section-title" style="font-size: 2rem; text-align: left; margin-top: 0; color: #fff;">G1:
-                    PORTADA</h2>
-                <img src="static/images/fursona-genesis-portada.png" alt="Fursona Genesis 1">
-                <div style="margin-top: 20px;">
-                    <a href="https://fursona-genesis.nfts2.me/" target="_blank" class="btn-mint"
-                        style="width: 100%; box-sizing: border-box; text-align: center; background: transparent; border: 1px solid #fff;">NFTs2Me
-                        G1</a>
-                </div>
-            </div>
-
-            <div class="gallery-samples">
-                <h2 class="section-title" style="font-size: 2rem; text-align: left; margin-top: 0; color: #fff;">
-                    MUESTRAS G1</h2>
-                <div class="samples-grid">
-                    <div class="sample-item"><img src="static/images/fursona-samples/01.jpg" loading="lazy"></div>
-                    <div class="sample-item"><img src="static/images/fursona-samples/02.jpg" loading="lazy"></div>
-                    <div class="sample-item"><img src="static/images/fursona-samples/03.jpg" loading="lazy"></div>
-                    <div class="sample-item"><img src="static/images/fursona-samples/04.jpg" loading="lazy"></div>
-                    <div class="sample-item"><img src="static/images/fursona-samples/05.jpg" loading="lazy"></div>
-                    <div class="sample-item"><img src="static/images/fursona-samples/06.jpg" loading="lazy"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: GENESIS 2 -->
-        <section id="genesis2" class="gallery-container"
-            style="margin-top: 80px; border-top: 1px solid var(--accent); padding-top: 60px;">
-            <div class="gallery-samples">
-                <h2 class="section-title"
-                    style="font-size: 2rem; text-align: left; margin-top: 0; color: var(--accent);">MUESTRAS G2</h2>
-                <div class="samples-grid">
-                    <div class="sample-item"><img src="static/images/fursona-samples/07.jpg" loading="lazy"></div>
-                    <div class="sample-item"><img src="static/images/fursona-samples/08.jpg" loading="lazy"></div>
-                    <div class="sample-item"><img src="static/images/fursona-samples/09.jpg" loading="lazy"></div>
-                    <div class="sample-item"><img src="static/images/fursona-samples/10.jpg" loading="lazy"></div>
-                    <div class="sample-item"><img src="static/images/fursona-samples/11.jpg" loading="lazy"></div>
-                    <div class="sample-item"><img src="static/images/fursona-samples/12.jpg" loading="lazy"></div>
-                </div>
-            </div>
-            <div class="main-portada-box">
-                <h2 class="section-title"
-                    style="font-size: 2rem; text-align: left; margin-top: 0; color: var(--accent);">G2: PORTADA</h2>
-                <img src="static/images/fursona-genesis-portada.png" alt="Fursona Genesis 2"
-                    style="border-color: var(--accent);">
-                <div style="margin-top: 20px;">
-                    <a href="https://fursona-genesis-2.nfts2.me/" target="_blank" class="btn-mint"
-                        style="width: 100%; box-sizing: border-box; text-align: center; background: var(--accent); color: #000;">NFTs2Me
-                        G2</a>
-                </div>
-            </div>
-        </section>
-
-        </section>
-    </main>
     </main>
 
     <div class="author-footer">
@@ -539,56 +354,32 @@
 
         const audio = document.getElementById('bgMusic');
         const toggleBtn = document.getElementById('musicToggle');
-        const bars = document.getElementById('bars');
         const trackLabel = document.getElementById('trackName');
 
         function initMusic() {
             const randomIndex = Math.floor(Math.random() * playlist.length);
             const song = playlist[randomIndex];
             audio.src = song;
-
             const friendlyName = song.replace(/\.[^/.]+$/, "").replace(/_/g, " ").replace(/-/g, " ");
             trackLabel.innerText = "Sonnando: " + friendlyName;
-
-            // Try to autoplay
-            const playPromise = audio.play();
-
-            if (playPromise !== undefined) {
-                playPromise.then(_ => {
-                    // Autoplay started!
-                    toggleBtn.classList.add('playing');
-                }).catch(error => {
-                    // Autoplay was prevented
-                    console.log("Autoplay prevented by browser. Waiting for interaction.");
-                    trackLabel.innerText = "Click para música: " + friendlyName;
-                });
-            }
+            audio.play().then(() => {
+                toggleBtn.classList.add('playing');
+            }).catch(() => {
+                trackLabel.innerText = "Click para música: " + friendlyName;
+            });
         }
 
         function toggleMusic() {
             if (audio.paused) {
                 audio.play();
                 toggleBtn.classList.add('playing');
-                // Refresh label if it was showing interaction prompt
-                const currentSong = audio.src.split('/').pop().replace(/\.[^/.]+$/, "").replace(/_/g, " ").replace(/-/g, " ");
-                trackLabel.innerText = "Sonando: " + decodeURIComponent(currentSong);
             } else {
                 audio.pause();
                 toggleBtn.classList.remove('playing');
             }
         }
 
-        // Initialize on load
         window.addEventListener('load', initMusic);
-
-        // Also try to start on first interaction if autoplay failed
-        document.body.addEventListener('click', function () {
-            if (audio.paused && !toggleBtn.classList.contains('playing')) {
-                // Only if it hasn't started yet
-                // But we want the toggle to be the main control, 
-                // so we won't force it here unless the user hits the control specifically
-            }
-        }, { once: true });
     </script>
 </body>
 

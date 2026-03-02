@@ -494,7 +494,6 @@
         .slogan-outlined {
             font-weight: 700;
             -webkit-text-stroke: 1px black;
-            text-stroke: 1px black;
             /* Standard property for future */
             text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
             /* Make sure text color is white so stroke is visible around it */
@@ -1276,15 +1275,16 @@
         </video></div>
     <!-- LANDING PAGE CONTENT -->
     <header class="main-header">
-        <div class="logo-area"><img src="assets/logo_trb.png" alt="TRB Logo" class="header-logo"><span
-                class="header-title">THE
-                RESEARCH BAND</span></div>
+        <div class="logo-area" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <img src="assets/logo_trb.png" alt="TRB Logo" class="header-logo">
+            <span class="header-title">THE RESEARCH BAND</span>
+        </div>
         <nav class="main-nav">
-            <a href="index.html" class="nav-link active">Inicio</a>
             <a href="nosotros.html" class="nav-link">Nosotros</a>
-            <a href="iliada.html" class="nav-link">Mi Iliada</a>
+            <a href="iliada.html" class="nav-link">Mi Ilíada</a>
             <a href="galeria.html" class="nav-link">Galería</a>
             <a href="fursona-genesis.html" class="nav-link">Fursona Genesis</a>
+            <a href="quantum-deities.html" class="nav-link">Quantum Deities</a>
             <a href="musica.html" class="nav-link">Música</a>
             <a href="contacto.html" class="nav-link">Contacto</a>
         </nav>
@@ -1297,17 +1297,34 @@
                     Pop-Rock y Jazz español más avanzado que hay"</span></p>
         </section>
         <!-- Fursona Collection Banner -->
-        <section class="bio-section" style="padding-top: 20px; min-height: auto;">
+        <section id="coleccion-nft" class="bio-section" style="padding-top: 20px; min-height: auto;">
             <div class="fursona-banner">
                 <img src="static/images/fursona-genesis-portada.png" alt="Fursona Genesis">
                 <div class="banner-content">
                     <h2>NUEVA COLECCIÓN NFT</h2>
                     <h3>FURSONA GENESIS</h3>
-                    <p>10,197 avatares únicos en Polygon blockchain</p>
+                    <p>21,590 avatares únicos en Polygon blockchain</p>
                     <div class="banner-btns">
                         <a href="fursona-genesis.html" class="btn-banner primary">VER COLECCIÓN</a>
                         <a href="https://fursona-genesis.nfts2.me/" target="_blank" class="btn-banner secondary">MINTEAR
                             AHORA</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Quantum Deities Banner -->
+            <div class="fursona-banner" style="margin-top: 30px; border-color: var(--accent);">
+                <img src="static/images/quantum-deities-banner.png" alt="Quantum Deities">
+                <div class="banner-content">
+                    <h2 style="color: var(--accent);">NUEVA COLECCIÓN NFT</h2>
+                    <h3>QUANTUM DEITIES</h3>
+                    <p>164 UNIQUE NFTs · FORGED AT THE NEXUS OF AI</p>
+                    <div class="banner-btns">
+                        <a href="https://quantum-deities-1premium.nfts2.me/" target="_blank"
+                            class="btn-banner primary">VER COLECCIÓN</a>
+                        <a href="https://quantum-deities-1premium.nfts2.me/" target="_blank"
+                            class="btn-banner secondary">MINTEAR AHORA</a>
                     </div>
                 </div>
             </div>
