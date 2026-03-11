@@ -83,7 +83,7 @@
             top: 30%;
             right: 15%;
             width: 200px;
-            height: 50px;
+            height: 140px; filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.4));
             /* Simple wave approx */
             background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 Q30,5 60,20 T120,20" fill="none" stroke="%2322d3ee" stroke-width="8"/></svg>') repeat-x;
             background-size: contain;
@@ -112,7 +112,7 @@
             align-items: center;
         }
 
-        .header-title {
+        .header-title { display: none;  display: none; 
             align-self: flex-start;
             margin-left: 20%;
             font-size: 2rem;
@@ -247,7 +247,7 @@
                 align-items: center;
             }
 
-            .header-title {
+            .header-title { display: none;  display: none; 
                 margin-left: 0;
                 text-align: center;
                 align-self: center;
@@ -391,38 +391,13 @@
         }
 
         /* --- HEADER --- */
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 40px;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
-            z-index: 1000;
-        }
+        .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-        }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
 
-        .header-logo {
-            height: 50px;
-            margin-right: 15px;
-        }
+        .header-logo { height: 100px; filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3)); transition: transform 0.3s ease; } .header-title-gold { font-size: 1.4rem; font-weight: 700; color: #FFFFFF; text-transform: none; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
 
-        .header-title-nav {
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: white;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
+        
 
         .main-nav {
             display: flex;
@@ -455,12 +430,7 @@
         }
 
         @media (max-width: 768px) {
-            .main-header {
-                padding: 10px 20px;
-                flex-direction: column;
-                gap: 10px;
-                background: rgba(0, 0, 0, 0.9);
-            }
+            .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
 
             .main-nav {
                 gap: 10px;
@@ -483,10 +453,7 @@
     </div>
 
     <header class="main-header">
-        <div class="logo-area">
-            <img src="assets/logo_trb.png" alt="TRB Logo" class="header-logo">
-            <span class="header-title-nav">THE RESEARCH BAND</span>
-        </div>
+        <div class="logo-area" onclick="window.location.href='index.html'" style="cursor: pointer;"><img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo"><span class="header-title-gold">The Research Band</span></div>
         <nav class="main-nav">
             <a href="index.html" class="nav-link">Inicio</a>
             <a href="iliada.html" class="nav-link">Mi Ilíada</a>
@@ -513,7 +480,7 @@
                     <p class="role-highlight">Músico, compositor, arreglista, cantante y productor.</p>
 
                     <div class="bio-text">
-                        <p>El corazón de <strong>THE rESEARCH BAND</strong>. Más que un grupo, una ideología artística y
+                        <p>El corazón de <strong>The Research Band</strong>. Más que un grupo, una ideología artística y
                             musical.</p>
 
                         <p>Eduardo es el motor creativo: compone, hace los arreglos, canta y produce. Su visión ha
@@ -905,3 +872,4 @@
 </body>
 
 </html>
+

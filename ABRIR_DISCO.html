@@ -93,7 +93,7 @@
         }
 
         .brand-logo {
-            height: 50px;
+            height: 140px; filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.4));
             margin-right: 12px;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
         }
@@ -409,26 +409,11 @@
         }
 
         /* Landing Page Styles */
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 40px;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
-            z-index: 100;
-        }
+        .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
 
-        .header-logo {
-            height: 50px;
-            margin-right: 15px;
-        }
+        .header-logo { height: 100px; filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3)); transition: transform 0.3s ease; } .header-title-gold { font-size: 1.4rem; font-weight: 700; color: #FFFFFF; text-transform: none; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
 
-        .header-title {
+        .header-title { display: none;  display: none; 
             font-size: 1.2rem;
             font-weight: 700;
             letter-spacing: 2px;
@@ -473,12 +458,7 @@
             animation: fadeIn 1.5s ease;
         }
 
-        .main-title {
-            font-size: 4rem;
-            margin: 0;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            letter-spacing: 5px;
-        }
+        .main-title { font-size: 3rem; margin: 0; color: #FFFFFF; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); letter-spacing: 3px; }
 
         .slogan {
             font-size: 1.5rem;
@@ -754,21 +734,14 @@
                 width: 100%;
             }
 
-            .main-title {
-                font-size: 2.5rem;
-            }
+            .main-title { font-size: 3rem; margin: 0; color: #FFFFFF; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); letter-spacing: 3px; }
 
             .bio-section {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .main-header {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 10px;
-                background: rgba(0, 0, 0, 0.9);
-            }
+            .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
         }
 
         /* Member Modal Styles */
@@ -1082,31 +1055,15 @@
 
         /* MOBILE OPTIMIZATIONS */
         @media (max-width: 768px) {
-            .main-header {
-                padding: 10px 15px;
-                /* Stack logo and menu vertically on mobile */
-                flex-direction: column;
-                background: rgba(0, 0, 0, 0.9);
-                /* Solid bg for readability */
-                position: relative;
-                /* Unfix if needed, or keep fixed but allow scroll content */
-            }
+            .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
 
-            .logo-area {
-                margin-bottom: 15px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-            }
+            .logo-area { display: flex; align-items: center; gap: 15px; }
 
-            .header-title {
+            .header-title { display: none;  display: none; 
                 font-size: 0.9rem;
             }
 
-            .header-logo {
-                height: 35px;
-            }
+            .header-logo { height: 100px; filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3)); transition: transform 0.3s ease; } .header-title-gold { font-size: 1.4rem; font-weight: 700; color: #FFFFFF; text-transform: none; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
 
             .main-nav {
                 justify-content: center;
@@ -1161,9 +1118,7 @@
         </video></div>
     <!-- LANDING PAGE CONTENT -->
     <header class="main-header">
-        <div class="logo-area"><img src="assets/logo_trb.png" alt="TRB Logo" class="header-logo"><span
-                class="header-title">THE
-                RESEARCH BAND</span></div>
+        <div class="logo-area" onclick="window.location.href='index.html'" style="cursor: pointer;"><img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo"><span class="header-title-gold">The Research Band</span></div>
         <nav class="main-nav"><a href="#" class="nav-link active">Inicio</a><a href="#biography"
                 class="nav-link">Nosotros</a><a href="#collaborators" class="nav-link">Colaboradores</a><a
                 href="#iliada" class="nav-link">Mi Iliada</a><a href="#gallery" class="nav-link">Galería</a><a href="#"
@@ -1173,7 +1128,7 @@
     <main class="landing-content">
         <!-- Hero Section -->
         <section class="hero-section">
-            <h1 class="main-title">THE RESEARCH BAND</h1>
+            <h1 class="main-title">The Research Band</h1>
             <p class="slogan"><span class="slogan-outlined">...POSIBLEMENTE</span><br><span class="highlight">"El
                     poprock español más avanzado que hay"</span></p>
         </section>
@@ -1695,7 +1650,7 @@
             if ('mediaSession' in navigator) {
                 navigator.mediaSession.metadata = new MediaMetadata({
 
-                    title: track.name, artist: 'THE rESEARCH BAND',
+                    title: track.name, artist: 'The Research Band',
                     artwork: [{
                         src: 'assets/portada_jazz.png', sizes: '512x512', type: 'image/png'
                     }
@@ -1789,3 +1744,4 @@
 </body>
 
 </html>
+

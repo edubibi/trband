@@ -89,7 +89,7 @@
         }
 
         .brand-logo {
-            height: 50px;
+            height: 140px; filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.4));
             margin-right: 12px;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
         }
@@ -457,7 +457,7 @@
 
             if ('mediaSession' in navigator) {
                 navigator.mediaSession.metadata = new MediaMetadata({
-                    title: track.name, artist: 'THE rESEARCH BAND',
+                    title: track.name, artist: 'The Research Band',
                     artwork: [{ src: 'assets/portada_jazz.png', sizes: '512x512', type: 'image/jpg' }]
                 });
             }
@@ -500,3 +500,4 @@
 </body>
 
 </html>
+

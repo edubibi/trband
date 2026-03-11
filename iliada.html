@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Ilíada - THE RESEARCH BAND</title>
+    <title>Mi Ilíada - The Research Band</title>
     <style>
         :root {
             --primary: #ffffff;
@@ -39,31 +39,13 @@
         }
 
         /* --- HEADER --- */
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 40px;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
-            z-index: 100;
-        }
+        .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-        }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
 
-        .header-logo {
-            height: 50px;
-            margin-right: 15px;
-        }
+        .header-logo { height: 100px; filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3)); transition: transform 0.3s ease; } .header-title-gold { font-size: 1.4rem; font-weight: 700; color: #FFFFFF; text-transform: none; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
 
-        .header-title {
+        .header-title { display: none;  display: none; 
             font-size: 1.2rem;
             font-weight: 700;
             letter-spacing: 2px;
@@ -332,11 +314,7 @@
                 font-size: 2rem;
             }
 
-            .main-header {
-                padding: 10px 20px;
-                flex-direction: column;
-                gap: 10px;
-            }
+            .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
 
             .main-nav {
                 gap: 10px;
@@ -364,10 +342,7 @@
     </div>
 
     <header class="main-header">
-        <div class="logo-area">
-            <img src="assets/logo_trb.png" alt="TRB Logo" class="header-logo">
-            <span class="header-title">THE RESEARCH BAND</span>
-        </div>
+        <div class="logo-area" onclick="window.location.href='index.html'" style="cursor: pointer;"><img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo"><span class="header-title-gold">The Research Band</span></div>
         <nav class="main-nav">
             <a href="index.html" class="nav-link">Inicio</a>
             <a href="nosotros.html" class="nav-link">Nosotros</a>
@@ -520,3 +495,4 @@
 </body>
 
 </html>
+
