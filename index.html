@@ -381,32 +381,33 @@
         }
 
         /* Mobile */
+        .album-art {
+            width: 200px; /* Slightly bigger for better visual */
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        /* Improved Navigation for Mobile */
         @media (max-width: 768px) {
-            .player-container {
-                flex-direction: column;
-                height: 90vh;
-                overflow-y: auto;
+            .main-header {
+                padding: 10px 15px;
+                background: rgba(0, 0, 0, 0.95); /* More solid for readability */
             }
 
-            .brand-header {
-                margin-bottom: 20px;
+            .main-nav {
+                gap: 8px;
+                padding-bottom: 15px;
             }
 
-            .now-playing {
-                padding: 20px;
-                min-height: auto;
+            .nav-link {
+                font-size: 0.75rem;
+                padding: 8px 10px; /* Better tap target */
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.1);
             }
-
-            .playlist-panel {
-                width: 100%;
-                border-left: none;
-                border-top: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .album-art {
-                width: 180px;
-                height: 180px;
-                margin-bottom: 15px;
+            
+            .header-logo {
+                height: 70px; /* Smaller logo to save space */
             }
         }
 
@@ -1164,16 +1165,21 @@
                BUT user specifically asked for "small boxes".
                Let's trust the strict width for small boxes. 
             */
-            .video-card {
-                width: 100%;
-                max-width: 220px;
-                /* Force small on mobile too */
-            }
-
             .category-card {
                 width: 100%;
                 /* Full width cards on mobile */
-                height: 120px;
+                height: 140px; /* Slightly taller for text breathing room */
+            }
+            
+            /* Smaller video boxes was a request */
+            .video-card {
+                max-width: 45% !important; /* 2 columns on mobile */
+                font-size: 0.8rem;
+            }
+            
+            .video-title {
+                padding: 8px;
+                font-size: 0.75rem;
             }
         }
 

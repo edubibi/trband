@@ -300,24 +300,48 @@
             .player-container {
                 flex-direction: column;
                 height: 90vh;
+                margin-top: 80px;
+                border-radius: 0;
+                width: 100%;
             }
 
             .playlist-panel {
                 width: 100%;
                 border-left: none;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
+                flex: 1;
+                min-height: 300px;
             }
 
-            .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
+            .now-playing {
+                padding: 20px;
+                flex: none;
+            }
+
+            .album-art {
+                width: 180px;
+                height: 180px;
+            }
+
+            .main-header { 
+                padding: 10px 15px; 
+                background: rgba(0, 0, 0, 0.95);
+            }
 
             .main-nav {
-                gap: 10px;
-                flex-wrap: wrap;
-                justify-content: center;
+                gap: 8px;
+                padding-bottom: 15px;
             }
 
             .nav-link {
                 font-size: 0.75rem;
+                padding: 8px 10px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 4px;
+            }
+            
+            .header-logo {
+                height: 60px;
             }
         }
     </style>
