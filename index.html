@@ -10,10 +10,11 @@
         :root {
             --primary: #ffffff;
             --secondary: #a0a0a0;
-            --accent: #00f2ff;
-            /* Vibrant Cyan/Blue as requested */
-            --bg-glass: rgba(255, 255, 255, 0.1);
-            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            --accent: #00f2ff; /* Cyan */
+            --neon-magenta: #ff00ff;
+            --neon-yellow: #ffff00;
+            --bg-glass: rgba(0, 0, 0, 0.4);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
         }
 
         body {
@@ -380,15 +381,13 @@
             justify-content: center;
         }
 
-        /* Mobile */
-        .album-art {
-            width: 200px; /* Slightly bigger for better visual */
-            height: 200px;
-            margin-bottom: 20px;
-        }
-
         /* Improved Navigation for Mobile */
         @media (max-width: 768px) {
+            .album-art {
+                width: 200px; /* Slightly bigger for better visual */
+                height: 200px;
+                margin-bottom: 20px;
+            }
             .main-header {
                 padding: 10px 15px;
                 background: rgba(0, 0, 0, 0.95); /* More solid for readability */
@@ -491,13 +490,118 @@
         }
 
         .slogan {
-            font-size: 1.5rem;
+            text-shadow: 0 2px 20px rgba(0, 242, 255, 0.8), 0 0 10px rgba(0, 0, 0, 1);
+        }
+
+        /* Blade Runner Hook Section */
+        .release-feature {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--neon-magenta);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 1000px;
+            width: 95%;
+            margin: 0 auto 60px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .release-feature::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,242,255,0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .release-art {
+            width: 280px;
+            height: 280px;
+            border-radius: 10px;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+            z-index: 1;
+        }
+
+        .release-info {
+            flex: 1;
+            z-index: 1;
+        }
+
+        .release-info h2 {
+            font-size: 2.5rem;
+            color: var(--neon-magenta);
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+        }
+
+        .release-info p {
+            font-size: 1.1rem;
             color: #fff;
-            /* Improved contrast */
-            font-weight: 300;
-            margin-top: 10px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
-            /* Strong shadow */
+            margin-bottom: 25px;
+        }
+
+        .btn-action {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+        }
+
+        .btn-action:hover {
+            background: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Ribbon Styling */
+        .ribbon-container {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .ribbon {
+            position: absolute;
+            top: 20px;
+            right: -40px;
+            background: var(--neon-magenta);
+            color: #fff;
+            padding: 5px 50px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            transform: rotate(45deg);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+            z-index: 10;
+            letter-spacing: 1px;
+            border: 1px solid #fff;
+        }
+
+        .preview-audio {
+            margin-top: 20px;
+            width: 100%;
+            height: 40px;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .slogan-outlined {
@@ -1326,39 +1430,38 @@
             <p class="slogan"><span class="slogan-outlined">...POSIBLEMENTE</span><br><span class="highlight">"El
                     Pop-Rock y Jazz español más avanzado que hay"</span></p>
         </section>
-        <!-- Fursona Collection Banner -->
-        <section id="coleccion-nft" class="bio-section" style="padding-top: 20px; min-height: auto;">
-            <div class="fursona-banner">
-                <img src="static/images/fursona-genesis-portada.png" alt="Fursona Genesis">
-                <div class="banner-content">
-                    <h2>NUEVA COLECCIÓN NFT</h2>
-                    <h3>FURSONA GENESIS</h3>
-                    <p>21,590 avatares únicos en Polygon blockchain</p>
-                    <div class="banner-btns">
-                        <a href="fursona-genesis.html" class="btn-banner primary">VER COLECCIÓN</a>
-                        <a href="https://fursona-genesis.nfts2.me/" target="_blank" class="btn-banner secondary">MINTEAR
-                            AHORA</a>
-                    </div>
-                </div>
+        <!-- WILD AND FREE RELEASE FEATURE (BLADE RUNNER STYLE) -->
+        <section id="wild-and-free" class="release-feature">
+            <div class="ribbon-container">
+                <div class="ribbon">ESTRENO 16 ABRIL</div>
+                <img src="assets/wild_and_free_cover.png" alt="Wild and Free Cover" class="release-art">
             </div>
-
-
-            <!-- Quantum Deities Banner -->
-            <div class="fursona-banner" style="margin-top: 30px; border-color: var(--accent);">
-                <img src="static/images/quantum-deities-banner.png" alt="Quantum Deities">
-                <div class="banner-content">
-                    <h2 style="color: var(--accent);">NUEVA COLECCIÓN NFT</h2>
-                    <h3>QUANTUM DEITIES</h3>
-                    <p>164 UNIQUE NFTs · FORGED AT THE NEXUS OF AI</p>
-                    <div class="banner-btns">
-                        <a href="https://quantum-deities-1premium.nfts2.me/" target="_blank"
-                            class="btn-banner primary">VER COLECCIÓN</a>
-                        <a href="https://quantum-deities-1premium.nfts2.me/" target="_blank"
-                            class="btn-banner secondary">MINTEAR AHORA</a>
-                    </div>
+            <div class="release-info">
+                <h2>WILD AND FREE</h2>
+                <p>El lanzamiento más ambicioso de **The Research Band**. Un viaje sonoro a través del pop-rock y el jazz más avanzado. Estreno mundial el próximo 16 de Abril.</p>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <button onclick="togglePreview()" class="btn-action" id="previewBtn">ESCUCHAR PREVIEW (30s)</button>
+                    <audio id="wildFreePreview" src="assets/wild_and_free_preview.mp3"></audio>
+                    <a href="nosotros.html" class="btn-action" style="background: var(--neon-magenta); color: #fff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.4); text-align: center;">CONOCE A LA BANDA</a>
                 </div>
             </div>
         </section>
+
+        <script>
+            function togglePreview() {
+                const audio = document.getElementById('wildFreePreview');
+                const btn = document.getElementById('previewBtn');
+                if (audio.paused) {
+                    audio.play();
+                    btn.innerText = "PAUSAR PREVIEW";
+                    btn.style.boxShadow = "0 0 30px rgba(0, 242, 255, 0.8)";
+                } else {
+                    audio.pause();
+                    btn.innerText = "ESCUCHAR PREVIEW (30s)";
+                    btn.style.boxShadow = "0 0 15px rgba(0, 242, 255, 0.4)";
+                }
+            }
+        </script>
 
         <!-- Bio Section (Founder) -->
         <section id="biography" class="bio-section">
