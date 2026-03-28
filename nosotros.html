@@ -442,6 +442,61 @@
                 font-size: 0.75rem;
             }
         }
+
+        /* --- NEW PREMIUM MUSICIANS STYLES --- */
+        .premium-musicians {
+            display: flex;
+            flex-direction: column;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 20px 80px;
+        }
+
+        .m-card {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            min-height: 400px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transition: transform 0.4s ease;
+        }
+
+        .m-card:hover { transform: translateY(-5px); border-color: #c9a84c; }
+
+        .m-card.reverse { grid-template-columns: 1fr 320px; }
+        .m-card.reverse .m-photo { order: 2; }
+        .m-card.reverse .m-info { order: 1; text-align: right; align-items: flex-end; border-left: none; border-right: 1px solid rgba(255,255,255,0.1); }
+
+        .m-photo { position: relative; overflow: hidden; }
+        .m-photo img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.1); transition: transform 0.6s ease; }
+        .m-card:hover .m-photo img { transform: scale(1.05); }
+
+        .m-info {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            color: #fff;
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .m-name { font-family: var(--font-serif); font-size: 2.2rem; color: #fff; line-height: 1.1; }
+        .m-name span { display: block; color: #c9a84c; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; font-family: sans-serif; font-weight: bold; }
+        .m-bio { font-size: 1rem; line-height: 1.8; color: #ccc; font-weight: 300; }
+        .m-divider { width: 40px; height: 2px; background: #c9a84c; }
+
+        @media (max-width: 850px) {
+            .m-card, .m-card.reverse { grid-template-columns: 1fr; }
+            .m-photo { height: 300px; }
+            .m-card.reverse .m-photo { order: 1; }
+            .m-card.reverse .m-info { order: 2; text-align: left; align-items: flex-start; border-right: none; }
+            .m-info { padding: 30px; border-left: none; border-top: 1px solid rgba(255,255,255,0.1); }
+        }
     </style>
 </head>
 
@@ -506,12 +561,61 @@
         </div>
     </div>
 
-    <!-- Collaborators Section -->
+    <!-- Collaborators Section (New Premium Style) -->
     <div class="container" id="collaborators" style="max-width: 1400px; margin-top: 80px;">
-        <h2 class="header-title"
-            style="margin-left: 0; text-align: center; width: 100%; font-size: 2.5rem; margin-bottom: 40px;">
-            COLABORADORES</h2>
+        <h2 class="header-title" style="margin-left: 0; text-align: center; width: 100%; font-size: 3rem; margin-bottom: 60px; color: #333; text-transform: uppercase; letter-spacing: 4px; display: block;">
+            The Research Band <br><span style="font-size: 1.2rem; color: #8B0000; letter-spacing: 2px;">WILD and FREE · 2026</span>
+        </h2>
 
+        <div class="premium-musicians">
+
+            <!-- LUCA -->
+            <div class="m-card">
+                <div class="m-photo">
+                    <img src="assets/miembros/Luca/profile.jpg" alt="Luca Alessandro Fiammetti">
+                </div>
+                <div class="m-info">
+                    <h3 class="m-name">Luca Alessandro Fiammetti<span>Guitarra / Jazz Fusion</span></h3>
+                    <div class="m-divider"></div>
+                    <p class="m-bio">
+                        Formado en el prestigioso Conservatorio Paganini de Génova. Luca aporta una sensibilidad mediterránea y una técnica virtuosa que define el nuevo sonido de TRB. Líder de "Mediterráneo Azul", su estilo es un viaje entre la introspección y la improvisación.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ERIK -->
+            <div class="m-card reverse">
+                <div class="m-photo">
+                    <img src="assets/miembros/Erik/sax_profile.jpg" alt="Erik Solberg Andrade">
+                </div>
+                <div class="m-info">
+                    <h3 class="m-name">Erik Solberg Andrade<span>Saxofón & Armónica</span></h3>
+                    <div class="m-divider"></div>
+                    <p class="m-bio">
+                        El soplo del Estrecho. Formado en Sevilla y curtido en los clubes de jazz de Granada, Erik fusiona el alma del jazz con sutiles matices flamencos. Su saxo es una voz narrativa que respira libertad en "Wild and Free".
+                    </p>
+                </div>
+            </div>
+
+            <!-- ALBA -->
+            <div class="m-card">
+                <div class="m-photo">
+                    <img src="assets/miembros/Alba/violin_profile.jpg" alt="Alba Cisneros Montalbán">
+                </div>
+                <div class="m-info">
+                    <h3 class="m-name">Alba Cisneros Montalbán<span>Violín, Viola & Percusión</span></h3>
+                    <div class="m-divider"></div>
+                    <p class="m-bio">
+                        Vanguardia y ritual. Con formación en Madrid y París, Alba trasciende las fronteras de la música clásica para explorar texturas contemporáneas. Su violín añade una dimensión cinematográfica y emocionalmente cargada al proyecto.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Legacy / Special Collaborators Heading -->
+        <h3 style="text-align: center; font-family: var(--font-serif); font-size: 1.8rem; margin: 40px 0; color: #444;">COLABORADORES HISTÓRICOS Y DE ESTUDIO</h3>
+        
         <div class="grid-collaborators">
 
             <!-- Jose -->
@@ -533,7 +637,6 @@
                 <img src="assets/javier(actual).jpg" alt="Javier de Juan">
                 <h3>Javier de Juan Romeu</h3>
                 <p>Batería y Compositor</p>
-                <p class="small-note">Ex-Compañero en CADILLAC</p>
             </div>
 
             <!-- Lotfy -->
@@ -548,13 +651,6 @@
                 <img src="assets/miembros/JJ_ALMELA_profile.png" alt="JJ Almela">
                 <h3>JJ Almela</h3>
                 <p>Piano y Producción</p>
-            </div>
-
-            <!-- Luca -->
-            <div class="collab-card" onclick="openMember('luca')">
-                <img src="assets/miembros/Luca/profile.jpg" alt="Luca Fiammetti">
-                <h3>Luca Fiammetti</h3>
-                <p class="highlight-text">Actual Guitarra de TRBandmusic</p>
             </div>
         </div>
     </div>
