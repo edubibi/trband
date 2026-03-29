@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes Chester, I will - TEASER PREVIEW</title>
+    <style>
+        :root {
+            --accent: #00f2ff;
+            --secondary: #a0a0a0;
+        }
+        body {
+            margin: 0;
+            background: #050510;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            max-width: 900px;
+            width: 90%;
+            padding: 40px;
+        }
+        h1 {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+        .lab-teaser {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: visible;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.9);
+            transition: transform 0.4s ease;
+        }
+        .lab-teaser:hover {
+            transform: scale(1.02);
+        }
+        .lab-teaser img {
+            width: 100%;
+            display: block;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .teaser-label {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            border: 2px solid var(--accent);
+            padding: 12px 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
+            z-index: 100;
+            white-space: nowrap;
+        }
+        .teaser-label span {
+            color: #fff;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 1.6rem;
+            text-shadow: 0 0 15px var(--accent);
+        }
+        .subcaption {
+            margin-top: 60px;
+            color: var(--secondary);
+            font-style: italic;
+            font-size: 1.2rem;
+            letter-spacing: 1.5px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        .info-note {
+            margin-top: 100px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed rgba(255,255,255,0.2);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>VISTA PREVIA DEL TEASER</h1>
+
+        <div class="lab-teaser">
+            <img src="assets/yes_chester_mystery.png" alt="Yes Chester, I will - Próximamente">
+            <div class="teaser-label">
+                <span>Y en el Laboratorio...</span>
+            </div>
+        </div>
+
+        <div class="subcaption">
+            "Yes Chester, I will"<br>
+            <span style="font-size: 0.9rem; opacity: 0.7;">Cara B · Versión Instrumental · Revelación: 14 de Abril</span>
+        </div>
+
+        <div class="info-note">
+            Este archivo es solo una vista previa privada. <br>
+            No se ha añadido nada a la web oficial todavía, siguiendo tus instrucciones. <br>
+            El gato está más difuminado para mantener el misterio hasta el momento adecuado.
+        </div>
+    </div>
+</body>
+</html>

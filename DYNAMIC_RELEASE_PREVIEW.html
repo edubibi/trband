@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Release Section - PREVIEW</title>
+    <style>
+        :root {
+            --cyan: #00f2ff;
+            --magenta: #ff00ff;
+            --bg-dark: #050510;
+            --glass: rgba(0, 0, 0, 0.7);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Ambient Background Glow */
+        .glow-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 242, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .main-wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        /* --- WILD AND FREE CARD (HORIZONTAL) --- */
+        .release-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            display: flex;
+            padding: 30px;
+            gap: 30px;
+            width: 85%;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            z-index: 2;
+            position: relative;
+            animation: slideInLeft 1s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        .release-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--magenta);
+        }
+
+        .cover-wrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .cover-img {
+            width: 260px;
+            height: 260px;
+            border-radius: 12px;
+            border: 2px solid var(--magenta);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+            object-fit: cover;
+        }
+
+        .ribbon {
+            position: absolute;
+            top: 15px;
+            right: -10px;
+            background: var(--magenta);
+            color: white;
+            padding: 5px 25px;
+            font-size: 0.75rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            transform: rotate(45deg);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .release-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .release-info h2 {
+            font-size: 2.8rem;
+            margin: 0 0 10px 0;
+            background: linear-gradient(to right, #fff, var(--magenta));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .release-info p {
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .btn {
+            padding: 14px 20px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-cyan {
+            background: var(--cyan);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+        }
+
+        .btn-cyan:hover {
+            background: #fff;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            transform: scale(1.02);
+        }
+
+        .btn-magenta {
+            background: var(--magenta);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+        }
+
+        .btn-spotify {
+            background: #1DB954;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(29, 185, 84, 0.4);
+        }
+
+        .btn-apple {
+            background: #fc3c44;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(252, 60, 68, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            filter: brightness(1.2);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        /* --- YES CHESTER TEASER (TILTED / OVERLAPPING) --- */
+        .teaser-card {
+            position: absolute;
+            right: -60px;
+            top: -20px;
+            width: 320px;
+            background: #000;
+            border: 2px solid var(--cyan);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.9);
+            transform: rotate(6deg) translateY(20px);
+            z-index: 3;
+            animation: slideInRight 1.2s ease-out;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .teaser-card:hover {
+            transform: rotate(2deg) translateY(0) scale(1.05);
+            z-index: 10;
+        }
+
+        .teaser-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .teaser-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.9) 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 20px;
+        }
+
+        .teaser-plaque {
+            background: #000;
+            border: 1px solid var(--cyan);
+            padding: 5px 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+        }
+
+        .teaser-plaque span {
+            color: var(--cyan);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100px) rotate(15deg); }
+            to { opacity: 1; transform: translateX(0) rotate(6deg); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .main-wrapper {
+                flex-direction: column;
+                padding-top: 50px;
+            }
+            .release-card {
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .teaser-card {
+                position: relative;
+                right: 0;
+                top: -40px;
+                transform: rotate(-3deg);
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-overlay"></div>
+
+    <div class="bg-layer" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="assets/video/background_compressed.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="main-wrapper">
+        <!-- Release Feature -->
+        <div class="release-card">
+            <div class="cover-wrapper">
+                <img src="assets/wild_and_free_cover.png" alt="Wild and Free" class="cover-img">
+                <div class="ribbon">ESTRENO 16 ABRIL</div>
+            </div>
+            <div class="release-info">
+                <h2>Wild and Free</h2>
+                <p>El lanzamiento más ambicioso de <strong>The Research Band</strong>. Un viaje sonoro a través del pop-rock y el jazz más avanzado. Estreno mundial el próximo 16 de Abril.</p>
+                <div class="buttons">
+                    <a href="#" class="btn btn-cyan" style="font-size: 0.85rem;">Escuchar Preview (30s)</a>
+                    <a href="https://open.spotify.com/artist/13WJTJy2K8r5uRfsIyP28T" target="_blank" class="btn btn-spotify" style="font-size: 0.85rem;">
+                        <i class="fab fa-spotify"></i> Pre-Save / Spotify
+                    </a>
+                    <a href="https://music.apple.com/artist/the-research-band/1406237751" target="_blank" class="btn btn-apple" style="font-size: 0.85rem;">
+                        <i class="fab fa-apple"></i> Apple Music
+                    </a>
+                    <a href="nosotros.html" class="btn btn-magenta" style="font-size: 0.85rem;">Conoce a la Banda</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Yes Chester Teaser -->
+        <div class="teaser-card">
+            <img src="assets/yes_chester_mystery.png" alt="Yes Chester Mystery" class="teaser-img">
+            <div class="teaser-overlay">
+                <div class="teaser-plaque">
+                    <span>Y en el Laboratorio...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
