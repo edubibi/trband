@@ -1,0 +1,16 @@
+{
+  "name": "Wild and Free · Press Kit",
+  "short_name": "WF Press",
+  "description": "The Research Band - Official Press Release 2026",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#050508",
+  "theme_color": "#00e5ff",
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
