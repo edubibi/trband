@@ -310,7 +310,32 @@
     word-break: break-all;
   }
 
-  /* LANG TOGGLE */
+  /* NAV BUTTONS */
+  .nav-buttons {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 100;
+  }
+
+  .btn-back {
+    text-decoration: none;
+    padding: 10px 20px;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    color: var(--white);
+    background: rgba(255, 0, 170, 0.2);
+    border: 1px solid var(--magenta);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+  }
+
+  .btn-back:hover {
+    background: var(--magenta);
+    box-shadow: 0 0 20px var(--magenta);
+  }
+
   .lang-toggle {
     position: fixed;
     top: 24px;
@@ -362,6 +387,10 @@
 </head>
 <body>
 
+<div class="nav-buttons">
+  <a href="../index.html" class="btn-back">← VOLVER A LA WEB</a>
+</div>
+
 <div class="lang-toggle">
   <button class="lang-btn active" onclick="setLang('es')">ES</button>
   <button class="lang-btn" onclick="setLang('en')">EN</button>
@@ -394,7 +423,7 @@
       </div>
     </div>
 
-    <p class="hero-desc">Electronic soul crafted in the neon shadows. The Research Band's latest sonic exploration arrives precisely when the world needs to feel human again.</p>
+    <p class="hero-desc">Soul electrónico forjado en las sombras de neón. La última exploración sonora de The Research Band llega precisamente cuando el mundo necesita volver a sentirse humano.</p>
 
     <div class="hero-meta">
       <span><strong>Synth Rock</strong> · Jazz Noir · Electronic Soul</span>
