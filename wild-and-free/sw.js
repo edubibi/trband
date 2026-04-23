@@ -1,9 +1,12 @@
-const CACHE_NAME = 'wf-press-v1';
+const CACHE_NAME = 'wf-press-v1.1';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './icon-512.png'
+  './icon-512.png',
+  './wild_and_free_background_1774609305871.png',
+  './assets/wild_and_free_preview.mp3',
+  './assets/promo_poster.png'
 ];
 
 self.addEventListener('install', (event) => {

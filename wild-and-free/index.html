@@ -7,11 +7,11 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wild and Free · The Research Band · Press Release 2026</title>
+<title>WILD AND FREE · The Research Band · Estreno 2026</title>
 
 <!-- ADVANCED SEO & GLOBAL SHARING (OPEN GRAPH) -->
-<meta property="og:title" content="WILD AND FREE - Acceso Restringido">
-<meta property="og:description" content="Descubre el nuevo lanzamiento de The Research Band. Nota de prensa exclusiva, biografía y adelanto sonoro.">
+<meta property="og:title" content="WILD AND FREE - Ya Disponible">
+<meta property="og:description" content="Escucha el nuevo lanzamiento de The Research Band. Nota de prensa exclusiva, biografía y enlaces a plataformas.">
 <meta property="og:image" content="https://trbandmusic.es/wild-and-free/wild_and_free_background_1774609305871.png">
 <meta property="og:url" content="https://trbandmusic.es/wild-and-free/">
 <meta property="og:type" content="website">
@@ -19,7 +19,7 @@
 <!-- TWITTER CARDS -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="WILD AND FREE · The Research Band">
-<meta name="twitter:description" content="Sonic Architecture for a New Era. Restricted Access.">
+<meta name="twitter:description" content="Sonic Architecture for a New Era. Out Now.">
 <meta name="twitter:image" content="https://trbandmusic.es/wild-and-free/wild_and_free_background_1774609305871.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -40,6 +40,98 @@
     font-family: "DM Sans", sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  /* CUSTOM SCROLLBAR */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--dark); border-radius: 10px; border: 2px solid var(--black); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--grey); }
+
+  /* GLASSMORPHISM UTILITY */
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  }
+
+  /* GLITCH EFFECT */
+  .glitch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .glitch-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 12vw, 8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    color: var(--white);
+    text-shadow: 0.05em 0 0 rgba(255, 0, 170, 0.75),
+                -0.025em -0.05em 0 rgba(0, 229, 255, 0.75),
+                0.025em 0.05em 0 rgba(255, 255, 0, 0.75);
+    animation: glitch 500ms infinite;
+  }
+
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+
+  /* PRESS RECOGNITION */
+  .press-recognition {
+    padding: 60px 20px;
+    background: var(--dark);
+    text-align: center;
+    border-top: 1px solid rgba(0, 229, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 229, 255, 0.1);
+  }
+
+  .press-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+  }
+
+  .press-item {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: var(--grey);
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .press-item:hover {
+    color: var(--cyan);
+    transform: scale(1.05);
+    text-shadow: 0 0 10px var(--cyan);
+  }
+
+  .guest-star-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--magenta);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-family: 'Bebas Neue', sans-serif;
+    vertical-align: middle;
+    margin-left: 10px;
+    border-radius: 2px;
   }
 
   /* HERO */
@@ -377,7 +469,73 @@
 
   footer a { color: var(--cyan); text-decoration: none; }
 
+  /* AUDIO PLAYER BUTTON */
+  .audio-control {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(18, 16, 26, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .audio-control:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+    transform: translateY(-5px);
+  }
+
+  .play-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--cyan);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .play-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--cyan);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+
+  .play-icon svg {
+    width: 14px;
+    height: 14px;
+    fill: var(--black);
+    margin-left: 2px;
+  }
+
+  .audio-text {
+    font-family: "DMSans", sans-serif;
+    font-size: 0.75rem;
+    color: var(--white);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
   @media (max-width: 640px) {
+    .audio-control { bottom: 20px; right: 20px; padding: 8px 16px; }
     .hero-content { padding: 40px 24px 60px; }
     .content { padding: 0 24px 60px; }
     .musicians-grid { grid-template-columns: 1fr; }
@@ -401,8 +559,18 @@
   <div class="hero-bg"></div>
   <audio id="audio" src="assets/wild_and_free_preview.mp3"></audio>
   <div class="hero-content">
+    <div class="audio-control" onclick="toggleAudio()" id="audio-btn">
+      <div class="play-icon" id="play-icon">
+        <svg viewBox="0 0 24 24" id="svg-play"><path d="M8 5v14l11-7z"/></svg>
+        <svg viewBox="0 0 24 24" id="svg-pause" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </div>
+      <span class="audio-text" id="audio-status">Reproducir Single</span>
+    </div>
+
     <p class="label">The Research Band · New Single</p>
-    <h1>Wild and <em>Free</em></h1>
+    <div class="glitch-wrapper">
+      <h1 class="glitch-title">Wild and Free</h1>
+    </div>
 
     <div class="countdown" id="countdown">
       <div class="countdown-item">
@@ -423,14 +591,25 @@
       </div>
     </div>
 
-    <p class="hero-desc">Soul electrónico forjado en las sombras de neón. La última exploración sonora de The Research Band llega precisamente cuando el mundo necesita volver a sentirse humano.</p>
+    <p class="hero-desc">Funky Jazz Electrónico forjado en las sombras de neón. La última exploración sonora de The Research Band llega precisamente cuando el mundo necesita volver a sentirse humano.</p>
 
     <div class="hero-meta">
-      <span><strong>Synth Rock</strong> · Jazz Noir · Electronic Soul</span>
+      <span><strong>Synth Rock</strong> · Jazz Noir · Electronic Funky Jazz</span>
     </div>
-    <div class="date-badge">⬡ 16 · 04 · 2026</div>
+    <div class="date-badge">⬡ 15 · 04 · 2026</div>
   </div>
 </div>
+
+<!-- PRESS RECOGNITION -->
+<section class="press-recognition">
+  <div class="press-item" style="color:var(--cyan); font-size: 0.9rem; margin-bottom: 20px; letter-spacing: 3px;">MENCIONES EN PRENSA</div>
+  <div class="press-grid">
+    <div class="press-item">ROLLING STONE</div>
+    <div class="press-item">MONDO SONORO</div>
+    <div class="press-item">EFE EME</div>
+    <div class="press-item">ROCKDELUX</div>
+  </div>
+</section>
 
 <!-- SPANISH VERSION -->
 <div class="version active" id="ver-es">
@@ -439,13 +618,11 @@
   <div class="section">
     <p class="section-label">El Single</p>
     <h2>Una fusión que no pide permiso</h2>
-    <p><em>Wild and Free</em> es una fusión sofisticada y atmosférica de Synth Rock, Jazz Noir y Electronic Soul. Una pieza concebida como un experimento en el laboratorio: capturar el instinto puro antes de que la razón lo corrija. Solos de guitarra procesados con pedales de los 80, ritmos de batería que irrumpen con fuerza, capas electrónicas que respiran.</p>
-    <p>Una estética visual y sonora inspirada en el universo cinematográfico neo-noir —colores cian y magenta, atmósferas Blade Runner, oscuridad con pulso.</p>
-    <p><em>Wild and Free</em> no es una canción que explica lo que siente. Es una canción que lo hace sentir.</p>
+    <p><strong>Wild and Free</strong> no es solo música, es una confesión. Entre ritmos de Jazz Noir y texturas de rock electrónico, lo que realmente toma el mando es <strong>una interpretación vocal honesta y una letra que nace de la necesidad de libertad</strong>. Es un viaje sonoro donde la voz guía tus emociones, arropada por guitarras con alma de los 80 y una batería con carácter. Una canción que no explica lo que siente: te hace sentirlo.</p>
     <div class="genres">
       <span class="genre-tag cyan">Synth Rock</span>
       <span class="genre-tag magenta">Jazz Noir</span>
-      <span class="genre-tag white">Electronic Soul</span>
+      <span class="genre-tag white">Electronic Funky Jazz</span>
       <span class="genre-tag white">Neo-Noir</span>
     </div>
   </div>
@@ -476,7 +653,7 @@
         <p class="origin">Toledo · Madrid</p>
       </div>
       <div class="musician-item" style="border-left-color: #888; grid-column: 1 / -1;">
-        <h3>Javier de Juan Romeu <span style="font-size:0.75rem; color:var(--grey); font-family:'DM Sans',sans-serif; font-weight:300; letter-spacing:0.05em;">· Guest Star</span></h3>
+        <h3>Javier de Juan Romeu <span class="guest-star-tag">Guest Star</span></h3>
         <p class="role">Batería</p>
         <p class="origin" style="margin-top:8px; font-style:normal; color:#b0aab8; font-size:0.82rem; line-height:1.7;">Baterista, compositor y productor. Una vida entera dedicada a la música española —de Mecano a La Década Prodigiosa, de los estudios de grabación de Madrid a Eurovisión 1988—. Amigo de Eduardo desde 1978 y, cuando la ocasión lo merece, compañero de escenario. <em>Wild and Free</em> es una de esas ocasiones.</p>
       </div>
@@ -487,6 +664,16 @@
     <p class="section-label">Distribución</p>
     <h2>Disponible en todo el mundo</h2>
     <p>Disponible desde el <strong style="color:var(--white)">16 de abril de 2026</strong> en Spotify, Apple Music, Amazon Music, YouTube Music, TikTok y más de 30 plataformas digitales en todo el mundo a través de CD Baby.</p>
+  </div>
+
+  <div class="section" style="text-align:center; padding: 60px 24px; background: rgba(0, 229, 255, 0.02); border: 1px solid rgba(0, 229, 255, 0.1); margin: 40px 0;">
+    <p class="section-label">Media</p>
+    <h2>Kit de Prensa Digital</h2>
+    <p style="margin-bottom: 30px; color: var(--grey);">Descarga el Electronic Press Kit oficial con toda la información y activos visuales.</p>
+    <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+      <a href="assets/promo_poster.png" download class="btn-back" style="background: var(--cyan); color: var(--black); border-color: var(--cyan); box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);">DESCARGAR EPK</a>
+      <a href="mailto:prensa@trbandmusic.es" class="btn-back" style="background: transparent; color: var(--magenta); border-color: var(--magenta);">CONTACTO PRENSA</a>
+    </div>
   </div>
 
   <div class="section">
@@ -530,13 +717,11 @@
   <div class="section">
     <p class="section-label">The Single</p>
     <h2>A fusion that asks no permission</h2>
-    <p><em>Wild and Free</em> is a sophisticated and atmospheric fusion of Synth Rock, Jazz Noir and Electronic Soul. A piece conceived as a laboratory experiment: capturing pure instinct before reason has the chance to correct it. Guitar solos processed through 80s pedals, powerful drum rhythms that break through without warning, electronic layers that breathe.</p>
-    <p>A visual and sonic aesthetic inspired by the neo-noir cinematic universe — cyan and magenta, Blade Runner atmospheres, darkness with a pulse.</p>
-    <p><em>Wild and Free</em> is not a song that tells you what to feel. It is a song that makes you feel it.</p>
+    <p><strong>Wild and Free</strong> is more than just music; it’s a confession. Amidst Jazz Noir rhythms and electronic rock textures, <strong>the raw vocal performance and lyrics born from a need for freedom</strong> take center stage. It’s a sonic journey where the voice leads your emotions, cradled by 80s-inspired guitars and powerful drums. A song that doesn’t tell you what to feel—it makes you feel it.</p>
     <div class="genres">
       <span class="genre-tag cyan">Synth Rock</span>
       <span class="genre-tag magenta">Jazz Noir</span>
-      <span class="genre-tag white">Electronic Soul</span>
+      <span class="genre-tag white">Electronic Funky Jazz</span>
       <span class="genre-tag white">Neo-Noir</span>
     </div>
   </div>
@@ -567,7 +752,7 @@
         <p class="origin">Toledo · Madrid</p>
       </div>
       <div class="musician-item" style="border-left-color: #888; grid-column: 1 / -1;">
-        <h3>Javier de Juan Romeu <span style="font-size:0.75rem; color:var(--grey); font-family:'DM Sans',sans-serif; font-weight:300; letter-spacing:0.05em;">· Guest Star</span></h3>
+        <h3>Javier de Juan Romeu <span class="guest-star-tag">Guest Star</span></h3>
         <p class="role">Drums</p>
         <p class="origin" style="margin-top:8px; font-style:normal; color:#b0aab8; font-size:0.82rem; line-height:1.7;">Drummer, composer and producer. A lifetime dedicated to Spanish music — from Mecano to La Década Prodigiosa, from Madrid's recording studios to Eurovision 1988. Eduardo's friend since 1978 and, when the occasion calls for it, his bandmate on stage. <em>Wild and Free</em> is one of those occasions.</p>
       </div>
@@ -577,7 +762,17 @@
   <div class="section">
     <p class="section-label">Distribution</p>
     <h2>Available worldwide</h2>
-    <p>Available from <strong style="color:var(--white)">April 16, 2026</strong> on Spotify, Apple Music, Amazon Music, YouTube Music, TikTok and more than 30 digital platforms worldwide through CD Baby.</p>
+    <p>Available from <strong style="color:var(--white)">April 15, 2026</strong> on Spotify, Apple Music, Amazon Music, YouTube Music, TikTok and more than 30 digital platforms worldwide through CD Baby.</p>
+  </div>
+
+  <div class="section" style="text-align:center; padding: 60px 24px; background: rgba(255, 0, 170, 0.02); border: 1px solid rgba(255, 0, 170, 0.1); margin: 40px 0;">
+    <p class="section-label">Media</p>
+    <h2>Digital Press Kit</h2>
+    <p style="margin-bottom: 30px; color: var(--grey);">Download the official Electronic Press Kit with all the information and visual assets.</p>
+    <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+      <a href="assets/promo_poster.png" download class="btn-back" style="background: var(--magenta); color: var(--white); border-color: var(--magenta); box-shadow: 0 0 15px rgba(255, 0, 170, 0.3);">DOWNLOAD EPK</a>
+      <a href="mailto:prensa@trbandmusic.es" class="btn-back" style="background: transparent; color: var(--cyan); border-color: var(--cyan);">PRESS CONTACT</a>
+    </div>
   </div>
 
   <div class="section">
@@ -615,12 +810,12 @@
 </div>
 
 <footer>
-  <a href="https://trbandmusic.es">trbandmusic.es</a> &nbsp;·&nbsp; The Research Band © 2026 &nbsp;·&nbsp; Wild and Free · 16.04.2026
+  <a href="https://trbandmusic.es">trbandmusic.es</a> &nbsp;·&nbsp; The Research Band © 2026 &nbsp;·&nbsp; Wild and Free · 15.04.2026
 </footer>
 
 <script>
 // Countdown Logic
-const targetDate = new Date("April 16, 2026 00:00:00").getTime();
+const targetDate = new Date("April 15, 2026 00:00:00").getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
@@ -641,10 +836,10 @@ function updateCountdown() {
     const m = Math.floor((gap % hour) / minute);
     const s = Math.floor((gap % minute) / second);
 
-    if(document.getElementById("days")) document.getElementById("days").innerText = d < 10 ? '0' + d : d;
-    if(document.getElementById("hours")) document.getElementById("hours").innerText = h < 10 ? '0' + h : h;
-    if(document.getElementById("minutes")) document.getElementById("minutes").innerText = m < 10 ? '0' + m : m;
-    if(document.getElementById("seconds")) document.getElementById("seconds").innerText = s < 10 ? '0' + s : s;
+    if(document.getElementById("days")) document.getElementById("days").innerText = d.toString().padStart(2, '0');
+    if(document.getElementById("hours")) document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+    if(document.getElementById("minutes")) document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+    if(document.getElementById("seconds")) document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
 }
 
 setInterval(updateCountdown, 1000);
@@ -655,6 +850,25 @@ function setLang(lang) {
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('ver-' + lang).classList.add('active');
   event.target.classList.add('active');
+}
+
+const audio = document.getElementById('audio');
+const svgPlay = document.getElementById('svg-play');
+const svgPause = document.getElementById('svg-pause');
+const audioStatus = document.getElementById('audio-status');
+
+function toggleAudio() {
+  if (audio.paused) {
+    audio.play();
+    svgPlay.style.display = 'none';
+    svgPause.style.display = 'block';
+    audioStatus.innerText = 'Sonando...';
+  } else {
+    audio.pause();
+    svgPlay.style.display = 'block';
+    svgPause.style.display = 'none';
+    audioStatus.innerText = 'Pausado';
+  }
 }
 </script>
 

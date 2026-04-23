@@ -102,8 +102,8 @@
         }
 
         .gallery-grid {
-            column-count: 3;
-            column-gap: 20px;
+            column-count: 6; /* Cambiado a 6 para fotos más pequeñas */
+            column-gap: 15px;
             width: 100%;
         }
 
@@ -127,6 +127,145 @@
             z-index: 10;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
             border-color: var(--accent);
+        }
+
+        /* --- VIDEOTECA STYLES --- */
+        .role-highlight {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 40px 0 20px;
+            font-size: 1.5rem;
+        }
+
+        .video-categories {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        .category-card {
+            width: 280px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .category-card h3 {
+            font-size: 1.4rem;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .category-bg-icon {
+            position: absolute;
+            font-size: 8rem;
+            color: rgba(255, 255, 255, 0.03);
+            z-index: 1;
+        }
+
+        /* --- VIDEO MODALS --- */
+        .player-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3000;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            width: 90%;
+            max-width: 1000px;
+            height: 80vh;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: fadeInModal 0.5s ease;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; transform: translate(-50%, -45%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .video-modal-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            overflow-y: auto;
+            align-items: center;
+        }
+
+        .video-modal-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .video-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .video-card iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+        }
+
+        .video-title {
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #ccc;
+            text-align: center;
         }
 
         /* --- FOOTER --- */
@@ -195,6 +334,28 @@
     <main class="landing-content">
         <section id="gallery" class="gallery-section">
             <h2 class="section-title">Nuestra Galería</h2>
+
+            <p class="role-highlight">Videoteca & Trayectoria</p>
+
+            <div class="video-categories">
+                <div class="category-card" onclick="openVideoModal('cat-colab')">
+                    <div class="category-bg-icon">🤝</div>
+                    <h3>Colaboradores</h3>
+                    <p style="color: #bbb; margin-top: 5px; font-size: 0.8rem;">JJ Almela & Friends</p>
+                </div>
+                <div class="category-card" onclick="openVideoModal('cat-cadillac')">
+                    <div class="category-bg-icon">🎸</div>
+                    <h3>Historia de Cadillac</h3>
+                    <p style="color: #bbb; margin-top: 5px; font-size: 0.8rem;">El Origen</p>
+                </div>
+                <div class="category-card" onclick="openVideoModal('cat-trband')">
+                    <div class="category-bg-icon">🎬</div>
+                    <h3>Producciones TRBand</h3>
+                    <p style="color: #bbb; margin-top: 5px; font-size: 0.8rem;">Videoclips & Promos</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="font-size: 2rem; margin-top: 40px;">Fotos</h2>
             <div class="gallery-grid">
                 <div class="gallery-item"><img src="assets/recovered_wix/images/image_03.jpg" loading="lazy"></div>
                 <div class="gallery-item"><img src="assets/recovered_wix/images/image_04.jpg" loading="lazy"></div>
@@ -206,6 +367,81 @@
             </div>
         </section>
     </main>
+
+    <!-- VIDEO MODALS -->
+    <div class="player-container" id="cat-colab">
+        <button class="close-btn" onclick="closeVideoModal('cat-colab')">×</button>
+        <div class="video-modal-content">
+            <h2 style="color: var(--accent); margin-bottom: 30px; text-transform: uppercase;">Colaboradores</h2>
+            <div class="video-modal-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/AdiuQFxy8AY" allowfullscreen></iframe>
+                    <div class="video-title">Música JJ Almela - Eduardo Ramírez (1)</div>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/MIFyoXaUReo" allowfullscreen></iframe>
+                    <div class="video-title">Música JJ Almela - Eduardo Ramírez (2)</div>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/2OLwmBi8PXE" allowfullscreen></iframe>
+                    <div class="video-title">Música JJ Almela - Eduardo Ramírez (3)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="player-container" id="cat-cadillac">
+        <button class="close-btn" onclick="closeVideoModal('cat-cadillac')">×</button>
+        <div class="video-modal-content">
+            <h2 style="color: var(--accent); margin-bottom: 30px; text-transform: uppercase;">Historia de Cadillac</h2>
+            <div class="video-modal-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/-rHi7dmZOjk" allowfullscreen></iframe>
+                    <div class="video-title">Historia de Cadillac - Parte 1</div>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/N2JFenwTLA0" allowfullscreen></iframe>
+                    <div class="video-title">Historia de Cadillac - Parte 2</div>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/alaG1jLjJm4" allowfullscreen></iframe>
+                    <div class="video-title">Historia de Cadillac - Parte 3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="player-container" id="cat-trband">
+        <button class="close-btn" onclick="closeVideoModal('cat-trband')">×</button>
+        <div class="video-modal-content">
+            <h2 style="color: var(--accent); margin-bottom: 30px; text-transform: uppercase;">Producciones TRBandMusic</h2>
+            <div class="video-modal-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/9zcAxkehCuk" allowfullscreen></iframe>
+                    <div class="video-title">Videoclip "El Boy" - TRBandMusic</div>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/PYiLYz7gIjo" allowfullscreen></iframe>
+                    <div class="video-title">Promo Galería 3D - TRBandMusic</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openVideoModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+        function closeVideoModal(id) {
+            const modal = document.getElementById(id);
+            const iframes = modal.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                const src = iframe.src;
+                iframe.src = src; // Reload to stop video
+            });
+            modal.style.display = 'none';
+        }
+    </script>
 
     <div class="author-footer">
         <div style="display: flex; align-items: center; font-weight: 700; margin-bottom: 20px;">
