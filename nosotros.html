@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosotros - The Research Band</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #EFEDE2;
@@ -22,7 +22,7 @@
         body {
             background-color: var(--bg-color);
             margin: 0;
-            font-family: var(--font-serif);
+            font-family: 'Montserrat', sans-serif;
             color: var(--text-color);
             overflow-x: hidden;
             min-height: 100vh;
@@ -121,6 +121,7 @@
             /* Dark red text */
             margin-bottom: 60px;
             font-weight: 700;
+            font-family: 'Playfair Display', serif;
         }
 
         /* Glassmorphism Card Style (from iliada.html) */
@@ -184,6 +185,7 @@
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-family: 'Playfair Display', serif;
         }
 
         .role-highlight {
@@ -410,8 +412,71 @@
             font-weight: 500;
             text-transform: uppercase;
             font-size: 0.9rem;
-            transition: color 0.3s;
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        /* Submenu Styling */
+        .nav-item-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            min-width: 220px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 1001;
+            padding: 10px 0;
+            /* Removed margin-top to eliminate the gap */
+        }
+
+        .submenu::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid var(--accent);
+        }
+
+        .nav-item-dropdown:hover .submenu {
+            display: block;
+            animation: fadeInSubmenu 0.3s ease;
+        }
+
+        @keyframes fadeInSubmenu {
+            from { opacity: 0; transform: translate(-50%, 10px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+
+        .submenu-link {
+            display: block;
+            color: #ddd;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .submenu-link:hover {
+            background: rgba(0, 242, 255, 0.1);
+            color: var(--accent);
         }
 
         .nav-link:hover,
@@ -511,12 +576,19 @@
         <div class="logo-area" onclick="window.location.href='index.html'" style="cursor: pointer;"><img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo"><span class="header-title-gold">The Research Band</span></div>
         <nav class="main-nav">
             <a href="index.html" class="nav-link">Inicio</a>
+            <a href="nosotros.html" class="nav-link active">Nosotros</a>
             <a href="iliada.html" class="nav-link">Mi Ilíada</a>
             <a href="galeria.html" class="nav-link">Galería</a>
-            <a href="fursona-genesis.html" class="nav-link">Fursona Genesis</a>
-            <a href="https://quantum-deities-1premium.nfts2.me/" target="_blank" class="nav-link"
-                style="color: #00f2ff; font-weight: bold;">Quantum Deities</a>
-            <a href="musica.html" class="nav-link">Música</a>
+            
+            <div class="nav-item-dropdown">
+                <a href="musica.html" class="nav-link">Música y Merchandising</a>
+                <div class="submenu">
+                    <a href="musica.html" class="submenu-link">Reproductor Musical</a>
+                    <a href="fursona-genesis.html" class="submenu-link">Fursona Genesis (NFT)</a>
+                    <a href="quantum-deities.html" class="submenu-link">Quantum Deities (NFT)</a>
+                </div>
+            </div>
+
             <a href="contacto.html" class="nav-link">Contacto</a>
         </nav>
     </header>
@@ -566,6 +638,11 @@
         <h2 class="header-title" style="margin-left: 0; text-align: center; width: 100%; font-size: 3rem; margin-bottom: 60px; color: #333; text-transform: uppercase; letter-spacing: 4px; display: block;">
             The Research Band <br><span style="font-size: 1.2rem; color: #8B0000; letter-spacing: 2px;">WILD and FREE · 2026</span>
         </h2>
+
+        <!-- Group Photo -->
+        <div style="max-width: 1000px; margin: 0 auto 60px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
+            <img src="assets/miembros/FOTOS GRUPO/grupo_completo_1.png" alt="The Research Band Full Group" style="width: 100%; display: block; filter: contrast(1.1);">
+        </div>
 
         <div class="premium-musicians">
 
@@ -625,8 +702,22 @@
                 </div>
             </div>
 
-            <!-- JAVIER (Guest Star) -->
+            <!-- NARA BLUE -->
             <div class="m-card">
+                <div class="m-photo">
+                    <img src="assets/miembros/Nara/Nara cantando.png" alt="Nara Blue">
+                </div>
+                <div class="m-info">
+                    <h3 class="m-name">Nara Blue<span>Voz · Percusión · Armónica · Teclados</span></h3>
+                    <div class="m-divider"></div>
+                    <p class="m-bio">
+                        Calor, pulso y frontera. Afincada en Sanlúcar de Barrameda (Cádiz), Nara Blue aporta a The Research Band una mezcla singular de soul, blues, jazz-rock y percusión orgánica. Su papel representa la vertiente más cálida y terrenal del proyecto: es respiración, textura, compás y alma.
+                    </p>
+                </div>
+            </div>
+
+            <!-- JAVIER (Guest Star) -->
+            <div class="m-card reverse">
                 <div class="m-photo">
                     <img src="assets/javier(actual).jpg" alt="Javier de Juan Romeu">
                 </div>
