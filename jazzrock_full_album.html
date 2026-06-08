@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Album: Cut the Roll & JazzRock</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;700;900&display=swap');
+
+        body, html {
+            margin: 0; padding: 0; background: #0a0a0a; color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh; overflow-x: hidden;
+        }
+
+        .bg-blur {
+            position: fixed; top: -10%; left: -10%; width: 120%; height: 120%;
+            background-image: url('portada_cut the roll and jazzrock.png');
+            background-size: cover; background-position: center;
+            filter: blur(40px) brightness(0.3); z-index: -1;
+            animation: breathe 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes breathe {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .container {
+            max-width: 1000px; margin: 0 auto; padding: 50px 20px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            align-items: start; min-height: 80vh;
+        }
+
+        .cover-container {
+            position: sticky; top: 50px;
+        }
+
+        .album-cover {
+            width: 100%; border-radius: 8px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(212, 175, 55, 0.2);
+            transition: transform 0.5s;
+        }
+
+        .album-cover:hover {
+            transform: scale(1.02);
+        }
+
+        .info-container {
+            display: flex; flex-direction: column; gap: 20px;
+        }
+
+        .badge {
+            display: inline-block; background: #D4AF37; color: #000;
+            padding: 5px 15px; font-weight: 900; font-size: 0.8rem;
+            border-radius: 20px; letter-spacing: 2px; align-self: flex-start;
+        }
+
+        .badge-sync {
+            background: #00f2ff;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif; font-size: 3rem;
+            margin: 0; line-height: 1.1; color: #fff;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-size: 1.2rem; color: #aaa; margin: 0; font-weight: 300;
+            letter-spacing: 4px; text-transform: uppercase;
+        }
+
+        p {
+            color: #ccc; line-height: 1.6; font-size: 0.95rem;
+            border-left: 3px solid #D4AF37; padding-left: 15px;
+        }
+
+        .player-box {
+            background: rgba(0,0,0,0.6); padding: 25px; border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+            max-height: 500px; overflow-y: auto;
+        }
+
+        /* Estilizar la barra de scroll del reproductor */
+        .player-box::-webkit-scrollbar { width: 8px; }
+        .player-box::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 4px; }
+        .player-box::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+
+        .track-list {
+            list-style: none; padding: 0; margin: 0;
+        }
+
+        .track-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 15px; border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: background 0.3s; cursor: pointer;
+        }
+
+        .track-item:last-child { border-bottom: none; }
+        .track-item:hover { background: rgba(255,255,255,0.1); }
+        .track-item.active { background: rgba(212, 175, 55, 0.2); border-left: 3px solid #D4AF37; }
+
+        .track-info span { display: block; }
+        .track-title { font-weight: bold; font-size: 1rem; }
+
+        .play-icon { font-size: 1.2rem; color: #D4AF37; }
+
+        .custom-player {
+            margin-top: 20px; width: 100%; display: none; position: sticky; bottom: 0;
+            background: rgba(0,0,0,0.9); padding: 10px 0; border-top: 1px solid #333;
+        }
+
+        .custom-player.active { display: block; }
+
+        audio { width: 100%; outline: none; border-radius: 30px; }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; padding: 20px; }
+            .cover-container { position: relative; top: 0; }
+            h1 { font-size: 2.2rem; }
+            .player-box { max-height: 400px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blur"></div>
+
+    <div class="container">
+        <div class="cover-container">
+            <img src="portada_cut the roll and jazzrock.png" class="album-cover" alt="Cut the Roll & JazzRock">
+        </div>
+
+        <div class="info-container">
+            <div style="display: flex; gap: 10px;">
+                <span class="badge">FULL ALBUM</span>
+                <span class="badge badge-sync">100% ONE-STOP</span>
+            </div>
+            
+            <h1>Cut the Roll & JazzRock</h1>
+            <h2>The Research Band</h2>
+            
+            <p>The complete 15-track instrumental album experience. A sophisticated journey through Jazz-Rock, Funk, and Cinematic Fusion.</p>
+
+            <div class="player-box">
+                <ul class="track-list" id="trackList">
+                    <!-- Los tracks se generan por JS -->
+                </ul>
+            </div>
+            
+            <div class="custom-player" id="playerContainer">
+                <audio id="mainAudio" controls controlsList="nodownload">
+                    <source src="" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tracks = [
+            { title: "Bloody Lukas", file: "Bloody Lukas.mp3" },
+            { title: "Ball in play", file: "Ball in play.mp3" },
+            { title: "Bass stand yeah", file: "Bass stand yeah.mp3" },
+            { title: "Books forever", file: "Books forever.mp3" },
+            { title: "Bruma", file: "Bruma.mp3" },
+            { title: "Chrome Rhythms", file: "Chrome Rhythms.mp3" },
+            { title: "Deprisa, ven despacio", file: "Deprisa, ven despacio.mp3" },
+            { title: "Dragon lands", file: "Dragon lands.mp3" },
+            { title: "Feel your dreams", file: "Feel your dreams.mp3" },
+            { title: "Lotus play", file: "Lotus play.mp3" },
+            { title: "Macao no es Lao", file: "Macao no es Lao.mp3" },
+            { title: "Much time ago", file: "Much time ago.mp3" },
+            { title: "Plastic hard", file: "Plastic hard.mp3" },
+            { title: "Tatum screen", file: "Tatum screen.mp3" },
+            { title: "Without a trace of barbarism", file: "Without a trace of barbarism.mp3" }
+        ];
+
+        const audioEl = document.getElementById('mainAudio');
+        const playerContainer = document.getElementById('playerContainer');
+        const trackListUl = document.getElementById('trackList');
+
+        // Generar lista HTML dinámicamente
+        tracks.forEach((track, index) => {
+            const li = document.createElement('li');
+            li.className = 'track-item';
+            li.innerHTML = `
+                <div class="track-info">
+                    <span class="track-title">${index + 1}. ${track.title}</span>
+                </div>
+                <div class="play-icon">▶</div>
+            `;
+            li.onclick = () => playTrack(index, li);
+            trackListUl.appendChild(li);
+        });
+
+        function playTrack(index, element) {
+            // Update active state
+            document.querySelectorAll('.track-item').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+
+            // Set audio source
+            audioEl.src = tracks[index].file;
+            playerContainer.classList.add('active');
+            
+            // Play
+            audioEl.play();
+        }
+    </script>
+</body>
+</html>
