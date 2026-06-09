@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier Oficial - The Research Band</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-main: #f0f0f0;
+            --text-muted: #aaa;
+            --accent: #D4AF37;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .header-logo {
+            height: 120px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: #fff;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: var(--accent);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        /* Hero Image */
+        .hero-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            margin-bottom: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Intro Text */
+        .intro-text {
+            font-size: 1.15rem;
+            color: #ccc;
+            text-align: justify;
+            margin-bottom: 50px;
+        }
+
+        .intro-text strong {
+            color: #fff;
+        }
+
+        /* Section Titles */
+        h2.section-title {
+            font-family: var(--font-serif);
+            color: var(--accent);
+            font-size: 2.2rem;
+            margin-top: 60px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
+            padding-bottom: 10px;
+        }
+
+        /* Member Cards */
+        .m-card {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            background: #111;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .m-card.reverse {
+            grid-template-columns: 1fr 300px;
+        }
+
+        .m-card.reverse .m-photo { order: 2; }
+        .m-card.reverse .m-info { order: 1; text-align: right; }
+
+        .m-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .m-info {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .m-name {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: #fff;
+            margin: 0 0 5px 0;
+            line-height: 1.2;
+        }
+
+        .m-role {
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .m-bio {
+            font-size: 1rem;
+            color: #ccc;
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* Edu Special Section */
+        .edu-section {
+            background: linear-gradient(to right, #111, #1a1a1a);
+            border-left: 4px solid var(--accent);
+            padding: 40px;
+            margin-bottom: 60px;
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 60px;
+        }
+
+        /* Print Styles - No buttons, clean white PDF */
+        @media print {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+                font-size: 11pt; /* Better for print */
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            header, footer, .section-title {
+                border-color: #ccc;
+            }
+
+            h1, .m-name, .intro-text strong {
+                color: #000;
+            }
+
+            .subtitle, .m-role, h2.section-title {
+                color: #333;
+                font-weight: bold;
+            }
+
+            .intro-text, .m-bio, footer {
+                color: #333;
+            }
+
+            .m-card {
+                background: #fff;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+                box-shadow: none;
+                margin-bottom: 20px;
+            }
+
+            .edu-section {
+                background: #fff;
+                border: 1px solid #ddd;
+                border-left: 4px solid #333;
+                page-break-inside: avoid;
+            }
+
+            .hero-image {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+
+            /* Make grid work strictly for print or fallback to flex */
+            .m-card {
+                display: flex;
+                flex-direction: row;
+                height: auto;
+            }
+
+            .m-card.reverse {
+                flex-direction: row; /* reset reverse for print simplicity */
+            }
+            .m-card.reverse .m-photo { order: 1; }
+            .m-card.reverse .m-info { order: 2; text-align: left; }
+
+            .m-photo {
+                width: 250px;
+                flex-shrink: 0;
+            }
+            
+            .m-info {
+                padding: 25px;
+            }
+
+            /* Hide URLs if they print */
+            a[href]:after {
+                content: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .m-card, .m-card.reverse {
+                grid-template-columns: 1fr;
+            }
+            .m-photo { height: 300px; }
+            .m-card.reverse .m-photo { order: 1; }
+            .m-card.reverse .m-info { order: 2; text-align: left; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo">
+            <h1>The Research Band</h1>
+            <div class="subtitle">Dossier de Prensa Oficial</div>
+        </header>
+
+        <img src="assets/grupo_trband_sonrisa.jpeg" alt="The Research Band - Grupo Oficial" class="hero-image">
+
+        <div class="intro-text">
+            Este documento resume la estructura humana, artística y colaborativa de <strong>The Research Band</strong> (TRB), con especial foco en la etapa conceptual y musical del álbum <strong>"WILD and FREE" (2026)</strong>. Lejos de ser una banda convencional, TRB opera como un colectivo creativo en el que convergen leyendas de la industria musical con virtuosos internacionales.
+        </div>
+
+        <h2 class="section-title">El Núcleo Creativo</h2>
+        
+        <div class="edu-section">
+            <h3 class="m-name" style="margin-bottom: 10px;">Eduardo Ramírez de Cartagena ("EDU")</h3>
+            <div class="m-role" style="color: var(--accent);">Músico, compositor, arreglista, cantante y productor.</div>
+            <p class="m-bio" style="margin-bottom: 15px;"><strong>Instrumentos:</strong> Voz solista, bajo y guitarra.</p>
+            <p class="m-bio">El motor creativo y el arquitecto del sonido distintivo de la banda. Más que un grupo, TRB es su "ideología artística y musical". Compone y produce toda la discografía original, fusionando géneros y explorando nuevas fronteras sonoras. Es socio fundador del mítico grupo español <strong>CADILLAC</strong>, productor musical en las principales televisiones del país y voz en innumerables bandas sonoras y jingles publicitarios a nivel europeo.</p>
+        </div>
+
+        <h2 class="section-title">Alineación Oficial "Wild and Free"</h2>
+
+        <!-- LUCA -->
+        <div class="m-card">
+            <div class="m-photo">
+                <img src="assets/miembros/Luca/luca_final.jpg" alt="Luca Alessandro Fiammetti">
+            </div>
+            <div class="m-info">
+                <div class="m-name">Luca Alessandro Fiammetti</div>
+                <div class="m-role">Guitarra (Jazz Fusion)</div>
+                <p class="m-bio">Formado en el prestigioso Conservatorio Paganini de Génova. Luca aporta una sensibilidad mediterránea y una técnica virtuosa que define el nuevo sonido de TRB. Su estilo es un viaje constante entre la introspección emotiva y la improvisación de vanguardia.</p>
+            </div>
+        </div>
+
+        <!-- ERIK -->
+        <div class="m-card reverse">
+            <div class="m-photo">
+                <img src="assets/miembros/Erik/sax_profile.jpg" alt="Erik Solberg Andrade">
+            </div>
+            <div class="m-info">
+                <div class="m-name">Erik Solberg Andrade</div>
+                <div class="m-role">Saxofón & Armónica</div>
+                <p class="m-bio">El soplo del Estrecho. Formado en Sevilla y curtido en los legendarios clubes de jazz de Granada, Erik fusiona el alma del jazz americano con sutiles matices flamencos. Su saxo actúa como una voz narrativa que respira pura libertad a lo largo del proyecto "Wild and Free".</p>
+            </div>
+        </div>
+
+        <!-- ALBA -->
+        <div class="m-card">
+            <div class="m-photo">
+                <img src="assets/miembros/Alba/violin_profile.jpg" alt="Alba Cisneros Montalbán">
+            </div>
+            <div class="m-info">
+                <div class="m-name">Alba Cisneros Montalbán</div>
+                <div class="m-role">Violín, Viola & Percusión</div>
+                <p class="m-bio">Vanguardia y ritual. Con una estricta formación clásica en Madrid y París, Alba trasciende las fronteras orquestales para explorar texturas sonoras contemporáneas. Su violín añade una dimensión cinematográfica y emocionalmente intensa a cada composición de la banda.</p>
+            </div>
+        </div>
+
+        <!-- HIROSHI -->
+        <div class="m-card reverse">
+            <div class="m-photo">
+                <img src="assets/miembros/Hiroshi/hiroshi_profile.jpg" alt="Hiroshi Tanaka">
+            </div>
+            <div class="m-info">
+                <div class="m-name">Hiroshi Tanaka</div>
+                <div class="m-role">Batería (Tokio)</div>
+                <p class="m-bio">Con 24 años y formado en el Senzoku Gakuen y UCLA, fue descubierto por Eduardo en el Nice Jazz Festival 2023. Destaca por su asombroso virtuosismo técnico y polirritmias extremas. Fusiona el pulso del taiko ancestral con dinámicas modernas, creando el "latido" perfecto para el grupo.</p>
+            </div>
+        </div>
+
+        <!-- NARA BLUE -->
+        <div class="m-card">
+            <div class="m-photo">
+                <img src="assets/miembros/Nara/Nara cantando.png" alt="Nara Blue">
+            </div>
+            <div class="m-info">
+                <div class="m-name">Nara Blue</div>
+                <div class="m-role">Voz, Percusión, Teclados</div>
+                <p class="m-bio">Calor, pulso y frontera. Afincada en Sanlúcar de Barrameda (Cádiz), Nara Blue aporta a The Research Band una mezcla singular de soul clásico, blues áspero y percusión orgánica. Su papel representa la vertiente más terrenal del proyecto: es textura, compás y alma viva.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>www.trbandmusic.es</strong></p>
+            <p>Para contratación, licencias de sincronización o material de prensa adicional, contacte a través del portal web oficial.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

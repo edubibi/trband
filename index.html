@@ -1559,7 +1559,7 @@
 
 <body>
     <div class="bg-layer"><video id="bgVideo" autoplay muted loop playsinline
-            style="width: 100%; height: 100%; object-fit: cover;">
+            style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); opacity: 0.8;">
             <!-- Source will be set by JS -->
         </video></div>
     <!-- LANDING PAGE CONTENT -->
@@ -1577,8 +1577,7 @@
                 <a href="musica.html" class="nav-link">Música y Merchandising</a>
                 <div class="submenu">
                     <a href="musica.html" class="submenu-link">Reproductor Musical</a>
-                    <a href="fursona-genesis.html" class="submenu-link">Fursona Genesis (NFT)</a>
-                    <a href="quantum-deities.html" class="submenu-link">Quantum Deities (NFT)</a>
+
                 </div>
             </div>
 
@@ -1591,35 +1590,134 @@
             <h1 class="main-title">The Research Band</h1>
             <p class="slogan"><span class="slogan-outlined">...POSIBLEMENTE</span><br><span class="highlight">"El
                     Pop-Rock y Jazz español más avanzado que hay"</span></p>
+            <p style="color: #fff; font-size: 1.4rem; font-weight: 800; letter-spacing: 3px; margin-top: 30px; margin-bottom: 5px; text-shadow: 0 4px 10px rgba(0,0,0,0.8);">LANZAMIENTO: 8 DE JULIO</p>
+            <p style="color: var(--accent); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; margin-top: 0; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,0.8);">Available on all platforms</p>
         </section>
         <!-- WILD AND FREE — LANZAMIENTO OFICIAL -->
         <!-- Showcase Section (Promo + Bio) -->
-        <!-- Showcase Section (Strips Layout) -->
-        <div class="showcase-container" style="display: flex; gap: 60px; width: 98%; max-width: 1400px; justify-content: center; align-items: flex-start; margin: 100px auto 120px; flex-wrap: wrap;">
+        <!-- PROMO PRE-LANZAMIENTO CUT THE ROLL & JAZZROCK -->
+        <section id="promo-jazzrock" style="width: 98%; max-width: 1400px; margin: 100px auto 120px; background: rgba(0, 0, 0, 0.85); border: 1px solid #D4AF37; border-radius: 15px; padding: 50px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 20px; left: -40px; background: #D9381E; color: #fff; font-size: 0.8rem; font-weight: 900; padding: 5px 40px; transform: rotate(-45deg); z-index: 5; letter-spacing: 2px;">PRE-RESERVA</div>
             
-            <!-- PROMO STRIP (Left) -->
-            <section id="wild-and-free" style="flex: 1; min-width: 450px; background: rgba(0,0,0,0.85); border: 1px solid #1DB954; border-radius: 12px; display: flex; align-items: center; padding: 40px 50px; gap: 30px; box-shadow: 0 0 25px rgba(29,185,84,0.2); position: relative; overflow: hidden;">
-                <div style="position: absolute; top: 10px; right: -30px; background: #1DB954; color: #000; font-size: 0.6rem; font-weight: 900; padding: 2px 30px; transform: rotate(45deg); z-index: 5;">NUEVO</div>
-                <img src="assets/wild_and_free_cover.png" alt="Cover" style="width: 110px; height: 110px; border-radius: 8px; border: 2px solid #1DB954; flex-shrink: 0; object-fit: cover;">
-                <div style="flex: 1;">
-                    <h2 style="font-size: 1.5rem; margin: 0; color: #fff; letter-spacing: 1px; font-family: 'Playfair Display', serif;">WILD AND FREE</h2>
-                    <p style="font-size: 0.85rem; color: #aaa; margin: 5px 0 15px; line-height: 1.3;">Single Oficial 2026. Ya disponible en Spotify.</p>
-                    <div style="display: flex; gap: 10px;">
-                        <a href="https://open.spotify.com/intl-es/album/1imWJMPcVLsgc1NpZzHSf5" target="_blank" style="background: #1DB954; color: #000; text-decoration: none; font-size: 0.7rem; font-weight: 800; padding: 8px 15px; border-radius: 20px; text-transform: uppercase;">Spotify</a>
-                        <a href="wild-and-free/index.html" style="border: 1px solid var(--accent); color: var(--accent); text-decoration: none; font-size: 0.7rem; font-weight: 700; padding: 8px 15px; border-radius: 20px; text-transform: uppercase;">Lyrics</a>
+            <!-- Hero Title & Cover -->
+            <div style="display: flex; gap: 40px; align-items: center; margin-bottom: 40px; width: 100%; max-width: 900px; flex-wrap: wrap; justify-content: center;">
+                <img src="assets/portada_cut the roll and jazzrock.png" alt="Cut the Roll & JazzRock" style="width: 250px; height: 250px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 2px solid #D4AF37;">
+                <div style="flex: 1; min-width: 300px; text-align: left;">
+                    <h2 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0 0 20px 0; line-height: 1.1;">CUT THE ROLL & JAZZROCK</h2>
+                    
+                    <!-- 10s Teaser Player -->
+                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
+                        <p style="color: #00f2ff; margin: 0 0 10px; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px;"><span style="color: #ff00ff;">⚠ PREVIEW EXCLUSIVA:</span> 10 SEGUNDOS</p>
+                        <select id="teaserTrackSelect" style="width: 100%; padding: 10px; background: #000; color: #fff; border: 1px solid #D4AF37; border-radius: 5px; margin-bottom: 15px; outline: none; font-family: 'Montserrat', sans-serif;">
+                            <option value="assets/audio/preview/Bloody Lukas.mp3">1. Bloody Lukas</option>
+                            <option value="assets/audio/preview/Chrome Rhythms.mp3">2. Chrome Rhythms</option>
+                            <option value="assets/audio/preview/Macao no es Lao.mp3">3. Macao no es Lao</option>
+                            <option value="assets/audio/preview/Ball in play.mp3">4. Ball in play</option>
+                        </select>
+                        <div style="display: flex; gap: 15px; align-items: center;">
+                            <button id="teaserPlayBtn" onclick="toggleTeaserPlay()" style="background: #D4AF37; color: #000; border: none; border-radius: 50%; width: 40px; height: 40px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">▶</button>
+                            <div style="flex: 1; background: #222; height: 8px; border-radius: 4px; overflow: hidden; position: relative;">
+                                <div id="teaserProgress" style="width: 0%; height: 100%; background: #00f2ff; transition: width 0.1s linear;"></div>
+                            </div>
+                            <span id="teaserTime" style="color: #aaa; font-size: 0.8rem; font-family: monospace;">0.0 / 10s</span>
+                        </div>
+                        <audio id="teaserAudio" src="assets/audio/preview/Bloody Lukas.mp3"></audio>
                     </div>
                 </div>
-            </section>
-            <!-- BIO STRIP (Right) -->
-            <section id="biography" style="flex: 1; min-width: 450px; background: rgba(0,0,0,0.85); border: 1px solid var(--accent); border-radius: 12px; display: flex; align-items: center; padding: 40px 50px; gap: 30px; box-shadow: 0 0 25px rgba(0, 242, 255, 0.15);">
-                <img src="assets/miembros/EDUARDO/nova_bio_eduardo.jpg" alt="Eduardo" onclick="window.location.href='nosotros.html'" style="cursor: pointer; width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--accent); flex-shrink: 0; object-fit: cover; box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);">
-                <div style="flex: 1;">
-                    <h2 style="font-size: 1.5rem; margin: 0; color: #fff; letter-spacing: 1px;">EDUARDO RAMÍREZ</h2>
-                    <p style="font-size: 0.85rem; color: var(--accent); margin: 2px 0 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Fundador & Compositor</p>
-                    <p style="font-size: 0.85rem; color: #ccc; margin: 0; line-height: 1.3;">El alma mater de TRBand. Compositor y productor de cada pieza musical.</p>
+            </div>
+
+            <!-- Band DNI Grid -->
+            <div style="width: 100%; border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 40px;">
+                <h3 style="color: #fff; text-align: center; font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 30px; font-weight: 300;">LA BANDA</h3>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    
+                    <!-- EDU -->
+                    <div style="width: 130px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <img src="assets/miembros/EDUARDO/nova_bio_eduardo.jpg" alt="Eduardo" style="width: 100px; height: 130px; object-fit: cover; border-radius: 8px; border: 2px solid #aaa; margin-bottom: 10px; filter: grayscale(20%);">
+                        <span style="color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Eduardo Ramírez</span>
+                        <span style="color: #D4AF37; font-size: 0.65rem; line-height: 1.2; margin-top: 5px;">Voz solista, Bajo, Guitarra, Coros</span>
+                    </div>
+
+                    <!-- NARA -->
+                    <div style="width: 130px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <img src="assets/miembros/Nara/Nara cantando.png" alt="Nara" style="width: 100px; height: 130px; object-fit: cover; border-radius: 8px; border: 2px solid #aaa; margin-bottom: 10px; filter: grayscale(20%);">
+                        <span style="color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Nara Blue</span>
+                        <span style="color: #D4AF37; font-size: 0.65rem; line-height: 1.2; margin-top: 5px;">Voz solista, Coros, Percusión, Armónica, Teclados</span>
+                    </div>
+
+                    <!-- HIROSHI -->
+                    <div style="width: 130px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <img src="assets/miembros/Hiroshi/hiroshi_profile.jpg" alt="Hiroshi" style="width: 100px; height: 130px; object-fit: cover; border-radius: 8px; border: 2px solid #aaa; margin-bottom: 10px; filter: grayscale(20%);">
+                        <span style="color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Hiroshi Tanaka</span>
+                        <span style="color: #D4AF37; font-size: 0.65rem; line-height: 1.2; margin-top: 5px;">Batería, Voz solista, Coros</span>
+                    </div>
+
+                    <!-- LUCA -->
+                    <div style="width: 130px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <img src="assets/miembros/Luca/luca_final.jpg" alt="Luca" style="width: 100px; height: 130px; object-fit: cover; border-radius: 8px; border: 2px solid #aaa; margin-bottom: 10px; filter: grayscale(20%);">
+                        <span style="color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Luca Fiammetti</span>
+                        <span style="color: #D4AF37; font-size: 0.65rem; line-height: 1.2; margin-top: 5px;">Guitarra, Coros</span>
+                    </div>
+
+                    <!-- ERIK -->
+                    <div style="width: 130px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <img src="assets/miembros/Erik/sax_profile.jpg" alt="Erik" style="width: 100px; height: 130px; object-fit: cover; border-radius: 8px; border: 2px solid #aaa; margin-bottom: 10px; filter: grayscale(20%);">
+                        <span style="color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Erik Solberg</span>
+                        <span style="color: #D4AF37; font-size: 0.65rem; line-height: 1.2; margin-top: 5px;">Saxofón, Armónica, EWI, Coros</span>
+                    </div>
+
+                    <!-- ALBA -->
+                    <div style="width: 130px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <img src="assets/miembros/Alba/violin_profile.jpg" alt="Alba" style="width: 100px; height: 130px; object-fit: cover; border-radius: 8px; border: 2px solid #aaa; margin-bottom: 10px; filter: grayscale(20%);">
+                        <span style="color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Alba Cisneros</span>
+                        <span style="color: #D4AF37; font-size: 0.65rem; line-height: 1.2; margin-top: 5px;">Violín, Viola, Percusión, Coros</span>
+                    </div>
+
                 </div>
-            </section>
-        </div>
+            </div>
+            
+            <script>
+                // Teaser Logic 10s
+                const teaserAudio = document.getElementById('teaserAudio');
+                const teaserPlayBtn = document.getElementById('teaserPlayBtn');
+                const teaserProgress = document.getElementById('teaserProgress');
+                const teaserTime = document.getElementById('teaserTime');
+                const teaserTrackSelect = document.getElementById('teaserTrackSelect');
+
+                teaserTrackSelect.addEventListener('change', (e) => {
+                    teaserAudio.src = e.target.value;
+                    teaserAudio.currentTime = 0;
+                    teaserAudio.play();
+                    teaserPlayBtn.textContent = '⏸';
+                });
+
+                function toggleTeaserPlay() {
+                    if (teaserAudio.paused) {
+                        if (teaserAudio.currentTime >= 10) teaserAudio.currentTime = 0;
+                        teaserAudio.play();
+                        teaserPlayBtn.textContent = '⏸';
+                    } else {
+                        teaserAudio.pause();
+                        teaserPlayBtn.textContent = '▶';
+                    }
+                }
+
+                teaserAudio.addEventListener('timeupdate', () => {
+                    if (teaserAudio.currentTime >= 10) {
+                        teaserAudio.pause();
+                        teaserAudio.currentTime = 10;
+                        teaserPlayBtn.textContent = '▶';
+                    }
+                    const percent = Math.min((teaserAudio.currentTime / 10) * 100, 100);
+                    teaserProgress.style.width = percent + '%';
+                    teaserTime.textContent = teaserAudio.currentTime.toFixed(1) + ' / 10s';
+                });
+
+                teaserAudio.addEventListener('ended', () => {
+                    teaserPlayBtn.textContent = '▶';
+                });
+            </script>
+        </section>
 
         <!-- Press Recognition (Cloud Jazz) -->
         <!-- Press Recognition Strip -->
@@ -1647,6 +1745,33 @@
                 <p style="color: #777; font-size: 0.7rem; letter-spacing: 2px;">ARTISTA DIGITAL</p>
             </div>
         </section>
+
+        <!-- Showcase Section (Strips Layout) -->
+        <div class="showcase-container" style="display: flex; gap: 60px; width: 98%; max-width: 1400px; justify-content: center; align-items: flex-start; margin: 0 auto 120px; flex-wrap: wrap;">
+            
+            <!-- PROMO STRIP (Left) -->
+            <section id="wild-and-free" style="flex: 1; min-width: 450px; background: rgba(0,0,0,0.85); border: 1px solid #1DB954; border-radius: 12px; display: flex; align-items: center; padding: 40px 50px; gap: 30px; box-shadow: 0 0 25px rgba(29,185,84,0.2); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 10px; right: -30px; background: #1DB954; color: #000; font-size: 0.6rem; font-weight: 900; padding: 2px 30px; transform: rotate(45deg); z-index: 5;">NUEVO</div>
+                <img src="assets/wild_and_free_cover.png" alt="Cover" style="width: 110px; height: 110px; border-radius: 8px; border: 2px solid #1DB954; flex-shrink: 0; object-fit: cover;">
+                <div style="flex: 1;">
+                    <h2 style="font-size: 1.5rem; margin: 0; color: #fff; letter-spacing: 1px; font-family: 'Playfair Display', serif;">WILD AND FREE</h2>
+                    <p style="font-size: 0.85rem; color: #aaa; margin: 5px 0 15px; line-height: 1.3;">Single Oficial 2026. Ya disponible en Spotify.</p>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="https://open.spotify.com/intl-es/album/1imWJMPcVLsgc1NpZzHSf5" target="_blank" style="background: #1DB954; color: #000; text-decoration: none; font-size: 0.7rem; font-weight: 800; padding: 8px 15px; border-radius: 20px; text-transform: uppercase;">Spotify</a>
+                        <a href="wild-and-free/index.html" style="border: 1px solid var(--accent); color: var(--accent); text-decoration: none; font-size: 0.7rem; font-weight: 700; padding: 8px 15px; border-radius: 20px; text-transform: uppercase;">Lyrics</a>
+                    </div>
+                </div>
+            </section>
+            <!-- BIO STRIP (Right) -->
+            <section id="biography" style="flex: 1; min-width: 450px; background: rgba(0,0,0,0.85); border: 1px solid var(--accent); border-radius: 12px; display: flex; align-items: center; padding: 40px 50px; gap: 30px; box-shadow: 0 0 25px rgba(0, 242, 255, 0.15);">
+                <img src="assets/miembros/EDUARDO/nova_bio_eduardo.jpg" alt="Eduardo" onclick="window.location.href='nosotros.html'" style="cursor: pointer; width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--accent); flex-shrink: 0; object-fit: cover; box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);">
+                <div style="flex: 1;">
+                    <h2 style="font-size: 1.5rem; margin: 0; color: #fff; letter-spacing: 1px;">EDUARDO RAMÍREZ</h2>
+                    <p style="font-size: 0.85rem; color: var(--accent); margin: 2px 0 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Fundador & Compositor</p>
+                    <p style="font-size: 0.85rem; color: #ccc; margin: 0; line-height: 1.3;">El alma mater de TRBand. Compositor y productor de cada pieza musical.</p>
+                </div>
+            </section>
+        </div>
     </main>
     <script>
         // DEBUG LAUNCHER
@@ -1954,7 +2079,7 @@
         }
     </script>
     <script> // Random Background Video logic
-        const videos = ["assets/video/background_compressed.mp4"];
+        const videos = ["assets/video/NY_streets.mp4"];
         const bgVideo = document.getElementById('bgVideo');
         const randomVideo = videos[Math.floor(Math.random() * videos.length)];
         bgVideo.src = randomVideo;

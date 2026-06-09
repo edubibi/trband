@@ -39,7 +39,29 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
-            filter: grayscale(100%); /* Efecto Blanco y Negro */
+            overflow: hidden;
+        }
+
+        .bg-scroll-container {
+            display: flex;
+            width: 400vw;
+            height: 100%;
+            animation: scrollInfinite 60s linear infinite;
+        }
+
+        .bg-slide {
+            width: 100vw;
+            height: 100%;
+            background: url('assets/cuadro_on_the_way.jpeg') center/cover no-repeat;
+        }
+
+        .bg-slide.mirrored {
+            transform: scaleX(-1);
+        }
+
+        @keyframes scrollInfinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-200vw); }
         }
 
         /* --- HEADER --- */
@@ -154,8 +176,8 @@
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
             margin-bottom: 40px;
-            text-shadow: 0 0 15px rgba(0, 102, 255, 0.3), 0 4px 10px rgba(0, 0, 0, 0.5);
-            color: #0066FF;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9), 0 2px 5px rgba(0, 0, 0, 0.8);
+            color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 5px;
             text-align: center;
@@ -200,13 +222,13 @@
 
         /* --- VIDEOTECA STYLES --- */
         .role-highlight {
-            color: #0066FF; /* Azul Eléctrico Puro */
+            color: #ffffff;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin: 40px 0 20px;
             font-size: 1.5rem;
-            text-shadow: 0 0 10px rgba(0, 102, 255, 0.5); /* Resplandor Eléctrico */
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9), 0 2px 5px rgba(0, 0, 0, 0.8);
         }
 
         .video-categories {
@@ -382,9 +404,12 @@
 
 <body>
     <div class="bg-layer">
-        <video id="bgVideo" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-            <source src="assets/video/background_compressed.mp4" type="video/mp4">
-        </video>
+        <div class="bg-scroll-container">
+            <div class="bg-slide"></div>
+            <div class="bg-slide mirrored"></div>
+            <div class="bg-slide"></div>
+            <div class="bg-slide mirrored"></div>
+        </div>
     </div>
 
     <header class="main-header">
@@ -399,8 +424,7 @@
                 <a href="musica.html" class="nav-link">Música y Merchandising</a>
                 <div class="submenu">
                     <a href="musica.html" class="submenu-link">Reproductor Musical</a>
-                    <a href="fursona-genesis.html" class="submenu-link">Fursona Genesis (NFT)</a>
-                    <a href="quantum-deities.html" class="submenu-link">Quantum Deities (NFT)</a>
+
                 </div>
             </div>
 
