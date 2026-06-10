@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créditos Oficiales - Cut the roll and jazzfree (TRB)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --surface-color: #151515;
+            --text-main: #f0f0f0;
+            --text-muted: #999;
+            --accent: #D4AF37;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 30px;
+        }
+
+        /* Header / Title */
+        .header-section {
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .header-section h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            color: #fff;
+            margin: 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .header-section h2 {
+            font-family: var(--font-sans);
+            color: var(--accent);
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Grid Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* Tracklist Section */
+        .tracklist-box {
+            background-color: var(--surface-color);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .track-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .track-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 5px;
+        }
+
+        .track-number {
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 15px;
+            width: 20px;
+            display: inline-block;
+        }
+
+        .track-name {
+            font-weight: 600;
+            color: #fff;
+            flex-grow: 1;
+        }
+
+        .track-time {
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .track-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Credits Section */
+        .credits-box {
+            padding: 10px;
+        }
+
+        .credit-group {
+            margin-bottom: 25px;
+        }
+
+        .credit-role {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        .credit-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .credit-name em {
+            color: var(--accent);
+            font-style: normal;
+        }
+
+        /* Band Members List */
+        .band-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+
+        .band-list li {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .band-list strong {
+            color: #fff;
+        }
+
+        .band-list span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer Note */
+        .footer-note {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            color: #666;
+        }
+
+        /* Print Button - Hides when printing */
+        .print-btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .print-btn {
+            background-color: var(--accent);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            font-family: var(--font-sans);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .print-btn:hover {
+            background-color: #f3c93f;
+        }
+
+        /* PRINT STYLES - Optimized for PDF Export */
+        @media print {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .header-section h1, .credit-name, .track-name, .band-list strong {
+                color: #000000;
+            }
+
+            .header-section h2, .section-title, .credit-name em, .track-number {
+                color: #555555;
+            }
+
+            .tracklist-box {
+                background-color: #ffffff;
+                border: 1px solid #dddddd;
+            }
+
+            .track-list li {
+                border-bottom: 1px solid #eeeeee;
+            }
+
+            .credit-role, .track-time, .band-list span, .footer-note, .copyright {
+                color: #444444;
+            }
+
+            .header-section {
+                border-bottom: 2px solid #333333;
+            }
+
+            .section-title, .footer-note {
+                border-color: #cccccc;
+            }
+
+            .print-btn-container {
+                display: none;
+            }
+
+            @page {
+                margin: 2cm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header class="header-section">
+            <h1>CUT THE ROLL AND JAZZFREE</h1>
+            <h2>The Research Band · 2026</h2>
+        </header>
+
+        <!-- Main Content -->
+        <div class="content-grid">
+            
+            <!-- Left Column: Tracklist -->
+            <div class="tracklist-box">
+                <h3 class="section-title">Tracklist</h3>
+                <ul class="track-list">
+                    <li><span class="track-name"><span class="track-number">1.</span>Ball in play</span> <span class="track-time">03:41</span></li>
+                    <li><span class="track-name"><span class="track-number">2.</span>Bass stand yeah</span> <span class="track-time">03:15</span></li>
+                    <li><span class="track-name"><span class="track-number">3.</span>Bloody Lukas</span> <span class="track-time">02:58</span></li>
+                    <li><span class="track-name"><span class="track-number">4.</span>Books forever</span> <span class="track-time">04:34</span></li>
+                    <li><span class="track-name"><span class="track-number">5.</span>Bruma</span> <span class="track-time">02:22</span></li>
+                    <li><span class="track-name"><span class="track-number">6.</span>Chrome Rhythms</span> <span class="track-time">02:11</span></li>
+                    <li><span class="track-name"><span class="track-number">7.</span>Deprisa, ven despacio</span> <span class="track-time">02:14</span></li>
+                    <li><span class="track-name"><span class="track-number">8.</span>Dragon lands</span> <span class="track-time">01:46</span></li>
+                    <li><span class="track-name"><span class="track-number">9.</span>Feel your dreams</span> <span class="track-time">02:08</span></li>
+                    <li><span class="track-name"><span class="track-number">10.</span>Lotus play</span> <span class="track-time">02:21</span></li>
+                    <li><span class="track-name"><span class="track-number">11.</span>Macao no es Lao</span> <span class="track-time">03:46</span></li>
+                    <li><span class="track-name"><span class="track-number">12.</span>Much time ago</span> <span class="track-time">01:57</span></li>
+                    <li><span class="track-name"><span class="track-number">13.</span>Plastic hard</span> <span class="track-time">02:15</span></li>
+                    <li><span class="track-name"><span class="track-number">14.</span>Tatum screen</span> <span class="track-time">02:31</span></li>
+                    <li><span class="track-name"><span class="track-number">15.</span>Without a trace of barbarism</span> <span class="track-time">02:25</span></li>
+                </ul>
+                <div class="track-note">
+                    (Todos los temas compuestos y arreglados por Eduardo Ramírez de Cartagena)
+                </div>
+            </div>
+
+            <!-- Right Column: Credits -->
+            <div class="credits-box">
+                <h3 class="section-title">Créditos del Álbum</h3>
+                
+                <div class="credit-group">
+                    <span class="credit-role">Producción</span>
+                    <span class="credit-name">Eduardo Ramírez de Cartagena</span>
+                </div>
+
+                <div class="credit-group">
+                    <span class="credit-role">Co-Producción</span>
+                    <span class="credit-name">Klaus Von Hertzen</span>
+                </div>
+
+                <div class="credit-group">
+                    <span class="credit-role">Estudios de Grabación</span>
+                    <span class="credit-name"><em>KlangHaus Studios</em> (Berlín, Alemania)<br><em>Estudios Centrales TRB</em> (Madrid, España)</span>
+                </div>
+
+                <div class="credit-group">
+                    <span class="credit-role">Ingeniería de Mezcla</span>
+                    <span class="credit-name">Dieter Moebius Jr. en <em>KlangHaus Studios</em></span>
+                </div>
+
+                <div class="credit-group">
+                    <span class="credit-role">Masterizado</span>
+                    <span class="credit-name">Eduardo Ramírez de Cartagena en <em>Estudios Centrales TRB</em></span>
+                </div>
+
+                <div class="credit-group" style="margin-top: 35px;">
+                    <span class="credit-role" style="color: var(--accent); font-weight: bold; margin-bottom: 8px;">The Research Band</span>
+                    <ul class="band-list">
+                        <li><strong>Eduardo "EDU" R. de Cartagena</strong> <span>(Voz Solista, Bajo, Guitarra)</span></li>
+                        <li><strong>Luca Alessandro Fiammetti</strong> <span>(Guitarra Jazz Fusion)</span></li>
+                        <li><strong>Erik Solberg Andrade</strong> <span>(Saxofón, Armónica)</span></li>
+                        <li><strong>Alba Cisneros Montalbán</strong> <span>(Violín, Viola, Percusión)</span></li>
+                        <li><strong>Hiroshi Tanaka</strong> <span>(Batería, Percusiones)</span></li>
+                        <li><strong>Nara Blue</strong> <span>(Voz, Percusión, Teclados)</span></li>
+                    </ul>
+                </div>
+
+                <div class="credit-group">
+                    <span class="credit-role">Músicos Adicionales / Invitados</span>
+                    <ul class="band-list" style="margin-top: 5px;">
+                        <li><strong>The Berlin Horns</strong> <span>(Sección de metales en "Macao no es Lao")</span></li>
+                        <li><strong>The Research Band</strong> <span>(Todos los coros adicionales)</span></li>
+                    </ul>
+                </div>
+
+                <div class="credit-group">
+                    <span class="credit-role">Arte y Diseño Gráfico</span>
+                    <span class="credit-name">DudeDuArt Gallery</span>
+                </div>
+
+                <div class="credit-group">
+                    <span class="credit-role">Producción Ejecutiva</span>
+                    <span class="credit-name">TRB Music Records / e.ramirez</span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Grabado entre Enero y Febrero de 2026 utilizando equipamiento analógico vintage (Mesa Neve 8048) combinado con tecnología de vanguardia para capturar la esencia orgánica del sonido de The Research Band.
+        </div>
+
+        <div class="copyright">
+            P&C 2026 TRB Music / Todos los derechos reservados.
+        </div>
+
+        <div class="print-btn-container">
+            <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar como PDF</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
