@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz Sonora - La Colección Musical</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="audio-player-container">
+        <!-- Cabecera de Votación (Promo) -->
+        <div class="player-header promo-header">
+            <h2>THE RESEARCH BAND - FASE FINAL DE PRODUCCIÓN</h2>
+            <p class="promo-text">Con el máster sobre la mesa, quiero invitarte a formar parte del equipo en la criba final. Escucha la colección, dale al corazón 🤍 a los <strong>15 cortes</strong> que deben cerrar el tracklist definitivo y, a cambio, <strong>tu nombre aparecerá en los créditos de producción del disco</strong> y te llevarás una <strong>copia digital de regalo</strong>.</p>
+        </div>
+
+        <div class="player-content">
+            <!-- Izquierda: Portada y Controles -->
+            <div class="player-left">
+                <div class="album-cover-container">
+                    <!-- Ruta limpia apuntando directamente a portada.png -->
+                    <img src="portada.png" alt="Portada General" class="album-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%231a2942\'/><text x=\'50%\' y=\'50%\' fill=\'white\' font-family=\'Arial\' font-size=\'20\' text-anchor=\'middle\'>Falta Portada</text></svg>'">
+                    <div class="cover-glow"></div>
+                </div>
+                
+                <h3 id="current-track-title" class="track-title">Selecciona una pista</h3>
+                
+                <div class="progress-container" id="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                
+                <div class="time-displays">
+                    <span id="current-time">00:00</span>
+                    <span id="total-time">00:00</span>
+                </div>
+
+                <div class="controls">
+                    <button class="control-btn" id="btn-prev">
+                        <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                    </button>
+                    <button class="control-btn play-btn" id="btn-play">
+                        <svg viewBox="0 0 24 24" id="icon-play"><path d="M8 5v14l11-7z"/></svg>
+                        <svg viewBox="0 0 24 24" id="icon-pause" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </button>
+                    <button class="control-btn" id="btn-next">
+                        <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+                    </button>
+                </div>
+
+                <audio id="main-audio-player"></audio>
+            </div>
+
+            <!-- Derecha: Lista de Canciones -->
+            <div class="player-right">
+                <h4 class="playlist-title">Muestra de Colección: TRBANDMUSIC</h4>
+                <ul class="playlist-list" id="playlist-list">
+                    <!-- Se llena con Javascript -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Panel de Votación -->
+    <div id="voting-panel" class="voting-panel">
+        <p>Has elegido <span id="vote-count">0</span> de 15 temas</p>
+        <button id="btn-submit-votes" class="btn-vote-submit" disabled>ENVIAR VOTOS</button>
+    </div>
+
+    <!-- Modal de Créditos -->
+    <div id="modal-credits" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close">&times;</button>
+            <h3>¡Gracias por ayudarnos!</h3>
+            <p>¿Quieres salir en los créditos del nuevo disco? Déjanos tu nombre o apodo abajo.</p>
+            <p class="modal-incentive">Como regalo por participar, te enviaremos el disco en digital cuando esté terminado.</p>
+            <input type="text" id="voter-name" placeholder="Tu nombre para los créditos..." />
+            <button id="btn-send-whatsapp" class="btn-whatsapp">Enviar por WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/audio-metadata.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
