@@ -1,4 +1,4 @@
-﻿window.dynamicAudioTracks = [
+window.dynamicAudioTracks = [
     { title: "¿a donde bass", src: "MP3  SONGS trband/¿a donde bass.mp3" },
     { title: "Al borde de tu brillo", src: "MP3  SONGS trband/Al borde de tu brillo.mp3" },
     { title: "All around if you want", src: "MP3  SONGS trband/All around if you want.mp3" },
