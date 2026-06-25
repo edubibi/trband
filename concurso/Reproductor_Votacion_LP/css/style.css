@@ -222,7 +222,7 @@ body {
     border-left: 3px solid #38bdf8;
 }
 
-/* Responsividad para móviles */
+/* Responsividad para mÃ³viles */
 @media (max-width: 768px) {
     .player-left {
         border-right: none;
@@ -233,15 +233,19 @@ body {
         max-height: 300px;
     }
 }
-/* Sistema de Votaci�n */
+/* Sistema de Votacion */
 .vote-btn {
     background: none;
     border: none;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.6); /* Más visible por defecto */
     font-size: 1.2rem;
     cursor: pointer;
     margin-right: 10px;
     transition: all 0.2s;
+    flex-shrink: 0; /* Evita que el botón se encoja y desaparezca en pantallas móviles */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 .vote-btn:hover {
     color: #fcd34d;
@@ -249,6 +253,7 @@ body {
 }
 .vote-btn.selected {
     color: #fcd34d;
+    opacity: 1;
 }
 .track-name {
     flex-grow: 1;
@@ -283,7 +288,7 @@ body {
     opacity: 0.5;
 }
 
-/* Modal de Cr�ditos */
+/* Modal de Créditos */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
