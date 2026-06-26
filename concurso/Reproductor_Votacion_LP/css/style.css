@@ -222,15 +222,47 @@ body {
     border-left: 3px solid #38bdf8;
 }
 
-/* Responsividad para mÃ³viles */
+/* Responsividad para móviles */
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .audio-player-container {
+        border-radius: 8px;
+    }
+    
     .player-left {
         border-right: none;
         border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+        padding: 20px 15px;
     }
     
     .playlist-list {
         max-height: 300px;
+    }
+
+    .player-header h2 {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    .promo-text {
+        font-size: 0.9rem !important;
+        padding: 0 10px;
+        text-align: center;
+    }
+
+    .voting-panel {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .btn-vote-submit {
+        width: 100%;
     }
 }
 /* Sistema de Votacion */
