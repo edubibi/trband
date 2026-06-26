@@ -2,6 +2,9 @@
 // REPRODUCTOR MUSICAL PORTÁTIL
 // =========================================
 
+// URL del Web App de Google Apps Script (Reemplazar con tu URL definitiva de Google Sheets)
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby9SQxWqYb2LxM4bh3z1r_whE-Z3SG-JhrOsriBAx3jDSTTu6CIZ6fSKLUjPDRoszJ2w/exec";
+
 document.addEventListener('DOMContentLoaded', () => {
     initAudioPlayer();
 });
@@ -153,36 +156,73 @@ function initAudioPlayer() {
         });
     }
 
-    if(btnSendWhatsapp) {
-        btnSendWhatsapp.addEventListener('click', () => {
-            const name = inputVoterName.value.trim() || "Un oyente anónimo";
+    const btnSubmitForm = document.getElementById('btn-submit-form');
+    const inputVoterEmail = document.getElementById('voter-email');
+    const submitStatusMsg = document.getElementById('submit-status-msg');
+
+    if (btnSubmitForm) {
+        btnSubmitForm.addEventListener('click', () => {
+            const name = inputVoterName.value.trim();
+            const email = inputVoterEmail.value.trim();
             
-            let message = `¡Hola Edu! Soy ${name}. Aquí tienes mis 15 elegidas para el nuevo disco de The Research Band:\n\n`;
-            
-            let count = 1;
+            if (!name || !email) {
+                alert("Por favor, introduce tu nombre y tu correo electrónico.");
+                return;
+            }
+
+            // Validar formato de email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Por favor, introduce un correo electrónico válido.");
+                return;
+            }
+
+            btnSubmitForm.disabled = true;
+            btnSubmitForm.textContent = "Enviando votos...";
+            if (submitStatusMsg) {
+                submitStatusMsg.style.display = "block";
+                submitStatusMsg.style.color = "#cbd5e1";
+                submitStatusMsg.textContent = "Procesando votos...";
+            }
+
+            // Recopilar los títulos de las canciones elegidas
+            const chosenSongs = [];
             selectedTracks.forEach(trackIndex => {
-                message += `${count}. ${formatTitle(activeTracks[trackIndex].title)}\n`;
-                count++;
+                chosenSongs.push(formatTitle(activeTracks[trackIndex].title));
             });
-            
-            message += `\n¡Apúntame en los créditos y mándame el disco cuando esté listo!`;
-            
-            const encodedMessage = encodeURIComponent(message);
-            
-            // AVISO PARA EDUARDO: Cambia 'TUTELEFONO' por tu número con prefijo, ej: 34600123456
-            const phoneNumber = "34678708729"; 
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            
-            // Registrar que este navegador ya ha votado
-            localStorage.setItem('trband_voted', 'true');
-            
-            // Recargar la página para aplicar el candado
-            setTimeout(() => {
-                window.location.reload();
-            }, 1000);
-            
-            window.open(whatsappUrl, '_blank');
-            modalCredits.classList.add('hidden');
+
+            // Enviar datos al Apps Script de Google Sheets
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors", // Para evitar problemas de CORS de redirección de Google
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nombre: name,
+                    email: email,
+                    votos: chosenSongs.join(", ")
+                })
+            })
+            .then(() => {
+                localStorage.setItem('trband_voted', 'true');
+                if (submitStatusMsg) {
+                    submitStatusMsg.style.color = "#25D366";
+                    submitStatusMsg.textContent = "¡Votos registrados con éxito! Muchas gracias.";
+                }
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            })
+            .catch(error => {
+                console.error("Error al enviar votos:", error);
+                alert("Hubo un problema al enviar tus votos. Por favor, comprueba tu conexión e inténtalo de nuevo.");
+                btnSubmitForm.disabled = false;
+                btnSubmitForm.textContent = "Confirmar y Enviar Votos";
+                if (submitStatusMsg) {
+                    submitStatusMsg.style.display = "none";
+                }
+            });
         });
     }
 
