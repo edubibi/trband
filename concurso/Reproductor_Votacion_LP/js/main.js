@@ -3,7 +3,7 @@
 // =========================================
 
 // URL del Web App de Google Apps Script (Reemplazar con tu URL definitiva de Google Sheets)
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby9SQxWqYb2LxM4bh3z1r_whE-Z3SG-JhrOsriBAx3jDSTTu6CIZ6fSKLUjPDRoszJ2w/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby9SQxWqYb2LxM4bh3z1r_whE-Z3SG-JhrOsriBAx3jDSTTtu6CIZ6fSKLUjPDRoszJ2w/exec";
 
 document.addEventListener('DOMContentLoaded', () => {
     initAudioPlayer();
