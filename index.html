@@ -1667,8 +1667,19 @@
                     margin-right: auto !important;
                     left: 0 !important;
                     padding: 25px 15px !important;
+                    display: flex !important;
                     flex-direction: column !important;
+                    align-items: center !important;
+                    justify-content: center !important;
                     text-align: center !important;
+                }
+
+                /* Forzar que los hijos de section se centren */
+                section > div, .release-info, #promo-jazzrock > div {
+                    text-align: center !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    width: 100% !important;
                 }
 
                 /* Imágenes dentro de flex en móviles */
@@ -1690,14 +1701,17 @@
                 }
                 
                 .fuga-content {
-                    padding: 0px;
-                    flex-direction: column;
-                    text-align: center;
+                    padding: 0px !important;
+                    flex-direction: column !important;
+                    text-align: center !important;
+                    display: flex !important;
+                    align-items: center !important;
                 }
                 
                 #bloody-lukas .zoom-wrapper, #bloody-lukas img.release-art {
-                    width: 200px !important;
-                    height: 200px !important;
+                    width: 250px !important;
+                    height: 250px !important;
+                    margin: 0 auto !important;
                 }
 
                 #manifesto div, #press-recognition div {
