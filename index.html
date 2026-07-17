@@ -1617,20 +1617,77 @@
                </section>
         
         <!-- TEASER FUGA 2026 -->
-        <section id="fuga-teaser" style="width: 90%; max-width: 1000px; margin: 0 auto 60px; background: rgba(0, 0, 0, 0.9); border: 1px solid #d4af37; border-radius: 15px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); overflow: hidden; position: relative;">
+        <style>
+            #fuga-teaser {
+                width: 92%; 
+                max-width: 900px; 
+                margin: 0 auto 60px auto; 
+                background: rgba(0, 0, 0, 0.9); 
+                border: 1px solid #d4af37; 
+                border-radius: 15px; 
+                box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); 
+                overflow: hidden; 
+                position: relative;
+                box-sizing: border-box;
+                align-self: center; /* Forzar centrado si el padre es flex */
+            }
+            .fuga-content {
+                position: relative; 
+                z-index: 2; 
+                padding: 40px; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                flex-wrap: wrap; 
+                gap: 30px;
+                box-sizing: border-box;
+            }
+            .fuga-text h2 {
+                color: #d4af37; 
+                font-size: 2.5rem; 
+                font-family: 'Playfair Display', serif; 
+                margin: 0 0 15px 0; 
+                line-height: 1.1; 
+                text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            }
+            @media (max-width: 768px) {
+                #fuga-teaser {
+                    width: 95%;
+                    margin-bottom: 40px;
+                }
+                .fuga-content {
+                    padding: 30px 15px;
+                    flex-direction: column;
+                    text-align: center;
+                }
+                .fuga-text {
+                    text-align: center !important;
+                    width: 100%;
+                }
+                .fuga-text h2 {
+                    font-size: 2.2rem;
+                }
+                #fuga-teaser img {
+                    max-width: 260px !important;
+                    margin: 0 auto;
+                    display: block;
+                }
+            }
+        </style>
+        <section id="fuga-teaser">
             <!-- Fondo desenfocado -->
             <div style="position: absolute; top: -10%; left: -10%; width: 120%; height: 120%; background-image: url('assets/img/fuga/portada-fuga-2026-3000.jpg'); background-size: cover; background-position: center; filter: blur(40px) brightness(0.2); z-index: 1;"></div>
             
-            <div style="position: relative; z-index: 2; padding: 50px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 30px;">
+            <div class="fuga-content">
                 <!-- Imagen -->
                 <div style="flex: 1; min-width: 250px; text-align: center;">
                     <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="Fuga Teaser" style="width: 100%; max-width: 350px; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.1);">
                 </div>
                 
                 <!-- Texto -->
-                <div style="flex: 2; min-width: 300px; text-align: left;">
+                <div class="fuga-text" style="flex: 2; min-width: 250px; text-align: left;">
                     <h3 style="color: #fff; font-size: 1rem; letter-spacing: 4px; font-weight: 300; margin-bottom: 15px;">MUY PRONTO...</h3>
-                    <h2 style="color: #d4af37; font-size: 2.5rem; font-family: 'Playfair Display', serif; margin: 0 0 20px 0; line-height: 1.1; text-shadow: 0 4px 10px rgba(0,0,0,0.8);">FUGA<br><span style="font-size: 1.5rem; color: #fff;">(2026 Versions)</span></h2>
+                    <h2>FUGA<br><span style="font-size: 1.5rem; color: #fff;">(2026 Versions)</span></h2>
                     <p style="color: #ccc; font-size: 1.1rem; line-height: 1.6; margin-bottom: 0;">
                         <em>Hay cosas que el tiempo no puede borrar. Solo mejorarlas.</em><br><br>
                         Las composiciones y la magia de los años 80, grabadas y mezcladas con la tecnología más avanzada de 2026. Una auténtica joya maestra.
