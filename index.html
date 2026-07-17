@@ -1651,41 +1651,59 @@
                 text-shadow: 0 4px 10px rgba(0,0,0,0.8);
             }
             @media (max-width: 768px) {
-                #fuga-teaser, #bloody-lukas, #promo-jazzrock, .cta-concurso {
+                /* REGLA GLOBAL DE SEGURIDAD PARA MÓVILES */
+                body, main {
+                    overflow-x: hidden !important;
+                    width: 100vw !important;
+                }
+                
+                section, .cta-concurso, .showcase-container > section, div[style*="width: 98%"] {
                     width: 95vw !important;
+                    max-width: 100% !important;
+                    min-width: 0 !important;
                     box-sizing: border-box !important;
                     align-self: center !important;
                     margin-left: auto !important;
                     margin-right: auto !important;
                     left: 0 !important;
+                    padding: 25px 15px !important;
+                    flex-direction: column !important;
+                    text-align: center !important;
                 }
+
+                /* Imágenes dentro de flex en móviles */
+                section img, .cta-concurso img {
+                    max-width: 250px !important;
+                    height: auto !important;
+                    margin: 0 auto 15px auto !important;
+                    display: block !important;
+                }
+
+                /* Ajustes específicos de textos para móviles */
+                h2, h3, .glitch {
+                    font-size: 1.8rem !important;
+                    text-align: center !important;
+                }
+                
                 #fuga-teaser {
                     margin-bottom: 40px !important;
                 }
-                #promo-jazzrock {
-                    padding: 25px 15px !important;
-                }
-                #bloody-lukas .zoom-wrapper, #bloody-lukas img.release-art {
-                    width: 250px !important;
-                    height: 250px !important;
-                    margin: 0 auto !important;
-                }
+                
                 .fuga-content {
-                    padding: 30px 15px;
+                    padding: 0px;
                     flex-direction: column;
                     text-align: center;
                 }
-                .fuga-text {
+                
+                #bloody-lukas .zoom-wrapper, #bloody-lukas img.release-art {
+                    width: 200px !important;
+                    height: 200px !important;
+                }
+
+                #manifesto div, #press-recognition div {
+                    border: none !important;
+                    padding: 0 !important;
                     text-align: center !important;
-                    width: 100%;
-                }
-                .fuga-text h2 {
-                    font-size: 2.2rem;
-                }
-                #fuga-teaser img {
-                    max-width: 260px !important;
-                    margin: 0 auto;
-                    display: block;
                 }
             }
         </style>
