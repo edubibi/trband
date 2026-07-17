@@ -1552,7 +1552,23 @@
 
             .banner-btns {
                 justify-content: center;
-            }
+        /* Loop Animation for Bloody Lukas Cover */
+        @keyframes slowZoom {
+            0% { transform: scale(1); filter: brightness(1) saturate(1); }
+            50% { transform: scale(1.05); filter: brightness(1.1) saturate(1.1); }
+            100% { transform: scale(1); filter: brightness(1) saturate(1); }
+        }
+        @keyframes glowBorder {
+            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); border-color: rgba(212, 175, 55, 0.6); }
+            50% { box-shadow: 0 0 35px rgba(212, 175, 55, 0.8); border-color: rgba(212, 175, 55, 1); }
+            100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); border-color: rgba(212, 175, 55, 0.6); }
+        }
+        .animate-zoom-loop {
+            animation: slowZoom 8s ease-in-out infinite;
+        }
+        .animate-glow-border {
+            animation: glowBorder 4s ease-in-out infinite;
+            border: 3px solid rgba(212, 175, 55, 0.6);
         }
     </style>
 </head>
@@ -1593,35 +1609,84 @@
 
             <!-- CTA CONCURSO GIGANTE -->
             <div class="cta-concurso" style="background: rgba(0, 0, 0, 0.85); border: 2px solid var(--accent); padding: 40px; border-radius: 15px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); margin: 80px auto 0px; width: 90%; max-width: 1000px; animation: pulse 2s infinite;">
+                <h3 style="color: #D4AF37; margin: 0 0 15px 0; font-size: 1.6rem; letter-spacing: 4px; font-weight: bold; text-transform: uppercase;">EL ARTISTA ERES TÚ</h3>
                 <h2 style="color: var(--accent); margin-top: 0; font-size: 2rem; letter-spacing: 2px; font-family: 'Playfair Display', serif;">ACCESO AL ESTUDIO</h2>
                 <p style="font-size: 1.2rem; margin-bottom: 30px; color: #fff;">Escucha el máster en exclusiva y decide tú el tracklist final.</p>
                 <a href="concurso/index.html" class="btn-action" style="font-size: 1.2rem; padding: 15px 50px; background: var(--accent); color: #000; box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); text-decoration: none; font-weight: 800; border-radius: 5px; display: inline-block;">ENTRAR AL ESTUDIO Y PARTICIPAR</a>
             </div>
                </section>
         
-        <!-- TEXTO LANZAMIENTO (Estilo Boceto) -->
+        <!-- BLOODY LUKAS ALBUM RELEASE FEATURE (GOLDEN GLOW STYLE) -->
+        <section id="bloody-lukas" class="release-feature" style="border-color: #d4af37; background: rgba(0,0,0,0.9); box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); margin-bottom: 60px;">
+            <div class="ribbon-container">
+                <div class="ribbon" style="background: #d4af37; color: #000; border: none; box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);">NUEVO DISCO</div>
+                <div class="zoom-wrapper" style="overflow: hidden; border-radius: 10px; width: 280px; height: 280px; display: flex; align-items: center; justify-content: center;">
+                    <img src="assets/bloody_lukas_canvas.jpg" alt="Bloody Lukas Cover" class="release-art animate-zoom-loop animate-glow-border" style="border-radius: 10px; width: 280px; height: 280px; object-fit: cover;">
+                </div>
+            </div>
+            <div class="release-info">
+                <h2 class="glitch" data-text="BLOODY LUKAS" style="color: #d4af37; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); font-size: 2.5rem; letter-spacing: 4px; font-weight: bold; margin: 0 0 10px 0;">BLOODY LUKAS</h2>
+                <p style="color: #fff; font-size: 1.15rem; font-weight: 500; margin-bottom: 5px;">Single destacado del nuevo álbum <em>"Cut the Roll and Jazzrock"</em></p>
+                <p style="color: #ccc; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">Un tema instrumental vibrante que fusiona la energía del jazz-rock clásico de los 80 con bajo funk arrollador, sintetizadores retro y metales potentes. Producido por Eduardo Ramírez.</p>
+                
+                <div class="mini-countdown" id="lukasCountdown" style="background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); color: #d4af37; font-weight: 600;">Quedan 00D 00H 00M 00S</div>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                    <div style="display: flex; gap: 10px;">
+                        <a href="https://open.spotify.com/artist/13WJTJy2K8r5uRfsIyP28T" target="_blank" class="btn-system" style="border-color: #d4af37; color: #d4af37; flex: 1; text-align: center;">ESCUCHAR EN SPOTIFY</a>
+                        <a href="catalogo_showcase/index.html" class="btn-system" style="border-color: #ffffff; color: #ffffff; flex: 1; text-align: center;">SHOWCASE PRIVADO</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <script>
+            (function() {
+                const lukasLaunchDate = new Date("July 8, 2026 00:00:00").getTime();
+                function updateCountdown() {
+                    const now = new Date().getTime();
+                    const dist = lukasLaunchDate - now;
+                    const d = Math.floor(dist / (1000 * 60 * 60 * 24));
+                    const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+                    const s = Math.floor((dist % (1000 * 60)) / 1000);
+                    const el = document.getElementById("lukasCountdown");
+                    if (el) {
+                        if (dist < 0) {
+                            el.innerHTML = "¡YA DISPONIBLE!";
+                        } else {
+                            el.innerHTML = `Quedan ${d}D ${h}H ${m}M ${s}S`;
+                        }
+                    }
+                }
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            })();
+        </script>
+         
+        <!-- TEXTO LANZAMIENTO OFICIAL -->
         <div style="margin-bottom: 20px; text-align: center;">
             <div style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(5px); padding: 15px 50px; border-radius: 8px; display: inline-block; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <p style="color: #fff; font-size: 1.4rem; font-weight: 800; letter-spacing: 3px; margin-bottom: 5px; text-shadow: 0 4px 10px rgba(0,0,0,0.8);">LANZAMIENTO "CUT THE ROLL & JAZZROCK": 8 DE JULIO</p>
-                <p style="color: var(--accent); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; margin-top: 0; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,0.8);">Available on all platforms</p>
+                <p style="color: #fff; font-size: 1.4rem; font-weight: 800; letter-spacing: 3px; margin-bottom: 5px; text-shadow: 0 4px 10px rgba(0,0,0,0.8);">NUEVO DISCO: "CUT THE ROLL & JAZZROCK"</p>
+                <p style="color: var(--accent); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; margin-top: 0; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,0.8);">Ya disponible en todas las plataformas</p>
             </div>
         </div>
 
         <!-- WILD AND FREE — LANZAMIENTO OFICIAL -->
         <!-- Showcase Section (Promo + Bio) -->
-        <!-- PROMO PRE-LANZAMIENTO CUT THE ROLL & JAZZROCK -->
+        <!-- SHOWCASE DISCO OFICIAL CUT THE ROLL & JAZZROCK -->
         <section id="promo-jazzrock" style="width: 98%; max-width: 1400px; margin: 0 auto 120px; background: rgba(0, 0, 0, 0.85); border: 1px solid #D4AF37; border-radius: 15px; padding: 50px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2); position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 20px; left: -40px; background: #D9381E; color: #fff; font-size: 0.8rem; font-weight: 900; padding: 5px 40px; transform: rotate(-45deg); z-index: 5; letter-spacing: 2px;">PRE-RESERVA</div>
             
+
             <!-- Hero Title & Cover -->
             <div style="display: flex; gap: 40px; align-items: center; margin-bottom: 40px; width: 100%; max-width: 900px; flex-wrap: wrap; justify-content: center;">
                 <img src="assets/portada_cut the roll and jazzrock.png" alt="Cut the Roll & JazzRock" style="width: 250px; height: 250px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 2px solid #D4AF37;">
                 <div style="flex: 1; min-width: 300px; text-align: left;">
                     <h2 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0 0 20px 0; line-height: 1.1;">CUT THE ROLL & JAZZROCK</h2>
                     
-                    <!-- 10s Teaser Player -->
+                    <!-- Player -->
                     <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
-                        <p style="color: #D4AF37; margin: 0 0 10px; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px;"><span style="color: #ff00ff;">⚠ PREVIEW EXCLUSIVA:</span> 10 SEGUNDOS</p>
+                        <p style="color: #D4AF37; margin: 0 0 10px; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px;"><span style="color: #ff00ff;">► ESCUCHA AHORA</span></p>
                         <select id="teaserTrackSelect" style="width: 100%; padding: 10px; background: #000; color: #fff; border: 1px solid #D4AF37; border-radius: 5px; margin-bottom: 15px; outline: none; font-family: 'Montserrat', sans-serif;">
                             <option value="assets/audio/preview/Bloody Lukas.mp3">1. Bloody Lukas</option>
                             <option value="assets/audio/preview/Chrome Rhythms.mp3">2. Chrome Rhythms</option>
@@ -2078,9 +2143,13 @@
             renderPlaylist();
         }
 
-        audioPlayer.addEventListener('ended', nextTrack);
-        audioPlayer.onplay = () => coverDisplay.classList.add('playing');
-        audioPlayer.onpause = () => coverDisplay.classList.remove('playing');
+        if (audioPlayer) {
+            audioPlayer.addEventListener('ended', nextTrack);
+            if (coverDisplay) {
+                audioPlayer.onplay = () => coverDisplay.classList.add('playing');
+                audioPlayer.onpause = () => coverDisplay.classList.remove('playing');
+            }
+        }
 
         renderPlaylist();
 
