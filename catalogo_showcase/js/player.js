@@ -20,6 +20,8 @@ const PAUSE_SVG = '<svg viewBox="0 0 24 24" width="24" height="24" fill="current
 
 // 1. Initialize and Render Page
 function initializeShowcase() {
+    musicCatalog.sort((a, b) => a.title.localeCompare(b.title, 'es', { sensitivity: 'base' }));
+    filteredCatalog = [...musicCatalog];
     renderTracks();
     setupAudioListeners();
 }
