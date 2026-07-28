@@ -1,18 +1,6 @@
 // TRBAND Music Catalog Database
 const musicCatalog = [
     {
-        "genre": "Jazz",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/05/29",
-        "folders": [],
-        "registered": true,
-        "mp3": "assets/audio_unificado/a donde bass.mp3",
-        "authors": "Eduardo Ramírez",
-        "iswc": "T3408172743",
-        "title": "¿a donde bass?"
-    },
-    {
         "genre": "Pop",
         "wav": null,
         "mood": "Premium",
@@ -35,6 +23,18 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "T3375032712",
         "title": "all around if you want"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/07/19",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/AS WE FALL.mp3",
+        "authors": "Eduardo Luis Ramírez",
+        "iswc": "T3417132704",
+        "title": "as we fall"
     },
     {
         "genre": "Jazz",
@@ -71,6 +71,18 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "T3410913047",
         "title": "ball in play"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/07/19",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/Banana split.mp3",
+        "authors": "Eduardo Luis Ramírez",
+        "iswc": "T3417133423",
+        "title": "banana split"
     },
     {
         "genre": "Jazz",
@@ -145,6 +157,18 @@ const musicCatalog = [
         "title": "books forever"
     },
     {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/07/19",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/Brake on the stars.mp3",
+        "authors": "Eduardo Luis Ramírez",
+        "iswc": "T3417133183",
+        "title": "brake on the stars"
+    },
+    {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
@@ -167,6 +191,30 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "T3410912408",
         "title": "bruma"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/07/19",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/Calles que respiran.mp3",
+        "authors": "Eduardo Luis Ramírez",
+        "iswc": "T3417132840",
+        "title": "calles que respiran"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/07/19",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/CELTIC WHISTLE.mp3",
+        "authors": "Eduardo Luis Ramírez",
+        "iswc": "T3417131949",
+        "title": "celtic whistle"
     },
     {
         "genre": "Bossanova",
@@ -328,6 +376,18 @@ const musicCatalog = [
         "genre": "Jazz",
         "wav": null,
         "mood": "Premium",
+        "regDate": "2026/07/19",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/Down, or middle up.mp3",
+        "authors": "Eduardo Luis Ramírez",
+        "iswc": "T3417132362",
+        "title": "down or middle up"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
         "regDate": "2026/06/10",
         "folders": [],
         "registered": true,
@@ -335,6 +395,30 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "T3410912613",
         "title": "dragon lands"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/07/19",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/Duck, Frog and me.mp3",
+        "authors": "Eduardo Luis Ramírez",
+        "iswc": "T3417151210",
+        "title": "duck frog and me"
+    },
+    {
+        "genre": "Pop",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/07/19",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/El horizonte se rompe.mp3",
+        "authors": "Eduardo Luis Ramírez",
+        "iswc": "T3417151389",
+        "title": "el horizonte se rompe"
     },
     {
         "genre": "Alternativo",
@@ -397,6 +481,18 @@ const musicCatalog = [
         "title": "feel your dreams"
     },
     {
+        "genre": "Pop",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/07/19",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/FIN DEL JUEGO.mp3",
+        "authors": "Eduardo Luis Ramírez",
+        "iswc": "T3417151163",
+        "title": "fin del juego"
+    },
+    {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
@@ -445,6 +541,30 @@ const musicCatalog = [
         "title": "heavens glow"
     },
     {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/07/19",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/how many times, sheep.mp3",
+        "authors": "Eduardo Luis Ramírez",
+        "iswc": "T3417151049",
+        "title": "how many times sheep"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/07/19",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/I'm in the kitchen.mp3",
+        "authors": "Eduardo Luis Ramírez",
+        "iswc": "T3417150422",
+        "title": "i m in the kitchen"
+    },
+    {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
@@ -455,6 +575,18 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "T3384142416",
         "title": "ikeep walking"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/07/19",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/Impracticable.mp3",
+        "authors": "Eduardo Luis Ramírez",
+        "iswc": "T3417151312",
+        "title": "impracticable"
     },
     {
         "genre": "Alternativo",
@@ -799,6 +931,18 @@ const musicCatalog = [
         "regDate": "",
         "folders": [],
         "registered": false,
+        "mp3": "assets/audio_unificado/seventy.mp3",
+        "authors": "Eduardo Ramírez",
+        "iswc": "",
+        "title": "seventy"
+    },
+    {
+        "genre": "Alternativo",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "",
+        "folders": [],
+        "registered": false,
         "mp3": "assets/audio_unificado/seventy instrumental.mp3",
         "authors": "Eduardo Ramírez",
         "iswc": "",
@@ -815,18 +959,6 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "",
         "title": "seventy years"
-    },
-    {
-        "genre": "Alternativo",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "",
-        "folders": [],
-        "registered": false,
-        "mp3": "assets/audio_unificado/seventy.mp3",
-        "authors": "Eduardo Ramírez",
-        "iswc": "",
-        "title": "seventy"
     },
     {
         "genre": "Alternativo",
@@ -919,10 +1051,10 @@ const musicCatalog = [
         "regDate": "",
         "folders": [],
         "registered": false,
-        "mp3": "assets/audio_unificado/take me where the night.mp3",
+        "mp3": "assets/audio_unificado/take me.mp3",
         "authors": "Eduardo Ramírez",
         "iswc": "",
-        "title": "take me where the night"
+        "title": "take me"
     },
     {
         "genre": "Alternativo",
@@ -931,10 +1063,10 @@ const musicCatalog = [
         "regDate": "",
         "folders": [],
         "registered": false,
-        "mp3": "assets/audio_unificado/take me.mp3",
+        "mp3": "assets/audio_unificado/take me where the night.mp3",
         "authors": "Eduardo Ramírez",
         "iswc": "",
-        "title": "take me"
+        "title": "take me where the night"
     },
     {
         "genre": "Pop",
@@ -1192,144 +1324,12 @@ const musicCatalog = [
         "genre": "Jazz",
         "wav": null,
         "mood": "Premium",
-        "regDate": "2026/07/19",
+        "regDate": "2026/05/29",
         "folders": [],
         "registered": true,
-        "mp3": "assets/audio_unificado/I'm in the kitchen.mp3",
-        "authors": "Eduardo Luis Ramírez",
-        "iswc": "T3417150422",
-        "title": "i m in the kitchen"
-    },
-    {
-        "genre": "Jazz",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/07/19",
-        "folders": [],
-        "registered": true,
-        "mp3": "assets/audio_unificado/Impracticable.mp3",
-        "authors": "Eduardo Luis Ramírez",
-        "iswc": "T3417151312",
-        "title": "impracticable"
-    },
-    {
-        "genre": "Jazz",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/07/19",
-        "folders": [],
-        "registered": true,
-        "mp3": "assets/audio_unificado/Brake on the stars.mp3",
-        "authors": "Eduardo Luis Ramírez",
-        "iswc": "T3417133183",
-        "title": "brake on the stars"
-    },
-    {
-        "genre": "Jazz",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/07/19",
-        "folders": [],
-        "registered": true,
-        "mp3": "assets/audio_unificado/how many times, sheep.mp3",
-        "authors": "Eduardo Luis Ramírez",
-        "iswc": "T3417151049",
-        "title": "how many times sheep"
-    },
-    {
-        "genre": "Pop",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/07/19",
-        "folders": [],
-        "registered": true,
-        "mp3": "assets/audio_unificado/FIN DEL JUEGO.mp3",
-        "authors": "Eduardo Luis Ramírez",
-        "iswc": "T3417151163",
-        "title": "fin del juego"
-    },
-    {
-        "genre": "Jazz",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/07/19",
-        "folders": [],
-        "registered": true,
-        "mp3": "assets/audio_unificado/Calles que respiran.mp3",
-        "authors": "Eduardo Luis Ramírez",
-        "iswc": "T3417132840",
-        "title": "calles que respiran"
-    },
-    {
-        "genre": "Jazz",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/07/19",
-        "folders": [],
-        "registered": true,
-        "mp3": "assets/audio_unificado/Banana split.mp3",
-        "authors": "Eduardo Luis Ramírez",
-        "iswc": "T3417133423",
-        "title": "banana split"
-    },
-    {
-        "genre": "Jazz",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/07/19",
-        "folders": [],
-        "registered": true,
-        "mp3": "assets/audio_unificado/AS WE FALL.mp3",
-        "authors": "Eduardo Luis Ramírez",
-        "iswc": "T3417132704",
-        "title": "as we fall"
-    },
-    {
-        "genre": "Pop",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/07/19",
-        "folders": [],
-        "registered": true,
-        "mp3": "assets/audio_unificado/El horizonte se rompe.mp3",
-        "authors": "Eduardo Luis Ramírez",
-        "iswc": "T3417151389",
-        "title": "el horizonte se rompe"
-    },
-    {
-        "genre": "Jazz",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/07/19",
-        "folders": [],
-        "registered": true,
-        "mp3": "assets/audio_unificado/Duck, Frog and me.mp3",
-        "authors": "Eduardo Luis Ramírez",
-        "iswc": "T3417151210",
-        "title": "duck frog and me"
-    },
-    {
-        "genre": "Jazz",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/07/19",
-        "folders": [],
-        "registered": true,
-        "mp3": "assets/audio_unificado/CELTIC WHISTLE.mp3",
-        "authors": "Eduardo Luis Ramírez",
-        "iswc": "T3417131949",
-        "title": "celtic whistle"
-    },
-    {
-        "genre": "Jazz",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/07/19",
-        "folders": [],
-        "registered": true,
-        "mp3": "assets/audio_unificado/Down, or middle up.mp3",
-        "authors": "Eduardo Luis Ramírez",
-        "iswc": "T3417132362",
-        "title": "down or middle up"
+        "mp3": "assets/audio_unificado/a donde bass.mp3",
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3408172743",
+        "title": "¿a donde bass?"
     }
 ];
