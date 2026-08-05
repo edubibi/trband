@@ -413,7 +413,8 @@
             }
         }
     
-        /* HAMBURGER MOBILE MENU STYLES */
+        
+        /* --- CLEAN MASTER HAMBURGER MOBILE MENU STYLES --- */
         .mobile-menu-btn {
             display: none;
         }
@@ -435,11 +436,11 @@
                 backdrop-filter: blur(12px) !important;
                 -webkit-backdrop-filter: blur(12px) !important;
                 z-index: 10000 !important;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
             }
 
             .header-logo {
-                height: 40px !important;
+                height: 38px !important;
                 width: auto !important;
             }
 
@@ -447,15 +448,16 @@
                 display: flex !important;
                 align-items: center !important;
                 gap: 6px !important;
-                background: rgba(212, 175, 55, 0.15) !important;
+                background: rgba(212, 175, 55, 0.2) !important;
                 border: 1px solid #D4AF37 !important;
                 color: #D4AF37 !important;
-                padding: 6px 12px !important;
+                padding: 6px 14px !important;
                 border-radius: 8px !important;
-                font-size: 0.85rem !important;
-                font-weight: 700 !important;
+                font-size: 0.9rem !important;
+                font-weight: 800 !important;
                 cursor: pointer !important;
                 z-index: 10002 !important;
+                box-shadow: 0 0 10px rgba(212, 175, 55, 0.3) !important;
             }
 
             .menu-icon {
@@ -474,10 +476,10 @@
                 -webkit-backdrop-filter: blur(15px) !important;
                 flex-direction: column !important;
                 align-items: center !important;
-                padding: 20px 0 30px !important;
-                gap: 12px !important;
-                border-bottom: 2px solid #D4AF37 !important;
-                box-shadow: 0 15px 30px rgba(0,0,0,0.9) !important;
+                padding: 25px 0 40px !important;
+                gap: 15px !important;
+                border-bottom: 3px solid #D4AF37 !important;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
                 z-index: 10001 !important;
                 max-width: 100% !important;
                 overflow-y: auto !important;
@@ -485,7 +487,7 @@
 
             .main-nav.mobile-active {
                 display: flex !important;
-                animation: slideDownMenu 0.3s ease-out forwards;
+                animation: slideDownMenu 0.25s ease-out forwards;
             }
 
             @keyframes slideDownMenu {
@@ -494,19 +496,21 @@
             }
 
             .nav-link {
-                font-size: 1rem !important;
-                padding: 12px 24px !important;
-                width: 80% !important;
+                font-size: 1.1rem !important;
+                padding: 14px 20px !important;
+                width: 85% !important;
                 text-align: center !important;
-                background: rgba(255, 255, 255, 0.05) !important;
-                border: 1px solid rgba(255, 255, 255, 0.1) !important;
-                border-radius: 10px !important;
-                color: #fff !important;
-                font-weight: 600 !important;
+                background: rgba(255, 255, 255, 0.08) !important;
+                border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                border-radius: 12px !important;
+                color: #ffffff !important;
+                font-weight: 700 !important;
+                box-sizing: border-box !important;
+                text-decoration: none !important;
             }
 
             .nav-link.active {
-                background: rgba(212, 175, 55, 0.25) !important;
+                background: rgba(212, 175, 55, 0.3) !important;
                 border-color: #D4AF37 !important;
                 color: #D4AF37 !important;
             }
