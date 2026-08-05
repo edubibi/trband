@@ -2295,78 +2295,8 @@
         }
 
 </style>
-        <section id="fuga-teaser">
-            <!-- Fondo desenfocado -->
-            <div style="position: absolute; top: -10%; left: -10%; width: 120%; height: 120%; background-image: url('assets/img/fuga/portada-fuga-2026-3000.jpg'); background-size: cover; background-position: center; filter: blur(40px) brightness(0.2); z-index: 1;"></div>
-            
-            <div class="fuga-content">
-                <!-- Imagen -->
-                <div style="flex: 1; min-width: 250px; text-align: center;">
-                    <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="Fuga Teaser" style="width: 100%; max-width: 350px; border-radius: 10px; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.1);">
-                </div>
-                
-                <!-- Texto -->
-                <div class="fuga-text" style="flex: 2; min-width: 250px; text-align: left;">
-                    <h3 style="color: #fff; font-size: 1rem; letter-spacing: 4px; font-weight: 300; margin-bottom: 15px;">MUY PRONTO...</h3>
-                    <h2>FUGA<br><span style="font-size: 1.5rem; color: #fff;">(2026 Versions)</span></h2>
-                    <p style="color: #ccc; font-size: 1.1rem; line-height: 1.6; margin-bottom: 0;">
-                        <em>Hay cosas que el tiempo no puede borrar. Solo mejorarlas.</em><br><br>
-                        Las composiciones y la magia de los años 80, grabadas y mezcladas con la tecnología más avanzada de 2026. Una auténtica joya maestra.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- BLOODY LUKAS ALBUM RELEASE FEATURE (GOLDEN GLOW STYLE) -->
-        <section id="bloody-lukas" class="release-feature" style="border-color: #d4af37; background: rgba(0,0,0,0.9); box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); margin-bottom: 60px;">
-            <div class="ribbon-container">
-                <div class="ribbon" style="background: #d4af37; color: #000; border: none; box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);">NUEVO DISCO</div>
-                <div class="zoom-wrapper" style="overflow: hidden; border-radius: 10px; width: 280px; height: 280px; display: flex; align-items: center; justify-content: center;">
-                    <img src="assets/bloody_lukas_canvas.jpg" alt="Bloody Lukas Cover" class="release-art animate-zoom-loop animate-glow-border" style="border-radius: 10px; width: 280px; height: 280px; object-fit: cover;">
-                </div>
-            </div>
-            <div class="release-info">
-                <h2 class="glitch" data-text="BLOODY LUKAS" style="color: #d4af37; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); font-size: 2.5rem; letter-spacing: 4px; font-weight: bold; margin: 0 0 10px 0;">BLOODY LUKAS</h2>
-                <p style="color: #fff; font-size: 1.15rem; font-weight: 500; margin-bottom: 5px;">Single destacado del nuevo álbum <em>"Cut the Roll and Jazzrock"</em></p>
-                <p style="color: #ccc; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">Un tema instrumental vibrante que fusiona la energía del jazz-rock clásico de los 80 con bajo funk arrollador, sintetizadores retro y metales potentes. Producido por Eduardo Ramírez.</p>
-                
-                <div class="mini-countdown" id="lukasCountdown" style="background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); color: #d4af37; font-weight: 600;">Quedan 00D 00H 00M 00S</div>
-
-                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
-                    <div style="display: flex; gap: 10px;">
-                        <a href="https://open.spotify.com/artist/13WJTJy2K8r5uRfsIyP28T" target="_blank" class="btn-system" style="border-color: #d4af37; color: #d4af37; flex: 1; text-align: center;">ESCUCHAR EN SPOTIFY</a>
-                        <a href="catalogo_showcase/index.html" class="btn-system" style="border-color: #ffffff; color: #ffffff; flex: 1; text-align: center;">SHOWCASE PRIVADO</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <script>
-            (function() {
-                const lukasLaunchDate = new Date("August 7, 2026 00:00:00").getTime();
-                function updateCountdown() {
-                    const now = new Date().getTime();
-                    const dist = lukasLaunchDate - now;
-                    const d = Math.floor(dist / (1000 * 60 * 60 * 24));
-                    const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
-                    const s = Math.floor((dist % (1000 * 60)) / 1000);
-                    const el = document.getElementById("lukasCountdown");
-                    if (el) {
-                        if (dist < 0) {
-                            el.innerHTML = "¡ESTRENO MUNDIAL DISPONIBLE!";
-                        } else {
-                            el.innerHTML = `Quedan ${d}D ${h}H ${m}M ${s}S para el lanzamiento mundial`;
-                        }
-                    }
-                }
-                updateCountdown();
-                setInterval(updateCountdown, 1000);
-            })();
-        </script>
-         
         <!-- TEXTO LANZAMIENTO OFICIAL FUGA 2026 -->
-        <div style="margin-bottom: 20px; text-align: center;">
+        <div style="margin-top: 40px; margin-bottom: 20px; text-align: center;">
             <div style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(5px); padding: 15px 50px; border-radius: 8px; display: inline-block; border: 1px solid var(--accent); box-shadow: 0 4px 20px rgba(212,175,55,0.3);">
                 <p style="color: #fff; font-size: 1.4rem; font-weight: 800; letter-spacing: 3px; margin-bottom: 5px; text-shadow: 0 4px 10px rgba(0,0,0,0.8);">ESTRENO MUNDIAL: "FUGA 2026"</p>
                 <p style="color: var(--accent); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; margin-top: 0; text-transform: uppercase; text-shadow: 0 2px 5px rgba(0,0,0,0.8);">Nuevas Versiones & Arreglos Vocales • Lanzamiento Viernes 7 de Agosto</p>
@@ -2374,7 +2304,7 @@
         </div>
 
         <!-- SHOWCASE DISCO OFICIAL FUGA 2026 -->
-        <section id="promo-jazzrock" style="width: 98%; max-width: 1400px; margin: 0 auto 120px; background: rgba(0, 0, 0, 0.85); border: 1px solid #D4AF37; border-radius: 15px; padding: 50px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2); position: relative; overflow: hidden;">
+        <section id="promo-jazzrock" style="width: 98%; max-width: 1400px; margin: 0 auto 60px; background: rgba(0, 0, 0, 0.85); border: 1px solid #D4AF37; border-radius: 15px; padding: 50px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2); position: relative; overflow: hidden;">
             
 
             <!-- Hero Title & Cover -->
@@ -2382,7 +2312,9 @@
                 <a href="fuga_2026.html"><img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="FUGA 2026 Cover" style="width: 250px; height: 250px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 2px solid #D4AF37; cursor: pointer;"></a>
                 <div style="flex: 1; min-width: 300px; text-align: left;">
                     <h2 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0 0 10px 0; line-height: 1.1;">FUGA (2026 Versions)</h2>
-                    <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 20px;">Disco oficial de canciones originales compuestas por Eduardo Ramírez con nuevos arreglos y producciones 2026.</p>
+                    <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 15px;">Disco oficial de canciones originales compuestas por Eduardo Ramírez con nuevos arreglos y producciones 2026.</p>
+                    
+                    <div class="mini-countdown" id="lukasCountdown" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.5); color: #d4af37; font-weight: 700; padding: 10px 18px; border-radius: 8px; margin-bottom: 20px; display: inline-block;">Quedan 00D 00H 00M 00S para el estreno mundial</div>
                     
                     <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
                         <a href="fuga_2026.html" style="background: var(--accent); color: #000; font-weight: 800; text-decoration: none; padding: 10px 20px; border-radius: 20px; font-size: 0.8rem; text-transform: uppercase;">Ver Álbum Completo ➔</a>
@@ -2500,6 +2432,31 @@
                     teaserPlayBtn.textContent = '▶';
                 });
             </script>
+        </section>
+
+        <!-- BLOODY LUKAS ALBUM RELEASE FEATURE (GOLDEN GLOW STYLE) -->
+        <section id="bloody-lukas" class="release-feature" style="border-color: #d4af37; background: rgba(0,0,0,0.9); box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); margin-bottom: 60px;">
+            <div class="ribbon-container">
+                <div class="ribbon" style="background: #d4af37; color: #000; border: none; box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);">DESTACADO</div>
+                <div class="zoom-wrapper" style="overflow: hidden; border-radius: 10px; width: 280px; height: 280px; display: flex; align-items: center; justify-content: center;">
+                    <img src="assets/bloody_lukas_canvas.jpg" alt="Bloody Lukas Cover" class="release-art animate-zoom-loop animate-glow-border" style="border-radius: 10px; width: 280px; height: 280px; object-fit: cover;">
+                </div>
+            </div>
+            <div class="release-info">
+                <h2 class="glitch" data-text="BLOODY LUKAS" style="color: #d4af37; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); font-size: 2.5rem; letter-spacing: 4px; font-weight: bold; margin: 0 0 10px 0;">BLOODY LUKAS</h2>
+                <p style="color: #fff; font-size: 1.15rem; font-weight: 500; margin-bottom: 5px;">Single destacado del nuevo álbum <em>"Cut the Roll and Jazzrock"</em></p>
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                    <div style="display: flex; gap: 10px;">
+                        <a href="https://open.spotify.com/artist/13WJTJy2K8r5uRfsIyP28T" target="_blank" class="btn-system" style="border-color: #d4af37; color: #d4af37; flex: 1; text-align: center;">ESCUCHAR EN SPOTIFY</a>
+                        <a href="catalogo_showcase/index.html" class="btn-system" style="border-color: #ffffff; color: #ffffff; flex: 1; text-align: center;">SHOWCASE PRIVADO</a>
+                    </div>
+                </div>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="https://open.spotify.com/artist/13WJTJy2K8r5uRfsIyP28T" target="_blank" class="btn-system" style="border-color: #d4af37; color: #d4af37; flex: 1; text-align: center;">ESCUCHAR EN SPOTIFY</a>
+                        <a href="catalogo_showcase/index.html" class="btn-system" style="border-color: #ffffff; color: #ffffff; flex: 1; text-align: center;">SHOWCASE PRIVADO</a>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Press Recognition (Cloud Jazz) -->
