@@ -373,30 +373,21 @@
         }
 
         @media (max-width: 768px) {
-            .iliada-content {
-                flex-direction: column;
-            }
+            html, body { overflow-x: hidden !important; width: 100vw !important; }
+            .main-header { height: 60px !important; padding: 5px 12px !important; background: rgba(0,0,0,0.95) !important; position: fixed !important; z-index: 10000 !important; }
+            .header-logo { height: 42px !important; }
+            .header-title-gold { font-size: 0.9rem !important; display: none !important; }
+            .main-nav { max-width: 75% !important; gap: 6px !important; overflow-x: auto !important; flex-wrap: nowrap !important; scrollbar-width: none !important; }
+            .main-nav::-webkit-scrollbar { display: none !important; }
+            .nav-link { font-size: 0.72rem !important; padding: 5px 8px !important; white-space: nowrap !important; flex-shrink: 0 !important; }
 
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
-
-            .main-nav {
-                gap: 10px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-link {
-                font-size: 0.75rem;
-            }
-
-            .category-card {
-                width: 100%;
-                height: 120px;
-            }
+            .landing-content { padding-top: 75px !important; width: 100% !important; box-sizing: border-box !important; }
+            .iliada-content { flex-direction: column !important; gap: 20px !important; width: 100% !important; box-sizing: border-box !important; }
+            .iliada-img-wrapper { max-width: 100% !important; width: 100% !important; }
+            .iliada-text-wrapper { padding: 10px !important; width: 100% !important; box-sizing: border-box !important; }
+            .section-title { font-size: 1.4rem !important; letter-spacing: 1px !important; text-align: center !important; word-wrap: break-word !important; }
+            .category-card { width: 100% !important; height: 120px !important; }
+        }
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 900px) {
             .bio-main-card {
