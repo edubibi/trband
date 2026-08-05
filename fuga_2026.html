@@ -403,14 +403,16 @@
         const END_TIME = START_TIME + PREVIEW_DURATION; // 1:20 (80s)
 
         function loadTrack(index) {
-            audio.src = `assets/audio/fuga/${tracks[index].file}`;
+            audio.src = `assets/audio/fuga/${tracks[index].file}#t=60`;
             titleEl.textContent = tracks[index].title;
             updatePlaylistUI(index);
         }
 
-        // Forzar el salto al minuto 1:00 (60s) en cuanto se carguen los metadatos de audio
+        // Forzar el salto al minuto 1:00 (60s) con el estandar de HTML5
         audio.addEventListener('loadedmetadata', () => {
-            audio.currentTime = START_TIME;
+            if (audio.currentTime < START_TIME) {
+                audio.currentTime = START_TIME;
+            }
             durationEl.textContent = "1:20 (Adelanto 20s)";
         });
 
@@ -458,7 +460,12 @@
             if (audio.currentTime < START_TIME || audio.currentTime >= END_TIME) {
                 audio.currentTime = START_TIME;
             }
-            audio.play();
+            var p = audio.play();
+            if (p !== undefined) {
+                p.then(function() {
+                    if (audio.currentTime < START_TIME) audio.currentTime = START_TIME;
+                }).catch(function(e){});
+            }
         }
 
         function pauseTrack() {
