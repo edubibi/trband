@@ -149,7 +149,7 @@
             height: 80vh;
             display: flex;
             overflow: hidden;
-            margin-top: 100px;
+            margin-top: 5px;
             z-index: 1;
         }
 
@@ -318,20 +318,48 @@
 
         .track-item {
             padding: 12px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 15px;
+            transition: all 0.2s ease;
+        }
+
+        /* Zebra Striping: Odd rows = Dark background, White text */
+        .track-item:nth-child(odd) {
+            background: rgba(18, 18, 18, 0.9);
+            color: #ffffff;
+        }
+
+        .track-item:nth-child(odd) .track-name {
+            color: #ffffff;
+        }
+
+        /* Zebra Striping: Even rows = White background, Black text */
+        .track-item:nth-child(even) {
+            background: rgba(255, 255, 255, 0.95);
+            color: #000000;
+        }
+
+        .track-item:nth-child(even) .track-name {
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .track-item:nth-child(even) .add-btn {
+            background: rgba(0, 0, 0, 0.15);
+            color: #000000;
+            font-weight: 700;
         }
 
         .track-item:hover {
-            background: rgba(255, 255, 255, 0.05);
+            filter: brightness(1.15);
         }
 
         .track-item.active {
-            background: rgba(255, 255, 255, 0.1);
-            border-left: 4px solid var(--accent);
+            border-left: 6px solid var(--accent) !important;
+            font-weight: bold;
         }
 
         .track-name {
@@ -347,7 +375,7 @@
             height: 30px;
             border-radius: 50%;
             border: none;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             color: white;
             cursor: pointer;
         }
@@ -368,7 +396,7 @@
             .player-container {
                 flex-direction: column;
                 height: 90vh;
-                margin-top: 80px;
+                margin-top: 5px;
                 border-radius: 0;
                 width: 100%;
             }
@@ -516,6 +544,115 @@
             }
         }
 
+
+        /* PERFECT HAMBURGER BUTTON & RESPONSIVE MOBILE MENU */
+        .mobile-menu-btn {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 60px !important;
+                padding: 5px 15px !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                background: rgba(0, 0, 0, 0.95) !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                z-index: 10000 !important;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
+            }
+
+            .header-logo {
+                height: 38px !important;
+                width: auto !important;
+            }
+
+            .mobile-menu-btn {
+                display: flex !important;
+                align-items: center !important;
+                gap: 6px !important;
+                background: #D4AF37 !important;
+                border: 1px solid #ffffff !important;
+                color: #000000 !important;
+                padding: 6px 14px !important;
+                border-radius: 8px !important;
+                font-size: 0.9rem !important;
+                font-weight: 800 !important;
+                cursor: pointer !important;
+                z-index: 10002 !important;
+                box-shadow: 0 0 12px rgba(212, 175, 55, 0.6) !important;
+            }
+
+            .menu-icon {
+                font-size: 1.2rem !important;
+                line-height: 1 !important;
+                color: #000000 !important;
+            }
+
+            .menu-text {
+                color: #000000 !important;
+                font-weight: 900 !important;
+            }
+
+            .main-nav {
+                display: none !important;
+                position: fixed !important;
+                top: 60px !important;
+                left: 0 !important;
+                width: 100vw !important;
+                background: rgba(10, 10, 15, 0.98) !important;
+                backdrop-filter: blur(15px) !important;
+                -webkit-backdrop-filter: blur(15px) !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                padding: 25px 0 40px !important;
+                gap: 15px !important;
+                border-bottom: 3px solid #D4AF37 !important;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
+                z-index: 10001 !important;
+                max-width: 100% !important;
+                overflow-y: auto !important;
+            }
+
+            .main-nav.mobile-active {
+                display: flex !important;
+                animation: slideDownMenu 0.25s ease-out forwards;
+            }
+
+            @keyframes slideDownMenu {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .nav-link {
+                font-size: 1.1rem !important;
+                padding: 14px 20px !important;
+                width: 85% !important;
+                text-align: center !important;
+                background: rgba(255, 255, 255, 0.08) !important;
+                border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                border-radius: 12px !important;
+                color: #ffffff !important;
+                font-weight: 700 !important;
+                box-sizing: border-box !important;
+                text-decoration: none !important;
+            }
+
+            .nav-link.active {
+                background: rgba(212, 175, 55, 0.3) !important;
+                border-color: #D4AF37 !important;
+                color: #D4AF37 !important;
+            }
+        }
+
 </style>
     <!-- Open Graph Meta Preview -->
     <meta property="og:title" content="The Research Band - Pop-Rock y Jazzrock">
@@ -555,40 +692,93 @@
         </nav>
     </header>
 
-    <div class="player-container">
-        <div class="now-playing">
-            <div class="brand-header">
-                <img src="assets/logo_trb_icon.png" class="brand-logo">
-                <div class="brand-title">The Research Band</div>
+    <main class="landing-content" style="padding-top: 100px; max-width: 1200px; margin: 0 auto; width: 95%;">
+        
+        <!-- PLAYER 1: INSTRUMENTAL ALBUM -->
+        <div style="margin-top: 20px; margin-bottom: 4px; text-align: left; width: 90%; max-width: 1000px; margin-left: auto; margin-right: auto;">
+            <div style="background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(8px); padding: 6px 18px; border-radius: 6px 6px 0 0; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.4); border-bottom: none;">
+                <h2 style="color: #000000; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin: 0;">
+                    ONE THOUSAND OF COLOR NOTES
+                </h2>
             </div>
-            <img src="assets/portada_jazz.png" class="album-art" id="coverDisplay"
-                onerror="this.src='https://via.placeholder.com/300/000000/FFFFFF?text=Music'">
-            <div class="track-info">
-                <h2 id="trackTitle">Selecciona una canción</h2>
-                <p id="trackArtist">The Research Band</p>
-            </div>
-            <div class="controls">
-                <audio id="audioPlayer" controls></audio>
-                <div class="buttons">
-                    <button class="btn" onclick="prevTrack()">⏮</button>
-                    <button class="btn btn-main" onclick="togglePlay()">⏯</button>
-                    <button class="btn" onclick="nextTrack()">⏭</button>
+        </div>
+        
+        <div class="player-container" style="margin-bottom: 60px; margin-top: 0;">
+            <div class="now-playing">
+                <div class="brand-header">
+                    <img src="assets/logo_trb_icon.png" class="brand-logo">
+                    <div class="brand-title">The Research Band</div>
                 </div>
+                <img src="assets/portada_jazz.png" class="album-art" id="coverDisplay"
+                    onerror="this.src='https://via.placeholder.com/300/000000/FFFFFF?text=Music'">
+                <div class="track-info">
+                    <h2 id="trackTitle">Selecciona una canción</h2>
+                    <p id="trackArtist">The Research Band • Instrumental</p>
+                </div>
+                <div class="controls">
+                    <audio id="audioPlayer" controls></audio>
+                    <div class="buttons">
+                        <button class="btn" onclick="prevTrack()">⏮</button>
+                        <button class="btn btn-main" onclick="togglePlay()">⏯</button>
+                        <button class="btn" onclick="nextTrack()">⏭</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-panel">
+                <div class="playlist-header">
+                    <div class="tabs">
+                        <button class="tab active" onclick="switchTab('all')" id="tabAll">📚 Biblioteca</button>
+                        <button class="tab" onclick="switchTab('fav')" id="tabFav">⭐ Mi Playlist <span id="favCount">(0)</span></button>
+                    </div>
+                    <input type="text" id="searchInput" placeholder="🔍 Buscar..." onkeyup="filterPlaylist()">
+                </div>
+                <ul class="track-list" id="playlist"></ul>
             </div>
         </div>
 
-        <div class="playlist-panel">
-            <div class="playlist-header">
-                <div class="tabs">
-                    <button class="tab active" onclick="switchTab('all')" id="tabAll">📚 Biblioteca</button>
-                    <button class="tab" onclick="switchTab('fav')" id="tabFav">⭐ Mi Playlist <span
-                            id="favCount">(0)</span></button>
-                </div>
-                <input type="text" id="searchInput" placeholder="🔍 Buscar..." onkeyup="filterPlaylist()">
+        <!-- PLAYER 2: SELECCION DE AUTOR -->
+        <div style="margin-top: 40px; margin-bottom: 4px; text-align: left; width: 90%; max-width: 1000px; margin-left: auto; margin-right: auto;">
+            <div style="background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(8px); padding: 6px 18px; border-radius: 6px 6px 0 0; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.4); border-bottom: none;">
+                <h2 style="color: #000000; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin: 0;">
+                    SELECCIÓN DE AUTOR
+                </h2>
             </div>
-            <ul class="track-list" id="playlist"></ul>
         </div>
-    </div>
+        
+        <div class="player-container" style="border-color: rgba(212, 175, 55, 0.4); box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);">
+            <div class="now-playing">
+                <div class="brand-header">
+                    <img src="assets/logo_trb_icon.png" class="brand-logo">
+                    <div class="brand-title" style="color: var(--accent);">TRBAND SONGS • Selección de Autor</div>
+                </div>
+                <img src="assets/cover_trband_songs.jpg" class="album-art" id="coverDisplay2" style="border-color: var(--accent);">
+                <div class="track-info">
+                    <h2 id="trackTitle2">Selecciona una canción</h2>
+                    <p id="trackArtist2">Eduardo Ramírez de Cartagena • Vocal & Fusion</p>
+                </div>
+                <div class="controls">
+                    <audio id="audioPlayer2" controls></audio>
+                    <div class="buttons">
+                        <button class="btn" onclick="prevTrack2()">⏮</button>
+                        <button class="btn btn-main" onclick="togglePlay2()">⏯</button>
+                        <button class="btn" onclick="nextTrack2()">⏭</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-panel">
+                <div class="playlist-header">
+                    <div class="brand-title" style="font-size: 0.9rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                        🎵 Canciones Vocales & Destacados
+                    </div>
+                    <input type="text" id="searchInput2" placeholder="🔍 Buscar en Selección de Autor..." onkeyup="filterPlaylist2()">
+                </div>
+                <ul class="track-list" id="playlist2"></ul>
+            </div>
+        </div>
+
+    </main>
 
     <div class="author-footer">
         <div style="display: flex; align-items: center; font-weight: 700; margin-bottom: 20px;">
@@ -598,6 +788,7 @@
         <div style="font-weight: 700;">eduardo ramírez de cartagena &copy; 2026</div>
     </div>
 
+    <!-- PLAYER 1 SCRIPT -->
     <script>
         let fullPlaylist = ["01Medianoche-en-la-Terraza.mp3", "All_around_if_you_want.mp3", "Black_and_grey_.mp3", "Close_Your_Feelings_Extended.mp3", "Groove_or_not.mp3", "Heaven_s_Glow.mp3", "Man_island_beach.mp3", "Meanwhile_I_Love_You.mp3", "Saxo_by_the_clouds.mp3", "Saxophone_Serenade.mp3", "Secret-of-Velvet.mp3", "Sharp-echoes.mp3", "Soft-corners.mp3", "Voices_for_dreams.mp3", "Woman_on_the_island_beach.mp3"].map(f => ({
             name: f.replace(/\.[^/.]+$/, "").replace(/_/g, " "),
@@ -624,7 +815,8 @@
         }
 
         function renderPlaylist() {
-            const query = searchInput.value.toLowerCase();
+            if (!searchInput || !playlistEl) return;
+            const query = searchInput.value ? searchInput.value.toLowerCase() : "";
             const source = currentMode === 'all' ? fullPlaylist : myPlaylist;
             playlistEl.innerHTML = "";
             activeQueue = source;
@@ -644,13 +836,13 @@
             const track = fullPlaylist[index];
             if (!myPlaylist.find(t => t.url === track.url)) {
                 myPlaylist.push(track);
-                favCount.innerText = `(${myPlaylist.length})`;
+                if (favCount) favCount.innerText = `(${myPlaylist.length})`;
             }
         }
 
         function removeFromFav(index) {
             myPlaylist.splice(index, 1);
-            favCount.innerText = `(${myPlaylist.length})`;
+            if (favCount) favCount.innerText = `(${myPlaylist.length})`;
             if (currentMode === 'fav') renderPlaylist();
         }
 
@@ -658,16 +850,24 @@
             if (index < 0 || index >= activeQueue.length) return;
             currentIndex = index;
             const track = activeQueue[index];
-            audioPlayer.src = track.url;
-            trackTitle.innerText = track.name;
-            renderPlaylist();
-            if (shouldPlay) {
-                audioPlayer.play().catch(e => console.log('Audio play handled:', e));
+            if (audioPlayer) {
+                audioPlayer.src = track.url;
+                if (trackTitle) trackTitle.innerText = track.name;
+                renderPlaylist();
+                if (shouldPlay) {
+                    // Pause player 2 if playing
+                    const p2 = document.getElementById('audioPlayer2');
+                    if (p2) p2.pause();
+                    audioPlayer.play().catch(e => console.log('Audio play handled:', e));
+                }
             }
         }
 
         function togglePlay() {
+            if (!audioPlayer) return;
             if (audioPlayer.paused) {
+                const p2 = document.getElementById('audioPlayer2');
+                if (p2) p2.pause();
                 audioPlayer.play().catch(e => console.log('Play error:', e));
             } else {
                 audioPlayer.pause();
@@ -678,11 +878,86 @@
         function prevTrack() { loadTrack((currentIndex - 1 + activeQueue.length) % activeQueue.length, true); }
         function filterPlaylist() { renderPlaylist(); }
 
-        audioPlayer.addEventListener('ended', nextTrack);
-        audioPlayer.onplay = () => coverDisplay.classList.add('playing');
-        audioPlayer.onpause = () => coverDisplay.classList.remove('playing');
+        if (audioPlayer) {
+            audioPlayer.addEventListener('ended', nextTrack);
+            audioPlayer.onplay = () => coverDisplay && coverDisplay.classList.add('playing');
+            audioPlayer.onpause = () => coverDisplay && coverDisplay.classList.remove('playing');
+            loadTrack(0, false);
+        }
+    </script>
 
-        loadTrack(0, false);
+    <!-- PLAYER 2 SCRIPT (SELECCION DE AUTOR) -->
+    <script>
+        const playlistAutor = [
+            { name: "Calles que respiran (Voz en español - Eduardo)", url: "assets/audio/seleccion_autor/04_Calles_que_respiran.mp3" },
+            { name: "As We Fall (Voz en inglés - Eduardo)", url: "assets/audio/seleccion_autor/03_AS_WE_FALL.mp3" },
+            { name: "Follow You Follow Me (ft. Nara Blue)", url: "assets/audio/seleccion_autor/05_Follow_You_Follow_Me_NARA.mp3" },
+            { name: "Acrobatic Life (Voz - Eduardo)", url: "assets/audio/seleccion_autor/07_Acrobatic_life.mp3" },
+            { name: "Sweet, Oh Love, Oh Life (Voz - Eduardo)", url: "assets/audio/seleccion_autor/08_SWEET_oh_love_oh_life.mp3" },
+            { name: "She Walks Or They (Voz - Eduardo)", url: "assets/audio/seleccion_autor/She walks or they.mp3" },
+            { name: "A Donde Bass (Slap Bass Funk Instrumental)", url: "assets/audio/seleccion_autor/02_a_donde_bass.mp3" },
+            { name: "Duck, Frog and Me (Jazz Fusion Instrumental)", url: "assets/audio/seleccion_autor/01_Duck_Frog_and_me.mp3" }
+        ];
+
+        let currentIndex2 = 0;
+        const audioPlayer2 = document.getElementById('audioPlayer2');
+        const playlistEl2 = document.getElementById('playlist2');
+        const trackTitle2 = document.getElementById('trackTitle2');
+        const coverDisplay2 = document.getElementById('coverDisplay2');
+        const searchInput2 = document.getElementById('searchInput2');
+
+        function renderPlaylist2() {
+            if (!searchInput2 || !playlistEl2) return;
+            const query = searchInput2.value ? searchInput2.value.toLowerCase() : "";
+            playlistEl2.innerHTML = "";
+
+            playlistAutor.forEach((track, idx) => {
+                if (query && !track.name.toLowerCase().includes(query)) return;
+                const li = document.createElement('li');
+                li.className = 'track-item' + (currentIndex2 === idx ? ' active' : '');
+                li.innerHTML = `<span class="track-name">${track.name}</span>`;
+                li.onclick = () => loadTrack2(idx, true);
+                playlistEl2.appendChild(li);
+            });
+        }
+
+        function loadTrack2(index, shouldPlay = true) {
+            if (index < 0 || index >= playlistAutor.length) return;
+            currentIndex2 = index;
+            const track = playlistAutor[index];
+            if (audioPlayer2) {
+                audioPlayer2.src = track.url;
+                if (trackTitle2) trackTitle2.innerText = track.name;
+                renderPlaylist2();
+                if (shouldPlay) {
+                    const p1 = document.getElementById('audioPlayer');
+                    if (p1) p1.pause();
+                    audioPlayer2.play().catch(e => console.log('Audio 2 play handled:', e));
+                }
+            }
+        }
+
+        function togglePlay2() {
+            if (!audioPlayer2) return;
+            if (audioPlayer2.paused) {
+                const p1 = document.getElementById('audioPlayer');
+                if (p1) p1.pause();
+                audioPlayer2.play().catch(e => console.log('Play error:', e));
+            } else {
+                audioPlayer2.pause();
+            }
+        }
+
+        function nextTrack2() { loadTrack2((currentIndex2 + 1) % playlistAutor.length, true); }
+        function prevTrack2() { loadTrack2((currentIndex2 - 1 + playlistAutor.length) % playlistAutor.length, true); }
+        function filterPlaylist2() { renderPlaylist2(); }
+
+        if (audioPlayer2) {
+            audioPlayer2.addEventListener('ended', nextTrack2);
+            audioPlayer2.onplay = () => coverDisplay2 && coverDisplay2.classList.add('playing');
+            audioPlayer2.onpause = () => coverDisplay2 && coverDisplay2.classList.remove('playing');
+            loadTrack2(0, false);
+        }
     </script>
 
     <script>
