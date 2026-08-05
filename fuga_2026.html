@@ -382,45 +382,28 @@
         const durationEl = document.getElementById('duration');
         const trackListEl = document.getElementById('track-list');
 
-        // Nombres de archivos y títulos limpios
+        // Nombres de los 10 clips exactos de 20 segundos preparados por Eduardo
         const tracks = [
-            { file: 'TANTO TRABAJAR.mp3', title: 'Tanto trabajar' },
-            { file: '02cifras en la almohada.mp3', title: 'Cifras en la almohada' },
-            { file: 'Dame tus manos.mp3', title: 'Dame tus manos' },
-            { file: 'Te pienso.mp3', title: 'Te pienso' },
-            { file: 'Y vienes tu.mp3', title: 'Y vienes tú' },
-            { file: 'Siempre gritando.mp3', title: 'Siempre gritando' },
-            { file: 'Y tal vez.mp3', title: 'Y tal vez' },
-            { file: 'Dejalo estar.mp3', title: 'Déjalo estar' },
-            { file: 'trozos de amor.mp3', title: 'Trozos de amor' },
-            { file: 'Aun sin saber.mp3', title: 'Aún sin saber' }
+            { file: '20 segundos disco FUGA/01Tanto trabajar.mp3', title: 'Tanto trabajar' },
+            { file: '20 segundos disco FUGA/02Cifras en la almohada.mp3', title: 'Cifras en la almohada' },
+            { file: '20 segundos disco FUGA/03Dame tus manos.mp3', title: 'Dame tus manos' },
+            { file: '20 segundos disco FUGA/04Te pienso.mp3', title: 'Te pienso' },
+            { file: '20 segundos disco FUGA/05Y vienes tu.mp3', title: 'Y vienes tú' },
+            { file: '20 segundos disco FUGA/06Siempre gritando.mp3', title: 'Siempre gritando' },
+            { file: '20 segundos disco FUGA/07Y tal vez.mp3', title: 'Y tal vez' },
+            { file: '20 segundos disco FUGA/08Dejalo estar.mp3', title: 'Déjalo estar' },
+            { file: '20 segundos disco FUGA/09trozos de amor.mp3', title: 'Trozos de amor' },
+            { file: '20 segundos disco FUGA/10Aun sin saber.mp3', title: 'Aún sin saber' }
         ];
 
         let trackIndex = 0;
         let isPlaying = false;
-        const START_TIME = 60; // Iniciar en el minuto 1:00
-        const PREVIEW_DURATION = 20; // 20 segundos de adelanto
-        const END_TIME = START_TIME + PREVIEW_DURATION; // 1:20 (80s)
 
         function loadTrack(index) {
-            audio.src = `assets/audio/fuga/${tracks[index].file}#t=60`;
+            audio.src = `assets/audio/fuga/${encodeURIComponent(tracks[index].file).replace(/%2F/g, '/')}`;
             titleEl.textContent = tracks[index].title;
             updatePlaylistUI(index);
         }
-
-        // Forzar el salto al minuto 1:00 (60s) con el estandar de HTML5
-        audio.addEventListener('loadedmetadata', () => {
-            if (audio.currentTime < START_TIME) {
-                audio.currentTime = START_TIME;
-            }
-            durationEl.textContent = "1:20 (Adelanto 20s)";
-        });
-
-        audio.addEventListener('play', () => {
-            if (audio.currentTime < START_TIME || audio.currentTime >= END_TIME) {
-                audio.currentTime = START_TIME;
-            }
-        });
 
         function buildPlaylist() {
             tracks.forEach((track, index) => {
@@ -430,7 +413,7 @@
                     <div class="track-num">${(index + 1).toString().padStart(2, '0')}</div>
                     <div class="track-info">
                         <div class="track-name">${track.title}</div>
-                        <div style="font-size: 0.75rem; color: var(--accent); margin-top: 2px;">Fragmento destacado (Minuto 1:00 • 20s)</div>
+                        <div style="font-size: 0.75rem; color: var(--accent); margin-top: 2px;">Muestra destacada (20s)</div>
                     </div>
                 `;
                 li.addEventListener('click', () => {
@@ -457,14 +440,9 @@
             isPlaying = true;
             playIcon.style.display = 'none';
             pauseIcon.style.display = 'block';
-            if (audio.currentTime < START_TIME || audio.currentTime >= END_TIME) {
-                audio.currentTime = START_TIME;
-            }
             var p = audio.play();
             if (p !== undefined) {
-                p.then(function() {
-                    if (audio.currentTime < START_TIME) audio.currentTime = START_TIME;
-                }).catch(function(e){});
+                p.catch(function(e){});
             }
         }
 
@@ -503,40 +481,38 @@
         }
 
         audio.addEventListener('timeupdate', (e) => {
-            const { currentTime } = e.srcElement;
-            
-            // Si por cualquier motivo estuviera antes de 1:00 mientras reproduce, forzar 1:00
-            if (isPlaying && currentTime < START_TIME) {
-                audio.currentTime = START_TIME;
-                return;
+            const { duration, currentTime } = e.srcElement;
+            if (duration) {
+                const progressPercent = (currentTime / duration) * 100;
+                progress.style.width = `${progressPercent}%`;
+                currentTimeEl.textContent = formatTime(currentTime);
             }
-
-            // Limitar a la franja de 20s desde 1:00 hasta 1:20
-            if (currentTime >= END_TIME) {
-                trackIndex++;
-                if (trackIndex > tracks.length - 1) {
-                    trackIndex = 0;
-                    loadTrack(trackIndex);
-                    pauseTrack(); // Al terminar todas las pistas del disco se detiene
-                } else {
-                    loadTrack(trackIndex);
-                    playTrack();
-                }
-                return;
-            }
-
-            const elapsedInPreview = Math.max(0, currentTime - START_TIME);
-            const progressPercent = Math.min(100, (elapsedInPreview / PREVIEW_DURATION) * 100);
-            progress.style.width = `${progressPercent}%`;
-            currentTimeEl.textContent = formatTime(currentTime);
         });
 
-        // Click en la barra de progreso dentro del rango 1:00 - 1:20
+        audio.addEventListener('loadedmetadata', () => {
+            durationEl.textContent = formatTime(audio.duration);
+        });
+
+        // Auto play siguiente pista al terminar los 20s
+        audio.addEventListener('ended', () => {
+            trackIndex++;
+            if (trackIndex > tracks.length - 1) {
+                trackIndex = 0;
+                loadTrack(trackIndex);
+                pauseTrack(); // Al terminar todas las muestras se para
+            } else {
+                loadTrack(trackIndex);
+                playTrack();
+            }
+        });
+
+        // Click en la barra de progreso
         progressContainer.addEventListener('click', (e) => {
             const width = progressContainer.clientWidth;
             const clickX = e.offsetX;
-            const targetRatio = clickX / width;
-            audio.currentTime = START_TIME + (targetRatio * PREVIEW_DURATION);
+            if (audio.duration) {
+                audio.currentTime = (clickX / width) * audio.duration;
+            }
         });
 
         // Auto play siguiente pista
