@@ -486,7 +486,7 @@
     <script>
         let fullPlaylist = ["01Medianoche-en-la-Terraza.mp3", "All_around_if_you_want.mp3", "Black_and_grey_.mp3", "Close_Your_Feelings_Extended.mp3", "Groove_or_not.mp3", "Heaven_s_Glow.mp3", "Man_island_beach.mp3", "Meanwhile_I_Love_You.mp3", "Saxo_by_the_clouds.mp3", "Saxophone_Serenade.mp3", "Secret-of-Velvet.mp3", "Sharp-echoes.mp3", "Soft-corners.mp3", "Voices_for_dreams.mp3", "Woman_on_the_island_beach.mp3"].map(f => ({
             name: f.replace(/\.[^/.]+$/, "").replace(/_/g, " "),
-            url: f
+            url: "assets/audio/" + f
         }));
 
         let myPlaylist = [];
@@ -520,7 +520,7 @@
                 li.className = 'track-item' + (currentIndex === idx && source === activeQueue ? ' active' : '');
                 li.innerHTML = `<span class="track-name">${track.name}</span>
                                 <button class="add-btn" onclick="event.stopPropagation(); ${currentMode === 'all' ? 'addToFav' : 'removeFromFav'}(${idx})">${currentMode === 'all' ? '+' : 'x'}</button>`;
-                li.onclick = () => loadTrack(idx);
+                li.onclick = () => loadTrack(idx, true);
                 playlistEl.appendChild(li);
             });
         }
@@ -539,31 +539,35 @@
             if (currentMode === 'fav') renderPlaylist();
         }
 
-        function loadTrack(index) {
+        function loadTrack(index, shouldPlay = true) {
             if (index < 0 || index >= activeQueue.length) return;
             currentIndex = index;
             const track = activeQueue[index];
             audioPlayer.src = track.url;
-            audioPlayer.play();
             trackTitle.innerText = track.name;
             renderPlaylist();
+            if (shouldPlay) {
+                audioPlayer.play().catch(e => console.log('Audio play handled:', e));
+            }
         }
 
         function togglePlay() {
-            if (audioPlayer.paused) audioPlayer.play();
-            else audioPlayer.pause();
+            if (audioPlayer.paused) {
+                audioPlayer.play().catch(e => console.log('Play error:', e));
+            } else {
+                audioPlayer.pause();
+            }
         }
 
-        function nextTrack() { loadTrack((currentIndex + 1) % activeQueue.length); }
-        function prevTrack() { loadTrack((currentIndex - 1 + activeQueue.length) % activeQueue.length); }
+        function nextTrack() { loadTrack((currentIndex + 1) % activeQueue.length, true); }
+        function prevTrack() { loadTrack((currentIndex - 1 + activeQueue.length) % activeQueue.length, true); }
         function filterPlaylist() { renderPlaylist(); }
 
         audioPlayer.addEventListener('ended', nextTrack);
         audioPlayer.onplay = () => coverDisplay.classList.add('playing');
         audioPlayer.onpause = () => coverDisplay.classList.remove('playing');
 
-        loadTrack(0);
-        audioPlayer.pause(); // Don't autoplay on load
+        loadTrack(0, false);
     </script>
 </body>
 
