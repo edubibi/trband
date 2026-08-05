@@ -398,11 +398,15 @@
 
         let trackIndex = 0;
         let isPlaying = false;
+        const START_TIME = 60; // Iniciar en el minuto 1:00
+        const PREVIEW_DURATION = 20; // 20 segundos de adelanto
+        const END_TIME = START_TIME + PREVIEW_DURATION; // 1:20 (80s)
 
         function loadTrack(index) {
             audio.src = `assets/audio/fuga/${tracks[index].file}`;
             titleEl.textContent = tracks[index].title;
             updatePlaylistUI(index);
+            audio.currentTime = START_TIME;
         }
 
         function buildPlaylist() {
@@ -413,6 +417,7 @@
                     <div class="track-num">${(index + 1).toString().padStart(2, '0')}</div>
                     <div class="track-info">
                         <div class="track-name">${track.title}</div>
+                        <div style="font-size: 0.75rem; color: var(--accent); margin-top: 2px;">Fragmento destacado (Minuto 1:00 • 20s)</div>
                     </div>
                 `;
                 li.addEventListener('click', () => {
@@ -439,6 +444,9 @@
             isPlaying = true;
             playIcon.style.display = 'none';
             pauseIcon.style.display = 'block';
+            if (audio.currentTime < START_TIME || audio.currentTime >= END_TIME) {
+                audio.currentTime = START_TIME;
+            }
             audio.play();
         }
 
@@ -477,22 +485,38 @@
         }
 
         audio.addEventListener('timeupdate', (e) => {
-            const { duration, currentTime } = e.srcElement;
-            const progressPercent = (currentTime / duration) * 100;
+            const { currentTime } = e.srcElement;
+            
+            // Limitar a la franja de 20s desde 1:00
+            if (currentTime >= END_TIME) {
+                trackIndex++;
+                if (trackIndex > tracks.length - 1) {
+                    trackIndex = 0;
+                    loadTrack(trackIndex);
+                    pauseTrack(); // Al terminar todas las pistas del disco se detiene
+                } else {
+                    loadTrack(trackIndex);
+                    playTrack();
+                }
+                return;
+            }
+
+            const elapsedInPreview = Math.max(0, currentTime - START_TIME);
+            const progressPercent = Math.min(100, (elapsedInPreview / PREVIEW_DURATION) * 100);
             progress.style.width = `${progressPercent}%`;
             currentTimeEl.textContent = formatTime(currentTime);
         });
 
         audio.addEventListener('loadeddata', () => {
-            durationEl.textContent = formatTime(audio.duration);
+            durationEl.textContent = "1:20 (Adelanto 20s)";
         });
 
-        // Click en la barra de progreso
+        // Click en la barra de progreso dentro del rango 1:00 - 1:20
         progressContainer.addEventListener('click', (e) => {
             const width = progressContainer.clientWidth;
             const clickX = e.offsetX;
-            const duration = audio.duration;
-            audio.currentTime = (clickX / width) * duration;
+            const targetRatio = clickX / width;
+            audio.currentTime = START_TIME + (targetRatio * PREVIEW_DURATION);
         });
 
         // Auto play siguiente pista
