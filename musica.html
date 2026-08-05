@@ -394,29 +394,45 @@
 
         @media (max-width: 768px) {
             .player-container {
-                flex-direction: column;
-                height: 90vh;
-                margin-top: 5px;
-                border-radius: 0;
-                width: 100%;
+                flex-direction: column !important;
+                height: auto !important;
+                max-height: none !important;
+                margin-top: 5px !important;
+                border-radius: 14px !important;
+                width: 98% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
             }
 
             .playlist-panel {
-                width: 100%;
-                border-left: none;
-                border-top: 1px solid rgba(255, 255, 255, 0.1);
-                flex: 1;
-                min-height: 300px;
+                width: 100% !important;
+                border-left: none !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+                max-height: 350px !important;
+                overflow-y: auto !important;
             }
 
             .now-playing {
-                padding: 20px;
-                flex: none;
+                padding: 15px !important;
+                flex: none !important;
+            }
+
+            .brand-logo {
+                height: 60px !important;
             }
 
             .album-art {
-                width: 180px;
-                height: 180px;
+                width: 150px !important;
+                height: 150px !important;
+                margin-bottom: 15px !important;
+            }
+
+            .track-name {
+                font-size: 0.82rem !important;
+            }
+
+            .track-item {
+                padding: 10px 14px !important;
             }
 
             .main-header { 
