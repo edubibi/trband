@@ -1,12 +1,12 @@
-# MODELO DE BUROFAX - REQUERIMIENTO FEHACIENTE
+﻿# MODELO DE BUROFAX - REQUERIMIENTO FEHACIENTE
 
 *(Instrucciones: Copia este texto en un procesador de textos como Word, rellena los datos entre corchetes **[ ]**, imprímelo, fírmalo y llévalo a una oficina de Correos indicando que quieres enviarlo como "Burofax con Acuse de Recibo y Certificación de Texto". Esto es vital para que tenga validez judicial).*
 
 ---
 
-REMITENTE: Eduardo Ramírez de Cartagena DNI: [Tu DNI] Domicilio: [Tu dirección actual en Talavera de la Reina] Teléfono: [Tu número de teléfono] Email: [Tu correo electrónico]
+REMITENTE: Eduardo Ramírez de Cartagena DNI: 50.796.424G Domicilio: calle Joaquina Santander, 13, 45600 Talavera de la Reina, TOLEDO / Teléfono: 678708729 Email: ramirex00@gmail.com
 
-DESTINATARIO: [Nombre completo de la otra persona] DNI: [DNI de la persona, si lo sabes. Si no, bórralo] Domicilio: [Dirección exacta de la casa en la Sierra donde están tus cosas] Código Postal y Localidad: [CP y Pueblo]
+DESTINATARIO: IVAN GARCIA-PELAYO DNI: 50720021F Domicilio: Calle Encina, 22, Código Postal y Localidad: 28721 en Cabanillas de la Sierra, MADRID.
 
 En Talavera de la Reina, a [Día] de [Mes] de 2026.
 

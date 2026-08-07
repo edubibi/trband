@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUGA (2026 Full Album) - The Research Band</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050b14;
+            --glass-bg: rgba(10, 20, 35, 0.75);
+            --glass-border: rgba(212, 175, 55, 0.25);
+            --text-main: #f0f4f8;
+            --text-muted: #94a3b8;
+            --accent: #d4af37; /* Dorado noble */
+            --accent-glow: rgba(212, 175, 55, 0.4);
+            --accent-green: #25d366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Fondo dinámico difuminado */
+        .bg-blur {
+            position: fixed;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background-image: url('assets/img/fuga/portada-fuga-2026-3000.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(50px) brightness(0.25);
+            z-index: -1;
+            animation: pulseBg 25s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulseBg {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+
+        /* Top Navigation Header */
+        header {
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 11, 20, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Container */
+        .main-layout {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        /* Reproductor & Ficha de Lanzamiento Hero */
+        .hero-player-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .visual-side {
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.4);
+            border-right: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .album-cover {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 1/1;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 25px rgba(212, 175, 55, 0.25);
+            transition: transform 0.4s ease;
+        }
+
+        .album-cover:hover {
+            transform: scale(1.03);
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .badge {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .badge-gold {
+            background: var(--accent);
+            color: #000;
+            font-weight: 900;
+        }
+
+        /* Reproductor Derecho & Tracklist */
+        .player-side {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .album-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 5px;
+        }
+
+        .album-header h2 {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .album-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .tracklist-box {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            max-height: 320px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .tracklist-box::-webkit-scrollbar { width: 6px; }
+        .tracklist-box::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+        .tracklist-box::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+        .track-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .track-item:hover {
+            background: rgba(212, 175, 55, 0.12);
+        }
+
+        .track-item.active {
+            background: rgba(212, 175, 55, 0.25);
+            border-left: 4px solid var(--accent);
+        }
+
+        .track-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .track-duration {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .audio-controls-footer {
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 16px;
+            padding: 15px 20px;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .now-playing-label {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        audio {
+            width: 100%;
+            height: 40px;
+            outline: none;
+        }
+
+        /* Sección Artículo de Prensa */
+        .press-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 45px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .section-title-badge {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .press-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .press-body {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .press-quote {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #f1f5f9;
+            font-size: 1.15rem;
+            background: rgba(212, 175, 55, 0.05);
+            padding: 15px 20px;
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* Sección Presentación de la Banda */
+        .band-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 45px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .band-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .member-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 25px;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .member-header-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .member-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+        }
+
+        .member-role {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .member-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: rgba(5, 11, 20, 0.9);
+            margin-top: 50px;
+        }
+
+        @media (max-width: 850px) {
+            .hero-player-card { grid-template-columns: 1fr; }
+            .visual-side { border-right: none; border-bottom: 1px solid var(--glass-border); }
+            header { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .album-header h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blur"></div>
+
+    <header>
+        <a href="https://trbandmusic.es" class="brand-logo">
+            <span>THE RESEARCH BAND</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#album">El Álbum</a></li>
+            <li><a href="#prensa">Artículo Prensa</a></li>
+            <li><a href="#banda">La Banda</a></li>
+        </ul>
+    </header>
+
+    <div class="main-layout">
+        <!-- Hero Player & Ficha Técnica -->
+        <section id="album" class="hero-player-card">
+            <div class="visual-side">
+                <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" class="album-cover" alt="FUGA (2026 Versions)">
+                
+                <div class="badge-row">
+                    <span class="badge badge-gold">ÁLBUM COMPLETO</span>
+                    <span class="badge">100% ONE-STOP SYNC</span>
+                    <span class="badge">DISCO 2026</span>
+                </div>
+            </div>
+
+            <div class="player-side">
+                <div class="album-header">
+                    <h2>THE RESEARCH BAND</h2>
+                    <h1>FUGA (2026 Versions)</h1>
+                    <p class="album-desc">
+                        La experiencia sonora definitiva. 10 obras originales de Pop-Rock y Funk-Rock instrumental y vocal con arreglos de viento, bajo virtuoso y teclados de producción impecable.
+                    </p>
+                </div>
+
+                <div class="tracklist-box">
+                    <div class="track-item active" onclick="playTrack(0, this, 'assets/audio/fuga/Tanto trabajar.mp3', 'Tanto trabajar')">
+                        <div>
+                            <div class="track-name">01. Tanto trabajar</div>
+                            <div class="track-duration">Track 01 • Disco FUGA</div>
+                        </div>
+                        <div style="color: var(--accent); font-weight: bold;">▶ PLAY</div>
+                    </div>
+                    <div class="track-item" onclick="playTrack(1, this, 'assets/audio/fuga/Cifras en la almohada.mp3', 'Cifras en la almohada')">
+                        <div>
+                            <div class="track-name">02. Cifras en la almohada</div>
+                            <div class="track-duration">Track 02 • Disco FUGA</div>
+                        </div>
+                        <div style="color: var(--accent); font-weight: bold;">▶ PLAY</div>
+                    </div>
+                    <div class="track-item" onclick="playTrack(2, this, 'assets/audio/fuga/Dame tus manos.mp3', 'Dame tus manos')">
+                        <div>
+                            <div class="track-name">03. Dame tus manos</div>
+                            <div class="track-duration">Track 03 • Disco FUGA</div>
+                        </div>
+                        <div style="color: var(--accent); font-weight: bold;">▶ PLAY</div>
+                    </div>
+                    <div class="track-item" onclick="playTrack(3, this, 'assets/audio/fuga/Te pienso.mp3', 'Te pienso')">
+                        <div>
+                            <div class="track-name">04. Te pienso</div>
+                            <div class="track-duration">Track 04 • Disco FUGA</div>
+                        </div>
+                        <div style="color: var(--accent); font-weight: bold;">▶ PLAY</div>
+                    </div>
+                    <div class="track-item" onclick="playTrack(4, this, 'assets/audio/fuga/Y vienes tu.mp3', 'Y vienes tú')">
+                        <div>
+                            <div class="track-name">05. Y vienes tú</div>
+                            <div class="track-duration">Track 05 • Disco FUGA</div>
+                        </div>
+                        <div style="color: var(--accent); font-weight: bold;">▶ PLAY</div>
+                    </div>
+                    <div class="track-item" onclick="playTrack(5, this, 'assets/audio/fuga/Siempre gritando.mp3', 'Siempre gritando')">
+                        <div>
+                            <div class="track-name">06. Siempre gritando</div>
+                            <div class="track-duration">Track 06 • Disco FUGA</div>
+                        </div>
+                        <div style="color: var(--accent); font-weight: bold;">▶ PLAY</div>
+                    </div>
+                    <div class="track-item" onclick="playTrack(6, this, 'assets/audio/fuga/Y tal vez.mp3', 'Y tal vez')">
+                        <div>
+                            <div class="track-name">07. Y tal vez</div>
+                            <div class="track-duration">Track 07 • Disco FUGA</div>
+                        </div>
+                        <div style="color: var(--accent); font-weight: bold;">▶ PLAY</div>
+                    </div>
+                    <div class="track-item" onclick="playTrack(7, this, 'assets/audio/fuga/Dejalo estar.mp3', 'Déjalo estar')">
+                        <div>
+                            <div class="track-name">08. Déjalo estar</div>
+                            <div class="track-duration">Track 08 • Disco FUGA</div>
+                        </div>
+                        <div style="color: var(--accent); font-weight: bold;">▶ PLAY</div>
+                    </div>
+                    <div class="track-item" onclick="playTrack(8, this, 'assets/audio/fuga/trozos de amor.mp3', 'Trozos de amor')">
+                        <div>
+                            <div class="track-name">09. Trozos de amor</div>
+                            <div class="track-duration">Track 09 • Disco FUGA</div>
+                        </div>
+                        <div style="color: var(--accent); font-weight: bold;">▶ PLAY</div>
+                    </div>
+                    <div class="track-item" onclick="playTrack(9, this, 'assets/audio/fuga/Aun sin saber.mp3', 'Aún sin saber')">
+                        <div>
+                            <div class="track-name">10. Aún sin saber</div>
+                            <div class="track-duration">Track 10 • Disco FUGA</div>
+                        </div>
+                        <div style="color: var(--accent); font-weight: bold;">▶ PLAY</div>
+                    </div>
+                </div>
+
+                <div class="audio-controls-footer">
+                    <div class="now-playing-label" id="current-track-label">REPRODUCIENDO: 01. Tanto trabajar</div>
+                    <audio id="main-audio-player" controls src="assets/audio/fuga/01Tanto trabajar.mp3"></audio>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artículo de Prensa -->
+        <section id="prensa" class="press-section">
+            <span class="section-title-badge">📰 ARTÍCULO DE PRENSA & TRIBUTO EDITORIAL</span>
+            <h2>"FUGA (2026 Versions): Legado, memoria y emoción viva en el regreso de The Research Band"</h2>
+
+            <div class="press-body">
+                <p>
+                    En un panorama dominado por la inmediatez efímera, "The Research Band" presenta "FUGA (2026 Versions)", un trabajo que trasciende lo estrictamente musical para convertirse en un emocionante homenaje y acto de memoria. Compuesto originalmente por "Pepe Torres" y "Eduardo Ramírez", este álbum nace como un tributo a título póstumo a la figura de Pepe Torres, inmortalizando su talento compositivo e ingenio armónico.
+                </p>
+
+                <div class="press-quote">
+                    "FUGA es un legado vivo: la genialidad musical de Pepe Torres y las emotivas letras de Lola, rescatadas y elevadas por la voz, el bajo y la producción de Eduardo Ramírez."
+                </div>
+
+                <p>
+                    Las letras del álbum llevan la firma poética e inconfundible de "Lola", quien en un gesto de profunda confianza artística cedió su obra lírica a Eduardo Ramírez durante su delicado proceso de salud. Con una producción quirúrgica y arreglos de viento, bajo y teclados de primer nivel, Eduardo Ramírez logra transformar esa herencia emocional en un torrente de Pop-Rock y Funk vibrante que suena más vivo que nunca.
+                </p>
+            </div>
+        </section>
+
+        <!-- Presentación de Autoría & Banda -->
+        <section id="banda" class="band-section">
+            <span class="section-title-badge">📜 AUTORÍA, LEYENDA & INTEGRANTES</span>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #fff; margin-bottom: 10px;">FUGA — Autoría & Formación Oficial</h2>
+            <p style="color: var(--text-muted);">Créditos de composición, lírica y músicos de The Research Band:</p>
+
+            <div class="band-grid">
+                <div class="member-card" style="border-color: var(--accent);">
+                    <div class="member-role">Composición Musical (Tributo Póstumo)</div>
+                    <div class="member-name">Pepe Torres & Eduardo Ramírez</div>
+                    <div class="member-desc">Co-compositores de las obras musicales del álbum. Publicado a título póstumo en homenaje entrañable al legado y talento de Pepe Torres.</div>
+                </div>
+
+                <div class="member-card" style="border-color: var(--accent);">
+                    <div class="member-role">Letras & Poesía Original</div>
+                    <div class="member-name">Lola</div>
+                    <div class="member-desc">Autora lírica inconfundible de los temas, cuyos textos fueron cedidos a Eduardo Ramírez en un gesto de confianza artística imperecedera.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header-box">
+                        <img src="assets/miembros/EDUARDO/nova_bio_eduardo.jpg" class="member-photo" alt="Eduardo Ramírez">
+                        <div>
+                            <div class="member-role">Voz Solista, Bajo Eléctrico & Producción 2026</div>
+                            <div class="member-name">Eduardo Ramírez ("Edu")</div>
+                        </div>
+                    </div>
+                    <div class="member-desc">Co-fundador del mítico grupo <strong>CADILLAC</strong>. Co-compositor, arreglista, bajo solista, voz e hilo conductor de The Research Band.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header-box">
+                        <img src="assets/miembros/Luca/luca_final.jpg" class="member-photo" alt="Luca Alessandro Fiammetti">
+                        <div>
+                            <div class="member-role">Guitarra / Jazz Fusion</div>
+                            <div class="member-name">Luca Alessandro Fiammetti</div>
+                        </div>
+                    </div>
+                    <div class="member-desc">Formado en el Conservatorio Paganini de Génova. Sensibilidad mediterránea y técnica virtuosa que define los solos de guitarra.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header-box">
+                        <img src="assets/miembros/Erik/sax_profile.jpg" class="member-photo" alt="Erik Solberg Andrade">
+                        <div>
+                            <div class="member-role">Saxofón & EWI</div>
+                            <div class="member-name">Erik Solberg Andrade</div>
+                        </div>
+                    </div>
+                    <div class="member-desc">"El soplo del Estrecho". Fusiona el alma del jazz tradicional con pinceladas flamencas y solos de saxo de enorme fuerza expresiva.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header-box">
+                        <img src="assets/miembros/Alba/violin_profile.jpg" class="member-photo" alt="Alba Cisneros Montalbán">
+                        <div>
+                            <div class="member-role">Violín, Viola & Percusión</div>
+                            <div class="member-name">Alba Cisneros Montalbán</div>
+                        </div>
+                    </div>
+                    <div class="member-desc">Formación clásica en Madrid y París. Aporta una textura contemporánea y una dimensión cinematográfica al sonido del grupo.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header-box">
+                        <img src="assets/miembros/Hiroshi/hiroshi_profile.jpg" class="member-photo" alt="Hiroshi Tanaka">
+                        <div>
+                            <div class="member-role">Batería & Dinámicas Rítmicas</div>
+                            <div class="member-name">Hiroshi Tanaka</div>
+                        </div>
+                    </div>
+                    <div class="member-desc">Virtuoso rítmico formado en el Senzoku Gakuen y UCLA, aportando polirritmias y pulso vanguardista a la batería.</div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header-box">
+                        <img src="assets/miembros/Nara/NARA BLUE 2 harmonica.png" class="member-photo" alt="Nara Blue">
+                        <div>
+                            <div class="member-role">Voz, Percusión, Armónica & Teclados</div>
+                            <div class="member-name">Nara Blue</div>
+                        </div>
+                    </div>
+                    <div class="member-desc">Textura vocal nocturna y cálida que combina ecos de soul, blues y jazz-rock para expandir el universo armónico de TRB.</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 The Research Band. Todos los derechos reservados. | Contacto & Licenciamiento: Eduardo Ramírez</p>
+        <p style="color: var(--accent); margin-top: 5px; font-weight: 600;">🌐 Web Oficial: https://trbandmusic.es</p>
+    </footer>
+
+    <script>
+        function playTrack(index, element, audioSrc, title) {
+            document.querySelectorAll('.track-item').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+
+            const player = document.getElementById('main-audio-player');
+            const label = document.getElementById('current-track-label');
+
+            label.textContent = `REPRODUCIENDO: ${(index + 1).toString().padStart(2, '0')}. ${title}`;
+            player.src = audioSrc;
+            player.play();
+        }
+    </script>
+</body>
+</html>

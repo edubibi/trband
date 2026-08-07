@@ -1,4 +1,3 @@
-// TRBAND Music Catalog Database
 const musicCatalog = [
     {
         "genre": "Pop",
@@ -841,6 +840,18 @@ const musicCatalog = [
         "title": "orange & yellow"
     },
     {
+        "genre": "Jazz-Rock / Fusion",
+        "wav": "assets/Piso el acelerador.wav",
+        "mood": "Premium",
+        "regDate": "2026/07/30",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/piso el acelerador.mp3",
+        "authors": "Eduardo Ramírez",
+        "iswc": "REGISTRADA SGAE (30/07/2026)",
+        "title": "piso el acelerador"
+    },
+    {
         "genre": "Jazz",
         "wav": null,
         "mood": "Premium",
@@ -971,6 +982,18 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "",
         "title": "sharp echoes"
+    },
+    {
+        "genre": "Rhythm & Blues / Smooth Jazz-Rock",
+        "wav": "assets/audio/She Walks Untamed.wav",
+        "mood": "Premium",
+        "regDate": "2026/07/31",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/she walks untamed.mp3",
+        "authors": "Eduardo Ramírez",
+        "iswc": "REGISTRADA SGAE (31/07/2026)",
+        "title": "she walks untamed"
     },
     {
         "genre": "Alternativo",
