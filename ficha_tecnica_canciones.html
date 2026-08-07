@@ -529,6 +529,22 @@
         function getSampleTemplate() {
             return [
                 {
+                    id: 1786099845566,
+                    title: "Duck, Frog and me",
+                    category: "Banda Sonora / Gaming",
+                    trackType: "🎷 Instrumental",
+                    genre: "Funk-Rock / Jazz-Funk",
+                    subgenre: "Banda Sonora / Videojuegos",
+                    bpm: "120",
+                    key: "Dm (Re menor)",
+                    duration: "4/4 • 4:12",
+                    sgaeCode: "",
+                    licensing: "Disponible Licencia / Venta",
+                    audioSrc: "assets/audio/muestras_20s/01_Duck_Frog_and_me_20s.mp3",
+                    clientLink: "assets/audio/muestras_20s/01_Duck_Frog_and_me_20s.mp3",
+                    notes: "\"Tema rítmico a 120 BPM con bajo virtuoso y atmósfera de videojuego/cine, libre de ataduras para Sync inmediato.\""
+                },
+                {
                     id: 1,
                     title: "Ball in play",
                     category: "⚡ Jazz Rock / Fusión",
@@ -540,7 +556,7 @@
                     duration: "4/4 • 3:36 (Muestra 20s)",
                     sgaeCode: "T3410913047",
                     licensing: "Sincronización TV/Cine/Sync",
-                    audioSrc: "D:/000MP3 ALL/20 segundos songs/Ball in play_20s.mp3",
+                    audioSrc: "assets/audio/muestras_20s/Ball in play_20s.mp3",
                     clientLink: "",
                     notes: "Ritmo potente y marcado con gran groove. Excelente para bandas sonoras de acción, deportes o secuencias dinámicas."
                 },
@@ -556,7 +572,7 @@
                     duration: "4/4 • 3:45 (Muestra 20s)",
                     sgaeCode: "SGAE-REG-02",
                     licensing: "Disponible Licencia / Venta",
-                    audioSrc: "D:/000MP3 ALL/20 segundos songs/¿a donde bass_20s.mp3",
+                    audioSrc: "assets/audio/muestras_20s/a donde bass_20s.mp3",
                     clientLink: "",
                     notes: "Tema de Jazz Fusion moderno con bajo solista muy marcado y groove electrizante."
                 }
@@ -564,7 +580,7 @@
         }
 
         function saveData() {
-            localStorage.setItem('trband_show_music_reel_v3', JSON.stringify(songsData));
+            localStorage.setItem('trband_show_music_reel_v4', JSON.stringify(songsData));
             updateStats();
         }
 
