@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cut the Roll & JazzRock — Edición Especial de Regalo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600&family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-glow: rgba(212, 175, 55, 0.45);
+            --gold-light: #f3e5ab;
+            --bg-dark: #07090e;
+            --card-bg: rgba(15, 18, 26, 0.95);
+            --booklet-bg: #0e1118;
+            --booklet-page: #131722;
+            --booklet-border: #8c732b;
+            --text-main: #f0f3f6;
+            --text-muted: #9aa0a6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.14) 0%, transparent 60%),
+                radial-gradient(circle at 10% 90%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg, #040508 0%, #080a10 100%);
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Cabecera Clásica */
+        header {
+            padding: 25px 20px 18px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .band-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 2.3rem;
+            color: var(--gold);
+            letter-spacing: 6px;
+            text-shadow: 0 0 20px var(--gold-glow);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .gift-ribbon {
+            display: inline-block;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.18), transparent);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 5px 30px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Contenedor Principal */
+        .main-container {
+            max-width: 1200px;
+            margin: 30px auto 60px;
+            padding: 0 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Grid Superior: Caja 3D del Disco & Presentación */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 40px;
+            background: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(212, 175, 55, 0.1);
+            backdrop-filter: blur(15px);
+        }
+
+        /* Joyero 3D del CD */
+        .jewel-case-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .jewel-case {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            border-radius: 12px;
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.9), 
+                0 0 25px rgba(212, 175, 55, 0.3),
+                inset 0 0 0 2px rgba(255,255,255,0.15);
+            perspective: 1000px;
+            cursor: pointer;
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .jewel-case:hover {
+            transform: scale(1.03) rotate(-1deg);
+        }
+
+        .cover-art {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+
+        /* Disco de vinilo saliendo */
+        .vinyl-disc {
+            position: absolute;
+            top: 10px;
+            right: -25px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #2a2a2a 0%, #111 40%, #000 70%, #1a1a1a 100%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            z-index: -1;
+            transition: right 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .jewel-case:hover .vinyl-disc {
+            right: -75px;
+        }
+
+        .vinyl-disc.spinning {
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .vinyl-center {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 4px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 0.65rem;
+            font-weight: 900;
+            text-align: center;
+            letter-spacing: 1px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        /* Acciones de la Portada */
+        .album-info-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .album-title-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .album-subtitle {
+            color: var(--gold);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .album-lead-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .action-buttons-row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #e5c158 0%, #D4AF37 50%, #aa851d 100%);
+            color: #05070a;
+            font-weight: 800;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px var(--gold-glow);
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.6);
+            background: linear-gradient(135deg, #fced7e 0%, #e5c158 100%);
+        }
+
+        .btn-booklet {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--gold-light);
+            border: 1px solid var(--gold);
+            padding: 16px 28px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-booklet:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        /* ====================================================== */
+        /* MODAL / PANTALLA COMPLETA: EL LIBRETO DE ANTAÑO (30 PÁGINAS) */
+        /* ====================================================== */
+        .booklet-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(4, 6, 10, 0.96);
+            backdrop-filter: blur(20px);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        .booklet-overlay.active {
+            display: flex;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .booklet-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 12px;
+        }
+
+        .booklet-brand-tag {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            letter-spacing: 3px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .btn-close-booklet {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--gold);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+        }
+
+        .btn-close-booklet:hover {
+            background: #ff4444;
+            border-color: #ff4444;
+        }
+
+        /* Mini player flotante en el libreto */
+        .booklet-mini-player {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0,0,0,0.45);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 30px;
+            padding: 6px 16px;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.85);
+        }
+        .booklet-mini-now {
+            max-width: 220px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .btn-booklet-pp, .btn-booklet-stop {
+            background: none;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            color: var(--gold);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .btn-booklet-pp:hover, .btn-booklet-stop:hover {
+            background: var(--gold);
+            color: #000;
+        }
+
+        /* El Libro Abierto (Doble Página Gatefold) */
+        .booklet-spread-wrapper {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            background: var(--booklet-bg);
+            border: 2px solid var(--booklet-border);
+            border-radius: 16px;
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.95),
+                inset 0 0 50px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 580px;
+        }
+
+        /* Lomo central con sombra de encuadernación */
+        .booklet-spread-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 30px;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Página Izquierda */
+        .booklet-page-left {
+            padding: 40px;
+            background: var(--booklet-page);
+            border-right: 1px solid rgba(212, 175, 55, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+        }
+
+        /* Página Derecha */
+        .booklet-page-right {
+            padding: 40px 45px;
+            background: var(--booklet-page);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* Esquinas ornamentales */
+        .b-corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-color: var(--gold);
+            border-style: solid;
+        }
+        .b-tl { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
+        .b-tr { top: 12px; right: 12px; border-width: 2px 2px 0 0; }
+        .b-bl { bottom: 12px; left: 12px; border-width: 0 0 2px 2px; }
+        .b-br { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
+
+        /* Contenido de Página Izquierda */
+        .booklet-track-art {
+            width: 100%;
+            max-width: 380px;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+            margin-bottom: 20px;
+        }
+
+        .booklet-track-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: #000;
+            font-weight: 800;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .booklet-track-title-left {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        /* Contenido de Página Derecha (Ficha & Notas de Antaño) */
+        .page-song-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
+            color: var(--gold-light);
+            margin-bottom: 5px;
+        }
+
+        .page-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
+        }
+
+        .page-story-box {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            line-height: 1.75;
+            color: #e2e8f0;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .page-story-dropcap {
+            float: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            line-height: 0.8;
+            padding-right: 10px;
+            padding-top: 4px;
+            color: var(--gold);
+            font-weight: 800;
+        }
+
+        .page-musicians-box {
+            background: rgba(0, 0, 0, 0.35);
+            border-left: 3px solid var(--gold);
+            padding: 12px 18px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .page-musicians-box strong {
+            color: var(--gold);
+        }
+
+        .page-listen-btn {
+            align-self: flex-start;
+            background: linear-gradient(135deg, var(--gold) 0%, #aa851d 100%);
+            color: #000;
+            font-weight: 800;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .page-listen-btn:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Barra de Navegación del Libreto (Paginador) */
+        .booklet-nav-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+            margin: 15px auto 0;
+            padding-top: 10px;
+        }
+
+        .booklet-nav-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .booklet-nav-btn:hover:not(:disabled) {
+            background: var(--gold);
+            color: #000;
+        }
+
+        .booklet-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            border-color: #555;
+        }
+
+        .booklet-page-indicator {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+        }
+
+        /* ====================================================== */
+        /* EL REPRODUCTOR HI-FI VINTAGE */
+        /* ====================================================== */
+        .player-section {
+            background: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .player-bar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .now-playing-title-box h4 {
+            font-size: 0.8rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .now-playing-title-box h2 {
+            font-size: 1.6rem;
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Ecualizador animado */
+        .equalizer-box {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 25px;
+        }
+
+        .eq-bar {
+            width: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+            height: 5px;
+            transition: height 0.1s ease;
+        }
+
+        .eq-bar.active {
+            animation: bounceEq 0.6s infinite alternate ease-in-out;
+        }
+
+        .eq-bar:nth-child(1) { animation-delay: 0.1s; }
+        .eq-bar:nth-child(2) { animation-delay: 0.3s; }
+        .eq-bar:nth-child(3) { animation-delay: 0.5s; }
+        .eq-bar:nth-child(4) { animation-delay: 0.2s; }
+        .eq-bar:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes bounceEq {
+            0% { height: 4px; }
+            100% { height: 24px; }
+        }
+
+        /* Barra de Progreso */
+        .progress-wrapper {
+            margin-bottom: 25px;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-filled {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #aa851d, var(--gold));
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        .time-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        /* Controles */
+        .controls-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .ctrl-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .ctrl-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: scale(1.1);
+        }
+
+        .ctrl-btn.play-main {
+            width: 65px;
+            height: 65px;
+            background: var(--gold);
+            color: #000;
+            font-size: 1.5rem;
+            border: none;
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .ctrl-btn.play-main:hover {
+            background: #fff;
+            transform: scale(1.08);
+        }
+
+        /* Tracklist */
+        .tracklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .tracklist-grid::-webkit-scrollbar { width: 6px; }
+        .tracklist-grid::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+        .tracklist-grid::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+        .track-item-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .track-item-card:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+            transform: translateX(4px);
+        }
+
+        .track-item-card.active {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--gold);
+            border-left: 4px solid var(--gold);
+        }
+
+        .t-num {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-right: 8px;
+        }
+
+        .t-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 900px) {
+            .showcase-grid { grid-template-columns: 1fr; }
+            .jewel-case { margin: 0 auto; }
+            .booklet-spread-wrapper { grid-template-columns: 1fr; }
+            .booklet-spread-wrapper::after { display: none; }
+            .booklet-page-left { border-right: none; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="band-brand">THE RESEARCH BAND</div>
+        <div class="gift-ribbon">💿 EDICIÓN ESPECIAL</div>
+    </header>
+
+    <div class="main-container">
+
+        <!-- Portada 3D y Presentación -->
+        <section class="showcase-grid">
+            <div class="jewel-case-wrapper">
+                <div class="jewel-case" id="cover-case" onclick="togglePlay()">
+                    <img src="assets/img/portada.png" class="cover-art" alt="Cut the Roll & JazzRock" onerror="this.src='assets/img/portada.png'">
+                    <div class="vinyl-disc" id="vinyl-disc">
+                        <div class="vinyl-center">
+                            TRB<br>JAZZ-ROCK
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-info-side">
+                <div>
+                    <div class="album-subtitle">Álbum Oficial de Estudio • 15 Obras Maestras</div>
+                    <h1 class="album-title-main">Cut the Roll & JazzRock</h1>
+                    <p class="album-lead-text">
+                        Una experiencia sonora artesanal e independiente. Guitarras virtuosas, líneas de bajo con pulso solista, vientos expresivos con saxo y EWI, teclados analógicos y baterías de vanguardia.
+                    </p>
+                </div>
+
+                <div class="action-buttons-row">
+                    <button class="btn-gold" onclick="startAudioExperience()">
+                        <span>▶</span> OÍR ÁLBUM COMPLETO
+                    </button>
+                    <button class="btn-booklet" onclick="openBooklet(0)">
+                        <span>📖</span> ABRIR LIBRETO DE ANTAÑO (30 PÁGINAS)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reproductor Hi-Fi -->
+        <section class="player-section" id="player-view">
+            <div class="player-bar-header">
+                <div class="now-playing-title-box">
+                    <h4>Pista en Reproducción</h4>
+                    <h2 id="current-track-name">01. Duck, Frog and me</h2>
+                </div>
+
+                <div class="equalizer-box" id="eq-visualizer">
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                    <div class="eq-bar"></div>
+                </div>
+            </div>
+
+            <div class="progress-wrapper">
+                <div class="progress-bar-container" id="seek-container" onclick="seekAudio(event)">
+                    <div class="progress-filled" id="seek-filled"></div>
+                </div>
+                <div class="time-labels">
+                    <span id="current-time-label">00:00</span>
+                    <span id="total-time-label">04:12</span>
+                </div>
+            </div>
+
+            <div class="controls-row">
+                <button class="ctrl-btn" onclick="prevTrack()" title="Pista Anterior">⏮</button>
+                <button class="ctrl-btn play-main" id="play-btn-main" onclick="togglePlay()" title="Reproducir / Pausa">▶</button>
+                <button class="ctrl-btn" onclick="nextTrack()" title="Pista Siguiente">⏭</button>
+            </div>
+
+            <!-- Listado de 15 Pistas -->
+            <div class="tracklist-grid" id="tracklist-container">
+                <!-- Se puebla con JavaScript -->
+            </div>
+
+            <audio id="hifi-audio-player"></audio>
+        </section>
+
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- MODAL INMERSIVO: EL LIBRETO DE ANTAÑO EN DOBLE PÁGINA -->
+    <!-- ====================================================== -->
+    <div id="booklet-modal" class="booklet-overlay">
+        <div class="booklet-top-bar">
+            <div class="booklet-brand-tag">📖 LIBRETO DE ESTUDIO • THE RESEARCH BAND</div>
+            <div class="booklet-mini-player" id="booklet-mini-player">
+                <span class="booklet-mini-now" id="booklet-mini-now">♪ Sin reproducción</span>
+                <button class="btn-booklet-pp" id="btn-booklet-pp" onclick="togglePlay()" title="Play / Pausa">▶</button>
+                <button class="btn-booklet-stop" onclick="pauseAudio(); player.currentTime=0;" title="Detener">⏹</button>
+            </div>
+            <button class="btn-close-booklet" onclick="closeBooklet()">✕ CERRAR LIBRETO</button>
+        </div>
+
+        <div class="booklet-spread-wrapper" id="booklet-content">
+            <!-- Se puebla dinámicamente según el spread actual -->
+        </div>
+
+        <div class="booklet-nav-controls">
+            <button class="booklet-nav-btn" id="btn-booklet-prev" onclick="prevSpread()">
+                <span>◀</span> PÁGINA ANTERIOR
+            </button>
+            <div class="booklet-page-indicator" id="booklet-page-number">
+                PÁGINA 01 / 32
+            </div>
+            <button class="booklet-nav-btn" id="btn-booklet-next" onclick="nextSpread()">
+                PÁGINA SIGUIENTE <span>▶</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const albumTracks = [
+            { 
+                id: 1, 
+                title: "Ball in play", 
+                duration: "03:36", 
+                bpm: "150 BPM",
+                key: "D minor (Re menor)",
+                genre: "Jazz Fusion / Funk Jazz",
+                musicians: "Electric piano, Clavinet, Harmonica, Electric guitar, Funky bass, Drums.",
+                story: "Energía vibrante y bailable desde el primer compás. Una línea de bajo groovy y contagiosa, sección de metales potente y armónica que añade carácter retro. Ritmo funk-disco imparable que evoca celebración y movimiento.",
+                art: "assets/img/Ball in play.jpeg",
+                src: "assets/audio/Ball in play.mp3" 
+            },
+            { 
+                id: 2, 
+                title: "Bass stand yeah", 
+                duration: "03:45", 
+                bpm: "80 BPM",
+                key: "D minor (Re menor)",
+                genre: "Smooth Jazz / Soul Jazz",
+                musicians: "Harmonica solista (protagonista), Electric piano, Clavinet, Vocoder, Electric guitar, Funky bass, Drums.",
+                story: "La armónica es la absoluta protagonista de este tema: irrumpe y avanza como una locomotora en plena marcha, con un fraseo poderoso y expresivo que arrastra todo a su paso. Sobre una base de groove funky y clavinet, la armónica toma el control y no lo suelta.",
+                art: "assets/img/Bass stand yeah.jpeg",
+                src: "assets/audio/Bass stand yeah.mp3" 
+            },
+            { 
+                id: 3, 
+                title: "Bloody Lukas", 
+                duration: "04:15", 
+                bpm: "134 BPM",
+                key: "G minor (Sol menor)",
+                genre: "Jazz Fusion / Funk Jazz",
+                musicians: "Electric piano, Saxo, EWI, Violin, Harmonica, Electric guitar, Funky bass, Drums.",
+                story: "Fusión vibrante de ritmos bailables con instrumentación rica: saxo, EWI y violín construyen capas de energía sobre un groove funk sólido. Producción pulida donde cada instrumento brilla con personalidad propia.",
+                art: "assets/img/bloody lukas.jpeg",
+                src: "assets/audio/Bloody Lukas.mp3" 
+            },
+            { 
+                id: 4, 
+                title: "Books forever", 
+                duration: "04:20", 
+                bpm: "90 BPM",
+                key: "A minor (La menor)",
+                genre: "Jazz Shuffle / Latin Jazz",
+                musicians: "Electric piano, Mellotron, Chority Synth, EWI, Saxo, Electric guitar, Funky bass, Drums.",
+                story: "Ritmo de jazz shuffle con tintes latinos y tropicales. El mellotron y los sintetizadores añaden calidez nostálgica sobre una base rítmica vibrante. Ambiente festivo con un toque orgánico y retro de grabaciones clásicas.",
+                art: "assets/img/Books forever.jpeg",
+                src: "assets/audio/Books forever.mp3" 
+            },
+            { 
+                id: 5, 
+                title: "Bruma", 
+                duration: "03:30", 
+                bpm: "134 BPM",
+                key: "D minor (Re menor)",
+                genre: "Contemporary Jazz / Jazz Fusion",
+                musicians: "Electric piano, Bass clavinet synth fuzz, Saxo, EWI, Violin, Electric guitar, Wha-wha funky bass, Drums.",
+                story: "Ritmo sincopado y lleno de groove con una línea de bajo wha-wha prominente. El EWI y el violín tejen melodías cautivadoras sobre sintetizadores cálidos. Estado de ánimo positivo, enérgico y muy bailable.",
+                art: "assets/img/Bruma.jpg",
+                src: "assets/audio/Bruma.mp3" 
+            },
+            { 
+                id: 6, 
+                title: "Chrome Rhythms", 
+                duration: "03:25", 
+                bpm: "140 BPM",
+                key: "G minor (Sol menor)",
+                genre: "Latin Jazz / Jazz Fusion",
+                musicians: "Electric piano, Saxo, Electric guitar, Funky bass, Drums.",
+                story: "Fusión vibrante de ritmos latinos y jazz con una atmósfera festiva y optimista. Sección de metales potente, percusión latina y sección rítmica sólida. El saxo improvisa con fraseos de call & response llenos de vida y celebración.",
+                art: "assets/img/Chrome Rhythms.jpg",
+                src: "assets/audio/Chrome Rhythms.mp3" 
+            },
+            { 
+                id: 7, 
+                title: "Deprisa, ven despacio", 
+                duration: "03:32", 
+                bpm: "139 BPM",
+                key: "A minor (La menor)",
+                genre: "Jazz Fusion / Funk Jazz",
+                musicians: "Electric piano, Synth extreme, Saxo, EWI wha, Electric guitar, Funky bass, Drums.",
+                story: "Ritmo funk fuertemente sincopado con sección de metales potente y bajo pulsante. El EWI con efecto wha aporta un fraseo expresivo y urgente. Un arreglo que construye energía gradualmente con un toque retro irresistible.",
+                art: "assets/img/Deprisa, ven despacio.jpg",
+                src: "assets/audio/Deprisa, ven despacio.mp3" 
+            },
+            { 
+                id: 8, 
+                title: "Dragon lands", 
+                duration: "03:15", 
+                bpm: "95 BPM",
+                key: "Bb major (Si bemol mayor)",
+                genre: "Latin Jazz / Soul Jazz",
+                musicians: "Electric piano, Saxo, Violin, Electric guitar, Funky bass, Drums.",
+                story: "Fusión de ritmos latinos y soul con una melodía emotiva que evoca nostalgia y alegría. Rhodes piano cálido, guitarra rítmica y percusión latina crean una textura rica y analógica. Groove contagioso con profundidad armónica y calidez envolvente.",
+                art: "assets/img/Dragon lands.jpg",
+                src: "assets/audio/Dragon lands.mp3" 
+            },
+            { 
+                id: 9, 
+                title: "Feel your dreams", 
+                duration: "03:28", 
+                bpm: "101 BPM",
+                key: "E minor (Mi menor)",
+                genre: "Contemporary Jazz / Electronic Jazz",
+                musicians: "Electric piano, Saxo, Electric guitar, Funky bass, Drums.",
+                story: "Ritmo moderado propulsor con sensación disco-funk y un toque de sofisticación. Sintetizadores con texturas envolventes y bajo pulsante crean un ambiente retro pero moderno. Alegre, optimista y muy bailable.",
+                art: "assets/img/Feel your dreams.jpeg",
+                src: "assets/audio/Feel your dreams.mp3" 
+            },
+            { 
+                id: 10, 
+                title: "Lotus play", 
+                duration: "03:35", 
+                bpm: "138 BPM",
+                key: "G major (Sol mayor)",
+                genre: "Progressive Jazz / Jazz Fusion",
+                musicians: "Electric piano, Saxo, EWI, Electric guitar, Funky bass, Drums.",
+                story: "Sección de metales potente, líneas de bajo funky y sintetizadores brillantes sobre un ritmo constante y bailable. El EWI lleva la melodía principal con expresividad y alma. Producción profesional y polished con energía positiva y celebratoria.",
+                art: "assets/img/Lotus play.jpeg",
+                src: "assets/audio/Lotus play.mp3" 
+            },
+            { 
+                id: 11, 
+                title: "Macao no es Lao", 
+                duration: "04:20", 
+                bpm: "93 BPM",
+                key: "A minor (La menor)",
+                genre: "Smooth Jazz-Rock / Contemporary Jazz",
+                musicians: "Electric piano, Mellotron voices, Saxo, Electric guitar, Funky bass, Drums.",
+                story: "Tempo moderado y relajado con un groove suave y sincopado. El mellotron añade voces etéreas y nostálgicas sobre un Rhodes piano cálido. Atmósfera íntima y melancólica que invita a la reflexión, analógica y vintage.",
+                art: "assets/img/Macao no es Lao.jpeg",
+                src: "assets/audio/Macao no es Lao.mp3" 
+            },
+            { 
+                id: 12, 
+                title: "Much time ago", 
+                duration: "03:10", 
+                bpm: "128 BPM",
+                key: "A minor (La menor)",
+                genre: "Smooth Jazz / Contemporary Jazz",
+                musicians: "Electric piano, Electric guitar, Funky bass, Drums.",
+                story: "Atmósfera melancólica e introspectiva con una instrumentación minimalista y cálida. Guitarra orgánica, piano y bajo crean una textura íntima con un toque lo-fi. Un viaje sonoro personal y narrativo que evoca el paso del tiempo.",
+                art: "assets/img/Much time ago.jpg",
+                src: "assets/audio/Much time ago.mp3" 
+            },
+            { 
+                id: 13, 
+                title: "Plastic hard", 
+                duration: "03:22", 
+                bpm: "140 BPM",
+                key: "Bb minor (Si bemol menor)",
+                genre: "Jazz Fusion / Funk Jazz",
+                musicians: "Electric piano, Saxo, EWI, Electric guitar, Funky bass, Drums.",
+                story: "Línea de bajo sincopada y batería con mucho groove bajo una sección de metales prominente. El saxo y el EWI añaden fraseos expresivos con carácter festivo y nocturno. Producción cálida y envolvente con profundidad rítmica irresistible.",
+                art: "assets/img/Plastic hard.jpg",
+                src: "assets/audio/Plastic hard.mp3" 
+            },
+            { 
+                id: 14, 
+                title: "Tatum screen", 
+                duration: "03:40", 
+                bpm: "94 BPM",
+                key: "G minor (Sol menor)",
+                genre: "Progressive Jazz Fusion / Cinematic Jazz",
+                musicians: "Electric piano, Saxo, EWI, Violin, Electric guitar, Funky bass, Drums, Mellotron voices.",
+                story: "Instrumental con melodía memorable y ritmo moderado que es a la vez relajado y propulsor. Capas de sintetizadores atmosféricos, mellotron etéreo y texturas cinematográficas. Estado de ánimo nostálgico y esperanzador con un toque dreamy y envolvente.",
+                art: "assets/img/Tatum.png",
+                src: "assets/audio/Tatum screen.mp3" 
+            },
+            { 
+                id: 15, 
+                title: "Without a trace of barbarism", 
+                duration: "03:38", 
+                bpm: "138 BPM",
+                key: "D minor (Re menor)",
+                genre: "Jazz Fusion / Contemporary Jazz",
+                musicians: "Acoustic electro piano, Violin, Electric guitar, Funky bass, Drums.",
+                story: "El manifiesto final del álbum. Ritmo bailable con melodías pegadizas y secciones de vientos brillantes. Voces ricas y dinámicas con armonías vocales. Producción lush y envolvente que cierra el disco con alegría, optimismo y una sensación de fiesta colectiva.",
+                art: "assets/img/Without a trace of barbarism.jpeg",
+                src: "assets/audio/Without a trace of barbarism.mp3" 
+            }
+        ];
+
+        let currentSpread = 0;
+        const totalSpreads = 17; // Spread 0: Prólogo + 15 Tracks (1 a 15) + Spread 16: Créditos Finales
+        let currentIndex = 0;
+        let isPlaying = false;
+        const player = document.getElementById('hifi-audio-player');
+        const playBtn = document.getElementById('play-btn-main');
+        const trackTitle = document.getElementById('current-track-name');
+        const vinyl = document.getElementById('vinyl-disc');
+        const eqBars = document.querySelectorAll('.eq-bar');
+        const progressFilled = document.getElementById('seek-filled');
+        const curTimeLabel = document.getElementById('current-time-label');
+        const totTimeLabel = document.getElementById('total-time-label');
+
+        function initTracklist() {
+            const container = document.getElementById('tracklist-container');
+            container.innerHTML = '';
+            albumTracks.forEach((track, idx) => {
+                const card = document.createElement('div');
+                card.className = `track-item-card ${idx === currentIndex ? 'active' : ''}`;
+                card.onclick = () => selectTrack(idx);
+                card.innerHTML = `
+                    <div>
+                        <span class="t-num">${String(idx + 1).padStart(2, '0')}.</span>
+                        <span class="t-name">${track.title}</span>
+                    </div>
+                    <span style="font-size: 0.8rem; color: var(--gold); font-weight: 600;">${track.duration}</span>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function selectTrack(index) {
+            currentIndex = index;
+            const track = albumTracks[index];
+            player.src = track.src;
+            trackTitle.textContent = `${String(index + 1).padStart(2, '0')}. ${track.title}`;
+            totTimeLabel.textContent = track.duration;
+            initTracklist();
+            playAudio();
+        }
+
+        function togglePlay() {
+            if (isPlaying) {
+                pauseAudio();
+            } else {
+                playAudio();
+            }
+        }
+
+        function playAudio() {
+            if (!player.src) {
+                player.src = albumTracks[currentIndex].src;
+            }
+            player.play().then(() => {
+                isPlaying = true;
+                playBtn.textContent = '⏸';
+                vinyl.classList.add('spinning');
+                eqBars.forEach(b => b.classList.add('active'));
+                // Sync mini player in booklet
+                const miniBtn = document.getElementById('btn-booklet-pp');
+                const miniNow = document.getElementById('booklet-mini-now');
+                if (miniBtn) miniBtn.textContent = '⏸';
+                if (miniNow) miniNow.textContent = '♪ ' + albumTracks[currentIndex].title;
+            }).catch(e => console.log('Audio autoplay blocked or src not ready', e));
+        }
+
+        function pauseAudio() {
+            player.pause();
+            isPlaying = false;
+            playBtn.textContent = '▶';
+            vinyl.classList.remove('spinning');
+            eqBars.forEach(b => b.classList.remove('active'));
+            // Sync mini player in booklet
+            const miniBtn = document.getElementById('btn-booklet-pp');
+            if (miniBtn) miniBtn.textContent = '▶';
+        }
+
+        function prevTrack() {
+            currentIndex = (currentIndex - 1 + albumTracks.length) % albumTracks.length;
+            selectTrack(currentIndex);
+        }
+
+        function nextTrack() {
+            currentIndex = (currentIndex + 1) % albumTracks.length;
+            selectTrack(currentIndex);
+        }
+
+        player.addEventListener('timeupdate', () => {
+            if (player.duration) {
+                const pct = (player.currentTime / player.duration) * 100;
+                progressFilled.style.width = `${pct}%`;
+                curTimeLabel.textContent = formatTime(player.currentTime);
+            }
+        });
+
+        player.addEventListener('ended', () => {
+            nextTrack();
+        });
+
+        function seekAudio(e) {
+            const rect = document.getElementById('seek-container').getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / rect.width;
+            player.currentTime = pos * player.duration;
+        }
+
+        function formatTime(secs) {
+            const m = Math.floor(secs / 60);
+            const s = Math.floor(secs % 60);
+            return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        }
+
+        function startAudioExperience() {
+            document.getElementById('player-view').scrollIntoView({ behavior: 'smooth' });
+            if (!isPlaying) {
+                selectTrack(0);
+            }
+        }
+
+        /* ====================================================== */
+        /* MOTOR DEL LIBRETO DE ANTAÑO (30 PÁGINAS) */
+        /* ====================================================== */
+        function openBooklet(spreadIdx = 0) {
+            currentSpread = spreadIdx;
+            document.getElementById('booklet-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            renderBookletSpread();
+        }
+
+        function closeBooklet() {
+            document.getElementById('booklet-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function prevSpread() {
+            if (currentSpread > 0) {
+                currentSpread--;
+                renderBookletSpread();
+            }
+        }
+
+        function nextSpread() {
+            if (currentSpread < totalSpreads - 1) {
+                currentSpread++;
+                renderBookletSpread();
+            }
+        }
+
+        function renderBookletSpread() {
+            const container = document.getElementById('booklet-content');
+            const pageIndicator = document.getElementById('booklet-page-number');
+            const btnPrev = document.getElementById('btn-booklet-prev');
+            const btnNext = document.getElementById('btn-booklet-next');
+
+            btnPrev.disabled = (currentSpread === 0);
+            btnNext.disabled = (currentSpread === totalSpreads - 1);
+
+            const pLeft = currentSpread * 2 + 1;
+            const pRight = currentSpread * 2 + 2;
+            pageIndicator.textContent = `PÁGINAS ${String(pLeft).padStart(2, '0')} - ${String(pRight).padStart(2, '0')} / 34`;
+
+            if (currentSpread === 0) {
+                // SPREAD 0: PORTADILLA Y PRÓLOGO DEL AUTOR
+                container.innerHTML = `
+                    <div class="booklet-page-left">
+                        <div class="b-corner b-tl"></div><div class="b-corner b-bl"></div>
+                        <img src="assets/img/portada.png" class="booklet-track-art" alt="Portada">
+                        <div class="booklet-track-badge">LIBRETO OFICIAL</div>
+                        <div class="booklet-track-title-left">Cut the Roll & JazzRock</div>
+                        <div style="font-size: 0.85rem; color: var(--gold); margin-top: 8px;">Edición de Coleccionista • 2026</div>
+                    </div>
+                    <div class="booklet-page-right">
+                        <div class="b-corner b-tr"></div><div class="b-corner b-br"></div>
+                        <div>
+                            <div class="page-song-header">
+                                <h2>Prólogo del Autor</h2>
+                                <div class="page-meta-row">
+                                    <span>✍️ Eduardo Ramírez de Cartagena</span>
+                                    <span>💿 Grabación en Estudio Maestro</span>
+                                </div>
+                            </div>
+                            <div class="page-story-box">
+                                <span class="page-story-dropcap">E</span>ste libreto que tienes en tus manos es un homenaje a los discos físicos de antaño. A aquellas ediciones cuidadas donde abrir el libreto era una ceremonia: leer quién tocaba el bajo, qué saxo sonaba en cada solo y qué historia escondía cada acorde.
+                            </div>
+                            <div class="page-story-box" style="font-size: 1.15rem;">
+                                <strong>"Cut the Roll & JazzRock"</strong> reúne quince composiciones donde el virtuosismo y la emoción caminan de la mano. Pasa las páginas para descubrir la historia, la ficha técnica y los músicos de cada una de las canciones.
+                            </div>
+                        </div>
+                        <button class="page-listen-btn" onclick="startAudioExperience(); closeBooklet();">
+                            ▶ OÍR ÁLBUM DESDE LA PISTA 01
+                        </button>
+                    </div>
+                `;
+            } else if (currentSpread >= 1 && currentSpread <= 15) {
+                // SPREAD 1 a 15: CANCIONES INDIVIDUALES (2 páginas dedicadas por canción)
+                const trackIdx = currentSpread - 1;
+                const track = albumTracks[trackIdx];
+
+                container.innerHTML = `
+                    <div class="booklet-page-left">
+                        <div class="b-corner b-tl"></div><div class="b-corner b-bl"></div>
+                        <img src="${track.art}" class="booklet-track-art" alt="${track.title}" onerror="this.src='assets/img/portada.png'">
+                        <div class="booklet-track-badge">PISTA #${String(trackIdx + 1).padStart(2, '0')}</div>
+                        <div class="booklet-track-title-left">${track.title}</div>
+                        <div style="font-size: 0.85rem; color: var(--gold); margin-top: 8px;">${track.genre}</div>
+                    </div>
+                    <div class="booklet-page-right">
+                        <div class="b-corner b-tr"></div><div class="b-corner b-br"></div>
+                        <div>
+                            <div class="page-song-header">
+                                <h2>${track.title}</h2>
+                                <div class="page-meta-row">
+                                    <span>⏱ ${track.duration}</span>
+                                    <span>⚡ ${track.bpm}</span>
+                                    <span>🔑 ${track.key}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="page-story-box">
+                                <span class="page-story-dropcap">${track.story.charAt(0)}</span>${track.story.slice(1)}
+                            </div>
+
+                            <div class="page-musicians-box">
+                                <strong>Músicos & Instrumentos en esta pista:</strong><br>
+                                ${track.musicians}
+                            </div>
+                        </div>
+
+                        <button class="page-listen-btn" onclick="selectTrack(${trackIdx});">
+                            ▶ ESCUCHAR ESTA CANCIÓN AHORA
+                        </button>
+                    </div>
+                `;
+            } else {
+                // SPREAD 16: CRÉDITOS FINALES Y CONTRAPORTADA DEL LIBRETO
+                container.innerHTML = `
+            <div class="booklet-page-left" style="display: flex; flex-direction: column; justify-content: space-between; padding: 24px 30px;">
+                <div class="b-corner b-tl"></div><div class="b-corner b-bl"></div>
+                <div>
+                    <div class="page-song-header" style="margin-bottom: 14px; text-align: left;">
+                        <h2 style="font-family: 'Cinzel', serif; font-size: 1.7rem; color: var(--gold); letter-spacing: 2px; margin-bottom: 4px;">The Research Band</h2>
+                        <div class="page-meta-row" style="margin-bottom: 0;"><span style="color: var(--gold); font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase;">Miembros & Créditos de Producción</span></div>
+                    </div>
+                    
+                    <!-- GRID DE MÚSICOS CON FOTO GRANDE (64px) -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; margin-bottom: 12px;">
+                        <!-- Eduardo -->
+                        <div style="display: flex; align-items: center; gap: 12px; background: rgba(0,0,0,0.4); border: 1px solid rgba(212,175,55,0.3); border-radius: 10px; padding: 8px 12px;">
+                            <img src="assets/img/miembros/EDUARDO/nova_bio_eduardo.jpg" style="width: 64px; height: 64px; border-radius: 50%; border: 2.5px solid var(--gold); object-fit: cover; flex-shrink: 0; box-shadow: 0 0 12px rgba(212,175,55,0.4);" alt="Eduardo Ramírez">
+                            <div style="text-align: left; line-height: 1.3;">
+                                <div style="font-weight: 700; color: #fff; font-size: 0.88rem;">Eduardo Ramírez</div>
+                                <div style="color: var(--gold); font-size: 0.72rem;">Bajo, Voz Solista & Composición</div>
+                            </div>
+                        </div>
+                        <!-- Luca -->
+                        <div style="display: flex; align-items: center; gap: 12px; background: rgba(0,0,0,0.4); border: 1px solid rgba(212,175,55,0.3); border-radius: 10px; padding: 8px 12px;">
+                            <img src="assets/img/miembros/Luca/luca_final.jpg" style="width: 64px; height: 64px; border-radius: 50%; border: 2.5px solid var(--gold); object-fit: cover; flex-shrink: 0; box-shadow: 0 0 12px rgba(212,175,55,0.4);" alt="Luca Alessandro Fiammetti">
+                            <div style="text-align: left; line-height: 1.3;">
+                                <div style="font-weight: 700; color: #fff; font-size: 0.88rem;">Luca A. Fiammetti</div>
+                                <div style="color: var(--gold); font-size: 0.72rem;">Guitarra Jazz Fusion</div>
+                            </div>
+                        </div>
+                        <!-- Erik -->
+                        <div style="display: flex; align-items: center; gap: 12px; background: rgba(0,0,0,0.4); border: 1px solid rgba(212,175,55,0.3); border-radius: 10px; padding: 8px 12px;">
+                            <img src="assets/img/miembros/Erik/sax_profile.jpg" style="width: 64px; height: 64px; border-radius: 50%; border: 2.5px solid var(--gold); object-fit: cover; flex-shrink: 0; box-shadow: 0 0 12px rgba(212,175,55,0.4);" alt="Erik Solberg Andrade">
+                            <div style="text-align: left; line-height: 1.3;">
+                                <div style="font-weight: 700; color: #fff; font-size: 0.88rem;">Erik Solberg</div>
+                                <div style="color: var(--gold); font-size: 0.72rem;">Saxofón & EWI</div>
+                            </div>
+                        </div>
+                        <!-- Alba -->
+                        <div style="display: flex; align-items: center; gap: 12px; background: rgba(0,0,0,0.4); border: 1px solid rgba(212,175,55,0.3); border-radius: 10px; padding: 8px 12px;">
+                            <img src="assets/img/miembros/Alba/violin_profile.jpg" style="width: 64px; height: 64px; border-radius: 50%; border: 2.5px solid var(--gold); object-fit: cover; flex-shrink: 0; box-shadow: 0 0 12px rgba(212,175,55,0.4);" alt="Alba Cisneros Montalbán">
+                            <div style="text-align: left; line-height: 1.3;">
+                                <div style="font-weight: 700; color: #fff; font-size: 0.88rem;">Alba Cisneros</div>
+                                <div style="color: var(--gold); font-size: 0.72rem;">Violín & Viola</div>
+                            </div>
+                        </div>
+                        <!-- Hiroshi -->
+                        <div style="display: flex; align-items: center; gap: 12px; background: rgba(0,0,0,0.4); border: 1px solid rgba(212,175,55,0.3); border-radius: 10px; padding: 8px 12px;">
+                            <img src="assets/img/miembros/Hiroshi/hiroshi_profile.jpg" style="width: 64px; height: 64px; border-radius: 50%; border: 2.5px solid var(--gold); object-fit: cover; flex-shrink: 0; box-shadow: 0 0 12px rgba(212,175,55,0.4);" alt="Hiroshi Tanaka">
+                            <div style="text-align: left; line-height: 1.3;">
+                                <div style="font-weight: 700; color: #fff; font-size: 0.88rem;">Hiroshi Tanaka</div>
+                                <div style="color: var(--gold); font-size: 0.72rem;">Batería & Percusiones</div>
+                            </div>
+                        </div>
+                        <!-- Nara -->
+                        <div style="display: flex; align-items: center; gap: 12px; background: rgba(0,0,0,0.4); border: 1px solid rgba(212,175,55,0.3); border-radius: 10px; padding: 8px 12px;">
+                            <img src="assets/img/miembros/Nara/NARA BLUE 2 harmonica.png" style="width: 64px; height: 64px; border-radius: 50%; border: 2.5px solid var(--gold); object-fit: cover; flex-shrink: 0; box-shadow: 0 0 12px rgba(212,175,55,0.4);" alt="Nara Blue">
+                            <div style="text-align: left; line-height: 1.3;">
+                                <div style="font-weight: 700; color: #fff; font-size: 0.88rem;">Nara Blue</div>
+                                <div style="color: var(--gold); font-size: 0.72rem;">Voz, Harmónica & Teclados</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-size: 0.70rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">
+                    Master Edition · 24-Bit / 96kHz Hi-Res Audio · Producción Integral
+                </div>
+            </div>
+            <div class="booklet-page-right" style="display: flex; flex-direction: column; justify-content: space-between; padding: 36px 40px;">
+                <div class="b-corner b-tr"></div><div class="b-corner b-br"></div>
+                <div>
+                    <div class="page-song-header" style="margin-bottom: 20px; text-align: left;">
+                        <h2 style="font-family: 'Cinzel', serif; font-size: 1.85rem; color: var(--gold); letter-spacing: 2px; margin-bottom: 6px;">Contraportada</h2>
+                        <div class="page-meta-row" style="margin-bottom: 0;"><span style="color: var(--gold); font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;">Registro & Edición</span></div>
+                    </div>
+                    <div class="page-story-box" style="font-size: 1rem; line-height: 1.6; font-style: italic; color: #e2e8f0; margin-bottom: 12px; background: rgba(0,0,0,0.25); border-left: 3px solid var(--gold); padding: 14px 18px; border-radius: 4px;">
+                        "Gracias por escuchar la música con el respeto y la devoción de quienes aman el sonido auténtico. Que cada compás resuene con la misma pasión con la que fue grabado."
+                    </div>
+                    <div style="font-family: 'Alex Brush', cursive; font-size: 2.6rem; color: var(--gold); text-align: right; text-shadow: 0 0 15px rgba(212,175,55,0.4); margin-bottom: 24px; padding-right: 10px;">
+                        Eduardo Ramírez
+                    </div>
+                    
+                    <!-- SECCIÓN: DISEÑO Y CREACIÓN DE ILUSTRACIONES -->
+                    <div style="text-align: left; background: rgba(212,175,55,0.05); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; padding: 14px 18px; margin-top: 10px;">
+                        <div style="font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: bold; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">
+                            Diseño y creación de Ilustraciones
+                        </div>
+                        <div style="font-size: 0.88rem; line-height: 1.7; color: #f1f5f9; font-weight: 500;">
+                            <div>Eduardo Ramírez</div>
+                            <div style="color: var(--gold);">Antigravity</div>
+                            <div style="color: #94a3b8;">Flow</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid rgba(212,175,55,0.2); padding-top: 12px; text-align: center; letter-spacing: 0.5px;">
+                    © 2026 The Research Band · Todos los derechos reservados.
+                </div>
+            </div>
+        `;
+            }
+        }
+
+        // Teclado para pasar páginas del libreto
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('booklet-modal').classList.contains('active')) {
+                if (e.key === 'ArrowLeft') prevSpread();
+                if (e.key === 'ArrowRight') nextSpread();
+                if (e.key === 'Escape') closeBooklet();
+            }
+        });
+
+        // Inicializar
+        initTracklist();
+        player.src = albumTracks[0].src;
+    </script>
+</body>
+</html>
