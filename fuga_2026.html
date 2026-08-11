@@ -14,7 +14,7 @@
             --glass-border: rgba(255, 255, 255, 0.1);
             --text-main: #f0f4f8;
             --text-muted: #8e9bb0;
-            --accent: #d4af37; /* Dorado apagado inspirado en la portada */
+            --accent: #d4af37;
         }
         
         * {
@@ -219,7 +219,6 @@
             list-style: none;
             overflow-y: auto;
             padding: 0 15px;
-            /* Scrollbar styling */
             scrollbar-width: thin;
             scrollbar-color: var(--accent) transparent;
         }
@@ -233,7 +232,7 @@
         }
 
         .track-item {
-            padding: 15px;
+            padding: 12px 15px;
             margin: 5px 0;
             border-radius: 12px;
             cursor: pointer;
@@ -244,7 +243,7 @@
 
         .track-item:hover {
             background: rgba(255, 255, 255, 0.05);
-            transform: translateX(5px);
+            transform: translateX(4px);
         }
 
         .track-item.active {
@@ -261,15 +260,42 @@
             width: 30px;
             color: var(--text-muted);
             font-size: 0.9rem;
+            flex-shrink: 0;
         }
 
         .track-info {
             flex-grow: 1;
+            min-width: 0;
         }
 
         .track-name {
-            font-size: 1rem;
-            margin-bottom: 3px;
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .btn-buy-track {
+            margin-left: 8px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 0.72rem;
+            padding: 4px 10px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            font-family: inherit;
+            flex-shrink: 0;
+        }
+
+        .btn-buy-track:hover {
+            background: var(--accent);
+            color: #000;
+            transform: scale(1.05);
         }
 
         .dedication {
@@ -284,10 +310,16 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            body {
+                overflow-y: auto;
+                padding: 40px 10px;
+                height: auto;
+            }
             .player-container {
                 flex-direction: column;
-                height: 90vh;
+                height: auto;
                 max-height: none;
+                margin-top: 50px;
             }
             .visual-section {
                 width: 100%;
@@ -300,8 +332,30 @@
             }
             .playlist-section {
                 width: 100%;
-                flex-grow: 1;
-                overflow: hidden;
+                max-height: 400px;
+            }
+        }
+
+        .purchase-modal-box {
+            background: #0d121c;
+            border: 2px solid var(--accent, #D4AF37);
+            border-radius: 20px;
+            max-width: 520px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 28px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9), 0 0 30px rgba(212,175,55,0.3);
+            position: relative;
+            color: #fff;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        @media (max-width: 600px) {
+            .purchase-modal-box {
+                padding: 20px 14px !important;
+                max-height: 88vh !important;
             }
         }
     </style>
@@ -318,6 +372,9 @@
     
     <!-- Botón Volver -->
     <a href="index.html" style="position: absolute; top: 25px; left: 25px; z-index: 100; background: rgba(10, 20, 35, 0.8); border: 1px solid var(--accent); color: var(--accent); text-decoration: none; padding: 10px 22px; border-radius: 30px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">← Volver al Inicio</a>
+    
+    <!-- Botón Comprar Disco Completo -->
+    <button onclick="openPurchaseModal('album')" style="position: absolute; top: 25px; right: 25px; z-index: 100; background: linear-gradient(135deg, #0070ba, #003087); border: 1px solid #00c0ff; color: #ffffff; cursor: pointer; padding: 10px 22px; border-radius: 30px; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,112,186,0.5); font-family: inherit;">🛒 Comprar Disco Digital · 9,00 €</button>
     
     <div class="player-container">
         <!-- Columna Visual -->
@@ -370,7 +427,7 @@
                 <h2>FUGA (2026 VERSIONS)</h2>
             </div>
             <ul class="track-list" id="track-list">
-                <!-- Se inyecta con JS -->
+                <!-- Inyectado con JavaScript -->
             </ul>
         </div>
     </div>
@@ -393,7 +450,6 @@
         const durationEl = document.getElementById('duration');
         const trackListEl = document.getElementById('track-list');
 
-        // Nombres de los 10 clips exactos de 20 segundos preparados por Eduardo
         const tracks = [
             { file: '20 segundos disco FUGA/01Tanto trabajar.mp3', title: 'Tanto trabajar' },
             { file: '20 segundos disco FUGA/02Cifras en la almohada.mp3', title: 'Cifras en la almohada' },
@@ -417,6 +473,7 @@
         }
 
         function buildPlaylist() {
+            trackListEl.innerHTML = '';
             tracks.forEach((track, index) => {
                 const li = document.createElement('li');
                 li.classList.add('track-item');
@@ -424,8 +481,11 @@
                     <div class="track-num">${(index + 1).toString().padStart(2, '0')}</div>
                     <div class="track-info">
                         <div class="track-name">${track.title}</div>
-                        <div style="font-size: 0.75rem; color: var(--accent); margin-top: 2px;">Muestra destacada (20s)</div>
+                        <div style="font-size: 0.72rem; color: var(--accent); margin-top: 2px;">Muestra destacada (20s)</div>
                     </div>
+                    <button class="btn-buy-track" onclick="event.stopPropagation(); openPurchaseModal('track', '${track.title.replace(/'/g, "\\'")}', 1)" title="Comprar canción suelta (${track.title}) por 1,00 €">
+                        🛒 1,00 €
+                    </button>
                 `;
                 li.addEventListener('click', () => {
                     trackIndex = index;
@@ -453,7 +513,7 @@
             pauseIcon.style.display = 'block';
             var p = audio.play();
             if (p !== undefined) {
-                p.catch(function(e){});
+                p.catch(function(e) {});
             }
         }
 
@@ -483,41 +543,21 @@
             playTrack();
         });
 
-        // Formatear tiempo (segundos a M:SS)
-        function formatTime(seconds) {
-            if (isNaN(seconds)) return "0:00";
-            const min = Math.floor(seconds / 60);
-            const sec = Math.floor(seconds % 60);
-            return `${min}:${sec.toString().padStart(2, '0')}`;
-        }
-
-        audio.addEventListener('timeupdate', (e) => {
-            const { duration, currentTime } = e.srcElement;
-            if (duration) {
-                const progressPercent = (currentTime / duration) * 100;
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
                 progress.style.width = `${progressPercent}%`;
-                currentTimeEl.textContent = formatTime(currentTime);
+                const currentMinutes = Math.floor(audio.currentTime / 60);
+                let currentSeconds = Math.floor(audio.currentTime % 60);
+                if (currentSeconds < 10) currentSeconds = `0${currentSeconds}`;
+                currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
+                const durationMinutes = Math.floor(audio.duration / 60);
+                let durationSeconds = Math.floor(audio.duration % 60);
+                if (durationSeconds < 10) durationSeconds = `0${durationSeconds}`;
+                durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
             }
         });
 
-        audio.addEventListener('loadedmetadata', () => {
-            durationEl.textContent = formatTime(audio.duration);
-        });
-
-        // Auto play siguiente pista al terminar los 20s
-        audio.addEventListener('ended', () => {
-            trackIndex++;
-            if (trackIndex > tracks.length - 1) {
-                trackIndex = 0;
-                loadTrack(trackIndex);
-                pauseTrack(); // Al terminar todas las muestras se para
-            } else {
-                loadTrack(trackIndex);
-                playTrack();
-            }
-        });
-
-        // Click en la barra de progreso
         progressContainer.addEventListener('click', (e) => {
             const width = progressContainer.clientWidth;
             const clickX = e.offsetX;
@@ -526,22 +566,169 @@
             }
         });
 
-        // Auto play siguiente pista
         audio.addEventListener('ended', () => {
             trackIndex++;
             if (trackIndex > tracks.length - 1) {
                 trackIndex = 0;
                 loadTrack(trackIndex);
-                pauseTrack(); // Termina el disco entero y para
+                pauseTrack();
             } else {
                 loadTrack(trackIndex);
                 playTrack();
             }
         });
 
-        // Inicializar
         buildPlaylist();
         loadTrack(trackIndex);
+    </script>
+
+    <!-- MODAL DE COMPRA DISCO DIGITAL / PISTA SUELTA -->
+    <div id="purchaseModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 99999; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box;">
+        <div class="purchase-modal-box">
+            
+            <button onclick="closePurchaseModal()" style="position: absolute; top: 15px; right: 18px; background: transparent; border: none; color: #94a3b8; font-size: 1.6rem; cursor: pointer; line-height: 1; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#94a3b8'">&times;</button>
+            
+            <div style="display: flex; gap: 18px; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.25); padding-bottom: 18px; margin-bottom: 18px;">
+                <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="FUGA Cover" style="width: 75px; height: 75px; border-radius: 10px; border: 1.5px solid #D4AF37; object-fit: cover; box-shadow: 0 6px 15px rgba(0,0,0,0.6);">
+                <div>
+                    <h3 id="modalItemTitle" style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 1.35rem; margin: 0 0 4px 0;">FUGA (2026 Versions)</h3>
+                    <p id="modalItemSubtitle" style="color: #cbd5e1; font-size: 0.80rem; margin: 0 0 6px 0;">Edición Digital Oficial · Audio Hi-Res Masterizado</p>
+                    <div id="modalItemPrice" style="display: inline-block; background: rgba(212, 175, 55, 0.2); border: 1px solid #D4AF37; color: #D4AF37; font-weight: 800; font-size: 0.90rem; padding: 2px 10px; border-radius: 6px;">
+                        Precio: 9,00 €
+                    </div>
+                </div>
+            </div>
+
+            <div style="color: #e2e8f0; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">
+                Elige tu método de pago preferido:
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px;">
+                
+                <!-- 1. BIZUM (OPCIÓN PRINCIPAL DESTACADA) -->
+                <div style="background: rgba(0, 180, 167, 0.08); border: 2px solid #00b4a7; padding: 14px 18px; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,180,167,0.15);">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span style="background: #00b4a7; color: #000; font-weight: 900; font-size: 0.82rem; padding: 2px 8px; border-radius: 6px;">BIZUM</span>
+                            <span style="font-weight: 700; font-size: 0.95rem; color: #fff;">Pago Rápido (España)</span>
+                        </div>
+                        <span id="modalBizumPriceBadge" style="color: #00b4a7; font-weight: 900; font-size: 1rem;">9,00 €</span>
+                    </div>
+                    
+                    <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(0, 180, 167, 0.3); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div>
+                            <div style="font-size: 0.70rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Número para Bizum:</div>
+                            <div style="font-size: 1.25rem; font-weight: 800; color: #00e5d4; letter-spacing: 1px;">678 70 87 29</div>
+                        </div>
+                        <button onclick="copyBizumPhone(this)" style="background: #00b4a7; color: #000; border: none; font-weight: 800; font-size: 0.75rem; padding: 6px 12px; border-radius: 8px; cursor: pointer; transition: all 0.2s; font-family: inherit;">
+                            📋 Copiar
+                        </button>
+                    </div>
+
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <a id="modalWhatsappBtn" href="https://wa.me/34678708729?text=Hola,%20he%20hecho%20un%20Bizum%20de%209€%20para%20el%20disco%20FUGA%20(2026%20Versions).%20Mi%20email%20para%20la%20descarga%20es:%20" target="_blank" style="flex: 1; min-width: 140px; background: #25D366; color: #000; font-weight: 800; font-size: 0.76rem; padding: 8px 12px; border-radius: 8px; text-decoration: none; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+                            💬 Confirmar por WhatsApp
+                        </a>
+                        <a id="modalEmailBtn" href="mailto:trbandmusic@gmail.com?subject=Bizum%20Disco%20FUGA%20(9%20EUR)&body=Hola,%20he%20hecho%20un%20Bizum%20de%209€%20para%20el%20disco%20FUGA.%20Mi%20email%20para%20recibir%20el%20enlace%20es:%20" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-weight: 700; font-size: 0.76rem; padding: 8px 12px; border-radius: 8px; text-decoration: none; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+                            ✉️ Confirmar por Email
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Tarjeta / Bandcamp -->
+                <a href="https://trbandmusic.bandcamp.com" target="_blank" style="display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px 16px; border-radius: 12px; text-decoration: none; color: #fff; transition: all 0.2s;" onmouseover="this.style.borderColor='#D4AF37'; this.style.background='rgba(212,175,55,0.1)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.background='rgba(255,255,255,0.05)'">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 1.3rem;">💳</span>
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.90rem; color: #fff;">Tarjeta de Crédito / Débito</div>
+                            <div style="font-size: 0.72rem; color: #94a3b8;">Visa, Mastercard, Amex (vía Bandcamp)</div>
+                        </div>
+                    </div>
+                    <span style="color: #D4AF37; font-weight: 800; font-size: 0.82rem;">Pagar ➔</span>
+                </a>
+
+                <!-- 3. PayPal -->
+                <a id="modalPaypalBtn" href="https://www.paypal.com/paypalme/TheResearchBand/9EUR" target="_blank" style="display: flex; align-items: center; justify-content: space-between; background: rgba(0, 112, 186, 0.15); border: 1px solid #0070ba; padding: 12px 16px; border-radius: 12px; text-decoration: none; color: #fff; transition: all 0.2s;" onmouseover="this.style.borderColor='#00c0ff'; this.style.background='rgba(0,112,186,0.25)'" onmouseout="this.style.borderColor='#0070ba'; this.style.background='rgba(0,112,186,0.15)'">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 1.3rem;">🅿️</span>
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.90rem; color: #fff;">PayPal</div>
+                            <div id="modalPaypalText" style="font-size: 0.72rem; color: #94a3b8;">Saldo PayPal o tarjeta vinculada (9,00 €)</div>
+                        </div>
+                    </div>
+                    <span style="color: #00c0ff; font-weight: 800; font-size: 0.82rem;">Pagar ➔</span>
+                </a>
+
+            </div>
+
+            <!-- Footer Seguridad -->
+            <div style="font-size: 0.70rem; color: #64748b; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+                🔒 Compra 100% segura directa con el artista · The Research Band © 2026
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPurchaseModal(type, title, price) {
+            var modal = document.getElementById('purchaseModal');
+            var titleEl = document.getElementById('modalItemTitle');
+            var subtitleEl = document.getElementById('modalItemSubtitle');
+            var priceEl = document.getElementById('modalItemPrice');
+            var bizumPriceBadge = document.getElementById('modalBizumPriceBadge');
+            var paypalBtn = document.getElementById('modalPaypalBtn');
+            var paypalText = document.getElementById('modalPaypalText');
+            var whatsappBtn = document.getElementById('modalWhatsappBtn');
+            var emailBtn = document.getElementById('modalEmailBtn');
+
+            if (type === 'track') {
+                if (titleEl) titleEl.textContent = title;
+                if (subtitleEl) subtitleEl.textContent = 'Canción Individual · Audio Hi-Res Masterizado';
+                if (priceEl) priceEl.textContent = 'Precio: 1,00 €';
+                if (bizumPriceBadge) bizumPriceBadge.textContent = '1,00 €';
+                if (paypalBtn) paypalBtn.href = 'https://www.paypal.com/paypalme/TheResearchBand/1EUR';
+                if (paypalText) paypalText.textContent = 'Saldo PayPal o tarjeta vinculada (1,00 €)';
+                if (whatsappBtn) whatsappBtn.href = 'https://wa.me/34678708729?text=' + encodeURIComponent('Hola, he hecho un Bizum de 1€ para la canción "' + title + '" de FUGA. Mi email para la descarga es: ');
+                if (emailBtn) emailBtn.href = 'mailto:trbandmusic@gmail.com?subject=' + encodeURIComponent('Bizum Canción ' + title + ' (1 EUR)') + '&body=' + encodeURIComponent('Hola, he hecho un Bizum de 1€ para la canción "' + title + '". Mi email para recibir el archivo es: ');
+            } else {
+                if (titleEl) titleEl.textContent = 'FUGA (2026 Versions)';
+                if (subtitleEl) subtitleEl.textContent = 'Edición Digital Oficial · Álbum Completo (10 Pistas)';
+                if (priceEl) priceEl.textContent = 'Precio: 9,00 €';
+                if (bizumPriceBadge) bizumPriceBadge.textContent = '9,00 €';
+                if (paypalBtn) paypalBtn.href = 'https://www.paypal.com/paypalme/TheResearchBand/9EUR';
+                if (paypalText) paypalText.textContent = 'Saldo PayPal o tarjeta vinculada (9,00 €)';
+                if (whatsappBtn) whatsappBtn.href = 'https://wa.me/34678708729?text=' + encodeURIComponent('Hola, he hecho un Bizum de 9€ para el disco FUGA (2026 Versions). Mi email para la descarga es: ');
+                if (emailBtn) emailBtn.href = 'mailto:trbandmusic@gmail.com?subject=' + encodeURIComponent('Bizum Disco FUGA (9 EUR)') + '&body=' + encodeURIComponent('Hola, he hecho un Bizum de 9€ para el disco FUGA. Mi email para recibir el enlace es: ');
+            }
+
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        }
+        function closePurchaseModal() {
+            var modal = document.getElementById('purchaseModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+        function copyBizumPhone(btn) {
+            navigator.clipboard.writeText('678708729').then(function() {
+                var old = btn.textContent;
+                btn.textContent = '✓ ¡Copiado!';
+                btn.style.background = '#22c55e';
+                btn.style.color = '#fff';
+                setTimeout(function() {
+                    btn.textContent = old;
+                    btn.style.background = '#00b4a7';
+                    btn.style.color = '#000';
+                }, 2000);
+            });
+        }
+        window.addEventListener('click', function(e) {
+            var modal = document.getElementById('purchaseModal');
+            if (e.target === modal) {
+                closePurchaseModal();
+            }
+        });
     </script>
 </body>
 </html>
