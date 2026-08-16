@@ -24,6 +24,18 @@ const musicCatalog = [
         "title": "all around if you want"
     },
     {
+        "genre": "Pop / Jazz-Rock",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/08/13",
+        "folders": [],
+        "registered": false,
+        "mp3": "assets/audio_unificado/and there you are.mp3",
+        "authors": "Eduardo Ramírez",
+        "iswc": "",
+        "title": "and there you are"
+    },
+    {
         "genre": "Jazz",
         "wav": null,
         "mood": "Premium",
@@ -48,10 +60,10 @@ const musicCatalog = [
         "title": "backing go home"
     },
     {
-        "genre": "Alternativo",
+        "genre": "Pop, Jazz Cumbia",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/08/13",
         "folders": [],
         "registered": false,
         "mp3": "assets/audio_unificado/bajo el asfalto.mp3",
@@ -132,10 +144,10 @@ const musicCatalog = [
         "title": "bloody lukas"
     },
     {
-        "genre": "Alternativo",
-        "wav": null,
+        "genre": "Smooth Jazz Funky",
+        "wav": "assets/audio_unificado/booking of the kindom.wav",
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/08/13",
         "folders": [],
         "registered": false,
         "mp3": "assets/audio_unificado/booking of the kindom.mp3",
@@ -168,10 +180,10 @@ const musicCatalog = [
         "title": "brake on the stars"
     },
     {
-        "genre": "Alternativo",
-        "wav": null,
+        "genre": "Smooth Jazz Bossa",
+        "wav": "assets/audio_unificado/brotherhood without mercy.wav",
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/08/14",
         "folders": [],
         "registered": false,
         "mp3": "assets/audio_unificado/brotherhood without mercy.mp3",
@@ -228,22 +240,22 @@ const musicCatalog = [
         "title": "chrome rhythms"
     },
     {
-        "genre": "Alternativo",
+        "genre": "Smooth Jazz",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/01/03",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/close your feelings extended.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
-        "title": "close your feelings extended"
+        "iswc": "T3375032789",
+        "title": "close yours feelings (extended)"
     },
     {
-        "genre": "Alternativo",
+        "genre": "Jazz rock Progresive",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/08/14",
         "folders": [],
         "registered": false,
         "mp3": "assets/audio_unificado/cloud kisses.mp3",
@@ -252,10 +264,10 @@ const musicCatalog = [
         "title": "cloud kisses"
     },
     {
-        "genre": "Alternativo",
+        "genre": "Smooth Jazz Soul",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/08/14",
         "folders": [],
         "registered": false,
         "mp3": "assets/audio_unificado/cold fries and maybe lies.mp3",
@@ -264,10 +276,10 @@ const musicCatalog = [
         "title": "cold fries and maybe lies"
     },
     {
-        "genre": "Alternativo",
-        "wav": null,
+        "genre": "Pop-rock Funk",
+        "wav": "assets/audio_unificado/corazón abierto.wav",
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/08/14",
         "folders": [],
         "registered": false,
         "mp3": "assets/audio_unificado/corazón abierto.mp3",
@@ -360,10 +372,10 @@ const musicCatalog = [
         "title": "digital mirage over"
     },
     {
-        "genre": "Alternativo",
-        "wav": null,
+        "genre": "Pop-Rock / Balada",
+        "wav": "assets/audio_unificado/donde el silencio aprende.wav",
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/08/14",
         "folders": [],
         "registered": false,
         "mp3": "assets/audio_unificado/donde el silencio aprende.mp3",
@@ -444,6 +456,18 @@ const musicCatalog = [
         "title": "entre neones"
     },
     {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/08/02",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3421767337",
+        "title": "everything changes"
+    },
+    {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
@@ -492,6 +516,18 @@ const musicCatalog = [
         "title": "fin del juego"
     },
     {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/08/02",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3421767462",
+        "title": "fire and roses"
+    },
+    {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
@@ -516,10 +552,10 @@ const musicCatalog = [
         "title": "groove or not"
     },
     {
-        "genre": "Alternativo",
-        "wav": null,
+        "genre": "Pop-Rock / Balada",
+        "wav": "assets/audio_unificado/hay amores que solo aprenden a doler.wav",
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/08/13",
         "folders": [],
         "registered": false,
         "mp3": "assets/audio_unificado/hay amores que solo aprenden a doler.mp3",
@@ -840,15 +876,15 @@ const musicCatalog = [
         "title": "orange & yellow"
     },
     {
-        "genre": "Jazz-Rock / Fusion",
+        "genre": "Pop",
         "wav": "assets/Piso el acelerador.wav",
         "mood": "Premium",
-        "regDate": "2026/07/30",
+        "regDate": "2026/08/02",
         "folders": [],
         "registered": true,
         "mp3": "assets/audio_unificado/piso el acelerador.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "REGISTRADA SGAE (30/07/2026)",
+        "iswc": "T3420235996",
         "title": "piso el acelerador"
     },
     {
@@ -984,16 +1020,16 @@ const musicCatalog = [
         "title": "sharp echoes"
     },
     {
-        "genre": "Rhythm & Blues / Smooth Jazz-Rock",
+        "genre": "Jazz",
         "wav": "assets/audio/She Walks Untamed.wav",
         "mood": "Premium",
-        "regDate": "2026/07/31",
+        "regDate": "2026/08/02",
         "folders": [],
         "registered": true,
-        "mp3": "assets/audio_unificado/she walks untamed.mp3",
+        "mp3": "assets/audio_unificado/She walks or they.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "REGISTRADA SGAE (31/07/2026)",
-        "title": "she walks untamed"
+        "iswc": "T3421797306",
+        "title": "she walks or they"
     },
     {
         "genre": "Alternativo",
@@ -1354,5 +1390,55 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "T3408172743",
         "title": "¿a donde bass?"
+    },
+    {
+        "genre": "Jazz-Rock funk",
+        "wav": "assets/audio_unificado/seeking a harbor.wav",
+        "mood": "Premium",
+        "regDate": "2026/08/15",
+        "folders": [],
+        "registered": false,
+        "mp3": "assets/audio_unificado/seeking a harbor.mp3",
+        "authors": "Eduardo Ramírez",
+        "iswc": "",
+        "title": "seeking a harbor"
+    },
+    {
+        "genre": "Jazz-Rock / Fusion",
+        "wav": "assets/audio_unificado/athenea me llama.wav",
+        "cover": "assets/img/portada_athenea_me_llama.jpeg",
+        "mood": "Premium",
+        "regDate": "2026/08/15",
+        "folders": [],
+        "registered": false,
+        "mp3": "assets/audio_unificado/athenea me llama.mp3",
+        "authors": "Eduardo Ramírez",
+        "iswc": "",
+        "title": "athenea me llama"
+    },
+    {
+        "genre": "Jazz-Rock Funk",
+        "wav": "assets/audio_unificado/busco un refugio.wav",
+        "mood": "Premium",
+        "regDate": "2026/08/15",
+        "folders": [],
+        "registered": false,
+        "mp3": "assets/audio_unificado/busco un refugio.mp3",
+        "authors": "Eduardo Ramírez",
+        "iswc": "",
+        "title": "busco un refugio"
+    },
+    {
+        "genre": "Smooth Jazz / Pop-Rock",
+        "wav": "assets/audio_unificado/tan cerca del mar.wav",
+        "cover": "assets/img/portada_tan_cerca_del_mar.jpeg",
+        "mood": "Premium",
+        "regDate": "2026/08/15",
+        "folders": [],
+        "registered": false,
+        "mp3": "assets/audio_unificado/tan cerca del mar.mp3",
+        "authors": "Eduardo Ramírez",
+        "iswc": "",
+        "title": "tan cerca del mar"
     }
 ];

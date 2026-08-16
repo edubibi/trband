@@ -1,19 +1,21 @@
 # Registro de Propiedad Intelectual SGAE
 
 ## 💿 Obra Singular: Piso el Acelerador — The Research Band
-* **Fecha de Preparación:** 30 de julio de 2026
+* **Fecha de Confirmación SGAE:** 2 de agosto de 2026 (Salida: 1.027.291)
+* **Código SGAE:** 33.846.794
+* **Código ISWC:** T3420235996
 * **Nombre de Socio:** EDUARDO LUIS RAMIREZ DE CARTAGENA
-* **Código IPI / CAE:** 131.673.400
-* **Derechohabiente:** Compositor y Letrista (100% de Derechos de Reproducción y Comunicación Pública)
+* **Código IPI / CAE:** 31.673.400
+* **Derechohabiente:** Compositor/Autor (100% de Derechos de Reproducción y Comunicación Pública)
 * **One-Stop Rights:** 100% Máster y Editorial unificados
 
 ---
 
-## 🎼 Detalle del Registro de la Obra
+## 🎼 Detalle del Registro Oficial de la Obra
 
-| Título Original | Género / Estilo | Duración | Clave Reparto (R) | Clave Reparto (C) |
-| :--- | :---: | :---: | :---: | :---: |
-| **PISO EL ACELERADOR** | Modern Jazz-Funk / Fusion | 00:04:00 | 100% Eduardo Ramírez | 100% Eduardo Ramírez |
+| Título Original | Código SGAE | Código ISWC | Género | Duración | Clave Reparto (R) | Clave Reparto (C) | Estado |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **PISO EL ACELERADOR** | 33.846.794 | T3420235996 | Pop | 00:04:00 | 100% Eduardo Ramírez | 100% Eduardo Ramírez | REGISTRADA SGAE (02/08/2026) |
 
 ---
 
