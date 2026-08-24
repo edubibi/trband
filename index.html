@@ -1962,642 +1962,273 @@
             <a href="contacto.html" class="nav-link">Contacto</a>
         </nav>
     </header>
+    
     <main class="landing-content">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <h1 class="main-title">The Research Band</h1>
-            <p class="slogan"><span class="slogan-outlined">...POSIBLEMENTE</span><br><span class="highlight">"El
-                    Pop-Rock y Jazz español más avanzado que hay"</span></p>
 
-            <!-- CTA CONCURSO GIGANTE -->
-            <div class="cta-concurso" style="background: rgba(0, 0, 0, 0.85); border: 2px solid var(--accent); padding: 40px; border-radius: 15px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); margin: 80px auto 0px; width: 90%; max-width: 1000px; animation: pulse 2s infinite;">
-                <h3 style="color: #D4AF37; margin: 0 0 15px 0; font-size: 1.6rem; letter-spacing: 4px; font-weight: bold; text-transform: uppercase;">EL ARTISTA ERES TÚ</h3>
-                <h2 style="color: var(--accent); margin-top: 0; font-size: 2rem; letter-spacing: 2px; font-family: 'Playfair Display', serif;">ACCESO AL ESTUDIO</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 30px; color: #fff;">Escucha el máster en exclusiva y decide tú el tracklist final.</p>
-                <a href="concurso/index.html" class="btn-action" style="font-size: 1.2rem; padding: 15px 50px; background: var(--accent); color: #000; box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); text-decoration: none; font-weight: 800; border-radius: 5px; display: inline-block;">ENTRAR AL ESTUDIO Y PARTICIPAR</a>
-            </div>
-               </section>
-        
-        <!-- TEASER FUGA 2026 -->
-        <style>
-            #fuga-teaser {
-                width: 92%; 
-                max-width: 900px; 
-                margin: 0 auto 60px auto; 
-                background: rgba(0, 0, 0, 0.9); 
-                border: 1px solid #d4af37; 
-                border-radius: 15px; 
-                box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); 
-                overflow: hidden; 
-                position: relative;
-                box-sizing: border-box;
-                align-self: center; /* Forzar centrado si el padre es flex */
-            }
-            .fuga-content {
-                position: relative; 
-                z-index: 2; 
-                padding: 40px; 
-                display: flex; 
-                align-items: center; 
-                justify-content: center; 
-                flex-wrap: wrap; 
-                gap: 30px;
-                box-sizing: border-box;
-            }
-            .fuga-text h2 {
-                color: #d4af37; 
-                font-size: 2.5rem; 
-                font-family: 'Playfair Display', serif; 
-                margin: 0 0 15px 0; 
-                line-height: 1.1; 
-                text-shadow: 0 4px 10px rgba(0,0,0,0.8);
-            }
-            @media (max-width: 768px) {
-                /* REGLA GLOBAL DE SEGURIDAD PARA MÓVILES */
-                body, main {
-                    overflow-x: hidden !important;
-                    width: 100vw !important;
-                }
-                
-                section, .cta-concurso, .showcase-container > section, div[style*="width: 98%"] {
-                    width: 95vw !important;
-                    max-width: 100% !important;
-                    min-width: 0 !important;
-                    box-sizing: border-box !important;
-                    align-self: center !important;
-                    margin-left: auto !important;
-                    margin-right: auto !important;
-                    left: 0 !important;
-                    padding: 25px 15px !important;
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    justify-content: center !important;
-                    text-align: center !important;
-                }
-
-                /* Forzar que los hijos de section se centren */
-                section > div, .release-info, #promo-jazzrock > div {
-                    text-align: center !important;
-                    align-items: center !important;
-                    justify-content: center !important;
-                    width: 100% !important;
-                }
-
-                /* Imágenes dentro de flex en móviles */
-                section img, .cta-concurso img {
-                    max-width: 250px !important;
-                    height: auto !important;
-                    margin: 0 auto 15px auto !important;
-                    display: block !important;
-                }
-
-                /* Ajustes específicos de textos para móviles */
-                h2, h3, .glitch {
-                    font-size: 1.8rem !important;
-                    text-align: center !important;
-                }
-                
-                #fuga-teaser {
-                    margin-bottom: 40px !important;
-                }
-                
-                .fuga-content {
-                    padding: 0px !important;
-                    flex-direction: column !important;
-                    text-align: center !important;
-                    display: flex !important;
-                    align-items: center !important;
-                }
-                
-                #bloody-lukas .zoom-wrapper, #bloody-lukas img.release-art {
-                    width: 250px !important;
-                    height: 250px !important;
-                    margin: 0 auto !important;
-                }
-
-                #manifesto div, #press-recognition div {
-                    border: none !important;
-                    padding: 0 !important;
-                    text-align: center !important;
-                }
-            }
-        
-        
-        /* --- CLEAN MASTER HAMBURGER MOBILE MENU STYLES --- */
-        .mobile-menu-btn {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .main-header {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 60px !important;
-                padding: 5px 15px !important;
-                box-sizing: border-box !important;
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                background: rgba(0, 0, 0, 0.95) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
-                z-index: 10000 !important;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
-            }
-
-            .header-logo {
-                height: 38px !important;
-                width: auto !important;
-            }
-
-            .mobile-menu-btn {
-                display: flex !important;
-                align-items: center !important;
-                gap: 6px !important;
-                background: rgba(212, 175, 55, 0.2) !important;
-                border: 1px solid #D4AF37 !important;
-                color: #D4AF37 !important;
-                padding: 6px 14px !important;
-                border-radius: 8px !important;
-                font-size: 0.9rem !important;
-                font-weight: 800 !important;
-                cursor: pointer !important;
-                z-index: 10002 !important;
-                box-shadow: 0 0 10px rgba(212, 175, 55, 0.3) !important;
-            }
-
-            .menu-icon {
-                font-size: 1.2rem !important;
-                line-height: 1 !important;
-            }
-
-            .main-nav {
-                display: none !important;
-                position: fixed !important;
-                top: 60px !important;
-                left: 0 !important;
-                width: 100vw !important;
-                background: rgba(10, 10, 15, 0.98) !important;
-                backdrop-filter: blur(15px) !important;
-                -webkit-backdrop-filter: blur(15px) !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                padding: 25px 0 40px !important;
-                gap: 15px !important;
-                border-bottom: 3px solid #D4AF37 !important;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
-                z-index: 10001 !important;
-                max-width: 100% !important;
-                overflow-y: auto !important;
-            }
-
-            .main-nav.mobile-active {
-                display: flex !important;
-                animation: slideDownMenu 0.25s ease-out forwards;
-            }
-
-            @keyframes slideDownMenu {
-                from { opacity: 0; transform: translateY(-10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            .nav-link {
-                font-size: 1.1rem !important;
-                padding: 14px 20px !important;
-                width: 85% !important;
-                text-align: center !important;
-                background: rgba(255, 255, 255, 0.08) !important;
-                border: 1px solid rgba(255, 255, 255, 0.15) !important;
-                border-radius: 12px !important;
-                color: #ffffff !important;
-                font-weight: 700 !important;
-                box-sizing: border-box !important;
-                text-decoration: none !important;
-            }
-
-            .nav-link.active {
-                background: rgba(212, 175, 55, 0.3) !important;
-                border-color: #D4AF37 !important;
-                color: #D4AF37 !important;
-            }
-        }
-
-
-        /* PERFECT HAMBURGER BUTTON & RESPONSIVE MOBILE MENU */
-        .mobile-menu-btn {
-            display: none !important;
-        }
-
-        @media (max-width: 768px) {
-            .main-header {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 60px !important;
-                padding: 5px 15px !important;
-                box-sizing: border-box !important;
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                background: rgba(0, 0, 0, 0.95) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
-                z-index: 10000 !important;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
-            }
-
-            .header-logo {
-                height: 38px !important;
-                width: auto !important;
-            }
-
-            .mobile-menu-btn {
-                display: flex !important;
-                align-items: center !important;
-                gap: 6px !important;
-                background: #D4AF37 !important;
-                border: 1px solid #ffffff !important;
-                color: #000000 !important;
-                padding: 6px 14px !important;
-                border-radius: 8px !important;
-                font-size: 0.9rem !important;
-                font-weight: 800 !important;
-                cursor: pointer !important;
-                z-index: 10002 !important;
-                box-shadow: 0 0 12px rgba(212, 175, 55, 0.6) !important;
-            }
-
-            .menu-icon {
-                font-size: 1.2rem !important;
-                line-height: 1 !important;
-                color: #000000 !important;
-            }
-
-            .menu-text {
-                color: #000000 !important;
-                font-weight: 900 !important;
-            }
-
-            .main-nav {
-                display: none !important;
-                position: fixed !important;
-                top: 60px !important;
-                left: 0 !important;
-                width: 100vw !important;
-                background: rgba(10, 10, 15, 0.98) !important;
-                backdrop-filter: blur(15px) !important;
-                -webkit-backdrop-filter: blur(15px) !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                padding: 25px 0 40px !important;
-                gap: 15px !important;
-                border-bottom: 3px solid #D4AF37 !important;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
-                z-index: 10001 !important;
-                max-width: 100% !important;
-                overflow-y: auto !important;
-            }
-
-            .main-nav.mobile-active {
-                display: flex !important;
-                animation: slideDownMenu 0.25s ease-out forwards;
-            }
-
-            @keyframes slideDownMenu {
-                from { opacity: 0; transform: translateY(-10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            .nav-link {
-                font-size: 1.1rem !important;
-                padding: 14px 20px !important;
-                width: 85% !important;
-                text-align: center !important;
-                background: rgba(255, 255, 255, 0.08) !important;
-                border: 1px solid rgba(255, 255, 255, 0.15) !important;
-                border-radius: 12px !important;
-                color: #ffffff !important;
-                font-weight: 700 !important;
-                box-sizing: border-box !important;
-                text-decoration: none !important;
-            }
-
-            .nav-link.active {
-                background: rgba(212, 175, 55, 0.3) !important;
-                border-color: #D4AF37 !important;
-                color: #D4AF37 !important;
-            }
-        }
-
-</style>
-        <!-- SHOWCASE DISCO OFICIAL FUGA 2026 -->
-        <section id="promo-jazzrock" style="width: 98%; max-width: 1400px; margin: 30px auto 60px; background: rgba(0, 0, 0, 0.85); border: 1px solid #D4AF37; border-radius: 15px; padding: 40px; box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2); position: relative; overflow: hidden;">
+        <!-- ================================================================= -->
+        <!-- 👑 PANTALLA 1: LA BIENVENIDA (Sin Cajas, Puro Impacto)            -->
+        <!-- ================================================================= -->
+        <section class="hero-section" style="padding: 100px 20px 60px 20px; text-align: center;">
+            <h1 class="main-title" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #D4AF37; margin-bottom: 10px; letter-spacing: 2px;">
+                The Research Band
+            </h1>
             
+            <p class="slogan" style="margin-bottom: 25px;">
+                <span class="slogan-outlined" style="font-size: 1.1rem; letter-spacing: 4px; color: #aaa;">...POSIBLEMENTE</span><br>
+                <span class="highlight" style="font-size: 1.6rem; color: #fff; font-style: italic; font-family: 'Playfair Display', serif;">
+                    "El Pop-Rock y Jazz español más avanzado que hay"
+                </span>
+            </p>
 
-            <style>
-                .fuga-grid-container {
-                    display: grid;
-                    grid-template-columns: 1.55fr 1fr;
-                    gap: 28px;
-                    width: 100%;
-                    align-items: stretch;
-                    margin-bottom: 40px;
-                }
-                .fuga-card-left {
-                    display: flex;
-                    gap: 24px;
-                    align-items: center;
-                    background: rgba(255, 255, 255, 0.03);
-                    padding: 25px 30px;
-                    border-radius: 15px;
-                    border: 1px solid rgba(212, 175, 55, 0.3);
-                    box-sizing: border-box;
-                }
-                .purchase-modal-box {
-                    background: #0d121c;
-                    border: 2px solid var(--accent, #D4AF37);
-                    border-radius: 20px;
-                    max-width: 520px;
-                    width: 100%;
-                    max-height: 90vh;
-                    overflow-y: auto;
-                    -webkit-overflow-scrolling: touch;
-                    padding: 28px;
-                    box-shadow: 0 20px 60px rgba(0,0,0,0.9), 0 0 30px rgba(212,175,55,0.3);
-                    position: relative;
-                    color: #fff;
-                    text-align: left;
-                    box-sizing: border-box;
-                }
-                @media (max-width: 960px) {
-                    .fuga-grid-container {
-                        grid-template-columns: 1fr !important;
-                    }
-                }
-                @media (max-width: 768px) {
-                    #promo-jazzrock {
-                        padding: 20px 14px !important;
-                        margin: 20px auto 40px !important;
-                    }
-                    .fuga-card-left {
-                        flex-direction: column !important;
-                        text-align: center !important;
-                        padding: 20px 14px !important;
-                    }
-                    .fuga-card-left > div {
-                        text-align: center !important;
-                    }
-                    .fuga-card-left h2 {
-                        font-size: 1.65rem !important;
-                    }
-                    .fuga-action-buttons {
-                        justify-content: center !important;
-                    }
-                    .fuga-platforms-list {
-                        justify-content: center !important;
-                    }
-                    .purchase-modal-box {
-                        padding: 20px 14px !important;
-                        max-height: 88vh !important;
-                    }
-                }
-            </style>
+            <div style="color: #D4AF37; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 35px;">
+                ⚡ Trilogía Musical 2026: 3 Álbumes · 4 Videoclips ⚡
+            </div>
 
-            <!-- Hero Layout (Proporción 60% Disco / 40% In Memoriam) -->
-            <div class="fuga-grid-container">
-                
-                <!-- Columna Izquierda (60%): Portada, Detalle, Compra y Plataformas -->
-                <div class="fuga-card-left">
-                    <a href="fuga_2026.html" style="flex-shrink: 0;"><img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="FUGA 2026 Cover" style="width: 190px; height: 190px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 2px solid #D4AF37; cursor: pointer;"></a>
-                    <div style="flex: 1; text-align: left;">
-                        <h2 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 1.95rem; margin: 0 0 8px 0; line-height: 1.1;">FUGA (2026 Versions)</h2>
-                        <p style="color: #ccc; font-size: 0.85rem; margin-bottom: 12px; line-height: 1.4;">Disco oficial de canciones originales compuestas por Eduardo Ramírez y Pepe Torres con nuevos arreglos y producción 2026.</p>
-                        
-                        <div class="mini-countdown" id="lukasCountdown" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.5); color: #d4af37; font-weight: 700; padding: 6px 12px; border-radius: 8px; margin-bottom: 12px; font-size: 0.8rem; display: inline-block;">¡ESTRENO MUNDIAL DISPONIBLE!</div>
-                        
-                        <!-- BOTONES DE COMPRA Y REPRODUCTOR -->
-                        <div class="fuga-action-buttons" style="display: flex; gap: 12px; margin-top: 4px; margin-bottom: 8px; flex-wrap: wrap; align-items: center;">
-                            <a href="fuga_2026.html" style="background: var(--accent); color: #000; font-weight: 800; text-decoration: none; padding: 10px 20px; border-radius: 30px; font-size: 0.80rem; text-transform: uppercase; box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); display: inline-flex; align-items: center; gap: 6px;">
-                                🎧 VER ÁLBUM & ESCUCHAR
-                            </a>
-                            <button onclick="openPurchaseModal('fuga')" style="background: linear-gradient(135deg, #0070ba, #003087); color: #fff; border: 1px solid #00c0ff; font-weight: 800; cursor: pointer; padding: 10px 20px; border-radius: 30px; font-size: 0.80rem; text-transform: uppercase; box-shadow: 0 0 15px rgba(0, 112, 186, 0.4); display: inline-flex; align-items: center; gap: 6px; font-family: inherit;">
-                                🛒 COMPRAR DISCO DIGITAL · 9,00 €
-                            </button>
+            <!-- Dos Botones Limpios (Lado a lado) -->
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+                <a href="#pantalla-fuga" style="background: #D4AF37; color: #000; padding: 16px 36px; border-radius: 30px; font-weight: 800; font-size: 0.95rem; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);">
+                    🎤 ESCUCHAR NUEVO LP "FUGA"
+                </a>
+                <a href="#pantalla-jazz" style="background: transparent; color: #D4AF37; border: 2px solid #D4AF37; padding: 16px 36px; border-radius: 30px; font-weight: 800; font-size: 0.95rem; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease;">
+                    🎷 EXPLORAR SAGA DE JAZZ
+                </a>
+            </div>
+        </section>
+
+
+        <!-- ================================================================= -->
+        <!-- 🟡 PANTALLA 2: EL UNIVERSO "FUGA" (Lo más reciente)                -->
+        <!-- ================================================================= -->
+        <section id="pantalla-fuga" style="width: 92%; max-width: 1000px; margin: 40px auto; background: rgba(0, 0, 0, 0.9); border: 1px solid #d4af37; border-radius: 18px; padding: 40px; box-shadow: 0 0 35px rgba(212, 175, 55, 0.3); box-sizing: border-box;">
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center;">
+                <!-- Izquierda: Portada de FUGA -->
+                <div style="flex: 1; min-width: 280px; max-width: 350px; text-align: center;">
+                    <img src="assets/fuga_cover_2026.png" onerror="this.onerror=null; this.src='assets/fuga.jpg';" alt="FUGA (2026 Versions)" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 1px solid rgba(212,175,55,0.4);">
+                </div>
+
+                <!-- Derecha: Info & Plataformas -->
+                <div style="flex: 1.2; min-width: 290px;">
+                    <div style="display: inline-block; background: #D4AF37; color: #000; font-weight: 900; font-size: 0.75rem; padding: 4px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">
+                        ESTRENO 2026
+                    </div>
+                    <h2 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 2.4rem; margin: 0 0 10px 0; line-height: 1.1;">
+                        FUGA (2026 Versions)
+                    </h2>
+                    <p style="color: #ccc; font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px;">
+                        Álbum oficial de canciones originales compuestas por Eduardo Ramírez y Pepe Torres con nuevos arreglos y producción 2026. La vertiente vocal de The Research Band.
+                    </p>
+
+                    <!-- Botón Compra Digital Directa -->
+                    <div style="margin-bottom: 20px;">
+                        <button onclick="openPurchaseModal('fuga')" style="background: linear-gradient(135deg, #D4AF37 0%, #aa8524 100%); color: #000; border: none; padding: 14px 28px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; width: 100%; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);">
+                            🛒 Comprar Álbum Completo (9,00 €)
+                        </button>
+                    </div>
+
+                    <!-- En tu plataforma favorita -->
+                    <div style="border-top: 1px dashed rgba(212, 175, 55, 0.3); padding-top: 15px;">
+                        <div style="color: #a0aec0; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">
+                            Escucha en plataformas:
                         </div>
-                        <div style="font-size: 0.72rem; color: #a0aec0; margin-bottom: 10px;">
-                            ★ Edición Digital Oficial: Descarga directa en Audio Masterizado (Tarjeta, PayPal o Bizum).
-                        </div>
-
-                        <!-- EN TU PLATAFORMA FAVORITA -->
-                        <div style="border-top: 1px dashed rgba(212, 175, 55, 0.3); padding-top: 10px; margin-top: 6px;">
-                            <div style="color: #d4af37; font-size: 0.74rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px;">
-                                Y en tu plataforma favorita:
-                            </div>
-                            <div class="fuga-platforms-list" style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
-                                <a href="https://open.spotify.com/artist/13WJTJy2K8r5uRfsIyP28T" target="_blank" style="background: rgba(29, 185, 84, 0.15); border: 1px solid #1DB954; color: #1DB954; font-size: 0.72rem; font-weight: 700; padding: 5px 12px; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
-                                    <span>●</span> Spotify
-                                </a>
-                                <a href="https://trbandmusic.bandcamp.com" target="_blank" style="background: rgba(98, 154, 169, 0.15); border: 1px solid #629aa9; color: #629aa9; font-size: 0.72rem; font-weight: 700; padding: 5px 12px; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
-                                    <span>●</span> Bandcamp
-                                </a>
-                                <a href="https://music.apple.com/us/artist/the-research-band/1406237751" target="_blank" style="background: rgba(250, 88, 106, 0.15); border: 1px solid #fa586a; color: #fa586a; font-size: 0.72rem; font-weight: 700; padding: 5px 12px; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
-                                    <span>●</span> Apple Music
-                                </a>
-                                <a href="https://music.amazon.es" target="_blank" style="background: rgba(255, 153, 0, 0.15); border: 1px solid #ff9900; color: #ff9900; font-size: 0.72rem; font-weight: 700; padding: 5px 12px; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
-                                    <span>●</span> Amazon Music
-                                </a>
-                            </div>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <a href="https://open.spotify.com/artist/13WJTJy2K8r5uRfsIyP28T" target="_blank" style="background: rgba(29, 185, 84, 0.15); border: 1px solid #1DB954; color: #1DB954; font-size: 0.75rem; font-weight: 700; padding: 6px 14px; border-radius: 12px; text-decoration: none;">Spotify</a>
+                            <a href="https://trbandmusic.bandcamp.com" target="_blank" style="background: rgba(98, 154, 169, 0.15); border: 1px solid #629aa9; color: #629aa9; font-size: 0.75rem; font-weight: 700; padding: 6px 14px; border-radius: 12px; text-decoration: none;">Bandcamp</a>
+                            <a href="https://music.apple.com/us/artist/the-research-band/1406237751" target="_blank" style="background: rgba(250, 88, 106, 0.15); border: 1px solid #fa586a; color: #fa586a; font-size: 0.75rem; font-weight: 700; padding: 6px 14px; border-radius: 12px; text-decoration: none;">Apple Music</a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Columna Derecha (40%): Recuadro Blanco In Memoriam -->
-                <div style="border: 2px solid #ffffff; border-radius: 16px; padding: 24px 26px; background: rgba(0, 0, 0, 0.7); display: flex; flex-direction: column; justify-content: center; box-shadow: 0 0 25px rgba(255, 255, 255, 0.15); box-sizing: border-box;">
-                    <h3 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 1.15rem; margin: 0 0 10px 0; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid rgba(212, 175, 55, 0.4); padding-bottom: 6px; text-align: left;">IN MEMORIAM: PEPE Y LOLA</h3>
-                    <p style="color: #ffffff; font-size: 0.92rem; line-height: 1.55; font-style: italic; font-family: 'Playfair Display', serif; margin-bottom: 12px; text-align: left;">
+            <!-- Fila Horizontal de Videoclips Exclusivos -->
+            <div style="margin-top: 45px; border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 30px;">
+                <h3 style="color: #fff; text-align: center; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 400;">
+                    🎬 4 Videoclips Exclusivos (Canciones Cantadas)
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <a href="https://vimeo.com/showcase/12377291" target="_blank" style="text-decoration: none; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 12px; text-align: center; transition: all 0.3s;">
+                        <div style="font-weight: 700; color: #D4AF37; font-size: 0.88rem; margin-bottom: 4px;">1. Los que quedan de verdad</div>
+                        <div style="font-size: 0.75rem; color: #aaa;">Ver Videoclip ➔</div>
+                    </a>
+                    <a href="https://vimeo.com/showcase/12377291" target="_blank" style="text-decoration: none; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 12px; text-align: center; transition: all 0.3s;">
+                        <div style="font-weight: 700; color: #D4AF37; font-size: 0.88rem; margin-bottom: 4px;">2. Pulso a pulso</div>
+                        <div style="font-size: 0.75rem; color: #aaa;">Ver Videoclip ➔</div>
+                    </a>
+                    <a href="https://vimeo.com/showcase/12377291" target="_blank" style="text-decoration: none; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 12px; text-align: center; transition: all 0.3s;">
+                        <div style="font-weight: 700; color: #D4AF37; font-size: 0.88rem; margin-bottom: 4px;">3. Medianoche en la terraza</div>
+                        <div style="font-size: 0.75rem; color: #aaa;">Ver Videoclip ➔</div>
+                    </a>
+                    <a href="https://vimeo.com/showcase/12377291" target="_blank" style="text-decoration: none; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 12px; text-align: center; transition: all 0.3s;">
+                        <div style="font-weight: 700; color: #D4AF37; font-size: 0.88rem; margin-bottom: 4px;">4. Piso el acelerador</div>
+                        <div style="font-size: 0.75rem; color: #aaa;">Ver Videoclip ➔</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================================================================= -->
+        <!-- 🎷 PANTALLA 3: EL UNIVERSO JAZZ (Obra Doble de 30 Temas)           -->
+        <!-- ================================================================= -->
+        <section id="pantalla-jazz" style="width: 92%; max-width: 1000px; margin: 60px auto; background: rgba(10, 10, 15, 0.95); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 18px; padding: 40px; box-shadow: 0 0 35px rgba(0, 0, 0, 0.9); box-sizing: border-box;">
+            
+            <div style="text-align: center; margin-bottom: 35px;">
+                <div style="color: #D4AF37; font-size: 0.8rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px;">
+                    COLECCIÓN INSTRUMENTAL DE VANGUARDIA
+                </div>
+                <h2 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0 0 10px 0;">
+                    La Saga de Jazz Instrumental (30 Temas Originales)
+                </h2>
+                <p style="color: #aaa; max-width: 700px; margin: 0 auto; font-size: 0.95rem; line-height: 1.6;">
+                    30 composiciones instrumentales originales que transitan por el Jazz Fusion, Funk Jazz, Bossa y Contemporary Jazz de vanguardia.
+                </p>
+            </div>
+
+            <!-- Dos Portadas Juntas -->
+            <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-bottom: 35px;">
+                <!-- Vol 1: Cut the Roll -->
+                <div style="flex: 1; min-width: 260px; max-width: 320px; background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.25); border-radius: 14px; padding: 20px; text-align: center;">
+                    <img src="DISCO_REGALO_CUT_THE_ROLL/portada_cut the roll and jazzrock.png" onerror="this.onerror=null; this.src='assets/cut_the_roll.jpg';" alt="Cut the Roll & JazzRock" style="width: 100%; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.6);">
+                    <h3 style="color: #D4AF37; font-size: 1.1rem; margin: 0 0 8px 0; font-family: 'Playfair Display', serif;">Cut the Roll & JazzRock</h3>
+                    <p style="color: #888; font-size: 0.78rem; margin-bottom: 15px;">LP 2 · 15 Temas de Jazz Fusion & Funk</p>
+                    <a href="jazzrock_preview.html" style="display: inline-block; background: rgba(212, 175, 55, 0.15); border: 1px solid #D4AF37; color: #D4AF37; padding: 8px 20px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.8rem;">Escuchar Vol. 2 ➔</a>
+                </div>
+
+                <!-- Vol 2: One Thousand of Color Notes -->
+                <div style="flex: 1; min-width: 260px; max-width: 320px; background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.25); border-radius: 14px; padding: 20px; text-align: center;">
+                    <img src="assets/one_thousand_cover.jpg" onerror="this.onerror=null; this.src='assets/medianoche_terraza.jpg';" alt="One Thousand of Color Notes" style="width: 100%; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.6);">
+                    <h3 style="color: #D4AF37; font-size: 1.1rem; margin: 0 0 8px 0; font-family: 'Playfair Display', serif;">One Thousand of Color Notes</h3>
+                    <p style="color: #888; font-size: 0.78rem; margin-bottom: 15px;">LP 1 · 15 Temas de Smooth Jazz & Bossa</p>
+                    <a href="fuga_2026.html" style="display: inline-block; background: rgba(212, 175, 55, 0.15); border: 1px solid #D4AF37; color: #D4AF37; padding: 8px 20px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.8rem;">Escuchar Vol. 1 ➔</a>
+                </div>
+            </div>
+
+            <!-- Single Estrella: Bloody Lukas -->
+            <div style="background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 12px; padding: 20px 25px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+                <div>
+                    <span style="color: #D4AF37; font-weight: 800; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">★ SINGLE ESTRELLA FUSIÓN</span>
+                    <h4 style="color: #fff; font-size: 1.2rem; margin: 4px 0 2px 0; font-family: 'Playfair Display', serif;">Bloody Lukas</h4>
+                    <p style="color: #aaa; font-size: 0.82rem; margin: 0;">Saxofón solista enérgico con base rítmica de Jazz Fusion contemporáneo.</p>
+                </div>
+                <a href="https://open.spotify.com/artist/13WJTJy2K8r5uRfsIyP28T" target="_blank" style="background: #1DB954; color: #000; padding: 10px 22px; border-radius: 20px; font-weight: 800; text-decoration: none; font-size: 0.8rem;">
+                    Escuchar en Spotify ➔
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- ================================================================= -->
+        <!-- 🏆 PANTALLA 4: EL AVAL (La Banda & Reconocimiento Internacional)   -->
+        <!-- ================================================================= -->
+        <section style="width: 92%; max-width: 1000px; margin: 60px auto; box-sizing: border-box;">
+            
+            <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                
+                <!-- La Banda (Fotos Músicos) -->
+                <div style="flex: 1.2; min-width: 290px; background: rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 30px;">
+                    <h3 style="color: #fff; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 400; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
+                        👥 LA BANDA DE MÚSICOS
+                    </h3>
+                    <p style="color: #aaa; font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px;">
+                        Bajo la dirección creativa de <strong>Eduardo Ramírez de Cartagena</strong>, The Research Band reúne a virtuosos del piano, saxofón, guitarra, violín y voces.
+                    </p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <span style="background: rgba(212,175,55,0.15); border: 1px solid #D4AF37; color: #D4AF37; padding: 4px 10px; border-radius: 8px; font-size: 0.78rem;">Eduardo Ramírez (Bajo/Guitarra)</span>
+                        <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #ccc; padding: 4px 10px; border-radius: 8px; font-size: 0.78rem;">Pepe Torres (Teclados/Composición)</span>
+                        <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #ccc; padding: 4px 10px; border-radius: 8px; font-size: 0.78rem;">Nara Blue (Voz/Harmónica)</span>
+                    </div>
+                </div>
+
+                <!-- Reconocimiento Internacional -->
+                <div style="flex: 1; min-width: 270px; background: rgba(212, 175, 55, 0.05); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 30px; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="color: #D4AF37; font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">
+                        🏆 PRENSA & MEDIOS ESPECIALIZADOS
+                    </div>
+                    <h3 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 1.4rem; margin: 0 0 12px 0;">
+                        Reconocimiento Internacional
+                    </h3>
+                    <p style="color: #ccc; font-size: 0.88rem; line-height: 1.6; font-style: italic; margin-bottom: 15px;">
+                        "Destacado en Cloud Jazz Smooth Jazz como una de las propuestas más frescas y refinadas del Jazz Fusion contemporáneo hecho en España."
+                    </p>
+                    <div style="font-size: 0.75rem; color: #D4AF37; font-weight: 700;">
+                        — CLOUD JAZZ SMOOTH JAZZ RADIO
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================================= -->
+        <!-- 🕯️ PANTALLA 5: EL CORAZÓN (In Memoriam & Filosofía)               -->
+        <!-- ================================================================= -->
+        <section style="width: 92%; max-width: 1000px; margin: 60px auto; background: rgba(0, 0, 0, 0.9); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 18px; padding: 45px; box-sizing: border-box;">
+            
+            <div style="display: flex; gap: 40px; flex-wrap: wrap; align-items: center;">
+                
+                <!-- Bloque 1: In Memoriam -->
+                <div style="flex: 1; min-width: 290px;">
+                    <h3 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin: 0 0 12px 0; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid rgba(212, 175, 55, 0.4); padding-bottom: 8px;">
+                        IN MEMORIAM: PEPE Y LOLA
+                    </h3>
+                    <p style="color: #ffffff; font-size: 0.95rem; line-height: 1.7; font-style: italic; font-family: 'Playfair Display', serif; margin-bottom: 15px;">
                         "FUGA nació de la complicidad y el alma: las melodías inolvidables de Pepe Torres al teclado y la poesía eterna de Lola Torres en las letras. Hoy, sus creaciones vuelven a brillar con voz propia y los nuevos arreglos de The Research Band para 2026."
                     </p>
-                    <div style="text-align: right; color: #D4AF37; font-weight: 800; font-size: 0.82rem; letter-spacing: 1px;">
-                        — EDUARDO RAMÍREZ
+                    <div style="color: #D4AF37; font-weight: 800; font-size: 0.85rem; letter-spacing: 1px;">
+                        — EDUARDO RAMÍREZ DE CARTAGENA
                     </div>
+                </div>
+
+                <!-- Bloque 2: Filosofía / Manifiesto -->
+                <div style="flex: 1; min-width: 290px; border-left: 1px solid rgba(255,255,255,0.15); padding-left: 30px;">
+                    <h3 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin: 0 0 12px 0;">
+                        FILOSOFÍA DE TRABAJO
+                    </h3>
+                    <p style="color: #aaa; font-size: 0.88rem; line-height: 1.7; margin-bottom: 15px;">
+                        "Dos inteligencias —una de carbono y otra de silicio— colaborando para crear algo que antes no existía. Artesanía musical de autor combinada con tecnología de vanguardia."
+                    </p>
+                    <a href="iliada.html" style="color: #D4AF37; text-decoration: none; font-weight: 700; font-size: 0.85rem;">
+                        Leer el ensayo completo en "Mi Ilíada" ➔
+                    </a>
                 </div>
 
             </div>
 
-            <!-- Band DNI Grid -->
-            <div style="width: 100%; border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 40px;">
-                <h3 style="color: #fff; text-align: center; font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 30px; font-weight: 300;">LA BANDA</h3>
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    
-                    <!-- EDU -->
-                    <div style="width: 130px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <img src="assets/miembros/EDUARDO/nova_bio_eduardo.jpg" alt="Eduardo" style="width: 100px; height: 130px; object-fit: cover; border-radius: 8px; border: 2px solid #aaa; margin-bottom: 10px; filter: grayscale(20%);">
-                        <span style="color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Eduardo Ramírez</span>
-                        <span style="color: #D4AF37; font-size: 0.65rem; line-height: 1.2; margin-top: 5px;">Voz solista, Bajo, Guitarra, Coros</span>
-                    </div>
+        </section>
 
-                    <!-- NARA -->
-                    <div style="width: 130px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <img src="assets/miembros/Nara/Nara cantando.png" alt="Nara" style="width: 100px; height: 130px; object-fit: cover; border-radius: 8px; border: 2px solid #aaa; margin-bottom: 10px; filter: grayscale(20%);">
-                        <span style="color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Nara Blue</span>
-                        <span style="color: #D4AF37; font-size: 0.65rem; line-height: 1.2; margin-top: 5px;">Voz solista, Coros, Percusión, Armónica, Teclados</span>
-                    </div>
 
-                    <!-- HIROSHI -->
-                    <div style="width: 130px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <img src="assets/miembros/Hiroshi/hiroshi_profile.jpg" alt="Hiroshi" style="width: 100px; height: 130px; object-fit: cover; border-radius: 8px; border: 2px solid #aaa; margin-bottom: 10px; filter: grayscale(20%);">
-                        <span style="color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Hiroshi Tanaka</span>
-                        <span style="color: #D4AF37; font-size: 0.65rem; line-height: 1.2; margin-top: 5px;">Batería, Voz solista, Coros</span>
-                    </div>
-
-                    <!-- LUCA -->
-                    <div style="width: 130px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <img src="assets/miembros/Luca/luca_final.jpg" alt="Luca" style="width: 100px; height: 130px; object-fit: cover; border-radius: 8px; border: 2px solid #aaa; margin-bottom: 10px; filter: grayscale(20%);">
-                        <span style="color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Luca Fiammetti</span>
-                        <span style="color: #D4AF37; font-size: 0.65rem; line-height: 1.2; margin-top: 5px;">Guitarra, Coros</span>
-                    </div>
-
-                    <!-- ERIK -->
-                    <div style="width: 130px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <img src="assets/miembros/Erik/sax_profile.jpg" alt="Erik" style="width: 100px; height: 130px; object-fit: cover; border-radius: 8px; border: 2px solid #aaa; margin-bottom: 10px; filter: grayscale(20%);">
-                        <span style="color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Erik Solberg</span>
-                        <span style="color: #D4AF37; font-size: 0.65rem; line-height: 1.2; margin-top: 5px;">Saxofón, Armónica, EWI, Coros</span>
-                    </div>
-
-                    <!-- ALBA -->
-                    <div style="width: 130px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <img src="assets/miembros/Alba/violin_profile.jpg" alt="Alba" style="width: 100px; height: 130px; object-fit: cover; border-radius: 8px; border: 2px solid #aaa; margin-bottom: 10px; filter: grayscale(20%);">
-                        <span style="color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Alba Cisneros</span>
-                        <span style="color: #D4AF37; font-size: 0.65rem; line-height: 1.2; margin-top: 5px;">Violín, Viola, Percusión, Coros</span>
-                    </div>
-
-                </div>
-            </div>
+        <!-- ================================================================= -->
+        <!-- 🛠️ PANTALLA 6: EL PIE DE PÁGINA (El Futuro / Bonus Tracks)       -->
+        <!-- ================================================================= -->
+        <section style="width: 92%; max-width: 1000px; margin: 60px auto 80px auto; text-align: center; box-sizing: border-box;">
             
-            <script>
-                // Teaser Logic 10s
-                const teaserAudio = document.getElementById('teaserAudio');
-                const teaserPlayBtn = document.getElementById('teaserPlayBtn');
-                const teaserProgress = document.getElementById('teaserProgress');
-                const teaserTime = document.getElementById('teaserTime');
-                const teaserTrackSelect = document.getElementById('teaserTrackSelect');
+            <!-- Recuadro: El Artista Eres Tú -->
+            <div class="cta-concurso" style="background: rgba(0, 0, 0, 0.95); border: 2px solid var(--accent); padding: 45px 30px; border-radius: 18px; box-shadow: 0 0 35px rgba(212, 175, 55, 0.4); margin-bottom: 40px;">
+                <h3 style="color: #D4AF37; margin: 0 0 10px 0; font-size: 1.4rem; letter-spacing: 4px; font-weight: bold; text-transform: uppercase;">
+                    EL ARTISTA ERES TÚ
+                </h3>
+                <h2 style="color: #fff; margin-top: 0; font-size: 2rem; letter-spacing: 2px; font-family: 'Playfair Display', serif;">
+                    ACCESO AL ESTUDIO
+                </h2>
+                <p style="font-size: 1.05rem; margin-bottom: 25px; color: #ccc; max-width: 650px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                    "Ya has visto todo lo que soy capaz de lanzar en 6 meses... ahora entra y ayúdame a decidir qué viene después."
+                </p>
+                <a href="concurso/index.html" class="btn-action" style="font-size: 1.1rem; padding: 16px 45px; background: var(--accent); color: #000; box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); text-decoration: none; font-weight: 800; border-radius: 30px; display: inline-block; text-transform: uppercase; letter-spacing: 1px;">
+                    ENTRAR AL ESTUDIO Y PARTICIPAR
+                </a>
+            </div>
 
-                teaserTrackSelect.addEventListener('change', (e) => {
-                    teaserAudio.src = e.target.value;
-                    teaserAudio.currentTime = 0;
-                    teaserAudio.play();
-                    teaserPlayBtn.textContent = '⏸';
-                });
+            <!-- Proyecto Wild and Free -->
+            <div style="font-size: 0.85rem; color: #888;">
+                Descubre también el single exclusivo <a href="wild-and-free/index.html" style="color: #D4AF37; text-decoration: none; font-weight: 700;">"Wild and Free"</a>
+            </div>
 
-                function toggleTeaserPlay() {
-                    if (teaserAudio.paused) {
-                        if (teaserAudio.currentTime >= 10) teaserAudio.currentTime = 0;
-                        teaserAudio.play();
-                        teaserPlayBtn.textContent = '⏸';
-                    } else {
-                        teaserAudio.pause();
-                        teaserPlayBtn.textContent = '▶';
-                    }
-                }
-
-                teaserAudio.addEventListener('timeupdate', () => {
-                    if (teaserAudio.currentTime >= 10) {
-                        teaserAudio.pause();
-                        teaserAudio.currentTime = 10;
-                        teaserPlayBtn.textContent = '▶';
-                    }
-                    const percent = Math.min((teaserAudio.currentTime / 10) * 100, 100);
-                    teaserProgress.style.width = percent + '%';
-                    teaserTime.textContent = teaserAudio.currentTime.toFixed(1) + ' / 10s';
-                });
-
-                teaserAudio.addEventListener('ended', () => {
-                    teaserPlayBtn.textContent = '▶';
-                });
-            </script>
         </section>
 
-        <!-- BLOODY LUKAS ALBUM RELEASE FEATURE (GOLDEN GLOW STYLE) -->
-        <section id="bloody-lukas" class="release-feature" style="border-color: #d4af37; background: rgba(0,0,0,0.9); box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); margin-bottom: 60px;">
-            <div class="ribbon-container">
-                <div class="ribbon" style="background: #d4af37; color: #000; border: none; box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);">DESTACADO</div>
-                <div class="zoom-wrapper" style="overflow: hidden; border-radius: 10px; width: 280px; height: 280px; display: flex; align-items: center; justify-content: center;">
-                    <img src="assets/bloody_lukas_canvas.jpg" alt="Bloody Lukas Cover" class="release-art animate-zoom-loop animate-glow-border" style="border-radius: 10px; width: 280px; height: 280px; object-fit: cover;">
-                </div>
-            </div>
-            <div class="release-info">
-                <h2 class="glitch" data-text="BLOODY LUKAS" style="color: #d4af37; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); font-size: 2.5rem; letter-spacing: 4px; font-weight: bold; margin: 0 0 10px 0;">BLOODY LUKAS</h2>
-                <p style="color: #fff; font-size: 1.15rem; font-weight: 500; margin-bottom: 5px;">Single destacado del nuevo álbum <em>"Cut the Roll and Jazzrock"</em></p>
-                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
-                    <div style="display: flex; gap: 10px;">
-                        <a href="https://open.spotify.com/artist/13WJTJy2K8r5uRfsIyP28T" target="_blank" class="btn-system" style="border-color: #d4af37; color: #d4af37; flex: 1; text-align: center;">ESCUCHAR EN SPOTIFY</a>
-                        <a href="catalogo_showcase/index.html" class="btn-system" style="border-color: #ffffff; color: #ffffff; flex: 1; text-align: center;">SHOWCASE PRIVADO</a>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Press Recognition (Cloud Jazz) -->
-        <!-- Press Recognition Strip -->
-        <section id="press-recognition" style="width: 98%; max-width: 1400px; margin: 0 auto 120px; background: rgba(0, 0, 0, 0.8); border: 1px solid #c5a059; border-radius: 12px; display: flex; align-items: center; padding: 50px 70px; gap: 50px; box-shadow: 0 0 25px rgba(197, 160, 89, 0.15); overflow: hidden;">
-            <img src="assets/cloud_jazz_banner.png" alt="Cloud Jazz" style="width: 250px; height: auto; border-radius: 8px; border: 1px solid #c5a059; flex-shrink: 0;">
-            <div style="flex: 1; text-align: left;">
-                <h3 style="color: #c5a059; font-size: 1.6rem; margin: 0; letter-spacing: 2px; text-transform: uppercase;">RECONOCIMIENTO INTERNACIONAL</h3>
-                <p style="color: #fff; font-size: 0.9rem; margin: 5px 0 15px; font-weight: 700;">"One Thousand of Color Notes" destacado en Cloud Jazz Smooth Jazz</p>
-                <p style="font-size: 0.85rem; color: #ccc; margin-bottom: 20px; line-height: 1.4;">Reseña destacada en la edición 2890 de Cloud Jazz, el programa referente del Smooth Jazz en España.</p>
-                <a href="https://www.ivoox.com/cloud-jazz-2890-the-research-band-audios-mp3_rf_171430691_1.html" target="_blank" style="display: inline-block; border: 1px solid #c5a059; color: #c5a059; text-decoration: none; font-size: 0.75rem; font-weight: 700; padding: 10px 20px; border-radius: 30px; text-transform: uppercase; transition: 0.3s;" onmouseover="this.style.background='rgba(197,160,89,0.1)'" onmouseout="this.style.background='transparent'">Escuchar Podcast</a>
-            </div>
-        </section>
-
-        <!-- Manifesto Strip -->
-        <section id="manifesto" style="width: 98%; max-width: 1400px; margin: 0 auto 150px; background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%); border: 1px solid #c5a059; border-radius: 12px; display: flex; align-items: center; padding: 60px 80px; gap: 60px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
-            <div style="flex: 0 0 200px; text-align: right; border-right: 1px solid #c5a059; padding-right: 30px;">
-                <h3 style="color: #c5a059; font-size: 1.4rem; letter-spacing: 2px; margin: 0; font-family: 'Playfair Display', serif; line-height: 1.2;">CÓMO Y POR QUÉ TRABAJO</h3>
-                <p style="color: #bbb; font-size: 0.75rem; letter-spacing: 2px; margin-top: 10px; font-weight: 700;">FILOSOFÍA ARTÍSTICA</p>
-            </div>
-            <div style="flex: 1; color: #e0e0e0; font-size: 1rem; line-height: 1.6; font-style: italic; font-family: 'Playfair Display', serif; text-align: left;">
-                "No uso la inteligencia artificial. <strong>Dialogo con ella.</strong> La IA sin mí no produce nada; yo sin la IA sí, pero de otra forma. Es una simbiosis: yo le doy criterio y ella me da alcance. El Universo EDUSSE nace de saber qué pedir y cuándo dejar respirar. Eso se llama <strong>criterio artístico</strong>."
-            </div>
-            <div style="flex: 0 0 200px; text-align: left; padding-left: 30px;">
-                <p style="color: #c5a059; font-weight: bold; letter-spacing: 1px; margin: 0; font-size: 0.9rem;">EDUARDO RAMÍREZ</p>
-                <p style="color: #777; font-size: 0.7rem; letter-spacing: 2px;">ARTISTA DIGITAL</p>
-            </div>
-        </section>
-
-        <!-- Showcase Section (Strips Layout) -->
-        <div class="showcase-container" style="display: flex; gap: 60px; width: 98%; max-width: 1400px; justify-content: center; align-items: flex-start; margin: 0 auto 120px; flex-wrap: wrap;">
-            
-            <!-- PROMO STRIP (Left) -->
-            <section id="wild-and-free" style="flex: 1; min-width: 450px; background: rgba(0,0,0,0.85); border: 1px solid #1DB954; border-radius: 12px; display: flex; align-items: center; padding: 40px 50px; gap: 30px; box-shadow: 0 0 25px rgba(29,185,84,0.2); position: relative; overflow: hidden;">
-                <div style="position: absolute; top: 10px; right: -30px; background: #1DB954; color: #000; font-size: 0.6rem; font-weight: 900; padding: 2px 30px; transform: rotate(45deg); z-index: 5;">NUEVO</div>
-                <img src="assets/wild_and_free_cover.png" alt="Cover" style="width: 110px; height: 110px; border-radius: 8px; border: 2px solid #1DB954; flex-shrink: 0; object-fit: cover;">
-                <div style="flex: 1;">
-                    <h2 style="font-size: 1.5rem; margin: 0; color: #fff; letter-spacing: 1px; font-family: 'Playfair Display', serif;">WILD AND FREE</h2>
-                    <p style="font-size: 0.85rem; color: #aaa; margin: 5px 0 15px; line-height: 1.3;">Single Oficial 2026. Ya disponible en Spotify.</p>
-                    <div style="display: flex; gap: 10px;">
-                        <a href="https://open.spotify.com/intl-es/album/1imWJMPcVLsgc1NpZzHSf5" target="_blank" style="background: #1DB954; color: #000; text-decoration: none; font-size: 0.7rem; font-weight: 800; padding: 8px 15px; border-radius: 20px; text-transform: uppercase;">Spotify</a>
-                        <a href="wild-and-free/index.html" style="border: 1px solid var(--accent); color: var(--accent); text-decoration: none; font-size: 0.7rem; font-weight: 700; padding: 8px 15px; border-radius: 20px; text-transform: uppercase;">Lyrics</a>
-                    </div>
-                </div>
-            </section>
-            <!-- BIO STRIP (Right) -->
-            <section id="biography" style="flex: 1; min-width: 450px; background: rgba(0,0,0,0.85); border: 1px solid var(--accent); border-radius: 12px; display: flex; align-items: center; padding: 40px 50px; gap: 30px; box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);">
-                <img src="assets/miembros/EDUARDO/nova_bio_eduardo.jpg" alt="Eduardo" onclick="window.location.href='nosotros.html'" style="cursor: pointer; width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--accent); flex-shrink: 0; object-fit: cover; box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);">
-                <div style="flex: 1;">
-                    <h2 style="font-size: 1.5rem; margin: 0; color: #fff; letter-spacing: 1px;">EDUARDO RAMÍREZ</h2>
-                    <p style="font-size: 0.85rem; color: var(--accent); margin: 2px 0 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Fundador & Compositor</p>
-                    <p style="font-size: 0.85rem; color: #ccc; margin: 0; line-height: 1.3;">El alma mater de TRBand. Compositor y productor de cada pieza musical.</p>
-                </div>
-            </section>
-        </div>
     </main>
+
     <script>
         // DEBUG LAUNCHER
         // alert("Iniciando script de música..."); 
