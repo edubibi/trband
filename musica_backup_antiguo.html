@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Música - The Research Band</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffffff;
+            --secondary: #a0a0a0;
+            --accent: #D4AF37;
+            --bg-glass: rgba(255, 255, 255, 0.1);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #1a1a2e;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+            overflow-x: hidden;
+            flex-direction: column;
+        }
+
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- HEADER --- */
+        .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
+
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+
+        .header-logo { height: 100px; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); transition: transform 0.3s ease; } .header-title-gold { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #FFFFFF; text-transform: none; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
+
+        .header-title { display: none;  display: none; 
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        /* Submenu Styling */
+        .nav-item-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            min-width: 220px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 1001;
+            padding: 10px 0;
+            /* Removed margin-top to eliminate the gap */
+        }
+
+        .submenu::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid var(--accent);
+        }
+
+        .nav-item-dropdown:hover .submenu {
+            display: block;
+            animation: fadeInSubmenu 0.3s ease;
+        }
+
+        @keyframes fadeInSubmenu {
+            from { opacity: 0; transform: translate(-50%, 10px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+
+        .submenu-link {
+            display: block;
+            color: #ddd;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .submenu-link:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent);
+        }
+
+        /* --- PLAYER CONTAINER --- */
+        .player-container {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            width: 90%;
+            max-width: 1000px;
+            height: 80vh;
+            display: flex;
+            overflow: hidden;
+            margin-top: 5px;
+            z-index: 1;
+        }
+
+        /* Left Side */
+        .now-playing {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .brand-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-logo {
+            height: 140px; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+            margin-right: 12px;
+        }
+
+        .brand-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .album-art {
+            width: 240px;
+            height: 240px;
+            border-radius: 15px;
+            background: #000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 25px;
+            object-fit: cover;
+        }
+
+        .album-art.playing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .track-info h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .track-info p {
+            margin: 5px 0 20px;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .controls {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        audio {
+            width: 100%;
+            outline: none;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .btn:hover {
+            color: var(--accent);
+        }
+
+        .btn-main {
+            font-size: 2.5rem;
+        }
+
+        /* Playlist Panel */
+        .playlist-panel {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .playlist-header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--secondary);
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .tab.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        #searchInput {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+        }
+
+        .track-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .track-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.2s ease;
+        }
+
+        /* Zebra Striping: Odd rows = Dark background, White text */
+        .track-item:nth-child(odd) {
+            background: rgba(18, 18, 18, 0.9);
+            color: #ffffff;
+        }
+
+        .track-item:nth-child(odd) .track-name {
+            color: #ffffff;
+        }
+
+        /* Zebra Striping: Even rows = White background, Black text */
+        .track-item:nth-child(even) {
+            background: rgba(255, 255, 255, 0.95);
+            color: #000000;
+        }
+
+        .track-item:nth-child(even) .track-name {
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .track-item:nth-child(even) .add-btn {
+            background: rgba(0, 0, 0, 0.15);
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .track-item:hover {
+            filter: brightness(1.15);
+        }
+
+        .track-item.active {
+            border-left: 6px solid var(--accent) !important;
+            font-weight: bold;
+        }
+
+        .track-name {
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: 1;
+        }
+
+        .add-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            cursor: pointer;
+        }
+
+        /* --- FOOTER --- */
+        .author-footer {
+            margin-top: 60px;
+            width: 100%;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .player-container {
+                flex-direction: column !important;
+                height: auto !important;
+                max-height: none !important;
+                margin-top: 5px !important;
+                border-radius: 14px !important;
+                width: 98% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            .playlist-panel {
+                width: 100% !important;
+                border-left: none !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+                max-height: 350px !important;
+                overflow-y: auto !important;
+            }
+
+            .now-playing {
+                padding: 15px !important;
+                flex: none !important;
+            }
+
+            .brand-logo {
+                height: 60px !important;
+            }
+
+            .album-art {
+                width: 150px !important;
+                height: 150px !important;
+                margin-bottom: 15px !important;
+            }
+
+            .track-name {
+                font-size: 0.82rem !important;
+            }
+
+            .track-item {
+                padding: 10px 14px !important;
+            }
+
+            .main-header { 
+                padding: 10px 15px; 
+                background: rgba(0, 0, 0, 0.95);
+            }
+
+            .main-nav {
+                gap: 8px;
+                padding-bottom: 15px;
+            }
+
+            .nav-link {
+                font-size: 0.75rem;
+                padding: 8px 10px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 4px;
+            }
+            
+            .header-logo {
+                height: 60px;
+            }
+        }
+    
+        
+        /* --- CLEAN MASTER HAMBURGER MOBILE MENU STYLES --- */
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 60px !important;
+                padding: 5px 15px !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                background: rgba(0, 0, 0, 0.95) !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                z-index: 10000 !important;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
+            }
+
+            .header-logo {
+                height: 38px !important;
+                width: auto !important;
+            }
+
+            .mobile-menu-btn {
+                display: flex !important;
+                align-items: center !important;
+                gap: 6px !important;
+                background: rgba(212, 175, 55, 0.2) !important;
+                border: 1px solid #D4AF37 !important;
+                color: #D4AF37 !important;
+                padding: 6px 14px !important;
+                border-radius: 8px !important;
+                font-size: 0.9rem !important;
+                font-weight: 800 !important;
+                cursor: pointer !important;
+                z-index: 10002 !important;
+                box-shadow: 0 0 10px rgba(212, 175, 55, 0.3) !important;
+            }
+
+            .menu-icon {
+                font-size: 1.2rem !important;
+                line-height: 1 !important;
+            }
+
+            .main-nav {
+                display: none !important;
+                position: fixed !important;
+                top: 60px !important;
+                left: 0 !important;
+                width: 100vw !important;
+                background: rgba(10, 10, 15, 0.98) !important;
+                backdrop-filter: blur(15px) !important;
+                -webkit-backdrop-filter: blur(15px) !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                padding: 25px 0 40px !important;
+                gap: 15px !important;
+                border-bottom: 3px solid #D4AF37 !important;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
+                z-index: 10001 !important;
+                max-width: 100% !important;
+                overflow-y: auto !important;
+            }
+
+            .main-nav.mobile-active {
+                display: flex !important;
+                animation: slideDownMenu 0.25s ease-out forwards;
+            }
+
+            @keyframes slideDownMenu {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .nav-link {
+                font-size: 1.1rem !important;
+                padding: 14px 20px !important;
+                width: 85% !important;
+                text-align: center !important;
+                background: rgba(255, 255, 255, 0.08) !important;
+                border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                border-radius: 12px !important;
+                color: #ffffff !important;
+                font-weight: 700 !important;
+                box-sizing: border-box !important;
+                text-decoration: none !important;
+            }
+
+            .nav-link.active {
+                background: rgba(212, 175, 55, 0.3) !important;
+                border-color: #D4AF37 !important;
+                color: #D4AF37 !important;
+            }
+        }
+
+
+        /* PERFECT HAMBURGER BUTTON & RESPONSIVE MOBILE MENU */
+        .mobile-menu-btn {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 60px !important;
+                padding: 5px 15px !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                background: rgba(0, 0, 0, 0.95) !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                z-index: 10000 !important;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
+            }
+
+            .header-logo {
+                height: 38px !important;
+                width: auto !important;
+            }
+
+            .mobile-menu-btn {
+                display: flex !important;
+                align-items: center !important;
+                gap: 6px !important;
+                background: #D4AF37 !important;
+                border: 1px solid #ffffff !important;
+                color: #000000 !important;
+                padding: 6px 14px !important;
+                border-radius: 8px !important;
+                font-size: 0.9rem !important;
+                font-weight: 800 !important;
+                cursor: pointer !important;
+                z-index: 10002 !important;
+                box-shadow: 0 0 12px rgba(212, 175, 55, 0.6) !important;
+            }
+
+            .menu-icon {
+                font-size: 1.2rem !important;
+                line-height: 1 !important;
+                color: #000000 !important;
+            }
+
+            .menu-text {
+                color: #000000 !important;
+                font-weight: 900 !important;
+            }
+
+            .main-nav {
+                display: none !important;
+                position: fixed !important;
+                top: 60px !important;
+                left: 0 !important;
+                width: 100vw !important;
+                background: rgba(10, 10, 15, 0.98) !important;
+                backdrop-filter: blur(15px) !important;
+                -webkit-backdrop-filter: blur(15px) !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                padding: 25px 0 40px !important;
+                gap: 15px !important;
+                border-bottom: 3px solid #D4AF37 !important;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
+                z-index: 10001 !important;
+                max-width: 100% !important;
+                overflow-y: auto !important;
+            }
+
+            .main-nav.mobile-active {
+                display: flex !important;
+                animation: slideDownMenu 0.25s ease-out forwards;
+            }
+
+            @keyframes slideDownMenu {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .nav-link {
+                font-size: 1.1rem !important;
+                padding: 14px 20px !important;
+                width: 85% !important;
+                text-align: center !important;
+                background: rgba(255, 255, 255, 0.08) !important;
+                border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                border-radius: 12px !important;
+                color: #ffffff !important;
+                font-weight: 700 !important;
+                box-sizing: border-box !important;
+                text-decoration: none !important;
+            }
+
+            .nav-link.active {
+                background: rgba(212, 175, 55, 0.3) !important;
+                border-color: #D4AF37 !important;
+                color: #D4AF37 !important;
+            }
+        }
+
+</style>
+    <!-- Open Graph Meta Preview -->
+    <meta property="og:title" content="The Research Band - Pop-Rock y Jazzrock">
+    <meta property="og:description" content="Grupo musical The Research Band. Fusión de Jazz-Rock, Smooth Jazz y Pop-Rock avanzado.">
+    <meta property="og:image" content="https://trbandmusic.es/assets/logo_trb_icon.png">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:image" content="https://trbandmusic.es/assets/logo_trb_icon.png">
+
+</head>
+
+<body>
+    <div class="bg-layer">
+        <img src="assets/saltos_en_las_rocas.png" alt="Fondo" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+    <header class="main-header">
+        <div class="logo-area" onclick="window.location.href='index.html'" style="cursor: pointer;"><img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo"><span class="header-title-gold">The Research Band</span></div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+            <span class="menu-icon">☰</span>
+            <span class="menu-text">MENÚ</span>
+        </button>
+        <nav class="main-nav" id="mainNav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="nosotros.html" class="nav-link">Nosotros</a>
+            <a href="iliada.html" class="nav-link">Mi Ilíada</a>
+            <a href="galeria.html" class="nav-link">Galería</a>
+            
+            <div class="nav-item-dropdown">
+                <a href="musica.html" class="nav-link active">Música y Merchandising</a>
+                <div class="submenu">
+                    <a href="musica.html" class="submenu-link">Reproductor Musical</a>
+
+                </div>
+            </div>
+
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="landing-content" style="padding-top: 100px; max-width: 1200px; margin: 0 auto; width: 95%;">
+        
+        <!-- PLAYER 1: INSTRUMENTAL ALBUM -->
+        <div style="margin-top: 20px; margin-bottom: 4px; text-align: left; width: 90%; max-width: 1000px; margin-left: auto; margin-right: auto;">
+            <div style="background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(8px); padding: 6px 18px; border-radius: 6px 6px 0 0; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.4); border-bottom: none;">
+                <h2 style="color: #000000; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin: 0;">
+                    ONE THOUSAND OF COLOR NOTES
+                </h2>
+            </div>
+        </div>
+        
+        <div class="player-container" style="margin-bottom: 60px; margin-top: 0;">
+            <div class="now-playing">
+                <div class="brand-header">
+                    <img src="assets/logo_trb_icon.png" class="brand-logo">
+                    <div class="brand-title">The Research Band</div>
+                </div>
+                <img src="assets/portada_jazz.png" class="album-art" id="coverDisplay"
+                    onerror="this.src='https://via.placeholder.com/300/000000/FFFFFF?text=Music'">
+                <div class="track-info">
+                    <h2 id="trackTitle">Selecciona una canción</h2>
+                    <p id="trackArtist">The Research Band • Instrumental</p>
+                </div>
+                <div class="controls">
+                    <audio id="audioPlayer" controls></audio>
+                    <div class="buttons">
+                        <button class="btn" onclick="prevTrack()">⏮</button>
+                        <button class="btn btn-main" onclick="togglePlay()">⏯</button>
+                        <button class="btn" onclick="nextTrack()">⏭</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-panel">
+                <div class="playlist-header">
+                    <div class="tabs">
+                        <button class="tab active" onclick="switchTab('all')" id="tabAll">📚 Biblioteca</button>
+                        <button class="tab" onclick="switchTab('fav')" id="tabFav">⭐ Mi Playlist <span id="favCount">(0)</span></button>
+                    </div>
+                    <input type="text" id="searchInput" placeholder="🔍 Buscar..." onkeyup="filterPlaylist()">
+                </div>
+                <ul class="track-list" id="playlist"></ul>
+            </div>
+        </div>
+
+        <!-- PLAYER 2: SELECCION DE AUTOR -->
+        <div style="margin-top: 40px; margin-bottom: 4px; text-align: left; width: 90%; max-width: 1000px; margin-left: auto; margin-right: auto;">
+            <div style="background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(8px); padding: 6px 18px; border-radius: 6px 6px 0 0; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.4); border-bottom: none;">
+                <h2 style="color: #000000; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin: 0;">
+                    SELECCIÓN DE AUTOR
+                </h2>
+            </div>
+        </div>
+        
+        <div class="player-container" style="border-color: rgba(212, 175, 55, 0.4); box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);">
+            <div class="now-playing">
+                <div class="brand-header">
+                    <img src="assets/logo_trb_icon.png" class="brand-logo">
+                    <div class="brand-title" style="color: var(--accent);">TRBAND SONGS • Selección de Autor</div>
+                </div>
+                <img src="assets/cover_trband_songs.jpg" class="album-art" id="coverDisplay2" style="border-color: var(--accent);">
+                <div class="track-info">
+                    <h2 id="trackTitle2">Selecciona una canción</h2>
+                    <p id="trackArtist2">Eduardo Ramírez de Cartagena • Vocal & Fusion</p>
+                </div>
+                <div class="controls">
+                    <audio id="audioPlayer2" controls></audio>
+                    <div class="buttons">
+                        <button class="btn" onclick="prevTrack2()">⏮</button>
+                        <button class="btn btn-main" onclick="togglePlay2()">⏯</button>
+                        <button class="btn" onclick="nextTrack2()">⏭</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-panel">
+                <div class="playlist-header">
+                    <div class="brand-title" style="font-size: 0.9rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                        🎵 Canciones Vocales & Destacados
+                    </div>
+                    <input type="text" id="searchInput2" placeholder="🔍 Buscar en Selección de Autor..." onkeyup="filterPlaylist2()">
+                </div>
+                <ul class="track-list" id="playlist2"></ul>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="author-footer">
+        <div style="display: flex; align-items: center; font-weight: 700; margin-bottom: 20px;">
+            <span style="margin-right: 8px;">produced by KHEM</span>
+            <img src="assets/them_logo.png" alt="THEM" style="height: 30px;">
+        </div>
+        <div style="font-weight: 700;">eduardo ramírez de cartagena &copy; 2026</div>
+    </div>
+
+    <!-- PLAYER 1 SCRIPT -->
+    <script>
+        let fullPlaylist = ["01Medianoche-en-la-Terraza.mp3", "All_around_if_you_want.mp3", "Black_and_grey_.mp3", "Close_Your_Feelings_Extended.mp3", "Groove_or_not.mp3", "Heaven_s_Glow.mp3", "Man_island_beach.mp3", "Meanwhile_I_Love_You.mp3", "Saxo_by_the_clouds.mp3", "Saxophone_Serenade.mp3", "Secret-of-Velvet.mp3", "Sharp-echoes.mp3", "Soft-corners.mp3", "Voices_for_dreams.mp3", "Woman_on_the_island_beach.mp3"].map(f => ({
+            name: f.replace(/\.[^/.]+$/, "").replace(/_/g, " "),
+            url: "assets/audio/" + f
+        }));
+
+        let myPlaylist = [];
+        let currentMode = 'all';
+        let currentIndex = 0;
+        let activeQueue = fullPlaylist;
+
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playlistEl = document.getElementById('playlist');
+        const trackTitle = document.getElementById('trackTitle');
+        const coverDisplay = document.getElementById('coverDisplay');
+        const searchInput = document.getElementById('searchInput');
+        const favCount = document.getElementById('favCount');
+
+        function switchTab(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(mode === 'all' ? 'tabAll' : 'tabFav').classList.add('active');
+            renderPlaylist();
+        }
+
+        function renderPlaylist() {
+            if (!searchInput || !playlistEl) return;
+            const query = searchInput.value ? searchInput.value.toLowerCase() : "";
+            const source = currentMode === 'all' ? fullPlaylist : myPlaylist;
+            playlistEl.innerHTML = "";
+            activeQueue = source;
+
+            source.forEach((track, idx) => {
+                if (query && !track.name.toLowerCase().includes(query)) return;
+                const li = document.createElement('li');
+                li.className = 'track-item' + (currentIndex === idx && source === activeQueue ? ' active' : '');
+                li.innerHTML = `<span class="track-name">${track.name}</span>
+                                <button class="add-btn" onclick="event.stopPropagation(); ${currentMode === 'all' ? 'addToFav' : 'removeFromFav'}(${idx})">${currentMode === 'all' ? '+' : 'x'}</button>`;
+                li.onclick = () => loadTrack(idx, true);
+                playlistEl.appendChild(li);
+            });
+        }
+
+        function addToFav(index) {
+            const track = fullPlaylist[index];
+            if (!myPlaylist.find(t => t.url === track.url)) {
+                myPlaylist.push(track);
+                if (favCount) favCount.innerText = `(${myPlaylist.length})`;
+            }
+        }
+
+        function removeFromFav(index) {
+            myPlaylist.splice(index, 1);
+            if (favCount) favCount.innerText = `(${myPlaylist.length})`;
+            if (currentMode === 'fav') renderPlaylist();
+        }
+
+        function loadTrack(index, shouldPlay = true) {
+            if (index < 0 || index >= activeQueue.length) return;
+            currentIndex = index;
+            const track = activeQueue[index];
+            if (audioPlayer) {
+                audioPlayer.src = track.url;
+                if (trackTitle) trackTitle.innerText = track.name;
+                renderPlaylist();
+                if (shouldPlay) {
+                    // Pause player 2 if playing
+                    const p2 = document.getElementById('audioPlayer2');
+                    if (p2) p2.pause();
+                    audioPlayer.play().catch(e => console.log('Audio play handled:', e));
+                }
+            }
+        }
+
+        function togglePlay() {
+            if (!audioPlayer) return;
+            if (audioPlayer.paused) {
+                const p2 = document.getElementById('audioPlayer2');
+                if (p2) p2.pause();
+                audioPlayer.play().catch(e => console.log('Play error:', e));
+            } else {
+                audioPlayer.pause();
+            }
+        }
+
+        function nextTrack() { loadTrack((currentIndex + 1) % activeQueue.length, true); }
+        function prevTrack() { loadTrack((currentIndex - 1 + activeQueue.length) % activeQueue.length, true); }
+        function filterPlaylist() { renderPlaylist(); }
+
+        if (audioPlayer) {
+            audioPlayer.addEventListener('ended', nextTrack);
+            audioPlayer.onplay = () => coverDisplay && coverDisplay.classList.add('playing');
+            audioPlayer.onpause = () => coverDisplay && coverDisplay.classList.remove('playing');
+            loadTrack(0, false);
+        }
+    </script>
+
+    <!-- PLAYER 2 SCRIPT (SELECCION DE AUTOR) -->
+    <script>
+        const playlistAutor = [
+            { name: "Calles que respiran (Voz en español - Eduardo)", url: "assets/audio/seleccion_autor/04_Calles_que_respiran.mp3" },
+            { name: "As We Fall (Voz en inglés - Eduardo)", url: "assets/audio/seleccion_autor/03_AS_WE_FALL.mp3" },
+            { name: "Follow You Follow Me (ft. Nara Blue)", url: "assets/audio/seleccion_autor/05_Follow_You_Follow_Me_NARA.mp3" },
+            { name: "Acrobatic Life (Voz - Eduardo)", url: "assets/audio/seleccion_autor/07_Acrobatic_life.mp3" },
+            { name: "Sweet, Oh Love, Oh Life (Voz - Eduardo)", url: "assets/audio/seleccion_autor/08_SWEET_oh_love_oh_life.mp3" },
+            { name: "She Walks Or They (Voz - Eduardo)", url: "assets/audio/seleccion_autor/She walks or they.mp3" },
+            { name: "A Donde Bass (Slap Bass Funk Instrumental)", url: "assets/audio/seleccion_autor/02_a_donde_bass.mp3" },
+            { name: "Duck, Frog and Me (Jazz Fusion Instrumental)", url: "assets/audio/seleccion_autor/01_Duck_Frog_and_me.mp3" }
+        ];
+
+        let currentIndex2 = 0;
+        const audioPlayer2 = document.getElementById('audioPlayer2');
+        const playlistEl2 = document.getElementById('playlist2');
+        const trackTitle2 = document.getElementById('trackTitle2');
+        const coverDisplay2 = document.getElementById('coverDisplay2');
+        const searchInput2 = document.getElementById('searchInput2');
+
+        function renderPlaylist2() {
+            if (!searchInput2 || !playlistEl2) return;
+            const query = searchInput2.value ? searchInput2.value.toLowerCase() : "";
+            playlistEl2.innerHTML = "";
+
+            playlistAutor.forEach((track, idx) => {
+                if (query && !track.name.toLowerCase().includes(query)) return;
+                const li = document.createElement('li');
+                li.className = 'track-item' + (currentIndex2 === idx ? ' active' : '');
+                li.innerHTML = `<span class="track-name">${track.name}</span>`;
+                li.onclick = () => loadTrack2(idx, true);
+                playlistEl2.appendChild(li);
+            });
+        }
+
+        function loadTrack2(index, shouldPlay = true) {
+            if (index < 0 || index >= playlistAutor.length) return;
+            currentIndex2 = index;
+            const track = playlistAutor[index];
+            if (audioPlayer2) {
+                audioPlayer2.src = track.url;
+                if (trackTitle2) trackTitle2.innerText = track.name;
+                renderPlaylist2();
+                if (shouldPlay) {
+                    const p1 = document.getElementById('audioPlayer');
+                    if (p1) p1.pause();
+                    audioPlayer2.play().catch(e => console.log('Audio 2 play handled:', e));
+                }
+            }
+        }
+
+        function togglePlay2() {
+            if (!audioPlayer2) return;
+            if (audioPlayer2.paused) {
+                const p1 = document.getElementById('audioPlayer');
+                if (p1) p1.pause();
+                audioPlayer2.play().catch(e => console.log('Play error:', e));
+            } else {
+                audioPlayer2.pause();
+            }
+        }
+
+        function nextTrack2() { loadTrack2((currentIndex2 + 1) % playlistAutor.length, true); }
+        function prevTrack2() { loadTrack2((currentIndex2 - 1 + playlistAutor.length) % playlistAutor.length, true); }
+        function filterPlaylist2() { renderPlaylist2(); }
+
+        if (audioPlayer2) {
+            audioPlayer2.addEventListener('ended', nextTrack2);
+            audioPlayer2.onplay = () => coverDisplay2 && coverDisplay2.classList.add('playing');
+            audioPlayer2.onpause = () => coverDisplay2 && coverDisplay2.classList.remove('playing');
+            loadTrack2(0, false);
+        }
+    </script>
+
+    <script>
+        function toggleMobileMenu() {
+            var nav = document.getElementById('mainNav');
+            var btnIcon = document.querySelector('.menu-icon');
+            if (nav) {
+                nav.classList.toggle('mobile-active');
+                if (btnIcon) {
+                    btnIcon.textContent = nav.classList.contains('mobile-active') ? '✕' : '☰';
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+

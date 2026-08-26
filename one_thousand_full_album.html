@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Album: One Thousand of Color Notes — The Research Band</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;700;900&display=swap');
+
+        body, html {
+            margin: 0; padding: 0; background: #0a0a0a; color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh; overflow-x: hidden;
+        }
+
+        .bg-blur {
+            position: fixed; top: -10%; left: -10%; width: 120%; height: 120%;
+            background-image: url('assets/portada_jazz.png');
+            background-size: cover; background-position: center;
+            filter: blur(40px) brightness(0.3); z-index: -1;
+            animation: breathe 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes breathe {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .container {
+            max-width: 1000px; margin: 0 auto; padding: 50px 20px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            align-items: start; min-height: 80vh;
+        }
+
+        .cover-container {
+            position: sticky; top: 50px;
+        }
+
+        .album-cover {
+            width: 100%; border-radius: 12px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(212, 175, 55, 0.25);
+            transition: transform 0.5s;
+        }
+
+        .album-cover:hover {
+            transform: scale(1.02);
+        }
+
+        .info-container {
+            display: flex; flex-direction: column; gap: 20px;
+        }
+
+        .badge {
+            display: inline-block; background: #D4AF37; color: #000;
+            padding: 5px 15px; font-weight: 900; font-size: 0.8rem;
+            border-radius: 20px; letter-spacing: 2px; align-self: flex-start;
+        }
+
+        .badge-sync {
+            background: #D4AF37;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif; font-size: 2.8rem;
+            margin: 0; line-height: 1.1; color: #fff;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-size: 1.1rem; color: #D4AF37; margin: 0; font-weight: 700;
+            letter-spacing: 4px; text-transform: uppercase;
+        }
+
+        p {
+            color: #ccc; line-height: 1.6; font-size: 0.95rem;
+            border-left: 3px solid #D4AF37; padding-left: 15px;
+        }
+
+        .player-box {
+            background: rgba(0,0,0,0.7); padding: 25px; border-radius: 12px;
+            border: 1px solid rgba(212,175,55,0.3); backdrop-filter: blur(10px);
+            max-height: 500px; overflow-y: auto;
+        }
+
+        .player-box::-webkit-scrollbar { width: 8px; }
+        .player-box::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 4px; }
+        .player-box::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+
+        .track-list {
+            list-style: none; padding: 0; margin: 0;
+        }
+
+        .track-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 15px; border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: background 0.3s; cursor: pointer;
+        }
+
+        .track-item:last-child { border-bottom: none; }
+        .track-item:hover { background: rgba(255,255,255,0.12); }
+        .track-item.active { background: rgba(212, 175, 55, 0.25); border-left: 3px solid #D4AF37; }
+
+        .track-info span { display: block; }
+        .track-title { font-weight: bold; font-size: 1rem; color: #fff; }
+
+        .play-icon { font-size: 1.2rem; color: #D4AF37; }
+
+        .custom-player {
+            margin-top: 20px; width: 100%; display: none; position: sticky; bottom: 0;
+            background: rgba(0,0,0,0.95); padding: 15px; border-radius: 10px; border: 1px solid #D4AF37;
+        }
+
+        .custom-player.active { display: block; }
+
+        audio { width: 100%; outline: none; border-radius: 30px; }
+
+        .back-btn {
+            display: inline-block; color: #D4AF37; text-decoration: none;
+            font-weight: 700; margin-bottom: 20px; font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; padding: 20px; }
+            .cover-container { position: relative; top: 0; }
+            h1 { font-size: 2.2rem; }
+            .player-box { max-height: 400px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blur"></div>
+
+    <div class="container">
+        <div class="cover-container">
+            <a href="index.html" class="back-btn">← Volver a Inicio</a>
+            <img src="assets/portada_jazz.png" class="album-cover" alt="One Thousand of Color Notes">
+        </div>
+
+        <div class="info-container">
+            <div style="display: flex; gap: 10px;">
+                <span class="badge">LP 1 · 15 TRACKS</span>
+                <span class="badge badge-sync">SMOOTH JAZZ & BOSSA</span>
+            </div>
+            
+            <h1>One Thousand of Color Notes</h1>
+            <h2>The Research Band</h2>
+            
+            <p>Experiencia completa de 15 composiciones instrumentales originales de Smooth Jazz, Bossa Nova y Contemporary Jazz de vanguardia.</p>
+
+            <div class="player-box">
+                <ul class="track-list" id="trackList">
+                    <!-- Los tracks se generan por JS -->
+                </ul>
+            </div>
+            
+            <div class="custom-player" id="playerContainer">
+                <audio id="mainAudio" controls controlsList="nodownload">
+                    <source src="" type="audio/mpeg">
+                    Tu navegador no soporta reproducción de audio.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tracks = [
+            { title: "Medianoche en la Terraza", file: "assets/audio/01Medianoche-en-la-Terraza.mp3" },
+            { title: "All around if you want", file: "assets/audio/All_around_if_you_want.mp3" },
+            { title: "Black and grey", file: "assets/audio/Black_and_grey_.mp3" },
+            { title: "Close your feelings (Extended)", file: "assets/audio/Close_Your_Feelings_Extended.mp3" },
+            { title: "Groove or not", file: "assets/audio/Groove_or_not.mp3" },
+            { title: "Heaven's Glow", file: "assets/audio/Heaven_s_Glow.mp3" },
+            { title: "Man island beach", file: "assets/audio/Man_island_beach.mp3" },
+            { title: "Meanwhile I Love you", file: "assets/audio/Meanwhile_I_Love_You.mp3" },
+            { title: "Saxophone Serenade", file: "assets/audio/Saxophone_Serenade.mp3" },
+            { title: "Secret of Velvet", file: "assets/audio/Secret-of-Velvet.mp3" },
+            { title: "Sharp echoes", file: "assets/audio/Sharp-echoes.mp3" },
+            { title: "Soft corners", file: "assets/audio/Soft-corners.mp3" },
+            { title: "The Scent of Velvet", file: "assets/audio/Saxo_by_the_clouds.mp3" },
+            { title: "Voices for dreams", file: "assets/audio/Voices_for_dreams.mp3" },
+            { title: "Woman on the island beach", file: "assets/audio/Woman_on_the_island_beach.mp3" }
+        ];
+
+        const audioEl = document.getElementById('mainAudio');
+        const playerContainer = document.getElementById('playerContainer');
+        const trackListUl = document.getElementById('trackList');
+
+        tracks.forEach((track, index) => {
+            const li = document.createElement('li');
+            li.className = 'track-item';
+            li.innerHTML = `
+                <div class="track-info">
+                    <span class="track-title">${String(index + 1).padStart(2, '0')} ${track.title}</span>
+                </div>
+                <div class="play-icon">▶</div>
+            `;
+            li.onclick = () => playTrack(index, li);
+            trackListUl.appendChild(li);
+        });
+
+        function playTrack(index, element) {
+            document.querySelectorAll('.track-item').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+
+            audioEl.src = tracks[index].file;
+            playerContainer.classList.add('active');
+            audioEl.play();
+        }
+    </script>
+</body>
+</html>

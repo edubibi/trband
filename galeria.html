@@ -1,282 +1,318 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería - The Research Band</title>
+    <title>Galería — The Research Band</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #ffffff;
-            --secondary: #a0a0a0;
+            --bg-black: #000000;
             --accent: #D4AF37;
-            --bg-glass: rgba(255, 255, 255, 0.1);
-            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            --text-light: #ffffff;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-            background: #1a1a2e;
-            color: white;
+            background-color: var(--bg-black);
+            color: var(--text-light);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            overflow-y: auto;
             overflow-x: hidden;
-            flex-direction: column;
+            position: relative;
         }
 
-        .bg-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
+        /* --- HEADER UNIFICADO (FOTO 2 REPLICADO 1:1) --- */
+        .main-header {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 12px 40px;
+            box-sizing: border-box; display: flex; justify-content: space-between;
+            align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 70%, transparent 100%);
+            z-index: 10000; transition: all 0.3s ease;
+        }
+        .logo-area { display: flex; align-items: center; gap: 15px; cursor: pointer; }
+        .header-logo { height: 60px; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); transition: transform 0.3s ease; }
+        .header-logo:hover { transform: scale(1.05); }
+        .header-title-white { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; color: #FFFFFF; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); }
+        
+        .main-nav { display: flex; gap: 32px; align-items: center; }
+        .nav-link { 
+            color: rgba(255, 255, 255, 0.85); text-decoration: none; font-weight: 500; 
+            text-transform: uppercase; font-size: 0.88rem; letter-spacing: 1.2px; 
+            transition: all 0.3s ease; position: relative; padding: 6px 0;
+        }
+        .nav-link:hover { color: #D4AF37; }
+        .nav-link.active { color: #D4AF37; font-weight: 700; }
+        .nav-link.active::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px;
+            background-color: #D4AF37; box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
         }
 
-        .bg-scroll-container {
-            display: flex;
-            width: 400vw;
-            height: 100%;
-            animation: scrollInfinite 60s linear infinite;
+        /* --- PUNTOS FLOTANTES LATERALES --- */
+        .navegacion-lateral {
+            position: fixed; right: 25px; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 16px; z-index: 9999;
+            background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(8px);
+            padding: 14px 9px; border-radius: 25px; border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        .punto-link {
+            width: 12px; height: 12px; border-radius: 50%; border: 2px solid #D4AF37;
+            background-color: transparent; transition: all 0.3s ease; display: block; cursor: pointer;
+        }
+        .punto-link:hover, .punto-link.active {
+            background-color: #D4AF37; transform: scale(1.3); box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
         }
 
-        .bg-slide {
+        /* ================================================================= */
+        /* 🖼️ PANTALLA 1: LA BIENVENIDA (CUADRO A PANTALLA COMPLETA 100vh)   */
+        /* ================================================================= */
+        .hero-bienvenida {
+            position: relative;
             width: 100vw;
-            height: 100%;
-            background: url('assets/cuadro_on_the_way.jpeg') center/cover no-repeat;
-        }
-
-        .bg-slide.mirrored {
-            transform: scaleX(-1);
-        }
-
-        @keyframes scrollInfinite {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-200vw); }
-        }
-
-        /* --- HEADER --- */
-        .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
-
-        .logo-area { display: flex; align-items: center; gap: 15px; }
-
-        .header-logo { height: 100px; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); transition: transform 0.3s ease; } .header-title-gold { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #FFFFFF; text-transform: none; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
-
-        .header-title { display: none;  display: none; 
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .main-nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-link {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            position: relative;
-            padding: 10px 0;
-        }
-
-        /* Submenu Styling */
-        .nav-item-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .submenu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-            min-width: 220px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            z-index: 1001;
-            padding: 10px 0;
-            /* Removed margin-top to eliminate the gap */
-        }
-
-        .submenu::before {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-bottom: 6px solid var(--accent);
-        }
-
-        .nav-item-dropdown:hover .submenu {
-            display: block;
-            animation: fadeInSubmenu 0.3s ease;
-        }
-
-        @keyframes fadeInSubmenu {
-            from { opacity: 0; transform: translate(-50%, 10px); }
-            to { opacity: 1; transform: translate(-50%, 0); }
-        }
-
-        .submenu-link {
-            display: block;
-            color: #ddd;
-            padding: 12px 20px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .submenu-link:hover {
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--accent);
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--accent);
-        }
-
-        /* --- CONTENT --- */
-        .landing-content {
-            position: relative;
-            z-index: 1;
-            width: 100%;
+            height: 100vh;
+            background: url("assets/cuadro_on_the_way.jpeg") no-repeat center center;
+            background-size: cover;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding-top: 120px;
-            padding-bottom: 60px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 40px;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9), 0 2px 5px rgba(0, 0, 0, 0.8);
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-align: center;
-        }
-
-        .gallery-section {
-            width: 90%;
-            max-width: 1400px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .gallery-grid {
-            column-count: 6; 
-            column-gap: 30px; /* Más espacio entre columnas */
-            width: 100%;
-            padding: 20px 0;
-        }
-
-        .gallery-item {
-            margin-bottom: 30px; /* Más espacio abajo */
-            break-inside: avoid;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            display: block;
-            transition: transform 0.5s;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.02);
-            z-index: 10;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            border-color: var(--accent);
-        }
-
-        /* --- VIDEOTECA STYLES --- */
-        .role-highlight {
-            color: #ffffff;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 40px 0 20px;
-            font-size: 1.5rem;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9), 0 2px 5px rgba(0, 0, 0, 0.8);
-        }
-
-        .video-categories {
-            display: flex;
             justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 60px;
-            width: 100%;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
         }
 
-        .category-card {
-            width: 280px;
-            height: 180px;
+        .hero-bienvenida::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: 4.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 15px 0;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95), 0 0 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-content p {
+            color: #D4AF37;
+            font-size: 1.4rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        .scroll-down-arrow {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            color: #D4AF37;
+            font-size: 2.2rem;
+            cursor: pointer;
+            animation: bounceArrow 2s infinite ease-in-out;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        @keyframes bounceArrow {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -12px); }
+            60% { transform: translate(-50%, -6px); }
+        }
+
+        /* ================================================================= */
+        /* 🗂️ PANTALLA 2: LOS 3 PORTALES INTERACTIVOS (FONDO NEGRO PURO)      */
+        /* ================================================================= */
+        .seccion-portales {
+            background-color: #000000;
+            padding: 110px 8% 90px 8%;
+            box-sizing: border-box;
+            width: 100%;
+            text-align: center;
+        }
+
+        .portales-titulo {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .portales-sub {
+            color: #D4AF37;
+            font-size: 1.05rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 55px;
+        }
+
+        .grid-portales {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .portal-card {
+            background: #000000;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 12px;
+            padding: 45px 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
+            transition: all 0.35s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
 
-        .category-card:hover {
-            transform: scale(1.05);
-            border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        .portal-card:hover {
+            transform: translateY(-8px);
+            border-color: #D4AF37;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25);
+            background: rgba(212, 175, 55, 0.04);
         }
 
-        .category-card h3 {
-            font-size: 1.4rem;
-            z-index: 2;
+        .portal-icon {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+        }
+
+        .portal-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.45rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-align: center;
-            margin: 0;
         }
 
-        .category-bg-icon {
+        .portal-card p {
+            color: #D4AF37;
+            font-size: 0.95rem;
+            margin: 0;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* ================================================================= */
+        /* 📷 PANTALLA 3: EL ARCHIVO FOTOGRÁFICO SIMÉTRICO (FONDO NEGRO)      */
+        /* ================================================================= */
+        .seccion-archivo {
+            background-color: #000000;
+            padding: 90px 8% 90px 8%; /* 2. Padding inferior amplio para separar de los créditos */
+            box-sizing: border-box;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 40px; /* 2. Espaciado elegante con el pie de página */
+        }
+
+        .grid-fotos {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 22px;
+            max-width: 1400px;
+            margin: 50px auto 0 auto;
+        }
+
+        /* 1. Recuadros fijos simétricos a 250px con object-fit: cover */
+        .foto-item {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background: #050505;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            cursor: pointer;
+            transition: all 0.35s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+        }
+
+        .foto-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease, filter 0.3s ease;
+        }
+
+        .foto-item:hover {
+            border-color: #D4AF37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.35);
+            z-index: 5;
+        }
+
+        .foto-item:hover img {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+
+        /* --- LIGHTBOX MODAL --- */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 20000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInLightbox 0.3s ease;
+        }
+
+        @keyframes fadeInLightbox {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lightbox-img {
+            max-width: 90vw;
+            max-height: 85vh;
+            border: 2px solid #D4AF37;
+            border-radius: 6px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+            object-fit: contain;
+        }
+
+        .lightbox-close {
             position: absolute;
-            font-size: 8rem;
-            color: rgba(255, 255, 255, 0.03);
-            z-index: 1;
+            top: 25px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            color: #D4AF37;
         }
 
         /* --- VIDEO MODALS --- */
@@ -285,19 +321,19 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 3000;
-            background: rgba(0, 0, 0, 0.85);
+            z-index: 15000;
+            background: rgba(10, 10, 15, 0.96);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-            width: 95%;
+            border: 1px solid #D4AF37;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+            width: 92%;
             max-width: 1200px;
             height: 85vh;
             display: none;
             flex-direction: column;
             overflow: hidden;
-            animation: fadeInModal 0.5s ease;
+            animation: fadeInModal 0.4s ease;
         }
 
         @keyframes fadeInModal {
@@ -308,14 +344,15 @@
         .close-btn {
             position: absolute;
             top: 15px;
-            right: 20px;
+            right: 25px;
             background: none;
             border: none;
             color: #fff;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             cursor: pointer;
             z-index: 10;
         }
+        .close-btn:hover { color: #D4AF37; }
 
         .video-modal-content {
             display: flex;
@@ -334,12 +371,12 @@
             justify-content: center;
             gap: 30px;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1100px;
         }
 
         .video-card {
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #000000;
+            border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 12px;
             overflow: hidden;
             transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
@@ -347,16 +384,14 @@
             flex-direction: column;
             flex: 1 1 300px;
             max-width: 350px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .video-card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 40px rgba(212, 175, 55,0.2);
+            border-color: #D4AF37;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
         }
 
-        .video-card iframe,
         .video-card video {
             width: 100%;
             aspect-ratio: 16/9;
@@ -366,353 +401,174 @@
         }
 
         .video-title {
-            padding: 20px 15px;
-            font-size: 1rem;
-            color: #ddd;
+            padding: 18px 15px;
+            font-size: 0.95rem;
+            color: #ffffff;
             text-align: center;
-            font-weight: 700;
+            font-weight: 600;
             line-height: 1.4;
         }
 
-        /* --- FOOTER --- */
+        /* --- FOOTER CRÉDITOS ESPACIADO --- */
         .author-footer {
-            margin-top: 60px;
             width: 100%;
-            padding: 40px 20px;
+            padding: 45px 20px;
             box-sizing: border-box;
-            background: rgba(0, 0, 0, 0.5);
+            background: #000000;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        @media (max-width: 768px) {
-            html, body { overflow-x: hidden !important; width: 100vw !important; }
-            .main-header { height: 60px !important; padding: 5px 12px !important; background: rgba(0,0,0,0.95) !important; position: fixed !important; z-index: 10000 !important; }
-            .header-logo { height: 42px !important; }
-            .header-title-gold { font-size: 0.9rem !important; display: none !important; }
-            .main-nav { max-width: 75% !important; gap: 6px !important; overflow-x: auto !important; flex-wrap: nowrap !important; scrollbar-width: none !important; }
-            .main-nav::-webkit-scrollbar { display: none !important; }
-            .nav-link { font-size: 0.72rem !important; padding: 5px 8px !important; white-space: nowrap !important; flex-shrink: 0 !important; }
-
-            .landing-content { padding-top: 75px !important; width: 100% !important; box-sizing: border-box !important; }
-            .gallery-grid { column-count: 1 !important; width: 100% !important; }
-            .section-title { font-size: 1.4rem !important; letter-spacing: 1px !important; text-align: center !important; word-wrap: break-word !important; }
+        @media (max-width: 1000px) {
+            .grid-portales { grid-template-columns: 1fr; gap: 20px; }
+            .grid-fotos { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .foto-item, .foto-item img { height: 180px !important; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-content p { font-size: 1.1rem; }
+            .navegacion-lateral { display: none; }
+            .main-header { padding: 10px 15px !important; }
+            .header-logo { height: 45px !important; }
+            .header-title-white { font-size: 1.1rem !important; }
+            .main-nav { gap: 12px !important; }
+            .nav-link { font-size: 0.72rem !important; letter-spacing: 0.5px !important; }
         }
-    
-        
-        /* --- CLEAN MASTER HAMBURGER MOBILE MENU STYLES --- */
-        .mobile-menu-btn {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .main-header {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 60px !important;
-                padding: 5px 15px !important;
-                box-sizing: border-box !important;
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                background: rgba(0, 0, 0, 0.95) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
-                z-index: 10000 !important;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
-            }
-
-            .header-logo {
-                height: 38px !important;
-                width: auto !important;
-            }
-
-            .mobile-menu-btn {
-                display: flex !important;
-                align-items: center !important;
-                gap: 6px !important;
-                background: rgba(212, 175, 55, 0.2) !important;
-                border: 1px solid #D4AF37 !important;
-                color: #D4AF37 !important;
-                padding: 6px 14px !important;
-                border-radius: 8px !important;
-                font-size: 0.9rem !important;
-                font-weight: 800 !important;
-                cursor: pointer !important;
-                z-index: 10002 !important;
-                box-shadow: 0 0 10px rgba(212, 175, 55, 0.3) !important;
-            }
-
-            .menu-icon {
-                font-size: 1.2rem !important;
-                line-height: 1 !important;
-            }
-
-            .main-nav {
-                display: none !important;
-                position: fixed !important;
-                top: 60px !important;
-                left: 0 !important;
-                width: 100vw !important;
-                background: rgba(10, 10, 15, 0.98) !important;
-                backdrop-filter: blur(15px) !important;
-                -webkit-backdrop-filter: blur(15px) !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                padding: 25px 0 40px !important;
-                gap: 15px !important;
-                border-bottom: 3px solid #D4AF37 !important;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
-                z-index: 10001 !important;
-                max-width: 100% !important;
-                overflow-y: auto !important;
-            }
-
-            .main-nav.mobile-active {
-                display: flex !important;
-                animation: slideDownMenu 0.25s ease-out forwards;
-            }
-
-            @keyframes slideDownMenu {
-                from { opacity: 0; transform: translateY(-10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            .nav-link {
-                font-size: 1.1rem !important;
-                padding: 14px 20px !important;
-                width: 85% !important;
-                text-align: center !important;
-                background: rgba(255, 255, 255, 0.08) !important;
-                border: 1px solid rgba(255, 255, 255, 0.15) !important;
-                border-radius: 12px !important;
-                color: #ffffff !important;
-                font-weight: 700 !important;
-                box-sizing: border-box !important;
-                text-decoration: none !important;
-            }
-
-            .nav-link.active {
-                background: rgba(212, 175, 55, 0.3) !important;
-                border-color: #D4AF37 !important;
-                color: #D4AF37 !important;
-            }
-        }
-
-
-        /* PERFECT HAMBURGER BUTTON & RESPONSIVE MOBILE MENU */
-        .mobile-menu-btn {
-            display: none !important;
-        }
-
-        @media (max-width: 768px) {
-            .main-header {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 60px !important;
-                padding: 5px 15px !important;
-                box-sizing: border-box !important;
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                background: rgba(0, 0, 0, 0.95) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
-                z-index: 10000 !important;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
-            }
-
-            .header-logo {
-                height: 38px !important;
-                width: auto !important;
-            }
-
-            .mobile-menu-btn {
-                display: flex !important;
-                align-items: center !important;
-                gap: 6px !important;
-                background: #D4AF37 !important;
-                border: 1px solid #ffffff !important;
-                color: #000000 !important;
-                padding: 6px 14px !important;
-                border-radius: 8px !important;
-                font-size: 0.9rem !important;
-                font-weight: 800 !important;
-                cursor: pointer !important;
-                z-index: 10002 !important;
-                box-shadow: 0 0 12px rgba(212, 175, 55, 0.6) !important;
-            }
-
-            .menu-icon {
-                font-size: 1.2rem !important;
-                line-height: 1 !important;
-                color: #000000 !important;
-            }
-
-            .menu-text {
-                color: #000000 !important;
-                font-weight: 900 !important;
-            }
-
-            .main-nav {
-                display: none !important;
-                position: fixed !important;
-                top: 60px !important;
-                left: 0 !important;
-                width: 100vw !important;
-                background: rgba(10, 10, 15, 0.98) !important;
-                backdrop-filter: blur(15px) !important;
-                -webkit-backdrop-filter: blur(15px) !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                padding: 25px 0 40px !important;
-                gap: 15px !important;
-                border-bottom: 3px solid #D4AF37 !important;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
-                z-index: 10001 !important;
-                max-width: 100% !important;
-                overflow-y: auto !important;
-            }
-
-            .main-nav.mobile-active {
-                display: flex !important;
-                animation: slideDownMenu 0.25s ease-out forwards;
-            }
-
-            @keyframes slideDownMenu {
-                from { opacity: 0; transform: translateY(-10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            .nav-link {
-                font-size: 1.1rem !important;
-                padding: 14px 20px !important;
-                width: 85% !important;
-                text-align: center !important;
-                background: rgba(255, 255, 255, 0.08) !important;
-                border: 1px solid rgba(255, 255, 255, 0.15) !important;
-                border-radius: 12px !important;
-                color: #ffffff !important;
-                font-weight: 700 !important;
-                box-sizing: border-box !important;
-                text-decoration: none !important;
-            }
-
-            .nav-link.active {
-                background: rgba(212, 175, 55, 0.3) !important;
-                border-color: #D4AF37 !important;
-                color: #D4AF37 !important;
-            }
-        }
-
-</style>
-    <!-- Open Graph Meta Preview -->
-    <meta property="og:title" content="The Research Band - Pop-Rock y Jazzrock">
-    <meta property="og:description" content="Grupo musical The Research Band. Fusión de Jazz-Rock, Smooth Jazz y Pop-Rock avanzado.">
-    <meta property="og:image" content="https://trbandmusic.es/assets/logo_trb_icon.png">
-    <meta property="twitter:card" content="summary">
-    <meta property="twitter:image" content="https://trbandmusic.es/assets/logo_trb_icon.png">
-
+    </style>
 </head>
-
 <body>
-    <div class="bg-layer">
-        <div class="bg-scroll-container">
-            <div class="bg-slide"></div>
-            <div class="bg-slide mirrored"></div>
-            <div class="bg-slide"></div>
-            <div class="bg-slide mirrored"></div>
-        </div>
-    </div>
 
+    <!-- 📌 HEADER UNIFICADO (FOTO 2) -->
     <header class="main-header">
-        <div class="logo-area" onclick="window.location.href='index.html'" style="cursor: pointer;"><img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo"><span class="header-title-gold">The Research Band</span></div>
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú">
-            <span class="menu-icon">☰</span>
-            <span class="menu-text">MENÚ</span>
-        </button>
-        <nav class="main-nav" id="mainNav">
+        <div class="logo-area" onclick="window.location.href='index.html'">
+            <img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo">
+            <span class="header-title-white">The Research Band</span>
+        </div>
+        <nav class="main-nav">
             <a href="index.html" class="nav-link">Inicio</a>
             <a href="nosotros.html" class="nav-link">Nosotros</a>
             <a href="iliada.html" class="nav-link">Mi Ilíada</a>
             <a href="galeria.html" class="nav-link active">Galería</a>
-            
-            <div class="nav-item-dropdown">
-                <a href="musica.html" class="nav-link">Música y Merchandising</a>
-                <div class="submenu">
-                    <a href="musica.html" class="submenu-link">Reproductor Musical</a>
-
-                </div>
-            </div>
-
+            <a href="musica.html" class="nav-link">Música y Merchandising</a>
             <a href="contacto.html" class="nav-link">Contacto</a>
         </nav>
     </header>
 
-    <main class="landing-content">
-        <section id="gallery" class="gallery-section">
-            <h2 class="section-title">Nuestra Galería</h2>
+    <!-- 📍 PUNTOS FLOTANTES LATERALES -->
+    <nav class="navegacion-lateral" aria-label="Navegación lateral rápida">
+        <a href="#bienvenida" class="punto-link active" title="Bienvenida"></a>
+        <a href="#videoteca" class="punto-link" title="Videoteca & Portales"></a>
+        <a href="#archivo-fotos" class="punto-link" title="Archivo Fotográfico"></a>
+    </nav>
 
-            <p class="role-highlight">Videoteca & Trayectoria</p>
+    <!-- ================================================================= -->
+    <!-- 🖼️ PANTALLA 1: LA BIENVENIDA (CUADRO PANTALLA COMPLETA 100vh)       -->
+    <!-- ================================================================= -->
+    <section id="bienvenida" class="hero-bienvenida">
+        <div class="hero-content">
+            <h1>Nuestra Galería</h1>
+            <p>Videoteca & Trayectoria</p>
+        </div>
+        <a href="#videoteca" class="scroll-down-arrow" aria-label="Bajar a la videoteca">↓</a>
+    </section>
 
-            <div class="video-categories">
-                <div class="category-card" onclick="openVideoModal('cat-colab')">
-                    <div class="category-bg-icon">🤝</div>
-                    <h3>Colaboradores</h3>
-                    <p style="color: #bbb; margin-top: 5px; font-size: 0.8rem;">JJ Almela & Friends</p>
-                </div>
-                <div class="category-card" onclick="openVideoModal('cat-cadillac')">
-                    <div class="category-bg-icon">🎸</div>
-                    <h3>Historia de Cadillac</h3>
-                    <p style="color: #bbb; margin-top: 5px; font-size: 0.8rem;">El Origen</p>
-                </div>
-                <div class="category-card" onclick="openVideoModal('cat-trband')">
-                    <div class="category-bg-icon">🎬</div>
-                    <h3>Producciones TRBand</h3>
-                    <p style="color: #bbb; margin-top: 5px; font-size: 0.8rem;">Videoclips & Promos</p>
-                </div>
+    <!-- ================================================================= -->
+    <!-- 🗂️ PANTALLA 2: LOS 3 PORTALES INTERACTIVOS (FONDO NEGRO PURO)      -->
+    <!-- ================================================================= -->
+    <section id="videoteca" class="seccion-portales">
+        <h2 class="portales-titulo">Videoteca & Documentales</h2>
+        <div class="portales-sub">Explora nuestra historia visual</div>
+
+        <div class="grid-portales">
+            
+            <div class="portal-card" onclick="openVideoModal('cat-colab')">
+                <div class="portal-icon">🤝</div>
+                <h3>Colaboradores</h3>
+                <p>JJ Almela & Friends</p>
             </div>
 
-            <h2 class="section-title" style="font-size: 2rem; margin-top: 40px;">Fotos</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_03.jpg" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_04.jpg" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_05.png" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_07.png" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_08.jpg" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_09.png" loading="lazy"></div>
-                <div class="gallery-item"><img src="assets/recovered_wix/images/image_11.png" loading="lazy"></div>
+            <div class="portal-card" onclick="openVideoModal('cat-cadillac')">
+                <div class="portal-icon">🎸</div>
+                <h3>Historia de Cadillac</h3>
+                <p>El Origen</p>
             </div>
-        </section>
-    </main>
 
-    <!-- VIDEO MODALS -->
+            <div class="portal-card" onclick="openVideoModal('cat-trband')">
+                <div class="portal-icon">🎬</div>
+                <h3>Producciones TRBand</h3>
+                <p>Videoclips & Promos</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 📷 PANTALLA 3: EL ARCHIVO FOTOGRÁFICO CON LIGHTBOX                 -->
+    <!-- ================================================================= -->
+    <section id="archivo-fotos" class="seccion-archivo">
+        <h2 class="portales-titulo">Archivo Fotográfico</h2>
+        <div class="portales-sub">Memoria & Ensayos Históricos</div>
+
+        <div class="grid-fotos">
+            <div class="foto-item" onclick="openLightbox('assets/recovered_wix/images/image_03.jpg')">
+                <img src="assets/recovered_wix/images/image_03.jpg" loading="lazy" alt="Archivo 03">
+            </div>
+            <div class="foto-item" onclick="openLightbox('assets/recovered_wix/images/image_04.jpg')">
+                <img src="assets/recovered_wix/images/image_04.jpg" loading="lazy" alt="Archivo 04">
+            </div>
+            <div class="foto-item" onclick="openLightbox('assets/recovered_wix/images/image_05.png')">
+                <img src="assets/recovered_wix/images/image_05.png" loading="lazy" alt="Archivo 05">
+            </div>
+            <div class="foto-item" onclick="openLightbox('assets/recovered_wix/images/image_07.png')">
+                <img src="assets/recovered_wix/images/image_07.png" loading="lazy" alt="Archivo 07">
+            </div>
+            <div class="foto-item" onclick="openLightbox('assets/recovered_wix/images/image_08.jpg')">
+                <img src="assets/recovered_wix/images/image_08.jpg" loading="lazy" alt="Archivo 08">
+            </div>
+            <div class="foto-item" onclick="openLightbox('assets/recovered_wix/images/image_09.png')">
+                <img src="assets/recovered_wix/images/image_09.png" loading="lazy" alt="Archivo 09">
+            </div>
+            <div class="foto-item" onclick="openLightbox('assets/recovered_wix/images/image_11.png')">
+                <img src="assets/recovered_wix/images/image_11.png" loading="lazy" alt="Archivo 11">
+            </div>
+            <div class="foto-item" onclick="openLightbox('assets/iliada_hero.png')">
+                <img src="assets/iliada_hero.png" loading="lazy" alt="Ilíada Hero">
+            </div>
+            <div class="foto-item" onclick="openLightbox('assets/edusax.png')">
+                <img src="assets/edusax.png" loading="lazy" alt="Eduardo Sax">
+            </div>
+            <div class="foto-item" onclick="openLightbox('assets/concierto_sala.png')">
+                <img src="assets/concierto_sala.png" loading="lazy" alt="Concierto Sala">
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔍 LIGHTBOX MODAL PARA FOTOS EN PANTALLA COMPLETA -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img src="" id="lightboxImg" class="lightbox-img" alt="Vista Ampliada">
+    </div>
+
+    <!-- 🎥 VIDEO MODALS -->
     <div class="player-container" id="cat-colab">
-        <button class="close-btn" onclick="closeVideoModal('cat-colab')">×</button>
+        <button class="close-btn" onclick="closeVideoModal('cat-colab')">&times;</button>
         <div class="video-modal-content">
-            <h2 style="color: var(--accent); margin-bottom: 30px; text-transform: uppercase;">Colaboradores</h2>
+            <h2 style="color: #D4AF37; margin-bottom: 30px; text-transform: uppercase; font-family: 'Playfair Display', serif;">Colaboradores — JJ Almela & Friends</h2>
             <div class="video-modal-grid">
                 <div class="video-card">
-                    <video controls preload="none" poster="assets/video/colab/portada Andanzas.webp" class="native-video">
+                    <video controls preload="none" poster="assets/video/colab/portada Andanzas.webp">
                         <source src="assets/video/colab/Andanzas De Rocinante Jjalmela COMP.mp4" type="video/mp4">
                     </video>
                     <div class="video-title">Andanzas de Rocinante</div>
                 </div>
                 <div class="video-card">
-                    <video controls preload="none" poster="assets/video/colab/portada prisionero.webp" class="native-video">
+                    <video controls preload="none" poster="assets/video/colab/portada prisionero.webp">
                         <source src="assets/video/colab/Prisionero Jjalmela COMP.mp4" type="video/mp4">
                     </video>
                     <div class="video-title">Prisionero</div>
                 </div>
                 <div class="video-card">
-                    <video controls preload="none" poster="assets/video/colab/portada After the love_ AESwing.webp" class="native-video">
+                    <video controls preload="none" poster="assets/video/colab/portada After the love_ AESwing.webp">
                         <source src="assets/video/colab/Cover After The Love Has Gone Aeswing COMP.mp4" type="video/mp4">
                     </video>
                     <div class="video-title">AE Swing - After the love has gone (Cover)</div>
@@ -722,24 +578,24 @@
     </div>
 
     <div class="player-container" id="cat-cadillac">
-        <button class="close-btn" onclick="closeVideoModal('cat-cadillac')">×</button>
+        <button class="close-btn" onclick="closeVideoModal('cat-cadillac')">&times;</button>
         <div class="video-modal-content">
-            <h2 style="color: var(--accent); margin-bottom: 30px; text-transform: uppercase;">Historia de Cadillac</h2>
+            <h2 style="color: #D4AF37; margin-bottom: 30px; text-transform: uppercase; font-family: 'Playfair Display', serif;">Historia de Cadillac — El Origen</h2>
             <div class="video-modal-grid">
                 <div class="video-card">
-                    <video controls preload="metadata" class="native-video">
+                    <video controls preload="metadata">
                         <source src="assets/video/cadillac/Cadillac - Pensando En Ti (Musical Express) COMP.mp4#t=0.5" type="video/mp4">
                     </video>
                     <div class="video-title">Pensando en ti (Musical Express)</div>
                 </div>
                 <div class="video-card">
-                    <video controls preload="metadata" class="native-video">
+                    <video controls preload="metadata">
                         <source src="assets/video/cadillac/Cadillac - Perdí Mi Oportunidad_COMP.mp4#t=0.5" type="video/mp4">
                     </video>
                     <div class="video-title">Perdí mi oportunidad (Videoclip)</div>
                 </div>
                 <div class="video-card">
-                    <video controls preload="metadata" class="native-video">
+                    <video controls preload="metadata">
                         <source src="assets/video/cadillac/Soy Un Soñador (Aplauso) COMP.mp4#t=0.5" type="video/mp4">
                     </video>
                     <div class="video-title">Soy un soñador (Aplauso)</div>
@@ -749,18 +605,18 @@
     </div>
 
     <div class="player-container" id="cat-trband">
-        <button class="close-btn" onclick="closeVideoModal('cat-trband')">×</button>
+        <button class="close-btn" onclick="closeVideoModal('cat-trband')">&times;</button>
         <div class="video-modal-content">
-            <h2 style="color: var(--accent); margin-bottom: 30px; text-transform: uppercase;">Producciones TRBandMusic</h2>
+            <h2 style="color: #D4AF37; margin-bottom: 30px; text-transform: uppercase; font-family: 'Playfair Display', serif;">Producciones TRBandMusic</h2>
             <div class="video-modal-grid">
                 <div class="video-card">
-                    <video controls preload="metadata" class="native-video">
+                    <video controls preload="metadata">
                         <source src="assets/video/trband/00Videoclip Medianoche-En-La-Terraza COMP.mp4#t=0.5" type="video/mp4">
                     </video>
                     <div class="video-title">Medianoche en la terraza | Cuando todo encaja</div>
                 </div>
                 <div class="video-card">
-                    <video controls preload="metadata" poster="assets/video/trband/sueños en paris.webp" class="native-video">
+                    <video controls preload="metadata" poster="assets/video/trband/sueños en paris.webp">
                         <source src="assets/video/trband/Sueños En París - The Research Band COMP.mp4" type="video/mp4">
                     </video>
                     <div class="video-title">Sueños en París - The Research Band</div>
@@ -769,47 +625,69 @@
         </div>
     </div>
 
+    <footer class="author-footer">
+        <div style="display: flex; align-items: center; font-weight: 700; margin-bottom: 15px; color: #fff;">
+            <span style="margin-right: 8px;">produced by KHEM</span>
+            <img src="assets/them_logo.png" alt="THEM" style="height: 30px;">
+        </div>
+        <div style="font-weight: 700; color: rgba(255,255,255,0.7);">eduardo ramírez de cartagena &copy; 2026</div>
+    </footer>
+
+    <!-- SCRIPTS INTERACTIVOS -->
     <script>
         function openVideoModal(id) {
             document.getElementById(id).style.display = 'flex';
         }
+
         function closeVideoModal(id) {
             const modal = document.getElementById(id);
-            const iframes = modal.querySelectorAll('iframe');
-            iframes.forEach(iframe => {
-                const src = iframe.src;
-                iframe.src = src; // Reload to stop video
-            });
             const videos = modal.querySelectorAll('video');
-            videos.forEach(video => {
-                video.pause(); // Stop native video playback
-            });
+            videos.forEach(v => v.pause());
             modal.style.display = 'none';
         }
-    </script>
 
-    <div class="author-footer">
-        <div style="display: flex; align-items: center; font-weight: 700; margin-bottom: 20px;">
-            <span style="margin-right: 8px;">produced by KHEM</span>
-            <img src="assets/them_logo.png" alt="THEM" style="height: 30px;">
-        </div>
-        <div style="font-weight: 700;">eduardo ramírez de cartagena &copy; 2026</div>
-    </div>
-
-    <script>
-        function toggleMobileMenu() {
-            var nav = document.getElementById('mainNav');
-            var btnIcon = document.querySelector('.menu-icon');
-            if (nav) {
-                nav.classList.toggle('mobile-active');
-                if (btnIcon) {
-                    btnIcon.textContent = nav.classList.contains('mobile-active') ? '✕' : '☰';
-                }
-            }
+        function openLightbox(src) {
+            const modal = document.getElementById('lightboxModal');
+            const img = document.getElementById('lightboxImg');
+            img.src = src;
+            modal.style.display = 'flex';
         }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').style.display = 'none';
+        }
+
+        // JS DETECCIÓN DE SCROLL PARA PUNTOS LATERALES
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const points = document.querySelectorAll('.punto-link');
+
+            function updateActivePoint() {
+                let currentId = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 200;
+                    if (window.scrollY >= sectionTop) {
+                        currentId = section.getAttribute('id');
+                    }
+                });
+
+                if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 80)) {
+                    if (sections.length > 0) {
+                        currentId = sections[sections.length - 1].getAttribute('id');
+                    }
+                }
+
+                points.forEach(point => {
+                    point.classList.remove('active');
+                    if (point.getAttribute('href') === `#${currentId}`) {
+                        point.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActivePoint);
+            updateActivePoint();
+        });
     </script>
-
 </body>
-
 </html>
-

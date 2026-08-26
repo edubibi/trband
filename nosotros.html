@@ -1,1544 +1,491 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosotros - The Research Band</title>
+    <title>Nosotros — The Research Band (2026)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #EFEDE2;
-            /* Beige like the screenshot */
-            --text-color: #333;
+            --bg-color: #000000;
             --accent: #D4AF37;
-            --accent-red: #D9381E;
-            --accent-purple: #D946EF;
-            --accent-green: #4ADE80;
             --font-serif: 'Playfair Display', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg-color);
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-            color: var(--text-color);
+            color: #ffffff;
             overflow-x: hidden;
             min-height: 100vh;
-            position: relative;
         }
 
-        /* Abstract Geometric Shapes (Background) */
-        .shape {
-            position: absolute;
-            z-index: 0;
-            opacity: 0.9;
+        /* --- HEADER (IGUAL A LA FOTO 2: LOGO NEON TRB + TITULO BLANCO + MENÚ LIMPIO SIN CÁPSULAS) --- */
+        .main-header {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 12px 40px;
+            box-sizing: border-box; display: flex; justify-content: space-between;
+            align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.75) 70%, transparent 100%);
+            z-index: 10000; transition: all 0.3s ease;
         }
-
-        .shape-circle {
-            top: -50px;
-            left: -50px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle at 30% 30%, #FF0055, #8B0000);
-            border-radius: 50%;
-            filter: blur(40px);
-            opacity: 0.6;
-        }
-
-        /* The distinct colourful lines from screenshot imitation */
-        .line-vertical-purple {
-            top: 20%;
-            left: 10%;
-            width: 20px;
-            height: 200px;
-            background: linear-gradient(to bottom, #Fcd34d, #e879f9, #a855f7);
-            border-radius: 10px;
-        }
-
-        .line-green-diagonal {
-            top: 10%;
-            left: 30%;
-            width: 300px;
-            height: 20px;
-            background: linear-gradient(to right, #Fcd34d, #4ade80);
-            transform: rotate(-45deg);
-            border-radius: 10px;
-        }
-
-        .line-red-steps {
-            top: 5%;
-            right: 5%;
-            width: 250px;
-            height: 250px;
-            /* Using SVG for complex step shape would be better, but CSS border hack for simple logic */
-            border-top: 30px solid #f97316;
-            border-right: 30px solid #ef4444;
-            box-sizing: border-box;
-            border-radius: 5px;
-        }
-
-        .line-wave {
-            top: 30%;
-            right: 15%;
-            width: 200px;
-            height: 140px; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
-            /* Simple wave approx */
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 Q30,5 60,20 T120,20" fill="none" stroke="%2322d3ee" stroke-width="8"/></svg>') repeat-x;
-            background-size: contain;
-            transform: rotate(10deg);
-        }
-
-        .line-yellow-arc {
-            top: 60%;
-            left: -20px;
-            width: 150px;
-            height: 300px;
-            border-right: 30px solid #fef08a;
-            border-radius: 0 150px 150px 0;
-            opacity: 0.8;
-        }
-
-        /* Content Container */
-        .container {
-            position: relative;
-            z-index: 10;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .header-title { display: none;  display: none; 
-            align-self: flex-start;
-            margin-left: 20%;
-            font-size: 2rem;
-            letter-spacing: 5px;
-            color: #8B0000;
-            /* Dark red text */
-            margin-bottom: 60px;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Glassmorphism Card Style (from iliada.html) */
-        .bio-main-card {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 40px;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, background 0.3s;
-            margin: 0 auto;
-            max-width: 1200px;
-        }
-
-        .bio-content-layout {
-            display: flex;
-            gap: 40px;
-            align-items: stretch;
-            text-align: left;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .bio-img-wrapper {
-            flex: 1 1 300px;
-            min-width: 280px;
-            max-width: 400px;
-        }
-
-        .bio-img-wrapper img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            border: 2px solid var(--accent);
-            object-fit: cover;
-        }
-
-        .bio-text-wrapper {
-            flex: 1 1 400px;
-            min-width: 300px;
-            color: #ddd;
-            background: rgba(0, 0, 0, 0.85);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            /* overflow-y: auto; */
-        }
-
-        .name-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .role-highlight {
-            color: var(--accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 5px 0 25px;
-            font-size: 1.1rem;
-        }
-
-        .bio-text {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #ccc;
-        }
-
-        .bio-text ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
-
-        .bio-text li {
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .bio-text li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        .highlight-word {
-            font-weight: bold;
-            color: #fff;
-            /* Changed to white for better contrast on dark background */
-        }
-
-        /* --- HEADER & NAVIGATION --- */
-        .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), transparent); z-index: 10000; }
-        .logo-area { display: flex; align-items: center; gap: 15px; }
-        .header-logo { height: 80px; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); transition: transform 0.3s ease; }
-        .header-title-gold { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #FFFFFF; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
-        .main-nav { display: flex; gap: 30px; }
-        .nav-link { color: rgba(255, 255, 255, 0.9); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; padding: 8px 12px; background: rgba(0, 0, 0, 0.5); border-radius: 6px; }
-        .nav-link:hover, .nav-link.active { color: var(--accent); }
-        .nav-item-dropdown { position: relative; display: inline-block; }
-        .submenu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.95); border: 1px solid var(--accent); border-radius: 8px; min-width: 220px; z-index: 10001; padding: 10px 0; }
-        .nav-item-dropdown:hover .submenu { display: block; }
-        .submenu-link { display: block; color: #ddd; padding: 12px 20px; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; text-align: center; }
-
-        @media (max-width: 768px) {
-            html, body { overflow-x: hidden !important; width: 100vw !important; }
-            .main-header { height: 60px !important; padding: 5px 12px !important; background: rgba(0,0,0,0.95) !important; }
-            .header-logo { height: 42px !important; }
-            .header-title-gold { font-size: 0.9rem !important; display: none !important; }
-            .main-nav { max-width: 75% !important; gap: 6px !important; overflow-x: auto !important; flex-wrap: nowrap !important; scrollbar-width: none !important; }
-            .main-nav::-webkit-scrollbar { display: none !important; }
-            .nav-link { font-size: 0.72rem !important; padding: 5px 8px !important; white-space: nowrap !important; flex-shrink: 0 !important; }
-            
-            .container { padding: 75px 12px 30px !important; width: 100% !important; box-sizing: border-box !important; }
-            .bio-main-card { padding: 20px 12px !important; width: 100% !important; box-sizing: border-box !important; }
-            .bio-content-layout { flex-direction: column !important; width: 100% !important; gap: 20px !important; }
-            .bio-img-wrapper, .bio-text-wrapper { flex: none !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; box-sizing: border-box !important; padding: 15px !important; }
-            .name-title { font-size: 1.5rem !important; text-align: center !important; word-wrap: break-word !important; }
-            
-            /* Card Grid Mobile Fix */
-            .premium-musicians { padding: 10px 10px 40px !important; width: 100% !important; box-sizing: border-box !important; }
-            .m-card, .m-card.reverse { grid-template-columns: 1fr !important; width: 100% !important; box-sizing: border-box !important; }
-            .m-card.reverse .m-photo, .m-card .m-photo { order: 1 !important; height: 260px !important; }
-            .m-card.reverse .m-info, .m-card .m-info { order: 2 !important; text-align: center !important; align-items: center !important; padding: 20px 15px !important; border: none !important; border-top: 1px solid rgba(255,255,255,0.1) !important; }
-            .m-info h3 { font-size: 1.4rem !important; word-wrap: break-word !important; text-align: center !important; }
-            .header-title { font-size: 1.4rem !important; letter-spacing: 1px !important; text-align: center !important; word-wrap: break-word !important; }
-        }
-            }
-
-            .header-title { display: none;  display: none; 
-                margin-left: 0;
-                text-align: center;
-                align-self: center;
-            }
-
-            .vertical-divider {
-                display: none;
-            }
-
-            .text-content {
-                padding-left: 0;
-                text-align: left;
-            }
-        }
-
-        /* --- ANIMATIONS --- */
-
-        /* Keyframes */
-        @keyframes float-vertical {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        @keyframes float-horizontal {
-            0% {
-                transform: translateX(0px) rotate(-45deg);
-            }
-
-            50% {
-                transform: translateX(15px) rotate(-45deg);
-            }
-
-            100% {
-                transform: translateX(0px) rotate(-45deg);
-            }
-        }
-
-        @keyframes rotate-slow {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes sway {
-            0% {
-                transform: rotate(10deg);
-            }
-
-            50% {
-                transform: rotate(15deg) scale(1.05);
-            }
-
-            100% {
-                transform: rotate(10deg);
-            }
-        }
-
-        @keyframes pulse-glow {
-            0% {
-                opacity: 0.6;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.8;
-                transform: scale(1.05);
-            }
-
-            100% {
-                opacity: 0.6;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes entrance-fade-up {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Apply Animations */
-        .shape-circle {
-            animation: pulse-glow 8s infinite ease-in-out;
-        }
-
-        .line-vertical-purple {
-            animation: float-vertical 6s infinite ease-in-out;
-        }
-
-        .line-green-diagonal {
-            animation: float-horizontal 7s infinite ease-in-out;
-        }
-
-        .line-red-steps {
-            /* Keep static or subtle rotate? Let's float it slowly */
-            animation: float-vertical 9s infinite ease-in-out reverse;
-        }
-
-        .line-wave {
-            animation: sway 5s infinite ease-in-out;
-        }
-
-        .line-yellow-arc {
-            transform-origin: top right;
-            animation: sway 10s infinite ease-in-out alternate;
-        }
-
-        /* Profile Image Animation */
-        .profile-img-container {
-            animation: entrance-fade-up 1.2s ease-out forwards;
-        }
-
-        .profile-img {
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.27), box-shadow 0.4s ease;
-        }
-
-        .profile-img:hover {
-            transform: scale(1.03) rotate(-1deg);
-            box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.4);
-            border-color: var(--accent-red);
-            cursor: pointer;
-        }
-
-        /* --- HEADER --- */
-        .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
-
-        .logo-area { display: flex; align-items: center; gap: 15px; }
-
-        .header-logo { height: 100px; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); transition: transform 0.3s ease; } .header-title-gold { font-size: 1.4rem; font-weight: 700; color: #FFFFFF; text-transform: none; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
-
+        .logo-area { display: flex; align-items: center; gap: 15px; cursor: pointer; }
+        .header-logo { height: 60px; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); transition: transform 0.3s ease; }
+        .header-logo:hover { transform: scale(1.05); }
+        .header-title-white { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; color: #FFFFFF; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); }
         
-
-        .main-nav {
-            display: flex;
-            gap: 30px;
+        .main-nav { display: flex; gap: 32px; align-items: center; }
+        .nav-link { 
+            color: rgba(255, 255, 255, 0.85); text-decoration: none; font-weight: 500; 
+            text-transform: uppercase; font-size: 0.88rem; letter-spacing: 1.2px; 
+            transition: all 0.3s ease; position: relative; padding: 6px 0;
+        }
+        .nav-link:hover { color: #D4AF37; }
+        .nav-link.active { color: #D4AF37; font-weight: 700; }
+        .nav-link.active::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px;
+            background-color: #D4AF37; box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
         }
 
-        .nav-link {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            font-family: 'Montserrat', sans-serif;
-            position: relative;
-            padding: 10px 0;
+        /* --- PUNTOS LATERALES --- */
+        .navegacion-lateral {
+            position: fixed; right: 25px; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 16px; z-index: 9999;
+            background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(8px);
+            padding: 14px 9px; border-radius: 25px; border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        .punto-link {
+            width: 12px; height: 12px; border-radius: 50%; border: 2px solid #D4AF37;
+            background-color: transparent; transition: all 0.3s ease; display: block; cursor: pointer;
+        }
+        .punto-link:hover, .punto-link.active {
+            background-color: #D4AF37; transform: scale(1.3); box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
         }
 
-        /* Submenu Styling */
-        .nav-item-dropdown {
-            position: relative;
-            display: inline-block;
+        /* --- BLOQUE 1: CABECERA CON VIDEO DE FONDO --- */
+        .hero-eduardo {
+            position: relative; width: 100%; min-height: 85vh; display: flex; align-items: center;
+            justify-content: center; overflow: hidden; padding: 140px 20px 80px 20px; box-sizing: border-box;
+        }
+        .bg-video-overlay {
+            position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; overflow: hidden;
+        }
+        .bg-video-overlay video {
+            width: 100%; height: 100%; object-fit: cover; object-position: center top;
+            filter: brightness(0.65) contrast(1.15) saturate(1.1);
+        }
+        .bg-video-overlay::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 55%, #000000 100%);
+        }
+        .hero-eduardo-content {
+            position: relative; z-index: 2; max-width: 1100px; width: 100%;
+            display: flex; gap: 50px; align-items: center; flex-wrap: wrap; justify-content: center;
+            text-shadow: 0 3px 12px rgba(0,0,0,0.9);
+        }
+        .eduardo-photo {
+            flex: 1; min-width: 270px; max-width: 330px; text-align: center;
+        }
+        .eduardo-photo img {
+            width: 100%; border-radius: 16px; border: 2px solid #D4AF37;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.95), 0 0 25px rgba(212, 175, 55, 0.3); object-fit: cover;
+        }
+        .eduardo-info {
+            flex: 1.5; min-width: 290px; text-align: left;
+            background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            padding: 35px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+        }
+        .eduardo-info h1 {
+            font-family: var(--font-serif); font-size: 2.8rem; color: #fff; margin: 0 0 10px 0; line-height: 1.1;
+        }
+        .eduardo-info .tag-director {
+            display: inline-block; background: #D4AF37; color: #000; font-weight: 900;
+            font-size: 0.8rem; padding: 5px 16px; border-radius: 20px; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 20px;
+        }
+        .eduardo-info p {
+            color: #eee; font-size: 1.02rem; line-height: 1.8; margin-bottom: 20px;
+        }
+        .eduardo-info ul {
+            list-style: none; padding: 0; margin: 0; color: #ccc; font-size: 0.92rem; line-height: 1.8;
+        }
+        .eduardo-info li {
+            padding-left: 22px; position: relative; margin-bottom: 8px;
+        }
+        .eduardo-info li::before {
+            content: "★"; position: absolute; left: 0; color: #D4AF37;
         }
 
-        .submenu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-            min-width: 220px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            z-index: 1001;
-            padding: 10px 0;
-            /* Removed margin-top to eliminate the gap */
+        /* --- BLOQUE 2: LOS 5 INTEGRANTES --- */
+        .section-banda {
+            max-width: 1150px; margin: 0 auto; padding: 110px 20px; box-sizing: border-box; text-align: center;
+        }
+        .title-gold {
+            font-family: var(--font-serif); font-size: 2.6rem; color: #D4AF37; margin: 0 0 14px 0;
+            text-transform: uppercase; letter-spacing: 3px;
+        }
+        .subtitle-clean {
+            color: #b3b3b3; font-size: 1.02rem; max-width: 780px; margin: 0 auto 60px auto; line-height: 1.7;
         }
 
-        .submenu::before {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-bottom: 6px solid var(--accent);
+        .integrantes-grid {
+            display: grid; grid-template-columns: repeat(5, 1fr);
+            gap: 20px; width: 100%; justify-items: center;
+        }
+        .integrante-item {
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            width: 100%; transition: transform 0.3s ease;
+        }
+        .integrante-item:hover {
+            transform: translateY(-8px);
+        }
+        .integrante-photo-wrapper {
+            position: relative; width: 100%; aspect-ratio: 4/5; border-radius: 12px;
+            overflow: hidden; margin-bottom: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+        .integrante-photo-wrapper img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+        }
+        .integrante-item:hover .integrante-photo-wrapper img {
+            transform: scale(1.06);
+        }
+        .integrante-item h3 {
+            font-size: 1.02rem; font-weight: 800; color: #ffffff; text-transform: uppercase;
+            margin: 0 0 6px 0; letter-spacing: 1px;
+        }
+        .integrante-item .role {
+            color: #D4AF37; font-size: 0.78rem; font-weight: 800; line-height: 1.3; margin-bottom: 8px;
+        }
+        .integrante-item .desc {
+            color: #b3b3b3; font-size: 0.85rem; line-height: 1.6; font-weight: 400;
         }
 
-        .nav-item-dropdown:hover .submenu {
-            display: block;
-            animation: fadeInSubmenu 0.3s ease;
+        /* --- BLOQUE 3: FILA HORIZONTAL DE COLABORADORES HISTORICOS --- */
+        .section-colaboradores {
+            max-width: 1150px; margin: 0 auto; padding: 80px 20px 140px 20px; box-sizing: border-box; text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.12);
+        }
+        .collab-row {
+            display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 45px;
+        }
+        .collab-circle-item {
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            width: 140px; cursor: pointer; transition: transform 0.3s ease;
+        }
+        .collab-circle-item:hover {
+            transform: translateY(-6px);
+        }
+        .collab-avatar {
+            width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
+            border: 2px solid #D4AF37; margin-bottom: 12px; box-shadow: 0 8px 25px rgba(212,175,55,0.25);
+            transition: all 0.3s ease;
+        }
+        .collab-circle-item:hover .collab-avatar {
+            box-shadow: 0 0 20px rgba(212,175,55,0.7); transform: scale(1.05);
+        }
+        .collab-circle-item h4 {
+            color: #fff; font-size: 0.88rem; font-weight: 700; margin: 0 0 4px 0; text-transform: uppercase;
+        }
+        .collab-circle-item p {
+            color: #D4AF37; font-size: 0.72rem; margin: 0; font-style: italic;
         }
 
-        @keyframes fadeInSubmenu {
-            from { opacity: 0; transform: translate(-50%, 10px); }
-            to { opacity: 1; transform: translate(-50%, 0); }
+        /* MODAL DE HISTORIA */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
+            z-index: 20000; display: none; align-items: center; justify-content: center;
+            padding: 20px; box-sizing: border-box;
+        }
+        .modal-box {
+            background: #121212; border: 1px solid #D4AF37; border-radius: 20px;
+            max-width: 650px; width: 100%; padding: 40px; color: #fff;
+            position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.95);
+            max-height: 85vh; overflow-y: auto; text-align: left;
+        }
+        .modal-close {
+            position: absolute; top: 20px; right: 25px; font-size: 2.2rem;
+            color: #D4AF37; background: none; border: none; cursor: pointer;
         }
 
-        .submenu-link {
-            display: block;
-            color: #ddd;
-            padding: 12px 20px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .submenu-link:hover {
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--accent);
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: #D4AF37;
-        }
-
-        .bg-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        @media (max-width: 768px) {
-            .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 30px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent); z-index: 1000; }
-
-            .main-nav {
-                gap: 10px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-link {
-                font-size: 0.75rem;
-            }
-        }
-
-        /* --- NEW PREMIUM MUSICIANS STYLES --- */
-        .premium-musicians {
-            display: flex;
-            flex-direction: column;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px 20px 80px;
-        }
-
-        .m-card {
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            min-height: 400px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 40px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transition: transform 0.4s ease;
-        }
-
-        .m-card:hover { transform: translateY(-5px); border-color: #c9a84c; }
-
-        .m-card.reverse { grid-template-columns: 1fr 320px; }
-        .m-card.reverse .m-photo { order: 2; }
-        .m-card.reverse .m-info { order: 1; text-align: right; align-items: flex-end; border-left: none; border-right: 1px solid rgba(255,255,255,0.1); }
-
-        .m-photo { position: relative; overflow: hidden; }
-        .m-photo img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.1); transition: transform 0.6s ease; }
-        .m-card:hover .m-photo img { transform: scale(1.05); }
-
-        .m-info {
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 15px;
-            color: #fff;
-            border-left: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .m-name { font-family: var(--font-serif); font-size: 2.2rem; color: #fff; line-height: 1.1; }
-        .m-name span { display: block; color: #c9a84c; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; font-family: sans-serif; font-weight: bold; }
-        .m-bio { font-size: 1rem; line-height: 1.8; color: #ccc; font-weight: 300; }
-        .m-divider { width: 40px; height: 2px; background: #c9a84c; }
-
-        @media (max-width: 850px) {
-            .m-card, .m-card.reverse { grid-template-columns: 1fr; }
-            .m-photo { height: 300px; }
-            .m-card.reverse .m-photo { order: 1; }
-            .m-card.reverse .m-info { order: 2; text-align: left; align-items: flex-start; border-right: none; }
-            .m-info { padding: 30px; border-left: none; border-top: 1px solid rgba(255,255,255,0.1); }
-        }
-    
-        
-        /* --- CLEAN MASTER HAMBURGER MOBILE MENU STYLES --- */
-        .mobile-menu-btn {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .main-header {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 60px !important;
-                padding: 5px 15px !important;
-                box-sizing: border-box !important;
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                background: rgba(0, 0, 0, 0.95) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
-                z-index: 10000 !important;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
-            }
-
-            .header-logo {
-                height: 38px !important;
-                width: auto !important;
-            }
-
-            .mobile-menu-btn {
-                display: flex !important;
-                align-items: center !important;
-                gap: 6px !important;
-                background: rgba(212, 175, 55, 0.2) !important;
-                border: 1px solid #D4AF37 !important;
-                color: #D4AF37 !important;
-                padding: 6px 14px !important;
-                border-radius: 8px !important;
-                font-size: 0.9rem !important;
-                font-weight: 800 !important;
-                cursor: pointer !important;
-                z-index: 10002 !important;
-                box-shadow: 0 0 10px rgba(212, 175, 55, 0.3) !important;
-            }
-
-            .menu-icon {
-                font-size: 1.2rem !important;
-                line-height: 1 !important;
-            }
-
-            .main-nav {
-                display: none !important;
-                position: fixed !important;
-                top: 60px !important;
-                left: 0 !important;
-                width: 100vw !important;
-                background: rgba(10, 10, 15, 0.98) !important;
-                backdrop-filter: blur(15px) !important;
-                -webkit-backdrop-filter: blur(15px) !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                padding: 25px 0 40px !important;
-                gap: 15px !important;
-                border-bottom: 3px solid #D4AF37 !important;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
-                z-index: 10001 !important;
-                max-width: 100% !important;
-                overflow-y: auto !important;
-            }
-
-            .main-nav.mobile-active {
-                display: flex !important;
-                animation: slideDownMenu 0.25s ease-out forwards;
-            }
-
-            @keyframes slideDownMenu {
-                from { opacity: 0; transform: translateY(-10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            .nav-link {
-                font-size: 1.1rem !important;
-                padding: 14px 20px !important;
-                width: 85% !important;
-                text-align: center !important;
-                background: rgba(255, 255, 255, 0.08) !important;
-                border: 1px solid rgba(255, 255, 255, 0.15) !important;
-                border-radius: 12px !important;
-                color: #ffffff !important;
-                font-weight: 700 !important;
-                box-sizing: border-box !important;
-                text-decoration: none !important;
-            }
-
-            .nav-link.active {
-                background: rgba(212, 175, 55, 0.3) !important;
-                border-color: #D4AF37 !important;
-                color: #D4AF37 !important;
-            }
-        }
-
-
-        /* PERFECT HAMBURGER BUTTON & RESPONSIVE MOBILE MENU */
-        .mobile-menu-btn {
-            display: none !important;
+        /* RESPONSIVE IPAD Y MOVIL */
+        @media (max-width: 992px) {
+            .integrantes-grid { grid-template-columns: repeat(3, 1fr) !important; }
         }
 
         @media (max-width: 768px) {
-            .main-header {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 60px !important;
-                padding: 5px 15px !important;
-                box-sizing: border-box !important;
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                background: rgba(0, 0, 0, 0.95) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
-                z-index: 10000 !important;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
-            }
-
-            .header-logo {
-                height: 38px !important;
-                width: auto !important;
-            }
-
-            .mobile-menu-btn {
-                display: flex !important;
-                align-items: center !important;
-                gap: 6px !important;
-                background: #D4AF37 !important;
-                border: 1px solid #ffffff !important;
-                color: #000000 !important;
-                padding: 6px 14px !important;
-                border-radius: 8px !important;
-                font-size: 0.9rem !important;
-                font-weight: 800 !important;
-                cursor: pointer !important;
-                z-index: 10002 !important;
-                box-shadow: 0 0 12px rgba(212, 175, 55, 0.6) !important;
-            }
-
-            .menu-icon {
-                font-size: 1.2rem !important;
-                line-height: 1 !important;
-                color: #000000 !important;
-            }
-
-            .menu-text {
-                color: #000000 !important;
-                font-weight: 900 !important;
-            }
-
-            .main-nav {
-                display: none !important;
-                position: fixed !important;
-                top: 60px !important;
-                left: 0 !important;
-                width: 100vw !important;
-                background: rgba(10, 10, 15, 0.98) !important;
-                backdrop-filter: blur(15px) !important;
-                -webkit-backdrop-filter: blur(15px) !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                padding: 25px 0 40px !important;
-                gap: 15px !important;
-                border-bottom: 3px solid #D4AF37 !important;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
-                z-index: 10001 !important;
-                max-width: 100% !important;
-                overflow-y: auto !important;
-            }
-
-            .main-nav.mobile-active {
-                display: flex !important;
-                animation: slideDownMenu 0.25s ease-out forwards;
-            }
-
-            @keyframes slideDownMenu {
-                from { opacity: 0; transform: translateY(-10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            .nav-link {
-                font-size: 1.1rem !important;
-                padding: 14px 20px !important;
-                width: 85% !important;
-                text-align: center !important;
-                background: rgba(255, 255, 255, 0.08) !important;
-                border: 1px solid rgba(255, 255, 255, 0.15) !important;
-                border-radius: 12px !important;
-                color: #ffffff !important;
-                font-weight: 700 !important;
-                box-sizing: border-box !important;
-                text-decoration: none !important;
-            }
-
-            .nav-link.active {
-                background: rgba(212, 175, 55, 0.3) !important;
-                border-color: #D4AF37 !important;
-                color: #D4AF37 !important;
-            }
+            .main-header { padding: 10px 15px !important; }
+            .header-logo { height: 45px !important; }
+            .header-title-white { font-size: 1.1rem !important; }
+            .main-nav { gap: 12px !important; }
+            .nav-link { font-size: 0.72rem !important; letter-spacing: 0.5px !important; }
+            .navegacion-lateral { display: none; }
+            .hero-eduardo { padding-top: 110px; min-height: auto; }
+            .hero-eduardo-content { gap: 30px; }
+            .eduardo-info h1 { font-size: 2.1rem; }
+            .integrantes-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 20px 15px !important; }
+            .collab-row { gap: 18px 12px !important; }
+            .collab-circle-item { width: 105px !important; }
+            .collab-avatar { width: 75px !important; height: 75px !important; }
+            .collab-circle-item h4 { font-size: 0.78rem !important; }
+            .collab-circle-item p { font-size: 0.68rem !important; }
         }
-
-</style>
-    <!-- Open Graph Meta Preview -->
-    <meta property="og:title" content="The Research Band - Pop-Rock y Jazzrock">
-    <meta property="og:description" content="Grupo musical The Research Band. Fusión de Jazz-Rock, Smooth Jazz y Pop-Rock avanzado.">
-    <meta property="og:image" content="https://trbandmusic.es/assets/logo_trb_icon.png">
-    <meta property="twitter:card" content="summary">
-    <meta property="twitter:image" content="https://trbandmusic.es/assets/logo_trb_icon.png">
-
+    </style>
 </head>
-
 <body>
-    <div class="bg-layer">
-        <video id="bgVideo" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-            <source src="assets/video/sala_conciertos.mp4" type="video/mp4">
-        </video>
-    </div>
 
+    <!-- 📌 HEADER REPLICADO 1:1 DE LA FOTO 2 (LOGO NEON TRB + TITULO BLANCO + MENÚ LIMPIO SIN CÁPSULAS) -->
     <header class="main-header">
-        <div class="logo-area" onclick="window.location.href='index.html'" style="cursor: pointer;"><img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo"><span class="header-title-gold">The Research Band</span></div>
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú">
-            <span class="menu-icon">☰</span>
-            <span class="menu-text">MENÚ</span>
-        </button>
-        <nav class="main-nav" id="mainNav">
+        <div class="logo-area" onclick="window.location.href='index.html'">
+            <img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo">
+            <span class="header-title-white">The Research Band</span>
+        </div>
+        <nav class="main-nav">
             <a href="index.html" class="nav-link">Inicio</a>
             <a href="nosotros.html" class="nav-link active">Nosotros</a>
             <a href="iliada.html" class="nav-link">Mi Ilíada</a>
             <a href="galeria.html" class="nav-link">Galería</a>
-            
-            <div class="nav-item-dropdown">
-                <a href="musica.html" class="nav-link">Música y Merchandising</a>
-                <div class="submenu">
-                    <a href="musica.html" class="submenu-link">Reproductor Musical</a>
-
-                </div>
-            </div>
-
+            <a href="musica.html" class="nav-link">Música y Merchandising</a>
             <a href="contacto.html" class="nav-link">Contacto</a>
         </nav>
     </header>
 
-    <div class="container" style="padding-top: 140px; padding-bottom: 60px;">
-        <h1 class="header-title" style="text-align: center; margin-bottom: 60px;">sobre nosotros</h1>
+    <!-- 📍 PUNTOS FLOTANTES LATERALES -->
+    <nav class="navegacion-lateral" aria-label="Navegación lateral rápida">
+        <a href="#bloque-eduardo" class="punto-link active" title="Eduardo Ramírez"></a>
+        <a href="#bloque-integrantes" class="punto-link" title="The Research Band (2026)"></a>
+        <a href="#bloque-historicos" class="punto-link" title="Colaboradores Históricos"></a>
+    </nav>
 
-        <div class="bio-main-card">
-            <div class="bio-content-layout">
-                <div class="bio-img-wrapper">
-                    <img src="assets/miembros/EDUARDO/01Edu Research Clip parque1 CUADRO.png" alt="Eduardo Ramírez"
-                        class="profile-img">
-                </div>
-                <div class="bio-text-wrapper">
-                    <h2 class="name-title">Eduardo Ramírez de Cartagena "EDU"</h2>
-                    <p class="role-highlight">Músico, compositor, arreglista, cantante y productor.</p>
-
-                    <div class="bio-text">
-                        <p>El corazón de <strong>The Research Band</strong>. Más que un grupo, una ideología artística y
-                            musical.</p>
-
-                        <p>Eduardo es el motor creativo: compone, hace los arreglos, canta y produce. Su visión ha
-                            guiado a la banda a través de una evolución constante, fusionando géneros y explorando
-                            nuevas fronteras sonoras.</p>
-
-                        <h4
-                            style="margin: 25px 0 15px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
-                            Trayectoria y Logros</h4>
-                        <ul>
-                            <li>Socio fundador del mítico grupo <strong>CADILLAC</strong>.</li>
-                            <li>Arquitecto del sonido distintivo de TRB.</li>
-                            <li>Compositor de toda la discografía original.</li>
-                            <li>Productor musical en las principales televisiones del país.</li>
-                            <li>Voz en innumerables bandas sonoras y jingles publicitarios.</li>
-                        </ul>
-
-                        <p style="margin-top: 30px; font-style: italic; color: var(--secondary);">Instrumentos: Voz
-                            solista, bajo y guitarra.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Collaborators Section (New Premium Style) -->
-    <div class="container" id="collaborators" style="max-width: 1400px; margin-top: 80px;">
-        <h2 class="header-title" style="margin-left: 0; text-align: center; width: 100%; font-size: 3rem; margin-bottom: 60px; color: #ffffff; text-transform: uppercase; letter-spacing: 4px; display: block;">
-            The Research Band <br><span style="font-size: 1.2rem; color: #ff3333; letter-spacing: 2px;">WILD and FREE · 2026</span>
-        </h2>
-
-        <!-- Group Photo -->
-        <div style="max-width: 1000px; margin: 0 auto 60px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255, 255, 255, 0.1);">
-            <img src="assets/grupo_trband_sonrisa.jpeg" alt="The Research Band Full Group" style="width: 100%; display: block; filter: contrast(1.1);">
+    <!-- ================================================================= -->
+    <!-- 👑 BLOQUE 1: CABECERA DE EDUARDO RAMÍREZ                          -->
+    <!-- ================================================================= -->
+    <section id="bloque-eduardo" class="hero-eduardo">
+        <div class="bg-video-overlay">
+            <video autoplay muted loop playsinline>
+                <source src="assets/video/sala_conciertos.mp4" type="video/mp4">
+            </video>
         </div>
 
-        <div class="premium-musicians">
+        <div class="hero-eduardo-content">
+            <div class="eduardo-photo">
+                <img src="assets/miembros/EDUARDO/nova_bio_eduardo.jpg" alt="Eduardo Ramírez de Cartagena">
+            </div>
+            <div class="eduardo-info">
+                <span class="tag-director">Director Creativo & Fundador</span>
+                <h1>Eduardo Ramírez de Cartagena</h1>
+                <p>
+                    El alma y motor creativo de <strong>The Research Band</strong>. Más que una agrupación musical, una ideología de autor que combina artesanía melódica con tecnología de producción de vanguardia 2026.
+                </p>
+                <ul>
+                    <li>Socio fundador del mítico grupo <strong>CADILLAC</strong>.</li>
+                    <li>Compositor, voz solista, bajista y guitarrista de toda la discografía original de TRB.</li>
+                    <li>Productor musical en principales medios de comunicación nacionales.</li>
+                    <li>Pionero de la coexistencia entre Inteligencia Humana e IA Creativa.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-            <!-- LUCA -->
-            <div class="m-card">
-                <div class="m-photo">
-                    <img src="assets/miembros/Luca/luca_final.jpg" alt="Luca Alessandro Fiammetti">
+    <!-- ================================================================= -->
+    <!-- 🎷 BLOQUE 2: LOS 5 INTEGRANTES SOBRE NEGRO PURO                  -->
+    <!-- ================================================================= -->
+    <section id="bloque-integrantes" class="section-banda">
+        <h2 class="title-gold">The Research Band (2026)</h2>
+        <p class="subtitle-clean">
+            Los 5 virtuosos de la guitarra, saxofón, violín, batería y percusión vocal que integran la formación oficial del grupo:
+        </p>
+
+        <div class="integrantes-grid">
+
+            <!-- 1. LUCA -->
+            <div class="integrante-item">
+                <div class="integrante-photo-wrapper">
+                    <img src="assets/miembros/Luca/luca_final.jpg" alt="Luca Fiammetti">
                 </div>
-                <div class="m-info">
-                    <h3 class="m-name">Luca Alessandro Fiammetti<span>Guitarra / Jazz Fusion</span></h3>
-                    <div class="m-divider"></div>
-                    <p class="m-bio">
-                        Formado en el prestigioso Conservatorio Paganini de Génova. Luca aporta una sensibilidad mediterránea y una técnica virtuosa que define el nuevo sonido de TRB. Líder de "Mediterráneo Azul", su estilo es un viaje entre la introspección y la improvisación.
-                    </p>
-                </div>
+                <h3>Luca Fiammetti</h3>
+                <span class="role">Guitarra / Jazz Fusion</span>
+                <p class="desc">Formado en el Conservatorio Paganini de Génova. Sensibilidad mediterránea y virtuosismo moderno.</p>
             </div>
 
-            <!-- ERIK -->
-            <div class="m-card reverse">
-                <div class="m-photo">
-                    <img src="assets/miembros/Erik/sax_profile.jpg" alt="Erik Solberg Andrade">
+            <!-- 2. ERIK -->
+            <div class="integrante-item">
+                <div class="integrante-photo-wrapper">
+                    <img src="assets/miembros/Erik/sax_profile.jpg" alt="Erik Solberg">
                 </div>
-                <div class="m-info">
-                    <h3 class="m-name">Erik Solberg Andrade<span>Saxofón & EWI</span></h3>
-                    <div class="m-divider"></div>
-                    <p class="m-bio">
-                        El soplo del Estrecho. Formado en Sevilla y curtido en los clubes de jazz de Granada, Erik fusiona el alma del jazz con sutiles matices flamencos. Su saxo es una voz narrativa que respira libertad en "Wild and Free".
-                    </p>
-                </div>
+                <h3>Erik Solberg</h3>
+                <span class="role">Saxofón & EWI</span>
+                <p class="desc">Curtido en Sevilla y Granada. Soplo jazzístico de vanguardia y matices sonoros propios.</p>
             </div>
 
-            <!-- ALBA -->
-            <div class="m-card">
-                <div class="m-photo">
-                    <img src="assets/miembros/Alba/violin_profile.jpg" alt="Alba Cisneros Montalbán">
-                </div>
-                <div class="m-info">
-                    <h3 class="m-name">Alba Cisneros Montalbán<span>Violín, Viola & Percusión</span></h3>
-                    <div class="m-divider"></div>
-                    <p class="m-bio">
-                        Vanguardia y ritual. Con formación en Madrid y París, Alba trasciende las fronteras de la música clásica para explorar texturas contemporáneas. Su violín añade una dimensión cinematográfica y emocionalmente cargada al proyecto.
-                    </p>
-                </div>
-            </div>
-
-            <!-- HIROSHI -->
-            <div class="m-card reverse">
-                <div class="m-photo">
-                    <img src="assets/miembros/Hiroshi/hiroshi_profile.jpg" alt="Hiroshi Tanaka">
-                </div>
-                <div class="m-info">
-                    <h3 class="m-name">Hiroshi Tanaka<span>Batería | 24 años (Tokio)</span></h3>
-                    <div class="m-divider"></div>
-                    <p class="m-bio">
-                        Formado en el Senzoku Gakuen y UCLA. Descubierto por Eduardo Ramírez en el <em>Nice Jazz Festival</em> (2023), destaca por su virtuosismo técnico: polirritmias extremas y dinámicas híbridas. En TRBand aporta un pulso "que respira", fusionando taiko ancestral con electrónica Moog. Su participación en <em>Wild and Free (2026)</em> define el nuevo sonido bridge del grupo.
-                    </p>
-                </div>
-            </div>
-
-            <!-- NARA BLUE -->
-            <div class="m-card">
-                <div class="m-photo">
+            <!-- 3. NARA -->
+            <div class="integrante-item">
+                <div class="integrante-photo-wrapper">
                     <img src="assets/miembros/Nara/Nara cantando.png" alt="Nara Blue">
                 </div>
-                <div class="m-info">
-                    <h3 class="m-name">Nara Blue<span>Voz · Percusión · Armónica · Teclados</span></h3>
-                    <div class="m-divider"></div>
-                    <p class="m-bio">
-                        Calor, pulso y frontera. Afincada en Sanlúcar de Barrameda (Cádiz), Nara Blue aporta a The Research Band una mezcla singular de soul, blues, jazz-rock y percusión orgánica. Su papel representa la vertiente más cálida y terrenal del proyecto: es respiración, textura, compás y alma.
-                    </p>
+                <h3>Nara Blue</h3>
+                <span class="role">Voz, Percusión & Teclados</span>
+                <p class="desc">Afincada en Sanlúcar de Barrameda. Textura soul, blues y percusión orgánica que da pulso al grupo.</p>
+            </div>
+
+            <!-- 4. ALBA -->
+            <div class="integrante-item">
+                <div class="integrante-photo-wrapper">
+                    <img src="assets/miembros/Alba/violin_profile.jpg" alt="Alba Cisneros">
                 </div>
+                <h3>Alba Cisneros</h3>
+                <span class="role">Violín, Viola & Percusión</span>
+                <p class="desc">Formada en Madrid y París. Aporta una dimensión cinematográfica y emotiva de vanguardia.</p>
+            </div>
+
+            <!-- 5. HIROSHI -->
+            <div class="integrante-item">
+                <div class="integrante-photo-wrapper">
+                    <img src="assets/miembros/Hiroshi/hiroshi_profile.jpg" alt="Hiroshi Tanaka">
+                </div>
+                <h3>Hiroshi Tanaka</h3>
+                <span class="role">Batería (Tokio)</span>
+                <p class="desc">Formado en Senzoku Gakuen y UCLA. Virtuosismo técnico, polirritmias y pulso orgánico híbrido.</p>
             </div>
 
         </div>
+    </section>
 
-        <!-- Legacy / Special Collaborators Heading -->
-        <h3 style="text-align: center; font-family: var(--font-serif); font-size: 1.8rem; margin: 40px 0; color: #ffffff;">COLABORADORES HISTÓRICOS Y DE ESTUDIO</h3>
-        
-        <div class="grid-collaborators">
+    <!-- ================================================================= -->
+    <!-- 📜 BLOQUE 3: FILA HORIZONTAL DE COLABORADORES HISTÓRICOS           -->
+    <!-- ================================================================= -->
+    <section id="bloque-historicos" class="section-colaboradores">
+        <h2 class="title-gold" style="font-size: 2.1rem;">Colaboradores Históricos y de Estudio</h2>
+        <p class="subtitle-clean" style="margin-bottom: 25px;">
+            Músicos extraordinarios y compañeros de trayectoria en producciones y directos:
+        </p>
 
-            <!-- Jose -->
-            <div class="collab-card" onclick="openMember('jose')">
-                <img src="assets/miembros/Jose de LUCAS/jose_new_photo.jpg" alt="Jose de Lucas">
-                <h3>Jose de Lucas</h3>
-                <p>Guitarra y voz</p>
+        <div class="collab-row">
+
+            <div class="collab-circle-item" onclick="openMember('jose')">
+                <img src="assets/miembros/Jose de LUCAS/jose_new_photo.jpg" alt="Jose de Lucas" class="collab-avatar">
+                <h4>Jose de Lucas</h4>
+                <p>Guitarra y Voz</p>
             </div>
 
-            <!-- Ricardo -->
-            <div class="collab-card" onclick="openMember('ricardo')">
-                <img src="assets/miembros/RICARDO/ricardo_new_photo.jpg" alt="Ricardo Castro">
-                <h3>Ricardo Castro</h3>
-                <p>Teclado y voz</p>
+            <div class="collab-circle-item" onclick="openMember('ricardo')">
+                <img src="assets/miembros/RICARDO/ricardo_new_photo.jpg" alt="Ricardo Castro" class="collab-avatar">
+                <h4>Ricardo Castro</h4>
+                <p>Teclado y Voz</p>
             </div>
 
-            <!-- Javier -->
-            <div class="collab-card" onclick="openMember('javier')">
-                <img src="assets/javier(actual).jpg" alt="Javier de Juan">
-                <h3>Javier de Juan Romeu</h3>
-                <p>Batería y Compositor</p>
+            <div class="collab-circle-item" onclick="openMember('javier')">
+                <img src="assets/javier(actual).jpg" alt="Javier de Juan" class="collab-avatar">
+                <h4>Javier de Juan</h4>
+                <p>Batería / Compositor</p>
             </div>
 
-            <!-- Lotfy -->
-            <div class="collab-card" onclick="openMember('lotfy')">
-                <img src="assets/lotfy sonrie.png" alt="Lotfy B. Amor">
-                <h3>Lotfy B. Amor</h3>
-                <p>Compositor y Cantante</p>
+            <div class="collab-circle-item" onclick="openMember('lotfy')">
+                <img src="assets/lotfy sonrie.png" alt="Lotfy B. Amor" class="collab-avatar">
+                <h4>Lotfy B. Amor</h4>
+                <p>Compositor / Voz</p>
             </div>
 
-            <!-- JJ Almela -->
-            <div class="collab-card" onclick="openMember('jjalmela')">
-                <img src="assets/miembros/JJ_ALMELA_profile.png" alt="JJ Almela">
-                <h3>JJ Almela</h3>
-                <p>Piano y Producción</p>
+            <div class="collab-circle-item" onclick="openMember('jjalmela')">
+                <img src="assets/miembros/JJ_ALMELA_profile.png" alt="JJ Almela" class="collab-avatar">
+                <h4>JJ Almela</h4>
+                <p>Piano / Producción</p>
             </div>
+
+        </div>
+    </section>
+
+    <!-- MODAL MIEMBRO HISTORICO -->
+    <div class="modal-overlay" id="memberModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeMember()">×</button>
+            <h3 id="modalName" style="color: #D4AF37; font-family: var(--font-serif); font-size: 1.8rem; margin: 0 0 5px 0;"></h3>
+            <span id="modalRole" style="color: #888; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 20px;"></span>
+            <div id="modalBio" style="color: #ccc; font-size: 0.95rem; line-height: 1.7;"></div>
         </div>
     </div>
-
-
-    <!-- Member Details Modal -->
-    <div class="player-container" id="memberModal" style="display: none;">
-        <button class="close-btn" onclick="closeMember()">×</button>
-        <div class="member-content-wrapper">
-            <div class="member-left"><img src="" id="modalImg" class="member-modal-img"></div>
-            <div class="member-right">
-                <h2 id="modalName" class="member-name">Nombre</h2>
-                <p id="modalRole" class="member-role">Rol</p>
-                <div class="member-scroll-area">
-                    <div class="info-block">
-                        <h4>Historia y Trayectoria / Curriculum</h4>
-                        <p id="modalBio" class="member-text">...</p>
-                    </div>
-                    <div class="info-block" id="discBlock">
-                        <h4>Discografía Destacada</h4>
-                        <ul id="modalDiscography" class="member-list">
-                            <!-- List items -->
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h4>Videos / Trayectoria Artística Personal</h4>
-                        <div id="modalVideos" class="member-text">
-                            <!-- Helper Text or Video Links -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Styles for Grid and Modal -->
-    <style>
-        .grid-collaborators {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            width: 100%;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        .collab-card {
-            background: rgba(0, 0, 0, 0.7);
-            /* Dark transparent */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            backdrop-filter: blur(5px);
-        }
-
-        .collab-card:hover {
-            transform: translateY(-10px);
-            background: rgba(0, 0, 0, 0.85);
-            /* Darker on hover */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border-color: var(--accent-red);
-        }
-
-        .collab-card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent-red);
-            /* Accent border */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            margin-bottom: 15px;
-        }
-
-        .collab-card h3 {
-            font-size: 1.1rem;
-            margin: 10px 0 5px;
-            color: #fff;
-            /* White Title */
-        }
-
-        .collab-card p {
-            font-size: 0.9rem;
-            color: #ccc;
-            /* Light Gray Text */
-            margin: 0;
-            font-style: italic;
-        }
-
-        .small-note {
-            font-size: 0.75rem !important;
-            color: var(--accent-red) !important;
-            margin-top: 5px !important;
-        }
-
-        .highlight-text {
-            color: var(--accent-purple) !important;
-            font-weight: bold;
-        }
-
-        /* MODAL STYLES (Adapted to Beige Theme) */
-        .player-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-            animation: fadeIn 0.3s ease;
-        }
-
-        .member-content-wrapper {
-            background: #EFEDE2;
-            /* Matching page bg */
-            width: 90%;
-            max-width: 1000px;
-            height: 80vh;
-            border-radius: 20px;
-            display: flex;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 3rem;
-            color: #fff;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 2001;
-        }
-
-        .member-left {
-            width: 40%;
-            background: #e5e2d1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .member-modal-img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border: 4px solid #fff;
-        }
-
-        .member-right {
-            width: 60%;
-            padding: 40px;
-            overflow-y: auto;
-            text-align: left;
-            /* Reset text align */
-        }
-
-        .member-name {
-            font-size: 2.5rem;
-            color: #8B0000;
-            margin: 0 0 5px 0;
-            font-family: var(--font-serif);
-        }
-
-        .member-role {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 30px;
-            font-style: italic;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 20px;
-        }
-
-        .info-block h4 {
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            color: #333;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .member-text,
-        .member-list li {
-            color: #444;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        .member-list {
-            padding-left: 20px;
-        }
-
-        .member-list li {
-            margin-bottom: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .member-content-wrapper {
-                flex-direction: column;
-                height: 90vh;
-                overflow-y: auto;
-            }
-
-            .member-left,
-            .member-right {
-                width: 100%;
-                height: auto;
-                padding: 20px;
-            }
-
-            .close-btn {
-                top: 10px;
-                right: 10px;
-                color: #8B0000;
-                /* Dark on mobile as it might overlap beige */
-            }
-        }
-    
-        
-        /* --- CLEAN MASTER HAMBURGER MOBILE MENU STYLES --- */
-        .mobile-menu-btn {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .main-header {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 60px !important;
-                padding: 5px 15px !important;
-                box-sizing: border-box !important;
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                background: rgba(0, 0, 0, 0.95) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
-                z-index: 10000 !important;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
-            }
-
-            .header-logo {
-                height: 38px !important;
-                width: auto !important;
-            }
-
-            .mobile-menu-btn {
-                display: flex !important;
-                align-items: center !important;
-                gap: 6px !important;
-                background: rgba(212, 175, 55, 0.2) !important;
-                border: 1px solid #D4AF37 !important;
-                color: #D4AF37 !important;
-                padding: 6px 14px !important;
-                border-radius: 8px !important;
-                font-size: 0.9rem !important;
-                font-weight: 800 !important;
-                cursor: pointer !important;
-                z-index: 10002 !important;
-                box-shadow: 0 0 10px rgba(212, 175, 55, 0.3) !important;
-            }
-
-            .menu-icon {
-                font-size: 1.2rem !important;
-                line-height: 1 !important;
-            }
-
-            .main-nav {
-                display: none !important;
-                position: fixed !important;
-                top: 60px !important;
-                left: 0 !important;
-                width: 100vw !important;
-                background: rgba(10, 10, 15, 0.98) !important;
-                backdrop-filter: blur(15px) !important;
-                -webkit-backdrop-filter: blur(15px) !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                padding: 25px 0 40px !important;
-                gap: 15px !important;
-                border-bottom: 3px solid #D4AF37 !important;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
-                z-index: 10001 !important;
-                max-width: 100% !important;
-                overflow-y: auto !important;
-            }
-
-            .main-nav.mobile-active {
-                display: flex !important;
-                animation: slideDownMenu 0.25s ease-out forwards;
-            }
-
-            @keyframes slideDownMenu {
-                from { opacity: 0; transform: translateY(-10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            .nav-link {
-                font-size: 1.1rem !important;
-                padding: 14px 20px !important;
-                width: 85% !important;
-                text-align: center !important;
-                background: rgba(255, 255, 255, 0.08) !important;
-                border: 1px solid rgba(255, 255, 255, 0.15) !important;
-                border-radius: 12px !important;
-                color: #ffffff !important;
-                font-weight: 700 !important;
-                box-sizing: border-box !important;
-                text-decoration: none !important;
-            }
-
-            .nav-link.active {
-                background: rgba(212, 175, 55, 0.3) !important;
-                border-color: #D4AF37 !important;
-                color: #D4AF37 !important;
-            }
-        }
-
-
-        /* PERFECT HAMBURGER BUTTON & RESPONSIVE MOBILE MENU */
-        .mobile-menu-btn {
-            display: none !important;
-        }
-
-        @media (max-width: 768px) {
-            .main-header {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 60px !important;
-                padding: 5px 15px !important;
-                box-sizing: border-box !important;
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                background: rgba(0, 0, 0, 0.95) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
-                z-index: 10000 !important;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
-            }
-
-            .header-logo {
-                height: 38px !important;
-                width: auto !important;
-            }
-
-            .mobile-menu-btn {
-                display: flex !important;
-                align-items: center !important;
-                gap: 6px !important;
-                background: #D4AF37 !important;
-                border: 1px solid #ffffff !important;
-                color: #000000 !important;
-                padding: 6px 14px !important;
-                border-radius: 8px !important;
-                font-size: 0.9rem !important;
-                font-weight: 800 !important;
-                cursor: pointer !important;
-                z-index: 10002 !important;
-                box-shadow: 0 0 12px rgba(212, 175, 55, 0.6) !important;
-            }
-
-            .menu-icon {
-                font-size: 1.2rem !important;
-                line-height: 1 !important;
-                color: #000000 !important;
-            }
-
-            .menu-text {
-                color: #000000 !important;
-                font-weight: 900 !important;
-            }
-
-            .main-nav {
-                display: none !important;
-                position: fixed !important;
-                top: 60px !important;
-                left: 0 !important;
-                width: 100vw !important;
-                background: rgba(10, 10, 15, 0.98) !important;
-                backdrop-filter: blur(15px) !important;
-                -webkit-backdrop-filter: blur(15px) !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                padding: 25px 0 40px !important;
-                gap: 15px !important;
-                border-bottom: 3px solid #D4AF37 !important;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
-                z-index: 10001 !important;
-                max-width: 100% !important;
-                overflow-y: auto !important;
-            }
-
-            .main-nav.mobile-active {
-                display: flex !important;
-                animation: slideDownMenu 0.25s ease-out forwards;
-            }
-
-            @keyframes slideDownMenu {
-                from { opacity: 0; transform: translateY(-10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            .nav-link {
-                font-size: 1.1rem !important;
-                padding: 14px 20px !important;
-                width: 85% !important;
-                text-align: center !important;
-                background: rgba(255, 255, 255, 0.08) !important;
-                border: 1px solid rgba(255, 255, 255, 0.15) !important;
-                border-radius: 12px !important;
-                color: #ffffff !important;
-                font-weight: 700 !important;
-                box-sizing: border-box !important;
-                text-decoration: none !important;
-            }
-
-            .nav-link.active {
-                background: rgba(212, 175, 55, 0.3) !important;
-                border-color: #D4AF37 !important;
-                color: #D4AF37 !important;
-            }
-        }
-
-</style>
 
     <script>
-        // Data Object for Collaborators (Migrated from index.html)
         const memberData = {
             'jose': {
                 name: 'Jose de Lucas',
-                role: 'Guitarra y voz',
-                img: 'assets/miembros/Jose de LUCAS/jose_new_photo.jpg',
-                bio: `Cantante, compositor y arreglista. Guitarras eléctricas y acústicas.<br><br><strong>ACTUALMENTE:</strong><br>Cantante y guitarrista de acompañamiento en: Pistones, Cadillac, La Década Prodigiosa, The Research Band y Estudio 80.<br><br><strong>FORMACIONES ANTERIORES:</strong><br>Scooters, 40º Grados, Pistones, Antifaces, Daltónicos, Asunto Tornasol, La Década Prodigiosa, Orquesta Xucar, Cadillac, Orquesta Templo, El Nombre de la Rosa, Estudio 80.`,
-                discs: ['Ganador Concurso Pop Regional (1985)', 'Estudio Pentágono (1985)', 'Estudio Eurosonic (2001)'],
-                videos: 'Amplia trayectoria en directos y grabaciones de estudio.'
+                role: 'Guitarra y Voz',
+                bio: 'Cantante, compositor y arreglista. Guitarras eléctricas y acústicas. Ha trabajado con Pistones, Cadillac, La Década Prodigiosa, The Research Band y Estudio 80.'
             },
             'ricardo': {
                 name: 'Ricardo Castro',
-                role: 'Teclado y voz',
-                img: 'assets/miembros/RICARDO/ricardo_new_photo.jpg',
-                bio: `Pianista, arreglista, compositor y productor.<br><br>Gana el Mustifestival Internacional David en Barcelona durante 3 años consecutivos. Ha acompañado a artistas de la talla de Antonio Vega, Betty Misiego, Javier Andreu (La Frontera), Cadillac, La Orquesta Mondragón.<br><br>Pianista del Gran Casino de Madrid de Torrelodones durante 8 años.`,
-                discs: ['Jazz Fusion Vol.1', 'Pop Hits 80s', 'Arreglos para Sonogrand'],
-                videos: 'Sesiones de estudio y directos con grandes artistas.'
+                role: 'Teclado y Voz',
+                bio: 'Pianista, arreglista, compositor y productor. Ganador del Mustifestival David en Barcelona 3 años consecutivos. Ha acompañado a Antonio Vega, Betty Misiego, La Frontera y Cadillac.'
             },
             'javier': {
                 name: 'Javier de Juan Romeu',
                 role: 'Batería y Compositor',
-                img: 'assets/javier(actual).jpg',
-                bio: 'Ex-Batería de CADILLAC. Pionero de la batería electrónica en España. Ha tocado con grandes artistas y en producciones internacionales. <br><br><strong>Currículum Europeo:</strong> <a href="https://all-conductors-of-eurovision.blogspot.com/1988/04/javier-de-juan.html" target="_blank" style="color: var(--accent-red); text-decoration: underline;">Ver Perfil / Eurovisión</a>',
-                discs: ['Cadillac - Pensando en ti', 'La Década Prodigiosa', 'Proyectos en solitario'],
-                videos: '<strong>Música Destacada:</strong><br>KALI CHILI<br><audio controls style="width:100%; margin-top:5px; margin-bottom:15px;"><source src="assets/KALI_CHILI.mp3" type="audio/mpeg">Tu navegador no soporta el audio.</audio><br><em>Más audios próximamente...</em>'
+                bio: 'Pionero de la batería electrónica en España. Ha tocado con CADILLAC, La Década Prodigiosa y grandes producciones internacionales y de Eurovisión.'
             },
             'lotfy': {
                 name: 'Lotfy B. Amor',
                 role: 'Compositor y Cantante',
-                img: 'assets/lotfy sonrie.png',
-                bio: 'Compositor internacional con éxitos en varios idiomas. Su estilo fusiona culturas y ritmos, aportando una riqueza única a The Research Band.',
-                discs: ['Hit Single 1', 'Album Internacional'],
-                videos: 'Actuaciones internacionales...'
+                bio: 'Compositor internacional con éxitos en varios idiomas. Su estilo fusiona culturas y ritmos aportando una gran riqueza sonora al grupo.'
             },
             'jjalmela': {
                 name: 'JJ Almela',
                 role: 'Piano, Producción y Arreglos',
-                img: 'assets/miembros/JJ_ALMELA_profile.png',
-                bio: `Músico, compositor y arreglista con amplia trayectoria. Pianista de Jazz, Productor Musical y Director Artístico para compañías como SONY, EMI, RCA, FONOGRAM, COLUMBIA.<br><br> Ha compuesto para TV, Cine y Documentales.<br><br> <strong>Web Oficial:</strong> <a href="https://www.jjalmela.com" target="_blank" style="color: var(--accent-red); text-decoration: underline;" >www.jjalmela.com</a>`,
-                discs: ['Productor en SONY/EMI/RCA', 'Compositor Cine/TV'],
-                videos: 'Visita su web para ver su extensa obra.'
-            },
-            'luca': {
-                name: 'Luca Fiammetti',
-                role: 'Actual Guitarra de TRBandmusic',
-                img: 'assets/miembros/Luca/profile.jpg',
-                bio: `<strong>Nombre completo:</strong> Luca Alessandro Fiammetti<br> <strong>Edad:</strong> 36 años<br> <strong>Origen:</strong> Nacido en Génova, Italia. Reside en Manilva, Málaga.<br><br> <strong>Trayectoria Musical:</strong><br> Formado en el Conservatorio Paganini de Génova, especializado en jazz moderno. En Manilva, lidera un trío llamado “Mediterráneo Azul”.<br><br> <strong>Filosofía:</strong><br> Espiritual, introspectivo, amante del mar y la improvisación.`,
-                discs: ['Mediterráneo Azul - Fusión', 'Colaboraciones Jazz Moderno'],
-                videos: 'Actuaciones con Mediterráneo Azul y TRBand.'
+                bio: 'Pianista de Jazz, Productor Musical y Director Artístico para firmas como SONY, EMI, RCA y COLUMBIA. Compositor prolífico para cine y televisión.'
             }
         };
 
         function openMember(id) {
             const data = memberData[id];
             if (!data) return;
-
-            document.getElementById('modalImg').src = data.img;
             document.getElementById('modalName').textContent = data.name;
             document.getElementById('modalRole').textContent = data.role;
             document.getElementById('modalBio').innerHTML = data.bio;
-
-            const discList = document.getElementById('modalDiscography');
-            discList.innerHTML = '';
-            if (data.discs) {
-                data.discs.forEach(disc => {
-                    const li = document.createElement('li');
-                    li.textContent = disc;
-                    discList.appendChild(li);
-                });
-            }
-
-            const videoContainer = document.getElementById('modalVideos');
-            videoContainer.innerHTML = data.videos || 'Información disponible próximamente.';
-
             document.getElementById('memberModal').style.display = 'flex';
         }
 
         function closeMember() {
             document.getElementById('memberModal').style.display = 'none';
         }
-    </script>
 
-    <script>
-        function toggleMobileMenu() {
-            var nav = document.getElementById('mainNav');
-            var btnIcon = document.querySelector('.menu-icon');
-            if (nav) {
-                nav.classList.toggle('mobile-active');
-                if (btnIcon) {
-                    btnIcon.textContent = nav.classList.contains('mobile-active') ? '✕' : '☰';
+        // JS Detección de Scroll para Puntos Laterales
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const points = document.querySelectorAll('.punto-link');
+
+            function updateActivePoint() {
+                let currentId = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 220;
+                    if (window.scrollY >= sectionTop) {
+                        currentId = section.getAttribute('id');
+                    }
+                });
+
+                if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 80)) {
+                    if (sections.length > 0) {
+                        currentId = sections[sections.length - 1].getAttribute('id');
+                    }
                 }
+
+                points.forEach(point => {
+                    point.classList.remove('active');
+                    if (point.getAttribute('href') === `#${currentId}`) {
+                        point.classList.add('active');
+                    }
+                });
             }
-        }
+
+            window.addEventListener('scroll', updateActivePoint);
+            updateActivePoint();
+        });
     </script>
 
 </body>
-
 </html>
-
