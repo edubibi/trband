@@ -558,6 +558,10 @@
             align-items: center;
         }
 
+        .mobile-menu-btn {
+            display: none;
+        }
+
         @media (max-width: 1050px) {
             .master-player-container { flex-direction: column; height: auto; }
             .player-left { border-right: none; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding: 30px 20px; }
@@ -565,11 +569,163 @@
             .grid-merch { grid-template-columns: repeat(2, 1fr); gap: 20px; }
             .main-title { font-size: 2.4rem; }
             .navegacion-lateral { display: none; }
-            .main-header { padding: 10px 15px !important; }
-            .header-logo { height: 45px !important; }
-            .header-title-white { font-size: 1.1rem !important; }
-            .main-nav { gap: 12px !important; }
-            .nav-link { font-size: 0.72rem !important; letter-spacing: 0.5px !important; }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 62px !important;
+                padding: 6px 16px !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                background: rgba(6, 6, 10, 0.96) !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                z-index: 10000 !important;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.35) !important;
+            }
+
+            .header-logo {
+                height: 40px !important;
+                width: auto !important;
+            }
+
+            .header-title-white {
+                font-size: 0.92rem !important;
+            }
+
+            .mobile-menu-btn {
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                background: #D4AF37 !important;
+                border: none !important;
+                color: #000000 !important;
+                padding: 7px 15px !important;
+                border-radius: 20px !important;
+                font-size: 0.82rem !important;
+                font-weight: 900 !important;
+                letter-spacing: 1px !important;
+                cursor: pointer !important;
+                z-index: 10002 !important;
+                box-shadow: 0 0 15px rgba(212, 175, 55, 0.5) !important;
+            }
+
+            .menu-icon {
+                font-size: 1.1rem !important;
+                line-height: 1 !important;
+                color: #000000 !important;
+            }
+
+            .menu-text {
+                color: #000000 !important;
+                font-weight: 900 !important;
+            }
+
+            .main-nav {
+                display: none !important;
+                position: fixed !important;
+                top: 62px !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: calc(100vh - 62px) !important;
+                background: rgba(8, 8, 12, 0.98) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                padding: 25px 20px 40px !important;
+                gap: 12px !important;
+                border-bottom: 3px solid #D4AF37 !important;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
+                z-index: 10001 !important;
+                box-sizing: border-box !important;
+                overflow-y: auto !important;
+            }
+
+            .main-nav.mobile-active {
+                display: flex !important;
+                animation: slideDownMenu 0.25s ease-out forwards;
+            }
+
+            @keyframes slideDownMenu {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .nav-link {
+                font-size: 1rem !important;
+                padding: 13px 20px !important;
+                width: 100% !important;
+                max-width: 340px !important;
+                text-align: center !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+                border: 1px solid rgba(255, 255, 255, 0.12) !important;
+                border-radius: 12px !important;
+                color: #ffffff !important;
+                font-weight: 700 !important;
+                box-sizing: border-box !important;
+                text-decoration: none !important;
+            }
+
+            .nav-link.active {
+                background: rgba(212, 175, 55, 0.25) !important;
+                border-color: #D4AF37 !important;
+                color: #D4AF37 !important;
+            }
+
+            .seccion-mezclas {
+                padding-top: 85px !important;
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+
+            .main-title {
+                font-size: 1.85rem !important;
+                letter-spacing: 2px !important;
+            }
+
+            .main-sub {
+                font-size: 0.85rem !important;
+                letter-spacing: 1.5px !important;
+                margin-bottom: 25px !important;
+            }
+
+            .tabs-albumes {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .tab-album-btn {
+                padding: 8px 10px !important;
+                gap: 8px !important;
+            }
+
+            .tab-album-btn img {
+                width: 38px !important;
+                height: 38px !important;
+            }
+
+            .tab-album-btn .tab-info .tab-name {
+                font-size: 0.82rem !important;
+            }
+
+            .tab-album-btn .tab-info .tab-tag {
+                font-size: 0.65rem !important;
+            }
+
+            .grid-catalogo, .grid-merch {
+                grid-template-columns: 1fr !important;
+            }
         }
     </style>
 </head>
@@ -577,11 +733,15 @@
 
     <!-- 📌 HEADER UNIFICADO (FOTO 2) -->
     <header class="main-header">
-        <div class="logo-area" onclick="window.location.href='index.html'">
+        <div class="logo-area" onclick="window.location.href='index.html'" style="cursor: pointer;">
             <img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo">
             <span class="header-title-white">The Research Band</span>
         </div>
-        <nav class="main-nav">
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+            <span class="menu-icon">☰</span>
+            <span class="menu-text">MENÚ</span>
+        </button>
+        <nav class="main-nav" id="mainNav">
             <a href="index.html" class="nav-link">Inicio</a>
             <a href="nosotros.html" class="nav-link">Nosotros</a>
             <a href="iliada.html" class="nav-link">Mi Ilíada</a>
@@ -620,9 +780,9 @@
                 </div>
 
                 <div class="tab-album-btn" id="tab-album-1" onclick="cargarAlbum(1)">
-                    <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="FUGA El Gato">
+                    <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="FUGA">
                     <div class="tab-info">
-                        <div class="tab-name">FUGA (El Gato)</div>
+                        <div class="tab-name">FUGA</div>
                         <div class="tab-tag">2026 Versions</div>
                     </div>
                 </div>
@@ -700,9 +860,9 @@
                     </div>
                 </div>
 
-                <!-- DISCO 2: FUGA (2026 VERSIONS - EL GATO) -->
+                <!-- DISCO 2: FUGA (2026 VERSIONS) -->
                 <div class="disco-card">
-                    <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" class="disco-cover" alt="FUGA (El Gato)">
+                    <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" class="disco-cover" alt="FUGA">
                     <h3 class="disco-titulo">FUGA (2026 Versions)</h3>
                     <div class="disco-year">2026 • In Memoriam Pepe y Lola (10 Tracks)</div>
                     <div class="btn-disco-row">
@@ -1017,6 +1177,17 @@
             window.addEventListener('scroll', updateActivePoint);
             updateActivePoint();
         });
+
+        function toggleMobileMenu() {
+            var nav = document.getElementById('mainNav');
+            var btnIcon = document.querySelector('.menu-icon');
+            if (nav) {
+                nav.classList.toggle('mobile-active');
+                if (btnIcon) {
+                    btnIcon.textContent = nav.classList.contains('mobile-active') ? '✕' : '☰';
+                }
+            }
+        }
     </script>
 </body>
 </html>

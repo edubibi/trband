@@ -1641,8 +1641,8 @@
                 line-height: 1.4 !important;
             }
 
-            /* 3. Titles & Headings (Fix for RECONOCIMIENTO INTERNACIONAL) */
-            h1, h2, h3, .section-title, .collab-title, .release-info h2, .glitch {
+            /* 3. Titles & Headings Word Wrap Protection */
+            .collab-title, .release-info h2, .glitch {
                 font-size: 1.35rem !important;
                 letter-spacing: 1px !important;
                 word-wrap: break-word !important;
@@ -1709,157 +1709,64 @@
         }
     
         
-        /* --- CLEAN MASTER HAMBURGER MOBILE MENU STYLES --- */
+        /* =========================================================================
+           👑 MASTER RESPONSIVE MOBILE SYSTEM - TRBANDMUSIC.ES (2026)
+           ========================================================================= */
         .mobile-menu-btn {
             display: none;
         }
 
         @media (max-width: 768px) {
+            html, body {
+                max-width: 100vw !important;
+                overflow-x: hidden !important;
+                width: 100% !important;
+            }
+
+            /* 1. Header Fijo y Menú Táctil */
             .main-header {
                 position: fixed !important;
                 top: 0 !important;
                 left: 0 !important;
                 width: 100% !important;
-                height: 60px !important;
-                padding: 5px 15px !important;
+                height: 62px !important;
+                padding: 6px 16px !important;
                 box-sizing: border-box !important;
                 display: flex !important;
                 flex-direction: row !important;
                 align-items: center !important;
                 justify-content: space-between !important;
-                background: rgba(0, 0, 0, 0.95) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
+                background: rgba(6, 6, 10, 0.96) !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
                 z-index: 10000 !important;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.35) !important;
             }
 
             .header-logo {
-                height: 38px !important;
+                height: 42px !important;
                 width: auto !important;
             }
 
             .mobile-menu-btn {
                 display: flex !important;
                 align-items: center !important;
-                gap: 6px !important;
-                background: rgba(212, 175, 55, 0.2) !important;
-                border: 1px solid #D4AF37 !important;
-                color: #D4AF37 !important;
-                padding: 6px 14px !important;
-                border-radius: 8px !important;
-                font-size: 0.9rem !important;
-                font-weight: 800 !important;
-                cursor: pointer !important;
-                z-index: 10002 !important;
-                box-shadow: 0 0 10px rgba(212, 175, 55, 0.3) !important;
-            }
-
-            .menu-icon {
-                font-size: 1.2rem !important;
-                line-height: 1 !important;
-            }
-
-            .main-nav {
-                display: none !important;
-                position: fixed !important;
-                top: 60px !important;
-                left: 0 !important;
-                width: 100vw !important;
-                background: rgba(10, 10, 15, 0.98) !important;
-                backdrop-filter: blur(15px) !important;
-                -webkit-backdrop-filter: blur(15px) !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                padding: 25px 0 40px !important;
-                gap: 15px !important;
-                border-bottom: 3px solid #D4AF37 !important;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
-                z-index: 10001 !important;
-                max-width: 100% !important;
-                overflow-y: auto !important;
-            }
-
-            .main-nav.mobile-active {
-                display: flex !important;
-                animation: slideDownMenu 0.25s ease-out forwards;
-            }
-
-            @keyframes slideDownMenu {
-                from { opacity: 0; transform: translateY(-10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            .nav-link {
-                font-size: 1.1rem !important;
-                padding: 14px 20px !important;
-                width: 85% !important;
-                text-align: center !important;
-                background: rgba(255, 255, 255, 0.08) !important;
-                border: 1px solid rgba(255, 255, 255, 0.15) !important;
-                border-radius: 12px !important;
-                color: #ffffff !important;
-                font-weight: 700 !important;
-                box-sizing: border-box !important;
-                text-decoration: none !important;
-            }
-
-            .nav-link.active {
-                background: rgba(212, 175, 55, 0.3) !important;
-                border-color: #D4AF37 !important;
-                color: #D4AF37 !important;
-            }
-        }
-
-
-        /* PERFECT HAMBURGER BUTTON & RESPONSIVE MOBILE MENU */
-        .mobile-menu-btn {
-            display: none !important;
-        }
-
-        @media (max-width: 768px) {
-            .main-header {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 60px !important;
-                padding: 5px 15px !important;
-                box-sizing: border-box !important;
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                background: rgba(0, 0, 0, 0.95) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
-                z-index: 10000 !important;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
-            }
-
-            .header-logo {
-                height: 38px !important;
-                width: auto !important;
-            }
-
-            .mobile-menu-btn {
-                display: flex !important;
-                align-items: center !important;
-                gap: 6px !important;
+                gap: 8px !important;
                 background: #D4AF37 !important;
-                border: 1px solid #ffffff !important;
+                border: none !important;
                 color: #000000 !important;
-                padding: 6px 14px !important;
-                border-radius: 8px !important;
-                font-size: 0.9rem !important;
-                font-weight: 800 !important;
+                padding: 7px 15px !important;
+                border-radius: 20px !important;
+                font-size: 0.82rem !important;
+                font-weight: 900 !important;
+                letter-spacing: 1px !important;
                 cursor: pointer !important;
                 z-index: 10002 !important;
-                box-shadow: 0 0 12px rgba(212, 175, 55, 0.6) !important;
+                box-shadow: 0 0 15px rgba(212, 175, 55, 0.5) !important;
             }
 
             .menu-icon {
-                font-size: 1.2rem !important;
+                font-size: 1.1rem !important;
                 line-height: 1 !important;
                 color: #000000 !important;
             }
@@ -1872,20 +1779,21 @@
             .main-nav {
                 display: none !important;
                 position: fixed !important;
-                top: 60px !important;
+                top: 62px !important;
                 left: 0 !important;
                 width: 100vw !important;
-                background: rgba(10, 10, 15, 0.98) !important;
-                backdrop-filter: blur(15px) !important;
-                -webkit-backdrop-filter: blur(15px) !important;
+                height: calc(100vh - 62px) !important;
+                background: rgba(8, 8, 12, 0.98) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
                 flex-direction: column !important;
                 align-items: center !important;
-                padding: 25px 0 40px !important;
-                gap: 15px !important;
+                padding: 25px 20px 40px !important;
+                gap: 12px !important;
                 border-bottom: 3px solid #D4AF37 !important;
                 box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
                 z-index: 10001 !important;
-                max-width: 100% !important;
+                box-sizing: border-box !important;
                 overflow-y: auto !important;
             }
 
@@ -1900,12 +1808,13 @@
             }
 
             .nav-link {
-                font-size: 1.1rem !important;
-                padding: 14px 20px !important;
-                width: 85% !important;
+                font-size: 1rem !important;
+                padding: 13px 20px !important;
+                width: 100% !important;
+                max-width: 340px !important;
                 text-align: center !important;
-                background: rgba(255, 255, 255, 0.08) !important;
-                border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+                border: 1px solid rgba(255, 255, 255, 0.12) !important;
                 border-radius: 12px !important;
                 color: #ffffff !important;
                 font-weight: 700 !important;
@@ -1914,9 +1823,212 @@
             }
 
             .nav-link.active {
-                background: rgba(212, 175, 55, 0.3) !important;
+                background: rgba(212, 175, 55, 0.25) !important;
                 border-color: #D4AF37 !important;
                 color: #D4AF37 !important;
+            }
+
+            /* 2. PANTALLA 1: HERO & BIENVENIDA */
+            #pantalla-bienvenida {
+                padding: 95px 16px 55px 16px !important;
+                background-position: center 30% !important;
+            }
+
+            #pantalla-bienvenida .main-title {
+                font-size: clamp(2.3rem, 8.5vw, 3.4rem) !important;
+                line-height: 1.12 !important;
+                margin-bottom: 12px !important;
+                letter-spacing: 1px !important;
+            }
+
+            #pantalla-bienvenida .slogan {
+                margin-bottom: 25px !important;
+            }
+
+            #pantalla-bienvenida .slogan-outlined {
+                font-size: 0.85rem !important;
+                letter-spacing: 2.5px !important;
+            }
+
+            #pantalla-bienvenida .highlight {
+                font-size: clamp(1.2rem, 5vw, 1.55rem) !important;
+                display: block !important;
+                margin-top: 6px !important;
+            }
+
+            #pantalla-bienvenida div[style*="padding: 14px 36px"] {
+                padding: 9px 18px !important;
+                font-size: 0.78rem !important;
+                letter-spacing: 1px !important;
+                max-width: 95% !important;
+                margin-bottom: 30px !important;
+                border-radius: 20px !important;
+            }
+
+            #pantalla-bienvenida div[style*="display: flex; gap: 20px"] {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 12px !important;
+                width: 100% !important;
+            }
+
+            #pantalla-bienvenida a[href^="#"] {
+                width: 100% !important;
+                max-width: 320px !important;
+                box-sizing: border-box !important;
+                padding: 15px 20px !important;
+                font-size: 0.88rem !important;
+                text-align: center !important;
+            }
+
+            /* 3. PANTALLA SHOWREEL (VIMEO) */
+            #vimeo-showcase-oficial {
+                padding: 55px 16px !important;
+            }
+
+            #vimeo-showcase-oficial h2 {
+                font-size: 1.5rem !important;
+                letter-spacing: 1.5px !important;
+            }
+
+            #vimeo-showcase-oficial p {
+                font-size: 0.88rem !important;
+            }
+
+            /* 4. PANTALLA FUGA */
+            #pantalla-fuga {
+                padding: 60px 16px !important;
+            }
+
+            #pantalla-fuga div[style*="gap: 60px"] {
+                gap: 25px !important;
+            }
+
+            #pantalla-fuga img[alt*="FUGA"] {
+                max-width: 220px !important;
+                margin: 0 auto !important;
+            }
+
+            #pantalla-fuga h2 {
+                font-size: 1.85rem !important;
+                line-height: 1.15 !important;
+                text-align: center !important;
+            }
+
+            #pantalla-fuga p {
+                font-size: 0.92rem !important;
+                text-align: center !important;
+                margin-bottom: 25px !important;
+            }
+
+            #pantalla-fuga div[style*="flex: 1.2"] {
+                text-align: center !important;
+            }
+
+            #pantalla-fuga div[style*="display: flex; gap: 12px"] {
+                justify-content: center !important;
+            }
+
+            /* Videoclips en Móvil */
+            #pantalla-fuga div[style*="margin-top: 70px"] {
+                margin-top: 40px !important;
+                padding-top: 30px !important;
+            }
+
+            #pantalla-fuga div[style*="repeat(auto-fit, minmax(210px, 1fr))"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+
+            /* 5. PANTALLA JAZZ */
+            #pantalla-jazz {
+                padding: 60px 16px !important;
+            }
+
+            #pantalla-jazz h2 {
+                font-size: 1.85rem !important;
+                line-height: 1.15 !important;
+            }
+
+            #pantalla-jazz div[style*="gap: 45px"] {
+                gap: 30px !important;
+            }
+
+            #pantalla-jazz img {
+                max-width: 230px !important;
+                margin: 0 auto !important;
+            }
+
+            #pantalla-jazz div[style*="justify-content: space-between"] {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 15px !important;
+            }
+
+            #pantalla-jazz div[style*="justify-content: space-between"] a {
+                width: 100% !important;
+                max-width: 280px !important;
+                text-align: center !important;
+            }
+
+            /* 6. PANTALLA EL AVAL (MÚSICOS) */
+            #pantalla-aval {
+                padding: 60px 16px !important;
+            }
+
+            #pantalla-aval h3 {
+                font-size: 1.5rem !important;
+            }
+
+            #pantalla-aval div[style*="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap"] {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 14px !important;
+                margin-bottom: 45px !important;
+            }
+
+            #pantalla-aval div[style*="min-width: 170px"] {
+                max-width: 100% !important;
+                min-width: 0 !important;
+            }
+
+            #pantalla-aval img {
+                width: 110px !important;
+                height: 130px !important;
+            }
+
+            /* 7. PANTALLA EL CORAZÓN */
+            #pantalla-corazon {
+                padding: 60px 16px !important;
+            }
+
+            #pantalla-corazon div[style*="gap: 65px"] {
+                flex-direction: column !important;
+                gap: 30px !important;
+            }
+
+            #pantalla-corazon div[style*="border-left"] {
+                border-left: none !important;
+                padding-left: 0 !important;
+                border-top: 1px solid rgba(212, 175, 55, 0.3) !important;
+                padding-top: 25px !important;
+            }
+
+            /* 8. PANTALLA ESTUDIO & PIE */
+            #pantalla-estudio {
+                padding: 60px 16px 85px 16px !important;
+            }
+
+            #pantalla-estudio h2 {
+                font-size: 1.7rem !important;
+            }
+
+            #pantalla-estudio a[href*="concurso"] {
+                width: 100% !important;
+                max-width: 320px !important;
+                box-sizing: border-box !important;
+                padding: 16px 24px !important;
+                font-size: 0.9rem !important;
             }
         }
 
@@ -2072,13 +2184,13 @@
 
 
         <!-- ================================================================= -->
-        <!-- 🟡 PANTALLA 2: EL UNIVERSO "FUGA" (Portada Oficial del Gato)      -->
+        <!-- 🟡 PANTALLA 2: EL UNIVERSO "FUGA" (Portada Oficial)              -->
         <!-- ================================================================= -->
         <section id="pantalla-fuga" style="width: 100%; background: #000000; padding: 110px 20px; box-sizing: border-box;">
             <div style="max-width: 1050px; margin: 0 auto;">
                 
                 <div style="display: flex; flex-wrap: wrap; gap: 60px; align-items: center; justify-content: center;">
-                    <!-- Izquierda: Portada Oficial de FUGA (El Gato) -->
+                    <!-- Izquierda: Portada Oficial de FUGA -->
                     <div style="flex: 1; min-width: 280px; max-width: 360px; text-align: center;">
                         <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="FUGA (2026 Versions) - Portada Oficial" style="width: 100%; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.9);">
                     </div>

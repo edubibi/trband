@@ -421,6 +421,10 @@
             align-items: center;
         }
 
+        .mobile-menu-btn {
+            display: none;
+        }
+
         @media (max-width: 1000px) {
             .grid-portales { grid-template-columns: 1fr; gap: 20px; }
             .grid-fotos { grid-template-columns: repeat(2, 1fr); gap: 15px; }
@@ -428,11 +432,116 @@
             .hero-content h1 { font-size: 2.8rem; }
             .hero-content p { font-size: 1.1rem; }
             .navegacion-lateral { display: none; }
-            .main-header { padding: 10px 15px !important; }
-            .header-logo { height: 45px !important; }
-            .header-title-white { font-size: 1.1rem !important; }
-            .main-nav { gap: 12px !important; }
-            .nav-link { font-size: 0.72rem !important; letter-spacing: 0.5px !important; }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 62px !important;
+                padding: 6px 16px !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                background: rgba(6, 6, 10, 0.96) !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                z-index: 10000 !important;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.35) !important;
+            }
+
+            .header-logo {
+                height: 40px !important;
+                width: auto !important;
+            }
+
+            .header-title-white {
+                font-size: 0.92rem !important;
+            }
+
+            .mobile-menu-btn {
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                background: #D4AF37 !important;
+                border: none !important;
+                color: #000000 !important;
+                padding: 7px 15px !important;
+                border-radius: 20px !important;
+                font-size: 0.82rem !important;
+                font-weight: 900 !important;
+                letter-spacing: 1px !important;
+                cursor: pointer !important;
+                z-index: 10002 !important;
+                box-shadow: 0 0 15px rgba(212, 175, 55, 0.5) !important;
+            }
+
+            .menu-icon {
+                font-size: 1.1rem !important;
+                line-height: 1 !important;
+                color: #000000 !important;
+            }
+
+            .menu-text {
+                color: #000000 !important;
+                font-weight: 900 !important;
+            }
+
+            .main-nav {
+                display: none !important;
+                position: fixed !important;
+                top: 62px !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: calc(100vh - 62px) !important;
+                background: rgba(8, 8, 12, 0.98) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                padding: 25px 20px 40px !important;
+                gap: 12px !important;
+                border-bottom: 3px solid #D4AF37 !important;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
+                z-index: 10001 !important;
+                box-sizing: border-box !important;
+                overflow-y: auto !important;
+            }
+
+            .main-nav.mobile-active {
+                display: flex !important;
+                animation: slideDownMenu 0.25s ease-out forwards;
+            }
+
+            @keyframes slideDownMenu {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .nav-link {
+                font-size: 1rem !important;
+                padding: 13px 20px !important;
+                width: 100% !important;
+                max-width: 340px !important;
+                text-align: center !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+                border: 1px solid rgba(255, 255, 255, 0.12) !important;
+                border-radius: 12px !important;
+                color: #ffffff !important;
+                font-weight: 700 !important;
+                box-sizing: border-box !important;
+                text-decoration: none !important;
+            }
+
+            .nav-link.active {
+                background: rgba(212, 175, 55, 0.25) !important;
+                border-color: #D4AF37 !important;
+                color: #D4AF37 !important;
+            }
         }
     </style>
 </head>
@@ -440,11 +549,15 @@
 
     <!-- 📌 HEADER UNIFICADO (FOTO 2) -->
     <header class="main-header">
-        <div class="logo-area" onclick="window.location.href='index.html'">
+        <div class="logo-area" onclick="window.location.href='index.html'" style="cursor: pointer;">
             <img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo">
             <span class="header-title-white">The Research Band</span>
         </div>
-        <nav class="main-nav">
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+            <span class="menu-icon">☰</span>
+            <span class="menu-text">MENÚ</span>
+        </button>
+        <nav class="main-nav" id="mainNav">
             <a href="index.html" class="nav-link">Inicio</a>
             <a href="nosotros.html" class="nav-link">Nosotros</a>
             <a href="iliada.html" class="nav-link">Mi Ilíada</a>
@@ -484,7 +597,7 @@
             <div class="portal-card" onclick="openVideoModal('cat-colab')">
                 <div class="portal-icon">🤝</div>
                 <h3>Colaboradores</h3>
-                <p>JJ Almela & Friends</p>
+                <p>Muestras & Trabajos de Estudio</p>
             </div>
 
             <div class="portal-card" onclick="openVideoModal('cat-cadillac')">
@@ -553,27 +666,45 @@
     <div class="player-container" id="cat-colab">
         <button class="close-btn" onclick="closeVideoModal('cat-colab')">&times;</button>
         <div class="video-modal-content">
-            <h2 style="color: #D4AF37; margin-bottom: 30px; text-transform: uppercase; font-family: 'Playfair Display', serif;">Colaboradores — JJ Almela & Friends</h2>
-            <div class="video-modal-grid">
-                <div class="video-card">
-                    <video controls preload="none" poster="assets/video/colab/portada Andanzas.webp">
-                        <source src="assets/video/colab/Andanzas De Rocinante Jjalmela COMP.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-title">Andanzas de Rocinante</div>
+            <h2 style="color: #D4AF37; margin-bottom: 25px; text-transform: uppercase; font-family: 'Playfair Display', serif; font-size: 2rem; text-align: center;">Colaboradores</h2>
+            
+            <!-- BLOQUE: JJ ALMELA -->
+            <div style="margin-bottom: 35px;">
+                <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 18px; border-bottom: 1px solid rgba(212, 175, 55, 0.35); padding-bottom: 8px;">
+                    <h3 style="color: #ffffff; font-family: 'Playfair Display', serif; font-size: 1.35rem; margin: 0;">JJ Almela</h3>
+                    <a href="https://www.jjalmela.com" target="_blank" rel="noopener noreferrer" style="color: #D4AF37; font-size: 0.85rem; text-decoration: underline; font-weight: 600;" title="Web Oficial de JJ Almela">(jjalmela.com)</a>
                 </div>
-                <div class="video-card">
-                    <video controls preload="none" poster="assets/video/colab/portada prisionero.webp">
-                        <source src="assets/video/colab/Prisionero Jjalmela COMP.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-title">Prisionero</div>
-                </div>
-                <div class="video-card">
-                    <video controls preload="none" poster="assets/video/colab/portada After the love_ AESwing.webp">
-                        <source src="assets/video/colab/Cover After The Love Has Gone Aeswing COMP.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-title">AE Swing - After the love has gone (Cover)</div>
+                <div class="video-modal-grid">
+                    <div class="video-card">
+                        <video controls preload="none" poster="assets/video/colab/portada Andanzas.webp">
+                            <source src="assets/video/colab/Andanzas De Rocinante Jjalmela COMP.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-title">Andanzas de Rocinante</div>
+                    </div>
+                    <div class="video-card">
+                        <video controls preload="none" poster="assets/video/colab/portada prisionero.webp">
+                            <source src="assets/video/colab/Prisionero Jjalmela COMP.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-title">Prisionero</div>
+                    </div>
                 </div>
             </div>
+
+            <!-- BLOQUE: AE SWING & SIGUIENTES COLABORADORES -->
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 25px;">
+                <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 18px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); padding-bottom: 8px;">
+                    <h3 style="color: #ffffff; font-family: 'Playfair Display', serif; font-size: 1.35rem; margin: 0;">AE Swing</h3>
+                </div>
+                <div class="video-modal-grid">
+                    <div class="video-card">
+                        <video controls preload="none" poster="assets/video/colab/portada After the love_ AESwing.webp">
+                            <source src="assets/video/colab/Cover After The Love Has Gone Aeswing COMP.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-title">AE Swing - After the love has gone (Cover)</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -583,20 +714,20 @@
             <h2 style="color: #D4AF37; margin-bottom: 30px; text-transform: uppercase; font-family: 'Playfair Display', serif;">Historia de Cadillac — El Origen</h2>
             <div class="video-modal-grid">
                 <div class="video-card">
-                    <video controls preload="metadata">
-                        <source src="assets/video/cadillac/Cadillac - Pensando En Ti (Musical Express) COMP.mp4#t=0.5" type="video/mp4">
+                    <video controls preload="metadata" poster="assets/video/cadillac/portada_pensando_en_ti.jpg">
+                        <source src="assets/video/cadillac/Cadillac - Pensando En Ti (Musical Express) COMP.mp4" type="video/mp4">
                     </video>
                     <div class="video-title">Pensando en ti (Musical Express)</div>
                 </div>
                 <div class="video-card">
-                    <video controls preload="metadata">
-                        <source src="assets/video/cadillac/Cadillac - Perdí Mi Oportunidad_COMP.mp4#t=0.5" type="video/mp4">
+                    <video controls preload="metadata" poster="assets/video/cadillac/portada_perdi_videoclip.jpg">
+                        <source src="assets/video/cadillac/Cadillac - Perdí Mi Oportunidad_COMP.mp4" type="video/mp4">
                     </video>
                     <div class="video-title">Perdí mi oportunidad (Videoclip)</div>
                 </div>
                 <div class="video-card">
-                    <video controls preload="metadata">
-                        <source src="assets/video/cadillac/Soy Un Soñador (Aplauso) COMP.mp4#t=0.5" type="video/mp4">
+                    <video controls preload="metadata" poster="assets/video/cadillac/portada_soy_un_sonador.jpg">
+                        <source src="assets/video/cadillac/Soy Un Soñador (Aplauso) COMP.mp4" type="video/mp4">
                     </video>
                     <div class="video-title">Soy un soñador (Aplauso)</div>
                 </div>
@@ -610,8 +741,8 @@
             <h2 style="color: #D4AF37; margin-bottom: 30px; text-transform: uppercase; font-family: 'Playfair Display', serif;">Producciones TRBandMusic</h2>
             <div class="video-modal-grid">
                 <div class="video-card">
-                    <video controls preload="metadata">
-                        <source src="assets/video/trband/00Videoclip Medianoche-En-La-Terraza COMP.mp4#t=0.5" type="video/mp4">
+                    <video controls preload="metadata" poster="assets/img/portada_video_medianoche.jpg">
+                        <source src="assets/video/trband/Medianoche_En_La_Terraza_Oficial_MIN.mp4" type="video/mp4">
                     </video>
                     <div class="video-title">Medianoche en la terraza | Cuando todo encaja</div>
                 </div>
@@ -688,6 +819,17 @@
             window.addEventListener('scroll', updateActivePoint);
             updateActivePoint();
         });
+
+        function toggleMobileMenu() {
+            var nav = document.getElementById('mainNav');
+            var btnIcon = document.querySelector('.menu-icon');
+            if (nav) {
+                nav.classList.toggle('mobile-active');
+                if (btnIcon) {
+                    btnIcon.textContent = nav.classList.contains('mobile-active') ? '✕' : '☰';
+                }
+            }
+        }
     </script>
 </body>
 </html>

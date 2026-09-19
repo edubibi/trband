@@ -220,14 +220,121 @@
             .integrantes-grid { grid-template-columns: repeat(3, 1fr) !important; }
         }
 
+        .mobile-menu-btn {
+            display: none;
+        }
+
         @media (max-width: 768px) {
-            .main-header { padding: 10px 15px !important; }
-            .header-logo { height: 45px !important; }
-            .header-title-white { font-size: 1.1rem !important; }
-            .main-nav { gap: 12px !important; }
-            .nav-link { font-size: 0.72rem !important; letter-spacing: 0.5px !important; }
+            .main-header {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 62px !important;
+                padding: 6px 16px !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                background: rgba(6, 6, 10, 0.96) !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                z-index: 10000 !important;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.35) !important;
+            }
+
+            .header-logo {
+                height: 40px !important;
+                width: auto !important;
+            }
+
+            .header-title-white {
+                font-size: 0.92rem !important;
+            }
+
+            .mobile-menu-btn {
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                background: #D4AF37 !important;
+                border: none !important;
+                color: #000000 !important;
+                padding: 7px 15px !important;
+                border-radius: 20px !important;
+                font-size: 0.82rem !important;
+                font-weight: 900 !important;
+                letter-spacing: 1px !important;
+                cursor: pointer !important;
+                z-index: 10002 !important;
+                box-shadow: 0 0 15px rgba(212, 175, 55, 0.5) !important;
+            }
+
+            .menu-icon {
+                font-size: 1.1rem !important;
+                line-height: 1 !important;
+                color: #000000 !important;
+            }
+
+            .menu-text {
+                color: #000000 !important;
+                font-weight: 900 !important;
+            }
+
+            .main-nav {
+                display: none !important;
+                position: fixed !important;
+                top: 62px !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: calc(100vh - 62px) !important;
+                background: rgba(8, 8, 12, 0.98) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                padding: 25px 20px 40px !important;
+                gap: 12px !important;
+                border-bottom: 3px solid #D4AF37 !important;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
+                z-index: 10001 !important;
+                box-sizing: border-box !important;
+                overflow-y: auto !important;
+            }
+
+            .main-nav.mobile-active {
+                display: flex !important;
+                animation: slideDownMenu 0.25s ease-out forwards;
+            }
+
+            @keyframes slideDownMenu {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .nav-link {
+                font-size: 1rem !important;
+                padding: 13px 20px !important;
+                width: 100% !important;
+                max-width: 340px !important;
+                text-align: center !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+                border: 1px solid rgba(255, 255, 255, 0.12) !important;
+                border-radius: 12px !important;
+                color: #ffffff !important;
+                font-weight: 700 !important;
+                box-sizing: border-box !important;
+                text-decoration: none !important;
+            }
+
+            .nav-link.active {
+                background: rgba(212, 175, 55, 0.25) !important;
+                border-color: #D4AF37 !important;
+                color: #D4AF37 !important;
+            }
+
             .navegacion-lateral { display: none; }
-            .hero-eduardo { padding-top: 110px; min-height: auto; }
+            .hero-eduardo { padding-top: 90px; min-height: auto; }
             .hero-eduardo-content { gap: 30px; }
             .eduardo-info h1 { font-size: 2.1rem; }
             .integrantes-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 20px 15px !important; }
@@ -243,11 +350,15 @@
 
     <!-- 📌 HEADER REPLICADO 1:1 DE LA FOTO 2 (LOGO NEON TRB + TITULO BLANCO + MENÚ LIMPIO SIN CÁPSULAS) -->
     <header class="main-header">
-        <div class="logo-area" onclick="window.location.href='index.html'">
+        <div class="logo-area" onclick="window.location.href='index.html'" style="cursor: pointer;">
             <img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo">
             <span class="header-title-white">The Research Band</span>
         </div>
-        <nav class="main-nav">
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+            <span class="menu-icon">☰</span>
+            <span class="menu-text">MENÚ</span>
+        </button>
+        <nav class="main-nav" id="mainNav">
             <a href="index.html" class="nav-link">Inicio</a>
             <a href="nosotros.html" class="nav-link active">Nosotros</a>
             <a href="iliada.html" class="nav-link">Mi Ilíada</a>
@@ -397,6 +508,9 @@
                 <img src="assets/miembros/JJ_ALMELA_profile.png" alt="JJ Almela" class="collab-avatar">
                 <h4>JJ Almela</h4>
                 <p>Piano / Producción</p>
+                <div style="margin-top: 4px;">
+                    <a href="https://www.jjalmela.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" style="color: #D4AF37; font-size: 0.75rem; text-decoration: underline; letter-spacing: 0.5px; font-weight: 600;" title="Web Oficial de JJ Almela">(jjalmela.com)</a>
+                </div>
             </div>
 
         </div>
@@ -437,7 +551,7 @@
             'jjalmela': {
                 name: 'JJ Almela',
                 role: 'Piano, Producción y Arreglos',
-                bio: 'Pianista de Jazz, Productor Musical y Director Artístico para firmas como SONY, EMI, RCA y COLUMBIA. Compositor prolífico para cine y televisión.'
+                bio: 'Pianista de Jazz, Productor Musical y Director Artístico para firmas como SONY, EMI, RCA y COLUMBIA. Compositor prolífico para cine y televisión.<br><br>🌐 <strong>Web Oficial:</strong> <a href="https://www.jjalmela.com" target="_blank" rel="noopener noreferrer" style="color: #D4AF37; text-decoration: underline; font-weight: 700;">www.jjalmela.com ➔</a>'
             }
         };
 
@@ -485,6 +599,17 @@
             window.addEventListener('scroll', updateActivePoint);
             updateActivePoint();
         });
+
+        function toggleMobileMenu() {
+            var nav = document.getElementById('mainNav');
+            var btnIcon = document.querySelector('.menu-icon');
+            if (nav) {
+                nav.classList.toggle('mobile-active');
+                if (btnIcon) {
+                    btnIcon.textContent = nav.classList.contains('mobile-active') ? '✕' : '☰';
+                }
+            }
+        }
     </script>
 
 </body>
