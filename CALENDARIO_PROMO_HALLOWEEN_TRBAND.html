@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRBAND - Calendario Promoción Halloween 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0612;
+      --bg-card: rgba(20, 12, 34, 0.75);
+      --bg-card-hover: rgba(30, 18, 52, 0.9);
+      --orange-fire: #ff6b00;
+      --orange-glow: rgba(255, 107, 0, 0.4);
+      --blue-flame: #00e5ff;
+      --blue-glow: rgba(0, 229, 255, 0.35);
+      --purple-accent: #a855f7;
+      --pink-trb: #ff007f;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-card: rgba(255, 255, 255, 0.1);
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 0%, #1f0d38 0%, #0a0612 70%);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      padding: 2.5rem 1.5rem 5rem;
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 107, 0, 0.15);
+      border: 1px solid var(--orange-fire);
+      color: #ffaa55;
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 20px var(--orange-glow);
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #fff 30%, #ff8c37 70%, #00e5ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto 1.5rem;
+    }
+
+    /* COUNTDOWN */
+    .countdown-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: rgba(15, 8, 28, 0.85);
+      border: 1px solid var(--border-card);
+      backdrop-filter: blur(12px);
+      padding: 0.85rem 1.75rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    .countdown-unit {
+      text-align: center;
+    }
+    .countdown-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--orange-fire);
+      line-height: 1;
+    }
+    .countdown-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+    }
+
+    /* STATS & QUICK LINKS */
+    .quick-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .quick-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      backdrop-filter: blur(10px);
+      border-radius: 0.85rem;
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.2s ease;
+    }
+    .quick-card:hover {
+      border-color: var(--blue-flame);
+      transform: translateY(-2px);
+    }
+    .quick-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .quick-title {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .quick-value {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-main);
+    }
+
+    /* TIMELINE */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .event-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      backdrop-filter: blur(12px);
+      border-radius: 1.2rem;
+      padding: 1.75rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 5px;
+      background: var(--border-card);
+      transition: background 0.3s ease;
+    }
+
+    .event-card.today {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: rgba(16, 185, 129, 0.06);
+    }
+    .event-card.today::before {
+      background: var(--success);
+      box-shadow: 0 0 15px var(--success);
+    }
+
+    .event-card.active-flame::before {
+      background: linear-gradient(180deg, var(--orange-fire), var(--blue-flame));
+      box-shadow: 0 0 15px var(--orange-fire);
+    }
+
+    .event-card.completed {
+      opacity: 0.85;
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .event-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.35rem 0.85rem;
+      border-radius: 0.5rem;
+      background: rgba(255, 255, 255, 0.07);
+      color: #fff;
+    }
+
+    .status-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .status-done {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .status-next {
+      background: rgba(255, 107, 0, 0.2);
+      color: #ff9d42;
+      border: 1px solid rgba(255, 107, 0, 0.4);
+    }
+    .status-upcoming {
+      background: rgba(148, 163, 184, 0.1);
+      color: #94a3b8;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+      color: #fff;
+    }
+
+    .card-asset {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-family: monospace;
+      color: var(--blue-flame);
+      background: rgba(0, 229, 255, 0.1);
+      padding: 0.2rem 0.6rem;
+      border-radius: 0.4rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(0, 229, 255, 0.2);
+    }
+
+    .card-desc {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .platform-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .platform-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 0.35rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #e2e8f0;
+    }
+
+    /* COPY BOX */
+    .copy-block {
+      background: rgba(10, 6, 18, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+    .copy-text {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      max-height: 120px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+    .btn-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, var(--orange-fire), #e05300);
+      color: #fff;
+      border: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+    }
+    .btn-copy:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
+    }
+    .btn-copy.copied {
+      background: var(--success);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    }
+
+    /* CHECKBOX TOGGLE */
+    .check-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .check-label:hover {
+      color: #fff;
+    }
+    .check-label input {
+      width: 1.15rem;
+      height: 1.15rem;
+      accent-color: var(--success);
+      cursor: pointer;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 4rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-card);
+      padding-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="badge-top">🎃 Campaña Oficial Halloween 2026</div>
+      <h1>TRBAND - Calendario Promocional</h1>
+      <p class="subtitle">Estrategia de dosificación de contenidos para «Risas al pasar» en YouTube, Instagram, Facebook y Radio.</p>
+      
+      <div class="countdown-box">
+        <div class="countdown-unit">
+          <div class="countdown-number" id="cd-days">--</div>
+          <div class="countdown-label">Días para Halloween</div>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-number" id="cd-hours">--</div>
+          <div class="countdown-label">Horas</div>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-number" id="cd-mins">--</div>
+          <div class="countdown-label">Minutos</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ACCESOS RÁPIDOS Y RECURSOS -->
+    <div class="quick-bar">
+      <div class="quick-card">
+        <div class="quick-icon">📁</div>
+        <div>
+          <div class="quick-title">Carpeta de Archivos</div>
+          <div class="quick-value" style="font-size: 0.8rem; word-break: break-all;">D:\RESCATE 2\...\PROMO halloween</div>
+        </div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-icon">📻</div>
+        <div>
+          <div class="quick-title">Envío Radio Alcanda</div>
+          <div class="quick-value">Listo en Escritorio</div>
+        </div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-icon">🎬</div>
+        <div>
+          <div class="quick-title">YouTube Short Activo</div>
+          <div class="quick-value"><a href="https://youtube.com/shorts/nADgZLZqq3I" target="_blank" style="color: var(--blue-flame); text-decoration: none;">Ver Short ↗</a></div>
+        </div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-icon">🎸</div>
+        <div>
+          <div class="quick-title">Web Oficial</div>
+          <div class="quick-value"><a href="https://trbandmusic.es" target="_blank" style="color: var(--orange-fire); text-decoration: none;">trbandmusic.es ↗</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIMELINE DE ACCIONES -->
+    <div class="timeline">
+
+      <!-- HITO 1: MIÉRCOLES 7 OCT (HOY) -->
+      <div class="event-card today" id="card-1">
+        <div class="event-top">
+          <span class="date-badge">🗓️ Miércoles 7 de Octubre (HOY)</span>
+          <span class="status-badge status-done" id="badge-1">Lanzado con éxito</span>
+        </div>
+        <h3 class="card-title">1. Disparo Inicial de Campaña (Vídeo 30")</h3>
+        <span class="card-asset">Risas al pasar 30.mp4</span>
+        <p class="card-desc">Lanzamiento oficial del vídeo 9:16 con el gancho estacional de Halloween Rock. Publicado en YouTube Shorts, muro de Facebook y Reels de Instagram. Dejar que los algoritmos maduren y distribuyan durante 24-48 horas.</p>
+        <div class="platform-tags">
+          <span class="platform-tag">YouTube Shorts ✅</span>
+          <span class="platform-tag">Facebook Reel / Muro ✅</span>
+          <span class="platform-tag">Instagram Reel ✅</span>
+        </div>
+        <label class="check-label">
+          <input type="checkbox" id="check-1" checked onchange="toggleEvent(1)">
+          <span>Marcar como completado</span>
+        </label>
+      </div>
+
+      <!-- HITO 2: JUEVES 8 DE OCTUBRE -->
+      <div class="event-card" id="card-2">
+        <div class="event-top">
+          <span class="date-badge">🗓️ Jueves 8 de Octubre (HOY)</span>
+          <span class="status-badge status-done" id="badge-2">Lanzado con éxito ✅</span>
+        </div>
+        <h3 class="card-title">2. El Cañonazo "Guitar Hero" (Solo 15")</h3>
+        <span class="card-asset">Risas al pasar_SOLO guitarra_15.mp4</span>
+        <p class="card-desc">Vídeo corto de altísima retención visual (guitarrista en llamas). Los vídeos de 15 segundos se reproducen en bucle y disparan la interacción de los apasionados del rock y la guitarra eléctrica.</p>
+        <div class="platform-tags">
+          <span class="platform-tag">Instagram Reels</span>
+          <span class="platform-tag">YouTube Shorts</span>
+          <span class="platform-tag">TikTok</span>
+        </div>
+
+        <div class="copy-block">
+          <div class="copy-text" id="copy-2">🔥 Cuando la guitarra arde en la noche de brujas... 🎸💀
+
+15 segundos de puro fuego rockero con el solo de «Risas al pasar». ¿Quién dijo que en Halloween no había buen Rock? ⚡
+
+🎬 DISFRUTA DEL TEMA Y VIDEOCLIP COMPLETO:
+👉 Tienes el enlace en la BIO / Canal de YouTube (TRBAND).
+
+Compositor y Guitarra: Eduardo Ramírez de Cartagena (TRBAND)
+
+Sube el volumen y cuéntame: ¿del 1 al 10 cuánta caña tiene este solo? 👇🔥
+
+#HalloweenRock #GuitarSolo #RisasAlPasar #TRBAND #RockEnEspañol #GuitarHero #Fuego #Halloween2026 #HardRock #SoloDeGuitarra</div>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <button class="btn-copy" onclick="copyText('copy-2', this)">📋 Copiar Texto y Etiquetas</button>
+          <label class="check-label">
+            <input type="checkbox" id="check-2" checked onchange="toggleEvent(2)">
+            <span>Marcar como completado</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- HITO 3: FIN DE SEMANA 10-11 OCT -->
+      <div class="event-card active-flame" id="card-3">
+        <div class="event-top">
+          <span class="date-badge">🗓️ Sábado 10 - Domingo 11 de Octubre</span>
+          <span class="status-badge status-next" id="badge-3">Próxima Acción</span>
+        </div>
+        <h3 class="card-title">3. El Teaser de Misterio & Atmósfera (Intro 10")</h3>
+        <span class="card-asset">Risas al pasar_INTRO 10.mp4</span>
+        <p class="card-desc">Ideal para <strong>Historias (Stories)</strong> de Instagram y Facebook. Activar sticker de pregunta/encuesta y enlace directo al vídeo de YouTube. No satura el muro y vuelve a recordar el tema a tus contactos durante el fin de semana.</p>
+        <div class="platform-tags">
+          <span class="platform-tag">Instagram Stories</span>
+          <span class="platform-tag">Facebook Stories</span>
+          <span class="platform-tag">TikTok</span>
+        </div>
+
+        <div class="copy-block">
+          <div class="copy-text" id="copy-3">🎃 Algo se acerca en la noche de otoño... 🌫️💀
+
+¿Te atreves a escuchar el rock de Halloween de TRBAND?
+
+👉 Desliza o toca en el sticker para escuchar «Risas al pasar» en YouTube 🎸
+
+#HalloweenRock #TRBAND #Misterio #Halloween2026</div>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <button class="btn-copy" onclick="copyText('copy-3', this)">📋 Copiar Texto y Etiquetas</button>
+          <label class="check-label">
+            <input type="checkbox" id="check-3" onchange="toggleEvent(3)">
+            <span>Marcar como completado</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- HITO 4: SEMANA 15-20 OCT -->
+      <div class="event-card" id="card-4">
+        <div class="event-top">
+          <span class="date-badge">🗓️ Jueves 15 - Lunes 19 de Octubre</span>
+          <span class="status-badge status-upcoming" id="badge-4">Planificado</span>
+        </div>
+        <h3 class="card-title">4. El Himno Vocal (Chorus 30")</h3>
+        <span class="card-asset">Risas al pasar_ CHORUS 30.mp4</span>
+        <p class="card-desc">Segundo gran impacto en el muro. A 10-12 días de Halloween, lanzamos el corte centrado en la melodía y el estribillo contundente. El público ya empieza a buscar activamente playlists para sus fiestas.</p>
+        <div class="platform-tags">
+          <span class="platform-tag">Instagram Reels</span>
+          <span class="platform-tag">YouTube Shorts</span>
+          <span class="platform-tag">Facebook Muro</span>
+        </div>
+
+        <div class="copy-block">
+          <div class="copy-text" id="copy-4">💀 ¿Preparando la banda sonora de tu fiesta de Halloween? 🎃🎸
+
+Sube los altavoces con el estribillo de «Risas al pasar». ¡El rock en español que no puede faltar el 31 de octubre! ⚡
+
+🎧 Escucha la canción completa en nuestro canal de YouTube: TRBAND
+Compositor: Eduardo Ramírez de Cartagena
+
+#HalloweenRock #RisasAlPasar #TRBAND #FiestaHalloween #RockEnEspañol #HalloweenPlaylist #NocheDeBrujas</div>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <button class="btn-copy" onclick="copyText('copy-4', this)">📋 Copiar Texto y Etiquetas</button>
+          <label class="check-label">
+            <input type="checkbox" id="check-4" onchange="toggleEvent(4)">
+            <span>Marcar como completado</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- HITO 5: SEMANA FINAL 26-31 OCT -->
+      <div class="event-card" id="card-5">
+        <div class="event-top">
+          <span class="date-badge">🗓️ 26 al 31 de Octubre (Clímax de Halloween)</span>
+          <span class="status-badge status-upcoming" id="badge-5">Semana Cumbre</span>
+        </div>
+        <h3 class="card-title">5. La Noche de Brujas (Llamada Final a Escucha)</h3>
+        <span class="card-asset">Campaña final: Historias + Repost de los mejores vídeos</span>
+        <p class="card-desc">El momento de máxima viralidad de Halloween. Publicar Historias diarias con la cuenta atrás ("¡Faltan 3 días!", "¡Faltan 2 días!", "¡HOY ES HALLOWEEN!"). Invitar a escuchar el tema entero en YouTube y trbandmusic.es mientras se disfrazan o celebran.</p>
+        <div class="platform-tags">
+          <span class="platform-tag">Todas las Redes</span>
+          <span class="platform-tag">Stories Diarias</span>
+          <span class="platform-tag">YouTube Destacado</span>
+        </div>
+
+        <div class="copy-block">
+          <div class="copy-text" id="copy-5">🎃 ¡LLEGÓ LA NOCHE DE BRUJAS! 🎸🔥💀
+
+Que ardan las calabazas y suenen los amplificadores. Pon a todo volumen «Risas al pasar» de TRBAND para celebrar el Halloween más rockero del año.
+
+👉 LINK EN BIO / CANAL DE YOUTUBE
+
+#Halloween #Halloween2026 #HalloweenRock #RisasAlPasar #TRBAND #FelizHalloween #RockEnEspañol</div>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <button class="btn-copy" onclick="copyText('copy-5', this)">📋 Copiar Texto y Etiquetas</button>
+          <label class="check-label">
+            <input type="checkbox" id="check-5" onchange="toggleEvent(5)">
+            <span>Marcar como completado</span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-note">
+      <p>The Research Band (TRBAND) • Eduardo Ramírez de Cartagena • Registro SGAE 29751</p>
+      <p style="margin-top: 0.35rem; font-size: 0.75rem; color: #64748b;">Este archivo guarda tu progreso automáticamente en este navegador.</p>
+    </div>
+  </div>
+
+  <script>
+    // Cuenta atrás a Halloween (31 Octubre 2026)
+    function updateCountdown() {
+      const halloween = new Date('2026-10-31T00:00:00');
+      const now = new Date();
+      const diff = halloween - now;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById('cd-days').textContent = days;
+        document.getElementById('cd-hours').textContent = hours;
+        document.getElementById('cd-mins').textContent = mins;
+      } else {
+        document.getElementById('cd-days').textContent = '0';
+        document.getElementById('cd-hours').textContent = '0';
+        document.getElementById('cd-mins').textContent = '0';
+      }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+
+    // Copiar textos al portapapeles
+    function copyText(elemId, btn) {
+      const text = document.getElementById(elemId).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '✅ ¡Copiado!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        alert('Error al copiar: ' + err);
+      });
+    }
+
+    // Persistencia de estados con localStorage
+    function toggleEvent(id) {
+      const checkbox = document.getElementById('check-' + id);
+      const card = document.getElementById('card-' + id);
+      const badge = document.getElementById('badge-' + id);
+
+      localStorage.setItem('trband_event_' + id, checkbox.checked);
+
+      if (checkbox.checked) {
+        card.classList.add('completed');
+        badge.textContent = 'Completado';
+        badge.className = 'status-badge status-done';
+      } else {
+        card.classList.remove('completed');
+        if (id === 1) {
+          badge.textContent = 'Lanzado';
+        } else if (id === 2) {
+          badge.textContent = 'Próxima Acción';
+          badge.className = 'status-badge status-next';
+        } else {
+          badge.textContent = 'Planificado';
+          badge.className = 'status-badge status-upcoming';
+        }
+      }
+    }
+
+    // Cargar estados guardados
+    window.addEventListener('DOMContentLoaded', () => {
+      for (let i = 1; i <= 5; i++) {
+        const saved = localStorage.getItem('trband_event_' + i);
+        if (saved !== null) {
+          const chk = document.getElementById('check-' + i);
+          if (chk) {
+            chk.checked = (saved === 'true');
+            toggleEvent(i);
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

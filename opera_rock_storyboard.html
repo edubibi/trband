@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Libreto & Guión - Ópera Rock 90'</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090c12;
+      --bg-card: rgba(16, 21, 33, 0.9);
+      --bg-card-hover: rgba(22, 29, 46, 0.98);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-focus: #38bdf8;
+
+      --accent-crew: #06b6d4;
+      /* Dissonance Crew */
+      --accent-tech: #10b981;
+      /* Wall Street */
+      --accent-love: #ec4899;
+      /* Laura & Megan */
+      --accent-hugo: #f59e0b;
+      /* Hugo */
+
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      --font-ui: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image:
+        radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.06) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.06) 0px, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER SUPERIOR CON TOTALES */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 12, 18, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.85rem 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #0284c7, #ec4899);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .brand-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .timeline-summary {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.35rem 1.2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .stat-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-val {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #06b6d4);
+      color: #fff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0369a1, #0891b2);
+    }
+
+    /* CONTENEDOR PRINCIPAL */
+    .layout-container {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      flex: 1;
+      height: calc(100vh - 65px);
+      overflow: hidden;
+    }
+
+    /* BARRA LATERAL (ÍNDICE DE ESCENAS) */
+    .sidebar {
+      background: rgba(12, 16, 25, 0.95);
+      border-right: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .scene-tree {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding: 0.75rem;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .tree-item {
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.15s ease;
+    }
+
+    .tree-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .tree-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      overflow: hidden;
+    }
+
+    .tree-item-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 175px;
+    }
+
+    .tree-item-meta {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+    }
+
+    .badge-bando {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .badge-crew {
+      color: var(--accent-crew);
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+
+    .badge-tech {
+      color: var(--accent-tech);
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-love {
+      color: var(--accent-love);
+      background: rgba(236, 72, 153, 0.15);
+      border: 1px solid rgba(236, 72, 153, 0.3);
+    }
+
+    .badge-clash {
+      color: #f87171;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    /* WORKSPACE CENTRAL */
+    .main-workspace {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 1.5rem 2.25rem;
+      gap: 1.5rem;
+    }
+
+    .storyboard-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 980px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* TARJETA DE ESCENA TIPO LIBRETO */
+    .scene-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .scene-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      background: var(--bg-card-hover);
+    }
+
+    /* CABECERA DE LA ESCENA */
+    .scene-card-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.85rem;
+    }
+
+    .scene-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .scene-number {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.08);
+      color: #38bdf8;
+      padding: 0.3rem 0.55rem;
+      border-radius: 5px;
+    }
+
+    .scene-title-input {
+      font-family: var(--font-ui);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      background: transparent;
+      border: none;
+      border-bottom: 1px dashed transparent;
+      outline: none;
+      width: 100%;
+      padding: 0.15rem 0;
+    }
+
+    .scene-title-input:focus {
+      border-bottom-color: var(--border-focus);
+    }
+
+    .scene-meta-group {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .meta-tag-input {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-subtle);
+      border-radius: 5px;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 0.25rem 0.5rem;
+      outline: none;
+    }
+
+    /* SECCIÓN 1: HISTORIA Y ARGUMENTO */
+    .section-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .label-story {
+      color: #f59e0b;
+    }
+
+    .label-script {
+      color: #38bdf8;
+    }
+
+    .label-music {
+      color: #ec4899;
+    }
+
+    .textarea-story {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      padding: 0.75rem 0.9rem;
+      min-height: 70px;
+      resize: vertical;
+      outline: none;
+    }
+
+    .textarea-story:focus {
+      border-color: #f59e0b;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    /* SECCIÓN 2: GUIÓN, DIÁLOGOS Y VOZ EN OFF */
+    .textarea-script {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      color: #e2e8f0;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      padding: 0.85rem 1rem;
+      min-height: 140px;
+      resize: vertical;
+      outline: none;
+    }
+
+    .textarea-script:focus {
+      border-color: #38bdf8;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    /* SECCIÓN 3: PROMPT DE ESTILO / SUNO */
+    .music-bar {
+      display: flex;
+      gap: 0.65rem;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .music-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: #7dd3fc;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      outline: none;
+    }
+
+    /* FOOTER DE LA TARJETA */
+    .scene-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.65rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .footer-btn-group {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    /* MODAL DE EXPORTACIÓN */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-window {
+      background: #101623;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 820px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      padding: 1.15rem 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-body {
+      padding: 1.25rem 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-body textarea {
+      width: 100%;
+      height: 420px;
+      background: #090d16;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 1rem;
+      color: #f1f5f9;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      resize: vertical;
+      outline: none;
+    }
+
+    .modal-footer {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #0284c7;
+      color: #fff;
+      padding: 0.65rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.25s ease;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER FIJO: MINUTAJE Y ACCIONES GLOBALES -->
+  <header>
+    <div class="brand-group">
+      <span class="brand-badge">Ópera Rock 90'</span>
+      <h1 class="brand-title">DISSONANCE CREW <span
+          style="font-weight:300; color:var(--text-muted); font-size:0.95rem;">| Libreto & Guión</span></h1>
+    </div>
+
+    <!-- MINUTAJE EN VIVO -->
+    <div class="timeline-summary">
+      <div class="stat-pill">
+        <span class="stat-label">Tiempo Total</span>
+        <span class="stat-val" id="totalTimeDisplay">00:00 / 90:00</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Acto I</span>
+        <span class="stat-val" id="act1TimeDisplay" style="color:#38bdf8;">00:00</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Acto II</span>
+        <span class="stat-val" id="act2TimeDisplay" style="color:#ec4899;">00:00</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Acto III</span>
+        <span class="stat-val" id="act3TimeDisplay" style="color:#f59e0b;">00:00</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Escenas</span>
+        <span class="stat-val" id="scenesCountDisplay" style="color:#fff;">0</span>
+      </div>
+    </div>
+
+    <!-- ACCIONES -->
+    <div class="header-actions">
+      <button class="btn btn-primary" onclick="addNewScene()">+ Nueva Escena</button>
+      <button class="btn" onclick="openExportModal()">📄 Exportar Guión</button>
+      <button class="btn" onclick="exportJSON()">💾 Descargar JSON</button>
+      <label class="btn" style="cursor:pointer;">
+        📥 Cargar JSON
+        <input type="file" id="fileInput" accept=".json" style="display:none;" onchange="importJSON(event)">
+      </label>
+      <button class="btn" onclick="saveToLocalStorage(true)">💾 Guardar</button>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL: ÍNDICE LATERAL + WORKSPACE -->
+  <div class="layout-container">
+
+    <!-- ÍNDICE DE ESCENAS -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-title">Escaleta de Escenas</span>
+        <span style="font-size:0.7rem; color:var(--text-dim);" id="sidebarCountTag">0 temas</span>
+      </div>
+      <div class="scene-tree" id="sceneTreeList">
+        <!-- Generado dinámicamente -->
+      </div>
+    </aside>
+
+    <!-- WORKSPACE: TARJETAS DE GUIÓN -->
+    <main class="main-workspace">
+      <div class="storyboard-container" id="storyboardContainer">
+        <!-- Generado dinámicamente -->
+      </div>
+    </main>
+
+  </div>
+
+  <!-- MODAL PARA EXPORTAR TEXTO COMPLETO -->
+  <div class="modal-overlay" id="exportModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 style="font-size:1.05rem; font-weight:700;">Guión Completo (Listo para leer o imprimir)</h3>
+        <button class="btn" onclick="closeExportModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <textarea id="exportTextArea" readonly></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="copyModalContent()">📋 Copiar Guión Completo</button>
+        <button class="btn" onclick="closeExportModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST DE NOTIFICACIÓN -->
+  <div class="toast" id="toastNotification">Guardado</div>
+
+  <script>
+    // DATOS INICIALES CENTRADOS EN HISTORIA Y DIÁLOGO (SIN ACORDES)
+    const DEFAULT_PROJECT = [
+      {
+        id: "scene-1",
+        number: 1,
+        act: 1,
+        title: "Preludio - La Audición de Hugo (15 Años)",
+        duration: "00:40",
+        bando: "crew",
+        story: "Hace 10 años. Sala de audición académica, fría y solemne. Hugo (15 años) acaba de terminar de cantar con el alma. El tribunal de tres tecnócratas con traje gris le deniega la entrada en seco sin mirarle a la cara. Hugo sale a la calle vacía bajo la lluvia, aprieta los puños y estalla en un himno operístico a lo Queen que define su vida.",
+        script: "[Audition Room - Classical Piano Climax]\n...y vinieron a soñaaaaaaaar...\n[Dramatic Final Chord Hit]\n[Abrupt Stop]\n\n[Spoken - Distant Cold Voice]\nSiguiente. No nos llame.\n\n[Scene Change - Rain on the Street - Slow Melancholic Piano and Cello]\n\n[Verse 1 - Hugo - Intimate Reflection]\nEl frío en la acera no quema tanto\ncomo ver vuestros ojos de cristal.\nTantas reglas para medir el aire...\ntanto miedo a ver a alguien volar.\n\n[Chorus - Young Hugo - Pure Emotional Climax / Queen Style]\n¿Es que no me oís?\n¿De verdad que no me oís?\n¿O es que os asusta la marea\ncuando empieza a respirar?\n\n¿Es que no me oís?\n¡Vais a tener que oírme gritar!",
+        stylePrompt: "theatrical rock opera, Queen style anthem, soaring passionate male vocal, dramatic grand piano, soaring Brian May style electric guitar, heavy punchy drums, operatic rock climax, emotional vibrato"
+      },
+      {
+        id: "scene-2",
+        number: 2,
+        act: 1,
+        title: "Nadie compra nuestra piel (Dissonance Crew)",
+        duration: "04:24",
+        bando: "crew",
+        story: "Presente. Diez años después. Un viejo almacén portuario abandonado convertido en cuartel de arte y resistencia. Hugo lidera la banda con la armónica y la base funk a toda máquina mientras los bailarines entrenan. Laura entra en escena con un poder arrollador, desafiando a Hugo y tomando el micrófono con un derroche de soul callejero.",
+        script: "[Intro - Slap Bass and Blues Harmonica Groove]\n\n[Verse 1 - Male Vocal - Hugo]\nBienvenidos a la grieta del sistema.\nAquí no se cotiza, aquí se sangra compás a compás.\n¿Es que no lo oís? El suelo está temblando ya.\n\n[Verse 2 - Female Vocal - Laura]\nDeja los discursos, Hugo, y dale gas.\nSi la ciudad duerme anestesiada,\nnosotras la vamos a quemar.\nMírame a los ojos si te atreves a bailar.\n\n[Pre-Chorus - Fast Vocal Trade]\n[Hugo] ¡El golpe en el dos!\n[Laura] ¡Y el fuego en la voz!\n[Hugo] ¡Que tiemble el cemento!\n[Laura] ¡Que empiece el movimiento!\n\n[Chorus - Duet / High Energy]\n¡Disonancia en vena, nadie compra nuestra piel!\n¡Si el mundo está sordo gritaremos más que ayer!\nRompe el cristal, siente el tambor,\naquí la calle tiene el control.\n\n[Instrumental Outro - Furious Blues Harmonica & Electric Guitar Solo]\n[End]",
+        stylePrompt: "jazz-rock funk, 145 bpm, driving upbeat, double-time feel, snare on 2 and 4, punchy drums, slap bass, blues harmonica, Rhodes, theatrical rock opera, male and female vocals trading bars"
+      },
+      {
+        id: "scene-3",
+        number: 3,
+        act: 1,
+        title: "Tenemos la pasta (El Código de Los Frozen)",
+        duration: "03:28",
+        bando: "tech",
+        story: "Planta 60 de la torre corporativa. Atmósfera gélida, pantallas fluorescentes de cotizaciones parpadeando en verde. Donald, con voz oscura y rap implacable, exige la demolición de los muelles. Megan intenta frenarle con una melodía dulce y vulnerable, pero Donald y su coro de Los Frozen aplastan cualquier rastro de compasión.",
+        script: "[Intro - Sharp Jazz-Rock Guitar Riff and Brass Stabs]\n\n[Verse 1 - Deep Low Male Rap Flow - Donald]\nVolumen y margen, el ratio perfecto,\naquí no hay errores, ejecuto el trayecto.\nSi tiemblas te aparto, si lloras te vendo,\nyo compro el futuro que estás escupiendo.\nLa bolsa no duerme, la pasta no espera,\npongo mi precio a tu puta trinchera.\nDiez años mirando los números verdes,\nquien juega a sentir es el gil que se pierde.\n\n[Chorus - Hard Rock Hook - Donald with Slick Backing Vocals]\n¡Nos llaman Los Frozen, el frío en la piel!\n¡El mundo es de acero, vosotros de papel!\nZero emoción, cero perdón,\ntenemos la pasta, tenemos el control.\n\n[Verse 2 - Fast Aggressive Rap Flow - Donald]\nFirmamos la compra, subimos la tasa,\ndesahucio al bohemio que estorba en la plaza.\nMe río en sus caras, me río en su arte,\nsi no hay beneficio te parto en dos partes.\nEl suelo del puerto ya tiene mi sello,\nmañana los bulldozers van a su cuello.\n\n[Bridge - Donald - Rapid Fire Flow]\nCompilo, devoro, liquido, clausuro,\nconstruyo mi torre tapando el futuro.\nNi un paso con pena, ni un euro con fe,\n¡la ciudad entera se rinde a mis pies!\n\n[Tense Slowdown - Piano and Bass]\n[Donald - Fast Rap Command]\nMegan, el informe de demolición... ¿lo tienes firmado?\n\n[Melodic Singing - Female Vocal - Megan - Pure Melodic Contrast]\nEl muelle está protegido en el mar...\nhay vidas que no puedes comprar.\nHay un eco latiendo en la oscuridad...\n¿no sientes miedo de tanta frialdad?\n\n[Donald - Deep Low Sinister Rap]\n¿Historia? La historia se compra al contado,\ny ese puto muelle ya está amortizado.\nNo me vengas con lágrimas de heredera,\naquí quien duda... se queda fuera.\n\n[Chorus - Maximum Power - Donald & The Frozen Chorus]\n¡Nos llaman Los Frozen, el frío en la piel!\n¡El mundo es de acero, vosotros de papel!\nZero emoción, cero perdón,\ntenemos la pasta, tenemos el control.\n\n[Heavy Guitar Solo - Queen Style Biting Screaming Harmony]\n\n[Donald - Deep Low Voice - Final Blow]\nMegan, pulsa la tecla. Mañana no queda nada.\n[Big Jazz-Rock Final Hit]\n[End]",
+        stylePrompt: "jazz-rock rap fusion, rap rock, heavy punchy drums, driving groove, Queen style theatrical guitar, grand piano, brass accents, deep low-pitched male rap flow, aggressive dark baritone rapper, melodic female singing contrast"
+      },
+      {
+        id: "scene-4",
+        number: 4,
+        act: 1,
+        title: "En mi jaula de cristal (Megan)",
+        duration: "02:43",
+        bando: "love",
+        story: "Megan se queda sola en el despacho tras la reunión con Donald. Mira la ciudad nocturna a través de la enorme cristalera de la planta 60. A pesar de haber nacido en la élite y tener el futuro asegurado, siente una soledad asfixiante y un anhelo desesperado de sentir algo real.",
+        script: "[Verse 1 - Megan - Grand Piano and Clean Voice]\nCuentan que el mundo cabe en un cristal,\nque los números nunca van a fallar.\nTengo el cielo de la ciudad a mis pies...\ny por dentro me muero de sed.\n\n[Verse 2 - Bass and Drums Enter with Warm Groove]\nVuelvo a mirar hacia el muelle otra vez,\ndonde la lluvia golpea la red.\nAllí abajo la gente se atreve a vivir,\nmientras yo aquí arriba solo aprendo a fingir.\n\n[Chorus - Melodic Rock - Clean Emotional Voice - No Choir]\nSola en mi jaula de cristal,\ndonde sentir es un delito capital.\nMe enseñaron a mandar, me enseñaron a callar...\n¿y quién me enseña a respirar?\nDime quién me va a salvar\nde este frío que no puedo parar.\n\n[Guitar Solo - Melodic and Sweet - Singing Notes]\n\n[Bridge - Megan - Pure Melodic Vocal]\nUn segundo de verdad...\nsolo pido un segundo para tocar la realidad.\nBajar a la calle, pisar el dolor,\ncambiar este invierno por un poco de calor.\n\n[Chorus - Emotional Peak - Clear Soaring Vocal - Solo]\nSola en mi jaula de cristal,\ndonde sentir es un delito capital.\nMe enseñaron a mandar, me enseñaron a callar...\n¿y quién me enseña a respirar?\nDime quién me va a salvar\nde este frío que no puedo parar.\n\nSola en mi jaula de cristal,\ndonde sentir es un delito capital.\n\n[Outro - Piano and Guitar Fade]\nUn cristal tan frío...\ntan difícil de romper.\n[End]",
+        stylePrompt: "melodic rock ballad, solo female vocal, completely clean emotional singing voice, sweet lyrical tone, melodic vocal, no choir, no backing vocals, no screaming, grand piano, warm bass, tasteful rock drums, melodic crying electric guitar, intimate and personal"
+      },
+      {
+        id: "scene-5",
+        number: 5,
+        act: 1,
+        title: "Invitados sin invitación (El Asalto a la Gala)",
+        duration: "04:30",
+        bando: "crew",
+        story: "Almacén de los muelles. Al enterarse de la gala benéfica de Los Frozen, la Crew no espera pasiva. Asaltan un furgón de catering, se enfundan pajaritas torcidas y esmóquines rotos y esconden los instrumentos para infiltrarse por la puerta de servicio del Grand Hotel. Puro rock de estadio enérgico (Queen + Aerosmith + Toto).",
+        script: "[Intro - Driving Arena Rock Groove - 126 BPM - Heavy Toto-Style Snare on 2 and 4, Swaggering Aerosmith Guitar Riff and Roaring Hammond B3]\n\n[Verse 1 - Hugo - Gritty Rock Tenor with Swagger]\nBrindan con champán en la planta real,\nfirmando la sentencia de nuestro arrabal.\nCreen que esta noche la fiesta es para ellos,\ncenando de etiqueta contando los destellos.\nTienen la pasta, tienen el poder...\n¡pero esta noche van a tener que correr!\n\n[Verse 2 - Laura - Powerful Raw Street Alto]\n[sing Laura]\nTengo un vestido negro que robé de un desván,\nla llave de servicio del viejo furgón de pan.\nNi alfombra roja, ni lista oficial:\n¡entramos por la puerta del personal!\nPajarita torcida, púa en el tacón,\n¡vamos a meterles el barro en su salón!\n\n[Pre-Chorus - Hugo & Laura - Soaring Queen-Style Vocal Harmonies Building Up]\n[Hugo] Que limpien las copas, que afinen la orquesta...\n[Laura] ¡Que llega la fiera a amargarles la fiesta!\n[Both]\nUn, dos, tres... ¡a romper el telón!\n\n[Chorus - Explosive Stadium Rock Anthem - Queen-Style Massive Vocal Wall + Driving Aerosmith Rhythm Section]\n¡Invitados sin invitación!\n¡Rompemos la regla, saltamos el guion!\nCierren las puertas, llamen al control,\n¡esta noche en su palacio manda el rock and roll!\nSin pedir permiso, sin pedir perdón...\n¡somos los CREW en su salón!\n¡Invitados sin invitación!\n\n[Verse 3 - Fast Vocal Trade over Driving Groove - Hugo & Laura]\n[Hugo] Cable bajo la bandeja, pedal en el cajón...\n[Laura] Fingen ser señores, ¡vamos a darles lección!\n[Hugo] ¿Creen que los muelles se van a rendir?\n[Laura] ¡Primero tendrán que oírnos rugir!\n\n[Pre-Chorus 2 - Hugo, Laura & Full Crew Chorus - Huge Operatic Build-Up]\nQue sirvan el postre, que guarden el caviar,\n¡que el puerto de los lobos acaba de entrar!\n\n[Chorus]\n¡Invitados sin invitación!\n¡Rompemos la regla, saltamos el guion!\nCierren las puertas, llamen al control,\n¡esta noche en su palacio manda el rock and roll!\nSin pedir permiso, sin pedir perdón...\n¡somos los Crew en su salón!\n¡Invitados sin invitación!\n\n[Guitar Solo - Virtuoso Duel: Biting Joe Perry Blues-Rock Bends trading with Harmonized Brian May Multi-Track Leads, over a tight Jeff Porcaro-style Toto Groove]\n\n[Bridge - Tense Street Drop - Fast Rhythmic Whispers and Thumping Bassline]\n[Hugo - Low Swagger] Callejón trasero... montacargas dos...\n[Laura - Sharp and Focused] Luces de cocina, apagando el visor...\n[Hugo] Tres...\n[Laura] Dos...\n[Both - Soaring High Screaming Rock Vocal into the Mic]\n¡UNO...!\n\n[Chorus]\n¡Invitados sin invitación!\n¡Rompemos la regla, saltamos el guion!\nCierren las puertas, llamen al control,\n¡esta noche en su palacio manda el rock and roll!\nSin pedir permiso, sin pedir perdón...\n¡somos los Crew en su salón!\n¡Invitados sin invitación!\n¡IN-VI-TA-DOS SIN IN-VI-TA-CIÓN!\n\n[Outro - Massive Final Chord Crash - Sustained Rock Guitar Feedback - Abrupt Door Slam into the Luxury Ballroom]\n[End]",
+        stylePrompt: "stadium hard rock, 126 bpm, driving heavy rock groove, male and female duet, dual lead vocals, prominent female rock lead vocal trading verses with male rock tenor, female rock singer, tight punchy Toto drums, swaggering Aerosmith blues-rock guitar riffs, Queen style multi-layered operatic rock chorus, roaring Hammond B3 organ, punchy bass, energetic theatrical rock anthem, no solo male, male female call and response"
+      },
+      {
+        id: "scene-6",
+        number: 6,
+        act: 1,
+        title: "Fuego en el salón de cristal (El Flechazo)",
+        duration: "03:39",
+        bando: "clash",
+        story: "Gala benéfica de la alta sociedad en el Grand Hotel. La Dissonance Crew ha conseguido tocar de tapadillo como música de cóctel para recaudar dinero. Laura revienta la fiesta transformando el vals estirado en un jazz-rock funk salvaje a 145 BPM. Se planta delante de Megan; Megan se levanta y le responde cantando cara a cara. Surge un flechazo instantáneo y prohibido.",
+        script: "[Intro - Stiff Classical Strings and Delicate Cocktail Piano]\n\n[Verse 1 - Laura - Whispered over Piano]\nCopas de cristal, sonrisas de metal,\ntodos tan perfectos, nadie es real.\nBailáis sobre una alfombra que oculta la verdad...\n[Abrupt Stop]\n...pero esta noche el puerto os va a despertar.\n\n[Sudden Explosion - 145 BPM Driving Jazz-Rock Funk - Drums and Slap Bass Kick In!]\n\n[Verse 2 - Laura - Defiant Street Soul]\n¡Abrid paso al barro, señores del salón!\n¡Que el ritmo de la calle no pide perdón!\nTanto oro en las muñecas para no sentir el pulso,\n¡aquí ha llegado el fuego a romper vuestro discurso!\n\n[Chorus 1 - Laura - Staring at Megan with Fire]\nMírame a los ojos si te atreves a quemar,\nmírame a los ojos si te atreves a saltar.\nHay un latido vivo tras tu máscara de seda...\ndime quién te calla, dime quién te frena.\n\n[Music Drops to Tense Funky Bass - Megan Stands Up]\n\n[Verse 3 - Megan - Pure Melodic Defiance]\n¿Quién eres tú para entrar en mi prisión?\n¿Quién te dio el derecho a exigir mi corazón?\nMiras mi vestido creyendo que soy fría...\n¡y llevo diez inviernos ahogándome en su orilla!\n\n[Chorus 2 - Laura & Megan - Fast Vocal Trade over Driving Groove]\n[Laura] ¡Mírame a los ojos, no bajes la voz!\n[Megan] ¡Mírame a los ojos, no tengo temor!\n[Laura] ¡Hay un fuego vivo que nadie controla!\n[Megan] ¡Llévame contigo, no me dejes sola!\n\n[Duet Climax - High Notes Harmonizing - Pure Power]\n[Both]\n¡Que reviente el salón, que se quiebre el cristal!\n¡El pulso de la sangre no se puede callar!\nUna sola mirada para no regresar...\n¡hoy empieza el incendio y no lo van a parar!\n\n[Guitar Solo - Biting Funky Rock Screaming]\n\n[Outro - Fast Street Funk Drums fading down the stairs as they run]\n[End]",
+        stylePrompt: "theatrical musical duet, 145 bpm driving jazz-rock funk, punchy drums, slap bass, biting guitar, female vocal duet, distinct contrasting voices: raspy gritty alto female vocal (Laura) trading with sweet crystalline soprano female vocal (Megan), passionate high-energy dialogue"
+      },
+      {
+        id: "scene-7",
+        number: 7,
+        act: 1,
+        title: "Quién se queda junto a ti (Gran Cierre Acto I)",
+        duration: "06:22",
+        bando: "crew",
+        story: "De vuelta en el almacén del puerto tras la huida de la gala. Laura y Hugo están a solas de noche frente al mar. Se miran, se abrazan y cantan a la lealtad incondicional, a los años de resistencia juntos y a quién sostiene a quién cuando el mundo se cae. Es el gran himno épico de hermandad de la Crew antes de que la tormenta del Acto II los separe.",
+        script: "[Intro: EWI melody, Rhodes piano chords, slow slap bass groove, electric violin hook, building the tempo]\n[Verse 1: Smooth Yacht Rock vibe, soulful baritone vocals]\nHe cruzado noches en vela\nBuscando un lugar donde ir\nUnos llegan solo de paso\nOtros quieren compartir\n\n[Verse 2: Smooth Yacht Rock vibe, soulful baritone vocals]\nNo pretendo hablar por nadie\nSolo cuento lo que sentí\nY al abrirme con la gente\nAlgo en común descubrí\n\n[Pre‑Chorus: Rhodes + soft drums]\nAprendí que el tiempo muestra\nQuién se queda junto a ti\nHay caminos que se cruzan\nY otros que no vuelven a abrir\nUn acorde y todo es claro\nCuando el mundo va a caer\nSolo importa quién te nombra\nCuando ya no puedes ver\n[Break instrumental]\n\n[Chorus: Duet - Full Band Climax - Heavy Progressive Rock]\n¿Quiénes siguen cuando cae la luz?\n¿Quiénes llegan cuando falta voz?\nNo prometo entenderlo siempre\nPero sé quién me sostuvo hoy\n¿Quiénes siguen cuando cae la luz?\n¿Quiénes llegan cuando falta voz?\nNo prometo entenderlo siempre\nPero sé quién me sostuvo hoy\n\n[Guitar Solo - Biting Progressive Rock Lead]\n\n[Verse 3]\nHe visto romper escenarios\nY otros volver a encender\nAlgunos llegan sin prisa\nY se quedan al caer\n\n[Chorus - Full Power Duet - Hugo & Laura]\n¿Quiénes siguen cuando cae la luz?\n¿Quiénes llegan cuando falta voz?\nNo prometo entenderlo siempre\nPero sé quién me sostuvo hoy\n\n[Outro - Progressive Fusion Climax - Vocal ad-libs fade]\n(Amigos, amigos)\nUn gesto de verdad\nPuede ser de ti...\n[End]",
+        stylePrompt: "heavy progressive rock fusion, 70s 80s prog-rock virtuoso band, roaring Hammond B3 organ, biting dual electric guitar harmonies, heavy complex driving drums, punchy aggressive bassline, analog studio album sound, passionate rock tenor and female rock vocals, massive progressive rock climax, no theatre, no broadway"
+      },
+      {
+        id: "scene-8",
+        number: 8,
+        act: 2,
+        title: "Donald es la ley (Cacería en el Puerto)",
+        duration: "05:14",
+        bando: "tech",
+        story: "Madrugada siguiente en la planta 60 y asedio al muelle. Donald, humillado por el escándalo de la gala que ya está en todos los informativos, desata su cólera. Cancela los plazos legales y ordena un asedio inmediato: cortar la luz de los muelles, enviar a seguridad privada y reventar a los rebeldes. Donald siempre en rap despiadado de barítono.",
+        script: "[Intro - Slap Bass & Tight Clavinet Stabs - 140 BPM Funk-Fusion Pulse]\n[Coro / Backing Vocals - Tight Rhythmic Chant]\nDonald es la ley\nDonald manda aquí\nNadie va a salir\n[Donald - Spoken Snarl]\n¡Bang bang bang!\n\n[Chorus - Heavy Groove - Full Band & Mixed Choir]\nDonald es la ley\nDonald manda aquí\nNadie va a salir\nBang bang bang!\n\n[Rap Verse 1 - Donald - Fast Aggressive Baritone Rap - No Singing]\nCierrad las tres salidas, tumbad ya ese portón,\nquiero a mis hombres armados reventando el furgón.\n¿Se creían que mi fiesta se podía sabotear?\n¡Les voy a enseñar el prethio que van a tener que pagar!\nTengo comprada la prensa, tengo comprado al juez,\nbuscadme a Megan ahora, sacadla del andén.\nY al que mueva una ceja o intente resistir...\n¡le meto tres tiros limpios!\n¡Bang bang bang!\n\n[Chorus - Rhythmic Staccato Hook 1 - Fast Syncopated Chant]\nLimpia, limpia\nFuego, fuego\n¡zzero tregua al muelle ya!\n\n[Rap Verse 2 - Donald - Furious Rapid-Fire Spoken Rap]\nCortad de cuajo la luz de toda la terminal,\nque no se escape una rata nadando por el canal.\nMeted las excavadoras, traed botes de gas,\na ver si esos muertos de hambre dan un solo paso más.\nQuiero a ese Hugo de rodillas tragándose su rencor,\naquí no hay arte ni música, ¡aquí manda el inversor!\n¡Tumbad el almacén!\n¡Bang bang bang!\n\n[Chorus - Rhythmic Staccato Hook 2]\nRastreo, rastreo\nCerco, cerco\n¡Luces rojas en la red!\n\n[Bridge - Tense Half-Time Breakdown - Donald Dark Menacing Speech into Scream]\n[Donald - Deep Menacing Low Voice]\n¿Se pensaban que era un juego?\n¿Pensabais que esta torre se levantó con perdón?\n[Fast aggressive build-up]\n¡Yo no negocio con chusma de muelle!\n¡Quien me torea en mi propia casa...\n¡acaba bajo tierra!\n¡Bang bang bang!\n\n[Guitar Solo - Virtuoso Brian May harmonized multi-track guitars screaming over tight 140 BPM slap bass and fusion drums]\n\n[Rap Verse 3 - Donald - Ruthless Fast Baritone Rap]\nSuenan ya las sirenas, tiembla el asfalto mojado,\nvolad las viejas cadenas, reventad todo candado.\nCompro a la policía, compro la noche entera,\nvoy a cobrarme la deuda quemando su trinchera.\nTirad los amplificadores, quemad el puto piano,\n¡que sepa la ciudad entera el peso de mi mano!\n¡Arrasad con todo!\n¡Bang bang bang!\n\n[Chorus - Rhythmic Staccato Hook 3]\nHierro, hierro\nGolpe, golpe\n¡Nada vivo va a quedar!\n\n[Rap Verse 4 - Donald - Ultra Fast Spoken Rap Flow]\nTienen diez segundos justos para besar el cemento,\nantes de que los blindados los borren del pavimento.\nTirad los trastos al suelo, no va a quedar ni un rincón,\nse acabó su jueguecito, ¡se acabó la fiesta hoy!\n¡Ni una pithca de piedad, ni una gota de perdón!\n¡yo soy el frío que manda!\n¡Bang bang bang!\n\n[Chorus - Maximum Power Stadium Climax - Full Ensemble & Heavy Guitars]\nDonald es la ley\nDonald manda aquí\nNadie va a salir\nBang bang bang!\n\nDonald tiene el mando\nDonald es el rey\n¡Se acabó su libertad!\n¡Bang! ¡Bang! ¡BANG!\n[End]",
+        stylePrompt: "Jazz fusion theatrical rock with deep, aggressive baritone rap in a fast spoken-word flow, snarling and low in the bridge, with tightly chanted layered choir hooks, Analog tape warmth, harmonized multi-track electric guitars, stereo Fender Rhodes; syncopated 140 BPM funk-fusion pulse over a modal minor vamp, restrained drums building to a stadium-rock chorus, Fingerstyle acoustic intro, clipped clavinet stabs, slap bass, forward violin slides, soaring electric-guitar leads and a virtuosic guitar solo"
+      },
+      {
+        id: "scene-9",
+        number: 9,
+        act: 2,
+        title: "Bajo las grúas apagadas",
+        duration: "05:23",
+        bando: "love",
+        story: "Megan burla la seguridad de la torre corporativa, se quita los tacones y baja por primera vez al barro de los muelles. Laura la encuentra oculta entre contenedores oxidados bajo las grúas apagadas. Momento íntimo, tierno y desgarrador de blues-rock: dos mujeres de mundos opuestos reconociéndose en el mismo anhelo de verdad tras el asedio de Donald. Arranca con efecto de sirena de barco (niebla) a lo lejos en la bahía y llanto de guitarra blues.",
+        script: "[Intro - Slow Atmospheric Blues Intro - Ship Foghorn FX - Crying Blues Electric Guitar Bends - Smoky Rhodes - Moody Docks Night]\n\n[Verse 1 - Female Singer 1 - Deep Soulful Bluesy Contralto - Warm and Grounded]\n¿Qué haces aquí descalza entre el óxido y el barro?\nDonald ha puesto precio a cada muelle, a cada barco.\nLlevas el frío de la torre pegado en la mirada...\n¿o vienes a mirar cómo nos queman la morada?\n\n[Verse 2 - Female Singer 2 - Sweet Pure High Soprano - Clear and Tender]\nMe arranqué los tacones para aprender a correr,\nen esa jaula de oro ya no había qué perder.\nDonald compra la prensa, pero no mi libertad...\ny es la primera vez que respiro de verdad.\n\n[Pre-Chorus - Heavy Half-Time Toto Drums Enter - Deep Resonant Bass]\n[Female Singer 1 - Soulful Bluesy Voice] Mira las grúas apagadas contra la oscuridad...\n[Female Singer 2 - Sweet Clear Voice] Dos náufragas que escapan de tanta falsedad.\n[Duet - Both Female Voices Harmonizing] Si el mundo se derrumba antes de amanecer...\n¡esta noche no hay miedo a caer!\n\n[Chorus - Powerful Blues-Rock Climax - Big Guitars & Driving Snare]\n[Duet - Female Voices Only - Contralto and Soprano in Harmony]\n¡Abrázame fuerte bajo el temporal!\n¡Que el hierro se quiebre, que arda el cristal!\nMe dijeron que la calle era salvaje...\n¡y es el único lugar donde siento calor!\nSi la rabia de Donald nos viene a buscar,\n¡tendrán que apagar el fuego para hacernos callar!\n\n[Verse 3 - Tender Blues-Rock Dialogue - Two Distinct Female Timbres]\n[Female Singer 1 - Deep Blues Voice] Tengo las manos duras de pelear con la corriente.\n[Female Singer 2 - Clear Pure Voice] Yo tengo el alma rota de vivir entre serpientes.\n[Female Singer 1 - Deep Blues Voice] Si te quedas conmigo, no habrá donde volver...\n[Female Singer 2 - Clear Pure Voice] ¡Prefiero arder contigo que volverme a esconder!\n\n[Pre-Chorus - Building Blues-Rock Energy]\n[Duet - Both Female Voices]\nQue vengan sus blindados, que cerquen el andén,\n¡no hay oro en esa torre que compre nuestra piel!\n\n[Chorus - Maximum Power Stadium Climax - Belting Female Duet]\n[Duet - Both Female Voices - Soaring High Notes]\n¡Abrázame fuerte bajo el temporal!\n¡Que el hierro se quiebre, que arda el cristal!\nMe dijeron que la calle era salvaje...\n¡y es el único lugar donde siento calor!\nSi la rabia de Donald nos viene a buscar,\n¡tendrán que apagar el fuego para hacernos callar!\n\n[Guitar Solo - Virtuoso Blues Rock Guitars - Soulful Blues Bends into Soaring Brian May Multi-tracked Harmony]\n\n[Bridge - Operatic Vocal Breakdown - Pure Emotion]\n[Female Singer 2 - High Pure Voice] En mitad de la niebla...\n[Female Singer 1 - Deep Blues Voice] ...tu voz me rescató.\n[Duet - Both Female Voices] ¡Dos orillas del río que la noche juntó!\n\n[Final Chorus - Stadium Climax - Big Drums and Female Harmonies]\n[Duet - Both Female Voices]\n¡Abrázame fuerte bajo el temporal!\n(Bajo el temporal)\n¡Que arda el cristal!\n¡El único lugar donde siento calor!\n¡Donde siento calor!\n\n[Outro - Heavy Blues-Rock Final Chord into Crying Blues Guitar and Night Wind]\n[Female Singer 1 - Whispered Warm] Ya no estás sola.\n[Female Singer 2 - Whispered Sweet] Ya no.\n[End]",
+        stylePrompt: "Theatrical blues-rock power ballad, slow blues intro with crying blues guitar leads and smoky Rhodes, building into heavy rock with Queen Brian May guitars and massive punchy Toto drums, 74 BPM slow blues-rock groove; strictly all-female vocal duet, no male vocals, two starkly different female singers in dialogue: Female Singer 1 is a deep warm soulful bluesy contralto, Female Singer 2 is a sweet clear pure soprano, both singing with tender affection and melodic emotion, contrasting female harmonies, explosive stadium rock climax"
+      },
+      {
+        id: "scene-10",
+        number: 10,
+        act: 2,
+        title: "¿De qué lado estás? (La Fractura Hugo vs. Laura)",
+        duration: "04:07",
+        bando: "clash",
+        story: "Alba en el muelle. Hugo sorprende a Laura despidiéndose de Megan tras la noche en el muelle. La furia y el rencor de Hugo estallan acusando a Laura de meter al enemigo en casa, mientras Laura le echa en cara que su ceguera y trauma del pasado lo han dejado sordo al mundo.",
+        script: "[Intro - Tense Pulsing Bassline & Staccato Hi-Hat - 126 BPM - Cold Rhodes Chords - Building Threat]\n\n[Verse 1A - Male Singer - Hugo - Gritty Rock Tenor]\nMírame a los ojos, Laura.\nLlevas el frío de la torre en la piel.\n\n[Verse 1B - Male Singer - Hugo - Gritty Rock Tenor - Continuing Solo]\nHe pasado la noche en vela en este muelle...\n¿a quién estabas abrazando entre las grúas?\n¿A quién le vendes lo que juramos ayer?\n\n[Verse 2A - Female Singer - Laura - Raw Powerful Alto]\nBaja la mano, Hugo, no me hables de traición.\nMegan ha bajado descalza hasta el barro,\nha roto sus cadenas, ha burlado su prisión.\n\n[Verse 2B - Female Singer - Laura - Raw Powerful Alto - Continuing Solo]\nNo es tu enemiga, no es un peón...\n¡es la única verdad que late en este rincón!\n\n[Pre-Chorus 1 - Rapid Vocal Duel]\n[Male Singer - Hugo] ¡Es la trampa de Donald para reventar el andén!\n[Female Singer - Laura] ¡Es una chica herida que escapó de su sartén!\n[Male Singer - Hugo] ¡Metes al verdugo dentro de este hogar!\n[Female Singer - Laura] ¡Miras con rencor y no sabes mirar!\n\n[Chorus 1 - Explosive Stadium Rock Duel]\n[Both - Male and Female Duet - Aggressive Rock Harmonies]\n¿De qué lado estás?\n¿A quién le juras lealtad?\n¿Quién se queda de pie cuando caiga el telón?\n¿Luchamos por la música o luchas por rencor?\n¿De qué lado estás?\n¡Dime quién eres hoy!\n\n[Verse 3 - Male Singer - Hugo - Solo Desperate Tenor]\n¿Rencor? ¿Te parece rencor salvar el pellejo?\n¿Has olvidado quién levantó este almacén?\nNos van a barrer, nos van a demoler...\n¡y tú jugando al amor con quien nos va a romper!\n\n[Verse 4 - Female Singer - Laura - Solo Punchy Alto - Fierce Attack]\n¡Toda la vida llorando por aquella audición!\n¡Quince años tenías y sigues en shock!\nToda la vida gritando \"¿es que no me oís?\"...\n¡y el único sordo que no escucha eres tú!\n\n[Bridge - Dramatic Key Change - Tension Build-Up]\n[Male Singer - Hugo - High Belting Tenor]\n¡Yo os di una casa! ¡Yo os di una voz!\n[Female Singer - Laura - High Powerful Belt]\n¡Y ahora estás ciego pudriéndote en tu rencor!\n[Male Singer - Hugo] ¡No confío en su sangre!\n[Female Singer - Laura] ¡No confías en nadie!\n[Both - Male and Female Screaming Harmony]\n¡ESTO SE ACABA HOY!\n\n[Guitar Solo - Virtuoso Duel - Screaming Brian May Harmonized Electric Guitars]\n\n[Chorus 2 - Maximum Power Climax - Thunderous Drums]\n[Both - Male and Female Duet at Full Power]\n¿De qué lado estás?\n¿A quién le juras lealtad?\n¿Quién se queda de pie cuando caiga el telón?\n¿Luchamos por la música o luchas por rencor?\n¿De qué lado estás?\n¡Dime quién eres hoy!\n\n[Outro - Abrupt Crash - Heavy Unresolved Dissonant Final Hit]\n[Male Singer - Hugo - Spoken Snarl]\nSi ella entra aquí... yo me voy.\n[End]",
+        stylePrompt: "Theatrical rock opera, fast-driving 126 BPM heavy groove, Queen style operatic confrontation, dramatic rock musical duet, aggressive male and female vocal duel, trading bars, gritty passionate male rock tenor (Hugo) vs powerful raw soulful female rock alto (Laura), tense pulsing bassline, punchy tight Toto drums, sharp biting electric guitar stabs, roaring Hammond B3 organ, dramatic key change, theatrical Broadway rock climax, sharp abrupt ending, no mellow pop, no modern autotune, analog warmth"
+      },
+      {
+        id: "scene-11",
+        number: 11,
+        act: 2,
+        title: "La noche del fuego (El Asalto al Almacén)",
+        duration: "04:30",
+        bando: "tech",
+        story: "Blindados y matones de Donald asaltan el almacén portuario destruyendo amplificadores, cables y escenarios. La Crew se defiende cuerpo a cuerpo con baquetas, cadenas e instrumentos en una coreografía salvaje de supervivencia.",
+        script: "[En preparación lírica]",
+        stylePrompt: "aggressive heavy stadium rock, 140 bpm, double bass drums, soaring electric guitar leads, heavy clash, male and female chorus battle"
+      },
+      {
+        id: "scene-12",
+        number: 12,
+        act: 2,
+        title: "Cenizas en la marea (El Dolor de Hugo)",
+        duration: "04:20",
+        bando: "crew",
+        story: "El almacén humeante tras la retirada de los matones. El piano de pared destrozado y partituras ardiendo. Hugo cae de rodillas entre los escombros: el momento más oscuro del héroe ante el fantasma de su audición y la rabia contenida.",
+        script: "[En preparación lírica]",
+        stylePrompt: "dramatic operatic rock ballad, solo male vocal, Freddie Mercury style passion, grand piano intro building to massive crying Brian May guitars and stadium drums"
+      },
+      {
+        id: "scene-13",
+        number: 13,
+        act: 2,
+        title: "No hay vuelta atrás (El Gran Clímax del Acto II)",
+        duration: "05:30",
+        bando: "crew",
+        story: "Megan regresa al muelle desafiando a Donald y levantando a Hugo. Laura y Megan deciden convocar a la juventud de toda la metrópoli frente al rascacielos. Pacto a tres y gran clímax del Acto II.",
+        script: "[En preparación lírica]",
+        stylePrompt: "epic symphonic arena rock anthem, Queen and Toto style, 4-part vocal counterpoint, full ensemble, soaring guitars, thunderous drums, massive cliffhanger finale"
+      },
+      {
+        id: "scene-14",
+        number: 14,
+        act: 3,
+        title: "La marcha de los invisibles (El Cerco a la Torre)",
+        duration: "04:30",
+        bando: "crew",
+        story: "Miles de jóvenes descienden de los arrabales y rodean la Torre de Cristal portando instrumentos y megáfonos. Manifestación artística pacífica e imparable frente al corazón financiero.",
+        script: "[En preparación lírica]",
+        stylePrompt: "martial stadium rock, stomp and clap groove, We Will Rock You meets funk-rock fusion, driving 120 bpm, massive crowd chants, aggressive brass and guitars"
+      },
+      {
+        id: "scene-15",
+        number: 15,
+        act: 3,
+        title: "La grieta en el algoritmo (Megan vs. Donald)",
+        duration: "04:00",
+        bando: "clash",
+        story: "Megan sube a la planta 60 emitiendo en directo y se encara con Donald en su sancta sanctórum. Donald amenaza y pierde el control; Megan transmite las pruebas de la especulación a toda la ciudad.",
+        script: "[En preparación lírica]",
+        stylePrompt: "dark tense theatrical rap-rock, aggressive dark male baritone rap losing control vs pure crystalline melodic female singing, sharp piano stabs, analog synth pulse"
+      },
+      {
+        id: "scene-16",
+        number: 16,
+        act: 3,
+        title: "La caída del tiburón (El Desmoronamiento)",
+        duration: "04:15",
+        bando: "tech",
+        story: "Las acciones se desploman en las pantallas rojas. Los ejecutivos abandonan a Donald. El tiburón se queda solo en el vacío de la planta 60 colapsando ante su propia insignificancia.",
+        script: "[En preparación lírica]",
+        stylePrompt: "dark progressive rock breakdown, syncopated bass, frantic broken baritone rap decaying into ragged shouts, melancholic keyboard chords, fading echoes"
+      },
+      {
+        id: "scene-17",
+        number: 17,
+        act: 3,
+        title: "Fuego y sal (El Abrazo en la Escalinata)",
+        duration: "04:30",
+        bando: "love",
+        story: "Megan desciende a la calle y se funde con Laura en la escalinata rodeadas por la multitud. Himno lírico y triunfal de amor libre y victoria frente a las barreras del dinero.",
+        script: "[En preparación lírica]",
+        stylePrompt: "soaring stadium power ballad, triumphant Queen Brian May harmonized guitars, sweet soprano and soulful alto female vocal harmonies, uplifting rock groove"
+      },
+      {
+        id: "scene-18",
+        number: 18,
+        act: 3,
+        title: "¿Es que no nos oís? (Gran Final Apoteósico 90')",
+        duration: "06:15",
+        bando: "crew",
+        story: "Hugo sube al escenario frente a la torre y transforma el grito de su adolescencia en un clamor colectivo de toda la ciudad: ¡¿ES QUE NO NOS OÍS?! La música y la verdad humana derrotan al algoritmo. Gran final de la ópera rock.",
+        script: "[En preparación lírica]",
+        stylePrompt: "monumental operatic rock climax, Bohemian Rhapsody and The Who style, dramatic grand piano building into massive multi-layered choir, virtuoso guitar harmonies, thunderous stadium finale"
+      }
+    ];
+
+    let project = [];
+
+    // INICIALIZACIÓN
+    function initApp() {
+      const stored = localStorage.getItem('scavengers_project_clean_v8');
+      if (stored) {
+        try {
+          project = JSON.parse(stored);
+        } catch (e) {
+          project = DEFAULT_PROJECT;
+        }
+      } else {
+        project = DEFAULT_PROJECT;
+      }
+      renderAll();
+    }
+
+    // RENDERIZADO GLOBAL
+    function renderAll() {
+      updateTotals();
+      renderSidebarTree();
+      renderStoryboard();
+    }
+
+    // TIEMPOS
+    function timeToSeconds(str) {
+      if (!str) return 0;
+      const parts = str.trim().split(':');
+      if (parts.length === 2) {
+        return parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+      }
+      return 0;
+    }
+
+    function secondsToTime(sec) {
+      const mins = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${mins.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function updateTotals() {
+      let total = 0;
+      let a1 = 0, a2 = 0, a3 = 0;
+
+      project.forEach(sc => {
+        const s = timeToSeconds(sc.duration);
+        total += s;
+        if (sc.act === 1) a1 += s;
+        else if (sc.act === 2) a2 += s;
+        else if (sc.act === 3) a3 += s;
+      });
+
+      document.getElementById('totalTimeDisplay').innerText = `${secondsToTime(total)} / 90:00`;
+      document.getElementById('act1TimeDisplay').innerText = secondsToTime(a1);
+      document.getElementById('act2TimeDisplay').innerText = secondsToTime(a2);
+      document.getElementById('act3TimeDisplay').innerText = secondsToTime(a3);
+      document.getElementById('scenesCountDisplay').innerText = project.length;
+      document.getElementById('sidebarCountTag').innerText = `${project.length} escenas`;
+    }
+
+    // SIDEBAR
+    function renderSidebarTree() {
+      const list = document.getElementById('sceneTreeList');
+      list.innerHTML = '';
+
+      project.forEach((sc, idx) => {
+        const item = document.createElement('div');
+        item.className = 'tree-item';
+        item.onclick = () => scrollToScene(sc.id);
+
+        let badgeClass = 'badge-crew';
+        if (sc.bando === 'tech') badgeClass = 'badge-tech';
+        if (sc.bando === 'love') badgeClass = 'badge-love';
+        if (sc.bando === 'clash') badgeClass = 'badge-clash';
+
+        item.innerHTML = `
+          <div class="tree-item-info">
+            <span class="tree-item-title">${sc.number}. ${sc.title}</span>
+            <span class="tree-item-meta">Acto ${sc.act} • ${sc.duration || '00:00'}</span>
+          </div>
+          <span class="badge-bando ${badgeClass}">${sc.bando.toUpperCase()}</span>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function scrollToScene(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.style.borderColor = '#38bdf8';
+        setTimeout(() => el.style.borderColor = '', 1200);
+      }
+    }
+
+    // RENDER PRINCIPAL DE TARJETAS
+    function renderStoryboard() {
+      const container = document.getElementById('storyboardContainer');
+      container.innerHTML = '';
+
+      project.forEach((sc, idx) => {
+        const card = document.createElement('div');
+        card.className = 'scene-card';
+        card.id = sc.id;
+
+        card.innerHTML = `
+          <!-- CABECERA -->
+          <div class="scene-card-header">
+            <div class="scene-title-group">
+              <span class="scene-number">#${sc.number}</span>
+              <input class="scene-title-input" value="${escapeHtml(sc.title)}" onchange="updateField(${idx}, 'title', this.value)" placeholder="Título de la escena">
+            </div>
+
+            <div class="scene-meta-group">
+              <select class="meta-tag-input" onchange="updateField(${idx}, 'act', parseInt(this.value, 10))">
+                <option value="1" ${sc.act === 1 ? 'selected' : ''}>Acto I</option>
+                <option value="2" ${sc.act === 2 ? 'selected' : ''}>Acto II</option>
+                <option value="3" ${sc.act === 3 ? 'selected' : ''}>Acto III</option>
+              </select>
+
+              <select class="meta-tag-input" onchange="updateField(${idx}, 'bando', this.value)">
+                <option value="crew" ${sc.bando === 'crew' ? 'selected' : ''}>Crew (Rebeldes)</option>
+                <option value="tech" ${sc.bando === 'tech' ? 'selected' : ''}>Tech (Wall Street)</option>
+                <option value="love" ${sc.bando === 'love' ? 'selected' : ''}>Megan / Intimidad</option>
+                <option value="clash" ${sc.bando === 'clash' ? 'selected' : ''}>Cruce / Colisión</option>
+              </select>
+
+              <input class="meta-tag-input" style="width:75px; text-align:center;" value="${sc.duration}" onchange="updateDuration(${idx}, this.value)" placeholder="03:30">
+            </div>
+          </div>
+
+          <!-- SECCIÓN 1: HISTORIA Y ARGUMENTO -->
+          <div class="section-box">
+            <label class="section-label label-story">📖 ¿Qué pasa aquí? (Historia y Acción Dramática)</label>
+            <textarea class="textarea-story" onchange="updateField(${idx}, 'story', this.value)" placeholder="Explica la historia: qué ocurre, dónde están, qué conflicto hay...">${sc.story || ''}</textarea>
+          </div>
+
+          <!-- SECCIÓN 2: GUIÓN, DIÁLOGOS Y VOZ EN OFF -->
+          <div class="section-box">
+            <label class="section-label label-script">🎭 Guión, Diálogos y Voz en Off</label>
+            <textarea class="textarea-script" onchange="updateField(${idx}, 'script', this.value)" placeholder="[VOZ EN OFF]...\n[HUGO]...\n[LAURA]...">${sc.script || ''}</textarea>
+          </div>
+
+          <!-- SECCIÓN 3: PROMPT DE ESTILO / SUNO -->
+          <div class="section-box">
+            <label class="section-label label-music">🎵 Estilo Musical & Prompt Suno</label>
+            <div class="music-bar">
+              <input class="music-input" value="${escapeHtml(sc.stylePrompt || '')}" onchange="updateField(${idx}, 'stylePrompt', this.value)" placeholder="Estilo musical, BPM, instrumentos...">
+              <button class="btn" style="padding:0.25rem 0.6rem; font-size:0.7rem;" onclick="copyToClipboard('${escapeJs(sc.stylePrompt)}')">📋 Copiar Prompt</button>
+            </div>
+          </div>
+
+          <!-- FOOTER -->
+          <div class="scene-card-footer">
+            <div class="footer-btn-group">
+              <button class="btn" onclick="copySceneFull(${idx})">📋 Copiar Escena</button>
+              <button class="btn" onclick="moveScene(${idx}, -1)">▲ Subir</button>
+              <button class="btn" onclick="moveScene(${idx}, 1)">▼ Bajar</button>
+            </div>
+            <button class="btn" style="color:#f87171;" onclick="deleteScene(${idx})">🗑 Eliminar</button>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    // OPERACIONES
+    function updateField(idx, field, val) {
+      project[idx][field] = val;
+      saveToLocalStorage(false);
+      renderSidebarTree();
+    }
+
+    function updateDuration(idx, val) {
+      project[idx].duration = val;
+      saveToLocalStorage(false);
+      updateTotals();
+      renderSidebarTree();
+    }
+
+    function addNewScene() {
+      const num = project.length + 1;
+      const newSc = {
+        id: "scene-" + Date.now(),
+        number: num,
+        act: 1,
+        title: `Nueva Escena #${num}`,
+        duration: "03:30",
+        bando: "crew",
+        story: "Escribe aquí el argumento y lo que ocurre en esta escena...",
+        script: "[VOZ EN OFF]\nTexto del narrador...\n\n[PERSONAJE]\nDiálogo o letra de la canción...",
+        stylePrompt: "jazz-rock funk, 145 bpm, driving upbeat, double-time feel, snare on 2 and 4, punchy drums, slap bass, blues harmonica, Rhodes"
+      };
+      project.push(newSc);
+      saveToLocalStorage(true);
+      renderAll();
+      scrollToScene(newSc.id);
+    }
+
+    function deleteScene(idx) {
+      if (confirm(`¿Eliminar la escena "${project[idx].title}"?`)) {
+        project.splice(idx, 1);
+        project.forEach((sc, i) => sc.number = i + 1);
+        saveToLocalStorage(true);
+        renderAll();
+      }
+    }
+
+    function moveScene(idx, dir) {
+      const target = idx + dir;
+      if (target < 0 || target >= project.length) return;
+      const tmp = project[idx];
+      project[idx] = project[target];
+      project[target] = tmp;
+      project.forEach((sc, i) => sc.number = i + 1);
+      saveToLocalStorage(true);
+      renderAll();
+    }
+
+    // COPIAS
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Copiado al portapapeles");
+      });
+    }
+
+    function copySceneFull(idx) {
+      const sc = project[idx];
+      let txt = `=== ESCENA ${sc.number}: ${sc.title} (Acto ${sc.act} - ${sc.duration}) ===\n\n`;
+      txt += `[HISTORIA / ARGUMENTO]\n${sc.story}\n\n`;
+      txt += `[GUIÓN Y DIÁLOGOS]\n${sc.script}\n\n`;
+      txt += `[PROMPT MUSICAL]\n${sc.stylePrompt}\n`;
+      copyToClipboard(txt);
+    }
+
+    // EXPORTACIÓN A TEXTO COMPLETO
+    function openExportModal() {
+      let doc = `====================================================================\n`;
+      doc += `   DISSONANCE CREW - LIBRETO Y GUIÓN COMPLETO (90 MINUTOS)\n`;
+      doc += `   Duración total estimada: ${document.getElementById('totalTimeDisplay').innerText}\n`;
+      doc += `====================================================================\n\n`;
+
+      let currentAct = 0;
+      project.forEach(sc => {
+        if (sc.act !== currentAct) {
+          currentAct = sc.act;
+          doc += `\n####################################################################\n`;
+          doc += `   ACTO ${currentAct}\n`;
+          doc += `####################################################################\n\n`;
+        }
+
+        doc += `--------------------------------------------------------------------\n`;
+        doc += `ESCENA ${sc.number}: ${sc.title.toUpperCase()}\n`;
+        doc += `Duración: ${sc.duration} | Bando: ${sc.bando.toUpperCase()}\n`;
+        doc += `Estilo: ${sc.stylePrompt}\n`;
+        doc += `--------------------------------------------------------------------\n\n`;
+        doc += `[HISTORIA Y ACCIÓN]\n${sc.story}\n\n`;
+        doc += `[DIÁLOGOS Y LETRAS]\n${sc.script}\n\n\n`;
+      });
+
+      document.getElementById('exportTextArea').value = doc;
+      document.getElementById('exportModal').classList.add('active');
+    }
+
+    function closeExportModal() {
+      document.getElementById('exportModal').classList.remove('active');
+    }
+
+    function copyModalContent() {
+      copyToClipboard(document.getElementById('exportTextArea').value);
+    }
+
+    // LOCAL STORAGE
+    function saveToLocalStorage(notify = false) {
+      localStorage.setItem('opera_rock_project_clean_v2', JSON.stringify(project));
+      if (notify) showToast("Proyecto guardado");
+    }
+
+    // JSON IMPORT/EXPORT
+    function exportJSON() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(project, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", `dissonance_crew_guion_${Date.now()}.json`);
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      showToast("JSON descargado");
+    }
+
+    function importJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const r = new FileReader();
+      r.onload = function (e) {
+        try {
+          const imp = JSON.parse(e.target.result);
+          if (Array.isArray(imp)) {
+            project = imp;
+            saveToLocalStorage(true);
+            renderAll();
+            showToast("Proyecto cargado");
+          }
+        } catch (err) {
+          alert("Error al cargar el archivo JSON");
+        }
+      };
+      r.readAsText(file);
+    }
+
+    // UTILIDADES
+    function escapeHtml(t) {
+      if (!t) return '';
+      return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    function escapeJs(t) {
+      if (!t) return '';
+      return t.replace(/'/g, "\\'").replace(/\n/g, "\\n");
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toastNotification');
+      t.innerText = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2000);
+    }
+
+    window.onload = initApp;
+  </script>
+</body>
+
+</html>

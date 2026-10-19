@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCAVENGERS — Libreto de Mano (Ópera Rock 90')</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-paper: #0c0f17;
+      --bg-card: rgba(20, 26, 38, 0.75);
+      --bg-story: rgba(2, 132, 199, 0.08);
+      --border-card: rgba(255, 255, 255, 0.1);
+      --border-accent: #38bdf8;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-story: #e2e8f0;
+      --gold: #f59e0b;
+      --pink: #ec4899;
+      --cyan: #38bdf8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-paper);
+      color: var(--text-main);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.8;
+      padding: 2.5rem 1rem 6rem;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.07) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.06) 0px, transparent 50%);
+    }
+
+    .booklet-container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* BARRA SUPERIOR DISCRETA */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-card);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .btn-print {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid var(--border-card);
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-print:hover {
+      background: var(--cyan);
+      color: #000;
+    }
+
+    /* PORTADA TIPO LIBRILLET DE VINILO */
+    .booklet-cover {
+      text-align: center;
+      padding: 3rem 1.5rem 3.5rem;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(20, 26, 38, 0.9) 0%, rgba(12, 15, 23, 0.95) 100%);
+      margin-bottom: 3.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .cover-badge {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .cover-title {
+      font-family: 'Cinzel', serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 15px rgba(245, 158, 11, 0.25);
+    }
+
+    .cover-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--cyan);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .cover-author {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.25rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* SECCIÓN ARGUMENTO & PERSONAJES */
+    .section-intro {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 2.25rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+      padding-bottom: 0.5rem;
+    }
+
+    .intro-text {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      text-align: justify;
+    }
+
+    .char-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .char-card {
+      background: rgba(0,0,0,0.25);
+      border-left: 3px solid var(--cyan);
+      padding: 0.85rem 1rem;
+      border-radius: 0 6px 6px 0;
+    }
+    .char-card.tech { border-left-color: #10b981; }
+    .char-card.love { border-left-color: var(--pink); }
+
+    .char-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    /* SEPARADOR DE ACTO */
+    .act-header {
+      text-align: center;
+      margin: 4.5rem 0 2.5rem;
+      padding: 1.5rem 0;
+      border-top: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .act-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .act-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: #fff;
+      letter-spacing: 1.5px;
+    }
+
+    .act-meta {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    /* TARJETA DE ESCENA TIPO LIBRETO */
+    .scene-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .scene-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .scene-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .scene-duration {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--cyan);
+      background: rgba(56, 189, 248, 0.12);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    /* CAJA DE LA HISTORIA (TIPO BOOKLET DE TOMMY) */
+    .story-box {
+      background: var(--bg-story);
+      border-left: 3px solid var(--cyan);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1.75rem;
+      font-style: italic;
+      color: var(--text-story);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .story-box::before {
+      content: "LA HISTORIA: ";
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      color: var(--cyan);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    /* LETRA DE LA CANCIÓN / DIÁLOGOS */
+    .lyrics-container {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #f8fafc;
+    }
+
+    .speaker {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      color: var(--gold);
+      display: block;
+      margin-top: 1.25rem;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+    }
+
+    .speaker.laura { color: var(--pink); }
+    .speaker.donald { color: #f87171; }
+    .speaker.megan { color: #38bdf8; }
+    .speaker.all { color: #a855f7; }
+
+    .stage-note {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin: 0.75rem 0;
+    }
+
+    /* ESTILO IMPRESIÓN LIMPIA */
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+        font-size: 12pt;
+        padding: 0;
+      }
+      .top-bar, .btn-print { display: none; }
+      .booklet-container { max-width: 100%; }
+      .booklet-cover, .section-intro, .scene-block {
+        background: #fff !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        color: #111 !important;
+      }
+      .cover-title, .scene-title, .act-title { color: #000 !important; }
+      .story-box {
+        background: #f4f4f4 !important;
+        color: #222 !important;
+        border-left-color: #333 !important;
+      }
+      .speaker { color: #000 !important; font-weight: bold; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="booklet-container">
+
+    <!-- BARRA SUPERIOR -->
+    <div class="top-bar">
+      <span>📖 Libreto de Mano Oficial</span>
+      <span>TRBAND / SGAE 29751</span>
+      <button class="btn-print" onclick="window.print()">🖨️ Imprimir / Guardar en PDF</button>
+    </div>
+
+    <!-- PORTADA DEL LIBRILLO -->
+    <div class="booklet-cover">
+      <div class="cover-badge">Ópera Rock en Tres Actos (90 Minutos)</div>
+      <h1 class="cover-title">SCAVENGERS</h1>
+      <div class="cover-subtitle">El Libreto de Mano</div>
+      <div class="cover-author">
+        <strong>Música, Letras y Guión:</strong> Eduardo Ramírez de Cartagena<br>
+        <span style="font-size:0.85rem; color:#64748b;">(TRBAND · SGAE 29751)</span>
+      </div>
+    </div>
+
+    <!-- SECCIÓN INTRODUCCIÓN Y ARGUMENTO -->
+    <div class="section-intro">
+      <h2 class="section-title">De qué va la historia</h2>
+      <p class="intro-text">
+        En una metrópoli dominada por la especulación financiera, el cemento y la frialdad algorítmica de Wall Street, un grupo de músicos, poetas y bailarines callejeros (<strong>Dissonance Crew</strong>) resiste en los viejos tinglados del puerto. Su líder es <strong>Hugo</strong>, un músico desgarrado que fue expulsado a los 15 años de la academia clásica y que desde entonces vive con una obsesión: demostrar que la calle tiene alma y que la música no se vende. A su lado está <strong>Laura</strong>, la voz más libre, salvaje y magnética del arrabal.
+      </p>
+      <p class="intro-text">
+        En la cúspide de la ciudad, en la planta 60 de la Torre de Cristal, gobierna <strong>Donald</strong>, un despiadado magnate corporativo que no tolera la disidencia, obsesionado con poseer a Megan y decidido a demoler los muelles para construir su emporio financiero. En esa misma torre vive <strong>Megan</strong>, una heredera atrapada en una jaula de oro que se niega a ser un peón más.
+      </p>
+      <p class="intro-text">
+        El choque estalla cuando la Crew se cuela clandestinamente en la gala benéfica de la alta sociedad. Allí, en mitad del salón de cristal, <strong>Laura y Megan cruzan sus miradas</strong>: surge un flechazo instantáneo e incontrolable que dinamita las fronteras entre el dinero y el barro. A partir de esa noche, la cacería de Donald, la fractura interna de la banda y el amor clandestino desatarán una guerra cultural abierta donde toda la ciudad tendrá que elegir si vivir anestesiada o despertar con el rugido del rock.
+      </p>
+
+      <h2 class="section-title" style="margin-top:2rem;">Los Personajes</h2>
+      <div class="char-grid">
+        <div class="char-card">
+          <div class="char-name">HUGO (Tenor Rock Desgarrado)</div>
+          <div>Líder de la Dissonance Crew. Traumatizado en su adolescencia. Su herida abierta: <em>«¿Es que no me oís?»</em>.</div>
+        </div>
+        <div class="char-card love">
+          <div class="char-name">LAURA (Voz de Alto / Fiera Soul-Rock)</div>
+          <div>El corazón y la voz del muelle. Indomable y protectora. Su lema: <em>«Nadie compra nuestra piel»</em>.</div>
+        </div>
+        <div class="char-card tech">
+          <div class="char-name">DONALD (Barítono / Rap Oscuro Implacable)</div>
+          <div>El tiburón financiero. No canta melódico: rapea como una máquina ejecutando desahucios. Obsesionado con Megan.</div>
+        </div>
+        <div class="char-card love">
+          <div class="char-name">MEGAN (Soprano Melódica y Dulce)</div>
+          <div>Educada en la élite pero ahogada en su jaula de oro. Se enamora de Laura y desafía a su propia clase.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================= -->
+    <!-- ACTO I -->
+    <!-- ======================================================= -->
+    <div class="act-header">
+      <div class="act-label">Acto Primero</div>
+      <h2 class="act-title">LA SEMILLA Y EL FLECHAZO</h2>
+      <div class="act-meta">Duración: ~30 Minutos · Escenas 1 a 7</div>
+    </div>
+
+    <!-- ESCENA 1 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">1. Preludio: La Audición de Hugo (15 Años)</h3>
+        <span class="scene-duration">00:40 / 02:40</span>
+      </div>
+      <div class="story-box">
+        Hace diez años. Sala de audición académica, fría y solemne. Hugo (15 años) acaba de terminar de cantar al piano con el alma. El tribunal de tres jueces de traje gris le deniega la entrada en seco sin mirarle a la cara. Hugo es arrojado a la calle vacía bajo la lluvia torrencial. Empapado y con los puños temblando, estalla en un grito operístico a lo Queen que define el trauma de toda su vida.
+      </div>
+      <div class="lyrics-container">
+        <span class="speaker">HUGO (Al piano, terminando su audición):</span>
+        ...y vinieron a soñaaaaaaaar...<br>
+        <div class="stage-note">[Golpe seco de acorde final. Silencio sepulcral].</div>
+
+        <span class="speaker">TRIBUNAL (Voz gélida y distante):</span>
+        Siguiente. No nos llame.<br>
+        <div class="stage-note">[Sonido de portazo de hierro. Lluvia torrencial cayendo sobre el asfalto].</div>
+
+        <span class="speaker">HUGO (Bajo la lluvia, con rabia contenida):</span>
+        El frío en la acera no quema tanto<br>
+        como ver vuestros ojos de cristal.<br>
+        Tantas reglas para medir el aire...<br>
+        tanto miedo a ver a alguien volar.<br>
+
+        <span class="speaker">HUGO (Grito desgarrado al cielo con toda la orquesta de rock):</span>
+        ¿Es que no me oís?<br>
+        ¿De verdad que no me oís?<br>
+        ¿O es que os asusta la marea<br>
+        cuando empieza a respirar?<br><br>
+        ¿Es que no me oís?<br>
+        ¡Vais a tener que oírme gritar!
+      </div>
+    </div>
+
+    <!-- ESCENA 2 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">2. Nadie compra nuestra piel</h3>
+        <span class="scene-duration">04:24</span>
+      </div>
+      <div class="story-box">
+        Presente. Diez años después. En el almacén portuario número 4, la Dissonance Crew ensaya a plena potencia: funk-rock imparable a 145 BPM, armónica de blues cortante y slap de bajo. Hugo dirige la banda, pero es Laura quien irrumpe en escena con un derroche de soul callejero, desafiando a Hugo y recordándoles a todos que la calle jamás se pondrá de rodillas.
+      </div>
+      <div class="lyrics-container">
+        <span class="speaker">HUGO:</span>
+        Bienvenidos a la grieta del sistema.<br>
+        Aquí no se cotiza, aquí se sangra compás a compás.<br>
+        ¿Es que no lo oís? El suelo está temblando ya.<br>
+
+        <span class="speaker laura">LAURA:</span>
+        Deja los discursos, Hugo, y dale gas.<br>
+        Si la ciudad duerme anestesiada,<br>
+        nosotras la vamos a quemar.<br>
+        Mírame a los ojos si te atreves a bailar.<br>
+
+        <span class="speaker">HUGO:</span> ¡El golpe en el dos!<br>
+        <span class="speaker laura">LAURA:</span> ¡Y el fuego en la voz!<br>
+        <span class="speaker">HUGO:</span> ¡Que tiemble el cemento!<br>
+        <span class="speaker laura">LAURA:</span> ¡Que empiece el movimiento!<br>
+
+        <span class="speaker all">TODOS (A coro):</span>
+        ¡Disonancia en vena, nadie compra nuestra piel!<br>
+        ¡Si el mundo está sordo gritaremos más que ayer!<br>
+        Rompe el cristal, siente el tambor,<br>
+        aquí la calle tiene el control.
+      </div>
+    </div>
+
+    <!-- ESCENA 3 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">3. Tenemos la pasta (El Código de Los Frozen)</h3>
+        <span class="scene-duration">03:28</span>
+      </div>
+      <div class="story-box">
+        Planta 60 del rascacielos financiero. Pantallas fluorescentes parpadeando en verde. Donald, con voz oscura y rap implacable de barítono, exige la demolición inmediata de los muelles para construir su imperio privado. Megan intenta frenarle con una melodía conmovedora apelando a la memoria del puerto, pero Donald y su séquito aplastan cualquier rastro de piedad.
+      </div>
+      <div class="lyrics-container">
+        <span class="speaker donald">DONALD (Rap despiadado y veloz):</span>
+        Volumen y margen, el ratio perfecto,<br>
+        aquí no hay errores, ejecuto el trayecto.<br>
+        Si tiemblas te aparto, si lloras te vendo,<br>
+        yo compro el futuro que estás escupiendo.<br>
+        La bolsa no duerme, la pasta no espera,<br>
+        pongo mi precio a tu puta trinchera.<br>
+        Diez años mirando los números verdes,<br>
+        quien juega a sentir es el gil que se pierde.<br>
+
+        <span class="speaker donald">CORO DE EJECUTIVOS:</span>
+        ¡Nos llaman Los Frozen, el frío en la piel!<br>
+        ¡El mundo es de acero, vosotros de papel!<br>
+        Zero emoción, cero perdón,<br>
+        tenemos la pasta, tenemos el control.<br>
+
+        <div class="stage-note">[La música frena a un bajo seco y piano tenso].</div>
+
+        <span class="speaker donald">DONALD:</span>
+        Megan, el informe de demolición... ¿lo tienes firmado?<br>
+
+        <span class="speaker megan">MEGAN (Voz dulce y pura, conmovida):</span>
+        El muelle está protegido en el mar...<br>
+        hay vidas que no puedes comprar.<br>
+        Hay un eco latiendo en la oscuridad...<br>
+        ¿no sientes miedo de tanta frialdad?<br>
+
+        <span class="speaker donald">DONALD (Con desprecio):</span>
+        ¿Historia? La historia se compra al contado,<br>
+        y ese puto muelle ya está amortizado.<br>
+        No me vengas con lágrimas de heredera,<br>
+        aquí quien duda... se queda fuera.<br>
+
+        <span class="speaker donald">DONALD & CORO:</span>
+        ¡Zero emoción, cero perdón!<br>
+        ¡Tenemos la pasta, tenemos el control!
+      </div>
+    </div>
+
+    <!-- ESCENA 4 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">4. En mi jaula de cristal</h3>
+        <span class="scene-duration">02:43</span>
+      </div>
+      <div class="story-box">
+        Donald y sus hombres abandonan la sala. Megan se queda sola frente a la inmensa cristalera de la planta 60 mirando la noche sobre la bahía. A pesar de haber nacido en la élite y tener el futuro asegurado, confiesa su soledad asfixiante y un anhelo desesperado de sentir algo verdadero.
+      </div>
+      <div class="lyrics-container">
+        <span class="speaker megan">MEGAN (Solo de voz pura y piano):</span>
+        Cuentan que el mundo cabe en un cristal,<br>
+        que los números nunca van a fallar.<br>
+        Tengo el cielo de la ciudad a mis pies...<br>
+        y por dentro me muero de sed.<br><br>
+
+        Vuelvo a mirar hacia el muelle otra vez,<br>
+        donde la lluvia golpea la red.<br>
+        Allí abajo la gente se atreve a vivir,<br>
+        mientras yo aquí arriba solo aprendo a fingir.<br><br>
+
+        Sola en mi jaula de cristal,<br>
+        donde sentir es un delito capital.<br>
+        Me enseñaron a mandar, me enseñaron a callar...<br>
+        ¿y quién me enseña a respirar?<br>
+        Dime quién me va a salvar<br>
+        de este frío que no puedo parar.<br><br>
+
+        Un segundo de verdad...<br>
+        solo pido un segundo para tocar la realidad.<br>
+        Bajar a la calle, pisar el dolor,<br>
+        cambiar este invierno por un poco de calor.
+      </div>
+    </div>
+
+    <!-- ESCENA 5 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">5. Invitados sin invitación (El Asalto a la Gala)</h3>
+        <span class="scene-duration">04:30</span>
+      </div>
+      <div class="story-box">
+        Almacén de los muelles. Al enterarse de la gala benéfica de Los Frozen, la Crew no se queda de brazos cruzados. Asaltan un furgón de catering, se enfundan pajaritas torcidas y esmóquines rotos y esconden los instrumentos bajo las bandejas para colarse por la puerta de servicio del Grand Hotel. Puro rock de estadio marchoso a lo Queen y Aerosmith.
+      </div>
+      <div class="lyrics-container">
+        <span class="speaker">HUGO:</span>
+        Brindan con champán en la planta real,<br>
+        firmando la sentencia de nuestro arrabal.<br>
+        Creen que esta noche la fiesta es para ellos,<br>
+        cenando de etiqueta contando los destellos.<br>
+        Tienen la pasta, tienen el poder...<br>
+        ¡pero esta noche van a tener que correr!<br>
+
+        <span class="speaker laura">LAURA:</span>
+        Tengo un vestido negro que robé de un desván,<br>
+        la llave de servicio del viejo furgón de pan.<br>
+        Ni alfombra roja, ni lista oficial:<br>
+        ¡entramos por la puerta del personal!<br>
+        Pajarita torcida, púa en el tacón,<br>
+        ¡vamos a meterles el barro en su salón!<br>
+
+        <span class="speaker">HUGO:</span> Que limpien las copas, que afinen la orquesta...<br>
+        <span class="speaker laura">LAURA:</span> ¡Que llega la fiera a amargarles la fiesta!<br>
+        <span class="speaker all">AMBOS:</span> Un, dos, tres... ¡a romper el telón!<br>
+
+        <span class="speaker all">TODOS:</span>
+        ¡Invitados sin invitación!<br>
+        ¡Rompemos la regla, saltamos el guion!<br>
+        Cierren las puertas, llamen al control,<br>
+        ¡esta noche en su palacio manda el rock and roll!<br>
+        Sin pedir permiso, sin pedir perdón...<br>
+        ¡somos los CREW en su salón!
+      </div>
+    </div>
+
+    <!-- ESCENA 6 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">6. Fuego en el salón de cristal (El Flechazo)</h3>
+        <span class="scene-duration">03:39</span>
+      </div>
+      <div class="story-box">
+        Gala benéfica de la alta sociedad. Suena un vals de etiqueta aburrido. Laura salta a la pista y transforma la música en un jazz-rock funk salvaje a 145 BPM. Se encara mesa por mesa hasta que tropieza con la mirada de Megan. Megan se pone de pie y le canta cara a cara. Surge un flechazo instantáneo e incontrolable. Escapan juntas corriendo por la puerta trasera.
+      </div>
+      <div class="lyrics-container">
+        <span class="speaker laura">LAURA:</span>
+        Copas de cristal, sonrisas de metal,<br>
+        todos tan perfectos, nadie es real.<br>
+        Bailáis sobre una alfombra que oculta la verdad...<br>
+        ¡pero esta noche el puerto os va a despertar!<br><br>
+        ¡Abrid paso al barro, señores del salón!<br>
+        ¡Que el ritmo de la calle no pide perdón!<br>
+        Mírame a los ojos si te atreves a quemar,<br>
+        mírame a los ojos si te atreves a saltar.<br>
+        Hay un latido vivo tras tu máscara de seda...<br>
+        dime quién te calla, dime quién te frena.<br>
+
+        <span class="speaker megan">MEGAN (Poniéndose de pie, rebelde):</span>
+        ¿Quién eres tú para entrar en mi prisión?<br>
+        ¿Quién te dio el derecho a exigir mi corazón?<br>
+        Miras mi vestido creyendo que soy fría...<br>
+        ¡y llevo diez inviernos ahogándome en su orilla!<br>
+
+        <span class="speaker laura">LAURA:</span> ¡Mírame a los ojos, no bajes la voz!<br>
+        <span class="speaker megan">MEGAN:</span> ¡Mírame a los ojos, no tengo temor!<br>
+        <span class="speaker laura">LAURA:</span> ¡Hay un fuego vivo que nadie controla!<br>
+        <span class="speaker megan">MEGAN:</span> ¡Llévame contigo, no me dejes sola!<br>
+
+        <span class="speaker all">AMBAS (A coro a plena potencia):</span>
+        ¡Que reviente el salón, que se quiebre el cristal!<br>
+        ¡El pulso de la sangre no se puede callar!<br>
+        Una sola mirada para no regresar...<br>
+        ¡hoy empieza el incendio y no lo van a parar!
+      </div>
+    </div>
+
+    <!-- ESCENA 7 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">7. Quién se queda junto a ti (Cierre Acto I)</h3>
+        <span class="scene-duration">06:22</span>
+      </div>
+      <div class="story-box">
+        De vuelta en el espigón del muelle tras la huida de la gala. Frente a la marea nocturna, Hugo y Laura se sientan a solas. Cantan a la lealtad incondicional, a las cicatrices compartidas y al juramento de protegerse mutuamente cuando se desate la tormenta. Himno progresivo y solemne que cierra el Acto I.
+      </div>
+      <div class="lyrics-container">
+        <span class="speaker">HUGO:</span>
+        He cruzado noches en vela buscando un lugar donde ir.<br>
+        Unos llegan solo de paso, otros quieren compartir.<br>
+
+        <span class="speaker laura">LAURA:</span>
+        No pretendo hablar por nadie, solo cuento lo que sentí.<br>
+        Y al abrirme con mi gente, algo en común descubrí.<br>
+
+        <span class="speaker all">AMBOS:</span>
+        Aprendí que el tiempo muestra quién se queda junto a ti.<br>
+        Hay caminos que se cruzan y otros que no vuelven a abrir.<br>
+        Un acorde y todo es claro cuando el mundo va a caer:<br>
+        solo importa quién te nombra cuando ya no puedes ver.<br>
+
+        <span class="speaker all">TODOS (Apoteosis de la Crew):</span>
+        ¿Quiénes siguen cuando cae la luz?<br>
+        ¿Quiénes llegan cuando falta voz?<br>
+        No prometo entenderlo siempre,<br>
+        ¡pero sé quién me sostuvo hoy!
+      </div>
+    </div>
+
+    <!-- ======================================================= -->
+    <!-- ACTO II -->
+    <!-- ======================================================= -->
+    <div class="act-header">
+      <div class="act-label">Acto Segundo</div>
+      <h2 class="act-title">LA GRIETA Y EL FUEGO</h2>
+      <div class="act-meta">Duración: ~30 Minutos · Escenas 8 a 13</div>
+    </div>
+
+    <!-- ESCENA 8 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">8. Donald es la ley (Cacería en el Puerto)</h3>
+        <span class="scene-duration">05:14</span>
+      </div>
+      <div class="story-box">
+        Madrugada siguiente en la planta 60. Donald, humillado por el escándalo de la gala que ya está en todos los telediarios, pierde los estribos. Cancela todos los plazos legales y desata un asedio total: cortar la luz del puerto, enviar a seguridad privada armada y reventar a los rebeldes. Para Donald no hay tribunales: él es la ley.
+      </div>
+      <div class="lyrics-container">
+        <span class="speaker donald">CORO:</span> Donald es la ley / Donald manda aquí / Nadie va a salir...<br>
+        <span class="speaker donald">DONALD:</span> ¡Bang bang bang!<br><br>
+
+        <span class="speaker donald">DONALD (Rap despiadado a 140 BPM):</span>
+        Cierrad las tres salidas, tumbad ya ese portón,<br>
+        quiero a mis hombres armados reventando el furgón.<br>
+        ¿Se creían que mi fiesta se podía sabotear?<br>
+        ¡Les voy a enseñar el precio que van a tener que pagar!<br>
+        Tengo comprada la prensa, tengo comprado al juez,<br>
+        buscadme a Megan ahora, sacadla del andén.<br>
+        Y al que mueva una ceja o intente resistir...<br>
+        ¡le meto tres tiros limpios! ¡Bang bang bang!<br><br>
+
+        Limpia, limpia, fuego, fuego: ¡cero tregua al muelle ya!<br>
+        Quiero a ese Hugo de rodillas tragándose su rencor,<br>
+        aquí no hay arte ni música, ¡aquí manda el inversor!<br>
+        ¡Tumbad el almacén!<br>
+        ¡Bang bang bang!
+      </div>
+    </div>
+
+    <!-- ESCENA 9 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">9. Bajo las grúas apagadas</h3>
+        <span class="scene-duration">05:23</span>
+      </div>
+      <div class="story-box">
+        La sirena de un barco mercante retumba en la niebla lejana. El muelle está a oscuras. Megan ha burlado la seguridad de la torre corporativa, se ha quitado los tacones y camina descalza entre el barro y los contenedores oxidados. Laura la encuentra oculta bajo las viejas grúas. Dos mujeres de mundos opuestos se reconocen en el mismo anhelo de verdad. Un blues-rock lento y desgarrador que va creciendo hasta estallar en un solo magistral de guitarra.
+      </div>
+      <div class="lyrics-container">
+        <div class="stage-note">[Sirena de niebla a lo lejos en la bahía. Llanto lento de guitarra blues y piano Rhodes].</div>
+
+        <span class="speaker laura">LAURA (Voz grave y cálida de contralto):</span>
+        ¿Qué haces aquí descalza entre el óxido y el barro?<br>
+        Donald ha puesto precio a cada muelle, a cada barco.<br>
+        Llevas el frío de la torre pegado en la mirada...<br>
+        ¿o vienes a mirar cómo nos queman la morada?<br>
+
+        <span class="speaker megan">MEGAN (Voz dulce, pura y cristalina de soprano):</span>
+        Me arranqué los tacones para aprender a correr,<br>
+        en esa jaula de oro ya no había qué perder.<br>
+        Donald compra la prensa, pero no mi libertad...<br>
+        y es la primera vez que respiro de verdad.<br>
+
+        <span class="speaker laura">LAURA:</span> Mira las grúas apagadas contra la oscuridad...<br>
+        <span class="speaker megan">MEGAN:</span> Dos náufragas que escapan de tanta falsedad.<br>
+        <span class="speaker all">AMBAS:</span> Si el mundo se derrumba antes de amanecer...<br>
+        ¡esta noche no hay miedo a caer!<br>
+
+        <span class="speaker all">AMBAS (Estallido de blues-rock de estadio):</span>
+        ¡Abrázame fuerte bajo el temporal!<br>
+        ¡Que el hierro se quiebre, que arda el cristal!<br>
+        Me dijeron que la calle era salvaje...<br>
+        ¡y es el único lugar donde siento calor!<br>
+        Si la rabia de Donald nos viene a buscar,<br>
+        ¡tendrán que apagar el fuego para hacernos callar!<br><br>
+
+        <span class="speaker megan">MEGAN:</span> En mitad de la niebla...<br>
+        <span class="speaker laura">LAURA:</span> ...tu voz me rescató.<br>
+        <span class="speaker all">AMBAS:</span> ¡Dos orillas del río que la noche juntó!
+      </div>
+    </div>
+
+    <!-- ESCENA 10 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">10. ¿De qué lado estás? (La Fractura Hugo vs. Laura)</h3>
+        <span class="scene-duration">04:07</span>
+      </div>
+      <div class="story-box">
+        Alba gris en el muelle. Hugo sorprende a Laura despidiéndose de Megan tras la noche en el muelle. La desconfianza estalla en el almacén. Para Hugo, Megan no es un amor: es una infiltrada de la élite de Donald que los va a entregar. Laura le echa en cara a Hugo que su odio y su trauma infantil lo han vuelto ciego y sordo al mundo. Duelo vocal a muerte entre los dos hermanos de sangre.
+      </div>
+      <div class="lyrics-container">
+        <div class="stage-note">[Bajo tenso en corcheas y charles cortante a 126 BPM. Acordes gélidos de Rhodes].</div>
+
+        <span class="speaker">HUGO (Tenor rock desgarrado, conteniendo la rabia):</span>
+        Mírame a los ojos, Laura.<br>
+        Llevas el frío de la torre en la piel.<br>
+        He pasado la noche en vela en este muelle...<br>
+        ¿a quién estabas abrazando entre las grúas?<br>
+        ¿A quién le vendes lo que juramos ayer?<br>
+
+        <span class="speaker laura">LAURA (Voz de alto, fiera y desafiante):</span>
+        Baja la mano, Hugo, no me hables de traición.<br>
+        Megan ha bajado descalza hasta el barro,<br>
+        ha roto sus cadenas, ha burlado su prisión.<br>
+        No es tu enemiga, no es un peón...<br>
+        ¡es la única verdad que late en este rincón!<br>
+
+        <div class="stage-note">[Cruce a tempo rápido, compás a compás].</div>
+        <span class="speaker">HUGO:</span> ¡Es la trampa de Donald para reventar el andén!<br>
+        <span class="speaker laura">LAURA:</span> ¡Es una chica herida que escapó de su sartén!<br>
+        <span class="speaker">HUGO:</span> ¡Metes al verdugo dentro de este hogar!<br>
+        <span class="speaker laura">LAURA:</span> ¡Miras con rencor y no sabes mirar!<br>
+
+        <span class="speaker all">AMBOS (Estallido de estadio a pleno pulmón):</span>
+        ¿De qué lado estás?<br>
+        ¿A quién le juras lealtad?<br>
+        ¿Quién se queda de pie cuando caiga el telón?<br>
+        ¿Luchamos por la música o luchas por rencor?<br>
+        ¿De qué lado estás?<br>
+        ¡Dime quién eres hoy!<br>
+
+        <span class="speaker">HUGO (Desesperado y herido):</span>
+        ¿Rencor? ¿Te parece rencor salvar el pellejo?<br>
+        ¿Has olvidado quién levantó este almacén?<br>
+        Nos van a barrer, nos van a demoler...<br>
+        ¡y tú jugando al amor con quien nos va a romper!<br>
+
+        <span class="speaker laura">LAURA (Golpe directo a la herida):</span>
+        ¡Toda la vida llorando por aquella audición!<br>
+        ¡Quince años tenías y sigues en shock!<br>
+        Toda la vida gritando "¿es que no me oís?"...<br>
+        ¡y el único sordo que no escucha eres tú!<br>
+
+        <div class="stage-note">[Subida de tono y crescendo operístico estilo Queen].</div>
+        <span class="speaker">HUGO:</span> ¡Yo os di una casa! ¡Yo os di una voz!<br>
+        <span class="speaker laura">LAURA:</span> ¡Y ahora estás ciego pudriéndote en tu rencor!<br>
+        <span class="speaker">HUGO:</span> ¡No confío en su sangre!<br>
+        <span class="speaker laura">LAURA:</span> ¡No confías en nadie!<br>
+        <span class="speaker all">AMBOS:</span> ¡ESTO SE ACABA HOY!<br>
+
+        <div class="stage-note">[Solo abrasador de guitarras armonizadas estilo Brian May].</div>
+
+        <span class="speaker all">AMBOS (Clímax de máxima potencia):</span>
+        ¿De qué lado estás?<br>
+        ¿A quién le juras lealtad?<br>
+        ¿Quién se queda de pie cuando caiga el telón?<br>
+        ¿Luchamos por la música o luchas por rencor?<br>
+        ¿De qué lado estás?<br>
+        ¡Dime quién eres hoy!<br>
+
+        <div class="stage-note">[Golpe seco disonante y silencio total].</div>
+        <span class="speaker">HUGO (Susurrado con rabia):</span>
+        Si ella entra aquí... yo me voy.
+      </div>
+    </div>
+
+    <!-- ESCENA 11 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">11. La noche del fuego (El Asalto al Almacén)</h3>
+        <span class="scene-duration">~04:30</span>
+      </div>
+      <div class="story-box">
+        Noche cerrada. Camiones blindados irrumpen en el muelle. Los matones de Donald asaltan el almacén con barras de hierro destrozando amplificadores, cables y escenarios. La Crew se defiende cuerpo a cuerpo con baquetas, cadenas e instrumentos en una coreografía salvaje de supervivencia.
+      </div>
+    </div>
+
+    <!-- ESCENA 12 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">12. Cenizas en la marea (El Dolor de Hugo)</h3>
+        <span class="scene-duration">~04:20</span>
+      </div>
+      <div class="story-box">
+        El almacén humeante tras el asalto. El viejo piano de pared de Hugo destrozado en el suelo y partituras ardiendo. Hugo cae de rodillas entre los escombros. Es el momento más oscuro del héroe: la soledad, el fantasma de la audición de hace diez años y el dolor de haberlo perdido todo.
+      </div>
+    </div>
+
+    <!-- ESCENA 13 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">13. No hay vuelta atrás (El Gran Clímax del Acto II)</h3>
+        <span class="scene-duration">~05:30</span>
+      </div>
+      <div class="story-box">
+        Megan regresa al muelle desafiando a Donald y ayuda a levantar a Hugo. Laura y Megan deciden no huir: van a convocar a toda la juventud y a los barrios de la metrópoli a una resistencia abierta frente al rascacielos. Hugo comprende la verdad de Megan y se une al pacto. Los tres bandos cantan hacia un final apoteósico que deja la batalla planteada.
+      </div>
+    </div>
+
+    <!-- ======================================================= -->
+    <!-- ACTO III -->
+    <!-- ======================================================= -->
+    <div class="act-header">
+      <div class="act-label">Acto Tercero</div>
+      <h2 class="act-title">LA BATALLA Y EL DESPERTAR</h2>
+      <div class="act-meta">Duración: ~30 Minutos · Escenas 14 a 18</div>
+    </div>
+
+    <!-- ESCENA 14 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">14. La marcha de los invisibles (El Cerco a la Torre)</h3>
+        <span class="scene-duration">~04:30</span>
+      </div>
+      <div class="story-box">
+        Al amanecer del día previsto para la demolición, miles de jóvenes descienden de los barrios periféricos y rodean la Torre de Cristal portando instrumentos, tambores y megáfonos. Rodean pacíficamente el rascacielos al ritmo marcial de un rock de estadio aplastante.
+      </div>
+    </div>
+
+    <!-- ESCENA 15 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">15. La grieta en el algoritmo (Megan vs. Donald)</h3>
+        <span class="scene-duration">~04:00</span>
+      </div>
+      <div class="story-box">
+        Megan sube a la planta 60 emitiendo en directo para toda la metrópoli. Se encarama en el despacho de Donald y publica los documentos confidenciales que demuestran la especulación ilegal de The Frozen. Donald pierde el control en un rap histriónico mientras sus pantallas parpadean en rojo.
+      </div>
+    </div>
+
+    <!-- ESCENA 16 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">16. La caída del tiburón (El Desmoronamiento)</h3>
+        <span class="scene-duration">~04:15</span>
+      </div>
+      <div class="story-box">
+        Las acciones se desploman en la bolsa. Los inversores y consejeros delegados recogen sus maletines y abandonan a Donald. El tiburón se queda solo en el vacío de su inmenso salón acristalado, comprendiendo que su dinero no puede comprar la dignidad ni la voz de la gente.
+      </div>
+    </div>
+
+    <!-- ESCENA 17 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">17. Fuego y sal (El Abrazo en la Escalinata)</h3>
+        <span class="scene-duration">~04:30</span>
+      </div>
+      <div class="story-box">
+        Megan desciende a la calle y se reencuentra con Laura en las escalinatas de la torre, rodeadas por la multitud que celebra. Es el triunfo de su amor: un power duet épico donde el barro de la calle y la luz recuperada de Megan vencen para siempre a las barreras sociales.
+      </div>
+    </div>
+
+    <!-- ESCENA 18 -->
+    <div class="scene-block">
+      <div class="scene-header">
+        <h3 class="scene-title">18. ¿Es que no nos oís? (Gran Final Apoteósico 90')</h3>
+        <span class="scene-duration">~06:15</span>
+      </div>
+      <div class="story-box">
+        Hugo toma el micrófono en el escenario frente a la torre corporativa. Arranca el piano con los acordes melancólicos de aquel preludio de hace diez años cuando lo expulsaron de la academia... pero ahora no canta solo: miles de voces se unen en un rugido colosal: «¡¿ES QUE NO NOS OÍS?!». La música vence al algoritmo. Caída final de telón.
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

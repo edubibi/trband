@@ -1,0 +1,74 @@
+MEMORIA DE CREACION Y PROCESO DE AUTORIA
+
+OBRA Nº 402: ME QUEDO EN LA CALLE VIVA
+Concepto / Titulo provisional de trabajo: On the Collapse
+Autor y Compositor: EDUARDO LUIS RAMIREZ DE CARTAGENA
+Codigo IPI / CAE: 31.673.400
+Codigo SGAE Oficial: 34.337.849
+Codigo ISWC Oficial: T3437718435
+Fecha de Salida SGAE: 04/10/2026 (Salida Nº 1.044.463)
+Reparto de Derechos: 100% Musica (C) / 100% Letra (A)
+Interprete / Proyecto: The Research Band (TRBand)
+Finalidad: Documento probatorio de autoria humana, diseno armonico y metodologia de produccion para Registro de la Propiedad Intelectual / SGAE.
+
+--------------------------------------------------------------------------------
+
+1. FASE DE COMPOSICION ORIGINAL Y ARMONIA (HUMANA)
+
+- Herramienta principal: DAW REAPER + Teclado controlador MIDI.
+- Metrica ritmica: Compas de amalgama en 7/8 (estructura de jazz-rock / progresivo).
+- Progresion de acordes tocada y grabada:
+  Fa menor (Fm) -> Re bemol mayor (Db) -> Si bemol menor (Bbm) -> Do 7a (C7) -> Re bemol mayor (Db) -> Mi bemol mayor (Eb) -> Si bemol menor (Bbm) -> Do mayor (C).
+- Desarrollo MIDI:
+  Grabacion por pistas tocando notas y acordes en directo.
+  Duplicacion y estructuracion de compases.
+  Definicion de tres bloques estructurales claros:
+  Parte A: Seccion amplia.
+  Parte B: Seccion amplia de desarrollo.
+  Parte C: Estribillo / climax melodico.
+- Renderizado de referencia: Exportacion del audio de la base armonica desde REAPER.
+
+--------------------------------------------------------------------------------
+
+2. FASE DE ASISTENCIA TECNOLOGICA Y DISENO TIMBRICO
+
+- Semilla sonora: Insercion de la pista de audio exportada de REAPER como guia obligatoria.
+- Modelo de voz propio (Maedu): Insercion de muestra vocal personalizada para asegurar que la linea solista reproduzca el timbre e identidad vocal del autor.
+- Prompt de estilo: Parametros de estilo personal y consolidado (sello musical TRBand).
+- Letra original: Letra escrita en castellano por el autor, concebida para interactuar con coros.
+- Exportacion en Stems: Separacion obligatoria de pistas independientes (bateria, bajo, voz, instrumentos) para mezcla humana total.
+
+--------------------------------------------------------------------------------
+
+3. FASE DE EDICION MULTIPISTA, GRABACION VOCAL Y MEZCLA (ADOBE AUDITION)
+
+- Montaje: Importacion de los stems en proyecto multipista de Adobe Audition.
+- Reconstruccion quirurgica: Reedicion y sustitucion manual de los fragmentos que no cumplian el estandar artistico del autor.
+- Voz Humana Organica: Grabacion con microfono de coros reales interpretados por el autor para aportar calidez, presencia y autenticidad analogica.
+- Mezcla multipista: Balance de niveles, ecualizacion correctiva, panoramas y exportacion de mezcla estereo.
+
+--------------------------------------------------------------------------------
+
+4. FASE DE MASTERIZACION FINAL (AUDACITY)
+
+- Procesado dinamico: Cadena de insercion con ecualizadores parametricos y compresores.
+- Montaje estructural: Ajuste de cabecera y cola (fade in / fade out).
+- Control de calidad: Revision de la dinamica general, coherencia estructural y cierre del master definitivo.
+
+--------------------------------------------------------------------------------
+
+ANEXO: TRANSCRIPCION LITERAL DEL DICTADO ORIGINAL DE AUTOR
+
+Vamos a empezar con la cancion numero 402. No se como se va a llamar, pero bueno, ya lo vemos mas adelante. Estoy con Reaper, es mi grabadora, y con mi teclado con el cual empece a meter unos primeros acordes para crear el desarrollo armonico.
+
+La progresion de acordes que estoy metiendo en 7 por 8 es: Fa menor, Reb mayor, Sib menor, Do septima, Reb mayor, Mib mayor, Sib menor y Do mayor. Via MIDI estoy en una pista tocando notas y haciendo copias de los acordes en diferentes compases.
+
+A continuacion hago una ligera estructura de tres partes: una parte A amplia, una parte B amplia y una C que seria una especie de estribillo. En Reaper le doy a render y renderizo una copia de lo grabado.
+
+Este principio de acuerdo lo he llamado, como concepto de referencia, 'On the Collapse'. Me voy a Suno y bajo el audio para insertarlo. A continuacion inserto tambien una voz mia que tengo sampleada que se llama 'Maedu', con la cual hago que la voz sea la mia. Le meto un prompt que tengo disenado desde hace mucho tiempo con mi estilo musical, y una letra en castellano trabajada para cantarla yo con los coros.
+
+Suno hace la composicion y la convierto en stems (por pistas) para poder hacer las mezclas yo. Me voy a Adobe Audition y lo meto todo por pistas para editar lo que me apetezca. Hecho una edicion de las partes que no me gustaban para construirlas yo, y a continuacion me pongo a meterle unos coros mios con mi voz real al tema para que tenga mejor cuerpo.
+
+Hago la mezcla, la guardo y con esa mezcla me voy a Audacity para la edicion final y masterizacion: ecualizadores, compresores, retoco cabecera y finales, y compruebo la estructura definitiva.
+
+Por ultimo, a esta cancion 402 le voy a poner un nombre que se llama: 'Me quedo en la calle viva'. Y este es el tema terminado.

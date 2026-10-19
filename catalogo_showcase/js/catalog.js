@@ -1,5 +1,17 @@
 const musicCatalog = [
     {
+        "genre": "Funky Pop",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/22",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T2102057224",
+        "title": "acrobatic life"
+    },
+    {
         "genre": "Pop",
         "wav": null,
         "mood": "Premium",
@@ -24,15 +36,40 @@ const musicCatalog = [
         "title": "all around if you want"
     },
     {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/27",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3436451019",
+        "title": "all nigth in japan"
+    },
+    {
+        "genre": "Funky",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "cover": "assets/img/portada_amor_en_un_puerto.png",
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3427875778",
+        "title": "amor en un puerto"
+    },
+    {
         "genre": "Pop / Jazz-Rock",
         "wav": null,
         "mood": "Premium",
-        "regDate": "2026/08/13",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/and there you are.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3425342270",
         "title": "and there you are"
     },
     {
@@ -46,6 +83,19 @@ const musicCatalog = [
         "authors": "Eduardo Luis Ramírez",
         "iswc": "T3417132704",
         "title": "as we fall"
+    },
+    {
+        "genre": "Jazz-Rock / Fusion",
+        "wav": "assets/audio_unificado/athenea me llama.wav",
+        "cover": "assets/img/portada_athenea_me_llama.jpeg",
+        "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/athenea me llama.mp3",
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3427875552",
+        "title": "athenea me llama"
     },
     {
         "genre": "Jazz",
@@ -63,12 +113,12 @@ const musicCatalog = [
         "genre": "Pop, Jazz Cumbia",
         "wav": null,
         "mood": "Premium",
-        "regDate": "2026/08/13",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/bajo el asfalto.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3425342463",
         "title": "bajo el asfalto"
     },
     {
@@ -111,6 +161,18 @@ const musicCatalog = [
         "genre": "Jazz",
         "wav": null,
         "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3426642657",
+        "title": "birthday happy juan miguel"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
         "regDate": "2026/01/03",
         "folders": [],
         "registered": true,
@@ -147,12 +209,12 @@ const musicCatalog = [
         "genre": "Smooth Jazz Funky",
         "wav": "assets/audio_unificado/booking of the kindom.wav",
         "mood": "Premium",
-        "regDate": "2026/08/13",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/booking of the kindom.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "SGAE: 33.931.963",
         "title": "booking of the kindom"
     },
     {
@@ -183,12 +245,12 @@ const musicCatalog = [
         "genre": "Smooth Jazz Bossa",
         "wav": "assets/audio_unificado/brotherhood without mercy.wav",
         "mood": "Premium",
-        "regDate": "2026/08/14",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/brotherhood without mercy.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3425347719",
         "title": "brotherhood without mercy"
     },
     {
@@ -202,6 +264,18 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "T3410912408",
         "title": "bruma"
+    },
+    {
+        "genre": "Jazz-Rock Funk",
+        "wav": "assets/audio_unificado/busco un refugio.wav",
+        "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/busco un refugio.mp3",
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3425355126",
+        "title": "busco un refugio"
     },
     {
         "genre": "Jazz",
@@ -226,6 +300,18 @@ const musicCatalog = [
         "authors": "Eduardo Luis Ramírez",
         "iswc": "T3417131949",
         "title": "celtic whistle"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/20",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3435524811",
+        "title": "chestnut and walnut"
     },
     {
         "genre": "Bossanova",
@@ -255,57 +341,57 @@ const musicCatalog = [
         "genre": "Jazz rock Progresive",
         "wav": null,
         "mood": "Premium",
-        "regDate": "2026/08/14",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/cloud kisses.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3425347640",
         "title": "cloud kisses"
     },
     {
         "genre": "Smooth Jazz Soul",
         "wav": null,
         "mood": "Premium",
-        "regDate": "2026/08/14",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/cold fries and maybe lies.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3425347333",
         "title": "cold fries and maybe lies"
     },
     {
         "genre": "Pop-rock Funk",
         "wav": "assets/audio_unificado/corazón abierto.wav",
         "mood": "Premium",
-        "regDate": "2026/08/14",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/corazón abierto.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3425347582",
         "title": "corazón abierto"
     },
     {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/corazón roto en happywood land.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3426920590",
         "title": "corazón roto en happywood land"
     },
     {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/10/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/cruza, rompe la distancia.mp3",
         "authors": "Eduardo Ramírez",
         "iswc": "",
@@ -336,18 +422,6 @@ const musicCatalog = [
         "title": "day long day"
     },
     {
-        "genre": "Alternativo",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "",
-        "folders": [],
-        "registered": false,
-        "mp3": "assets/audio_unificado/demo track.mp3",
-        "authors": "Eduardo Ramírez",
-        "iswc": "",
-        "title": "demo track"
-    },
-    {
         "genre": "Jazz",
         "wav": null,
         "mood": "Premium",
@@ -363,24 +437,36 @@ const musicCatalog = [
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/digital mirage over.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3427879134",
         "title": "digital mirage over"
+    },
+    {
+        "genre": "Pop",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/10/04",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3440008657",
+        "title": "donde el mundo fue sencillo"
     },
     {
         "genre": "Pop-Rock / Balada",
         "wav": "assets/audio_unificado/donde el silencio aprende.wav",
         "mood": "Premium",
-        "regDate": "2026/08/14",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/donde el silencio aprende.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3425341744",
         "title": "donde el silencio aprende"
     },
     {
@@ -420,6 +506,18 @@ const musicCatalog = [
         "title": "duck frog and me"
     },
     {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/10/04",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3440008566",
+        "title": "dunas encharcadas"
+    },
+    {
         "genre": "Pop",
         "wav": null,
         "mood": "Premium",
@@ -456,18 +554,6 @@ const musicCatalog = [
         "title": "entre neones"
     },
     {
-        "genre": "Jazz",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "2026/08/02",
-        "folders": [],
-        "registered": true,
-        "mp3": null,
-        "authors": "Eduardo Ramírez",
-        "iswc": "T3421767337",
-        "title": "everything changes"
-    },
-    {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
@@ -490,6 +576,30 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "",
         "title": "eres hielo que arde en mi pecho"
+    },
+    {
+        "genre": "Pop-Rock / Jazz-Rock",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/10/06",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "",
+        "title": "es el vértigo de verte"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/08/02",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3421767337",
+        "title": "everything changes"
     },
     {
         "genre": "Jazz",
@@ -543,6 +653,19 @@ const musicCatalog = [
         "genre": "Jazz",
         "wav": null,
         "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/follow you follow me.mp3",
+        "cover": "assets/img/portada_follow_you_follow_me.jpg",
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3426920352",
+        "title": "follow you follow me"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
         "regDate": "2025/12/20",
         "folders": [],
         "registered": true,
@@ -555,13 +678,25 @@ const musicCatalog = [
         "genre": "Pop-Rock / Balada",
         "wav": "assets/audio_unificado/hay amores que solo aprenden a doler.wav",
         "mood": "Premium",
-        "regDate": "2026/08/13",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/hay amores que solo aprenden a doler.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3425342043",
         "title": "hay amores que solo aprenden a doler"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/10/04",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3440008475",
+        "title": "he perdido los papeles"
     },
     {
         "genre": "Jazz",
@@ -663,6 +798,18 @@ const musicCatalog = [
         "genre": "Jazz",
         "wav": null,
         "mood": "Premium",
+        "regDate": "2026/09/27",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3436451177",
+        "title": "lottery receipt"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
         "regDate": "2026/06/10",
         "folders": [],
         "registered": true,
@@ -675,12 +822,12 @@ const musicCatalog = [
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/love fusion.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3427879929",
         "title": "love fusion"
     },
     {
@@ -694,6 +841,30 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "T3410912180",
         "title": "macao no es lao"
+    },
+    {
+        "genre": "Funk / Jazz-Rock",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/10/06",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "",
+        "title": "magic in the beat"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/27",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3436450823",
+        "title": "make me yours"
     },
     {
         "genre": "Jazz",
@@ -732,6 +903,18 @@ const musicCatalog = [
         "title": "me estremezco"
     },
     {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/10/04",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3437718435",
+        "title": "me quedo en la calle viva"
+    },
+    {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
@@ -768,27 +951,39 @@ const musicCatalog = [
         "title": "medianoche en la terraza"
     },
     {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/27",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3436450196",
+        "title": "medical lover"
+    },
+    {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/mellow stroll.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3427879883",
         "title": "mellow stroll"
     },
     {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/midnight lies.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3427879861",
         "title": "midnight lies"
     },
     {
@@ -807,12 +1002,12 @@ const musicCatalog = [
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/morning aproach.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3427878993",
         "title": "morning aproach"
     },
     {
@@ -855,24 +1050,24 @@ const musicCatalog = [
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/on the second verse.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3427878813",
         "title": "on the second verse"
     },
     {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/orange & yellow.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3427879429",
         "title": "orange & yellow"
     },
     {
@@ -903,12 +1098,12 @@ const musicCatalog = [
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/please come back.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3427879281",
         "title": "please come back"
     },
     {
@@ -922,6 +1117,31 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "T3390173516",
         "title": "pulso a pulso"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3429625736",
+        "title": "reality or fiction"
+    },
+    {
+        "genre": "Pop",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/27",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "cover": "assets/img/portada_video_risas_al_pasar.jpg",
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3436450663",
+        "title": "risas al pasar"
     },
     {
         "genre": "Alternativo",
@@ -972,28 +1192,16 @@ const musicCatalog = [
         "title": "secret of velvet"
     },
     {
-        "genre": "Alternativo",
-        "wav": null,
+        "genre": "Jazz-Rock funk",
+        "wav": "assets/audio_unificado/seeking a harbor.wav",
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
-        "mp3": "assets/audio_unificado/seventy.mp3",
+        "registered": true,
+        "mp3": "assets/audio_unificado/seeking a harbor.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
-        "title": "seventy"
-    },
-    {
-        "genre": "Alternativo",
-        "wav": null,
-        "mood": "Premium",
-        "regDate": "",
-        "folders": [],
-        "registered": false,
-        "mp3": "assets/audio_unificado/seventy instrumental.mp3",
-        "authors": "Eduardo Ramírez",
-        "iswc": "",
-        "title": "seventy instrumental"
+        "iswc": "T3425355499",
+        "title": "seeking a harbor"
     },
     {
         "genre": "Alternativo",
@@ -1068,15 +1276,15 @@ const musicCatalog = [
         "title": "side by side"
     },
     {
-        "genre": "Alternativo",
+        "genre": "Pop / Balada",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2013/04/08",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/siempre te amaré.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T0429341218",
         "title": "siempre te amaré"
     },
     {
@@ -1104,6 +1312,31 @@ const musicCatalog = [
         "title": "soft corners"
     },
     {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/sweet oh love oh life.mp3",
+        "cover": "assets/img/portada_sweet_oh_love_oh_life.jpg",
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3421771855",
+        "title": "sweet oh love oh life"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3429625996",
+        "title": "table full of dice"
+    },
+    {
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
@@ -1126,6 +1359,19 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "",
         "title": "take me where the night"
+    },
+    {
+        "genre": "Jazz",
+        "wav": "assets/audio_unificado/tan cerca del mar.wav",
+        "cover": "assets/img/portada_tan_cerca_del_mar.jpeg",
+        "mood": "Premium",
+        "regDate": "2026/09/27",
+        "folders": [],
+        "registered": true,
+        "mp3": "assets/audio_unificado/tan cerca del mar.mp3",
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3436450323",
+        "title": "tan cerca del mar"
     },
     {
         "genre": "Pop",
@@ -1167,12 +1413,12 @@ const musicCatalog = [
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/the more lies you tell, the more i believe you..mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3427878697",
         "title": "the more lies you tell, the more i believe you."
     },
     {
@@ -1191,6 +1437,18 @@ const musicCatalog = [
         "genre": "Jazz",
         "wav": null,
         "mood": "Premium",
+        "regDate": "2026/09/27",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3436451133",
+        "title": "the salty siren sings"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
         "regDate": "2026/01/02",
         "folders": [],
         "registered": true,
@@ -1198,6 +1456,18 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "T3373873162",
         "title": "the scent of velvet"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3429625532",
+        "title": "the way is a fantasy no real"
     },
     {
         "genre": "Alternativo",
@@ -1210,6 +1480,30 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "",
         "title": "there are no wolves without sheep"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3429625327",
+        "title": "this is verse no poem"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3431695108",
+        "title": "todas miran hacia aquíí"
     },
     {
         "genre": "Alternativo",
@@ -1239,13 +1533,25 @@ const musicCatalog = [
         "genre": "Alternativo",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/06",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/tujazzy socu.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3427878506",
         "title": "tujazzy socu"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/27",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3436450903",
+        "title": "velvet chains"
     },
     {
         "genre": "Alternativo",
@@ -1299,6 +1605,30 @@ const musicCatalog = [
         "genre": "Jazz",
         "wav": null,
         "mood": "Premium",
+        "regDate": "2026/09/27",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3436451086",
+        "title": "we are poured"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3429624971",
+        "title": "what's going on"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
         "regDate": "2026/03/07",
         "folders": [],
         "registered": true,
@@ -1335,6 +1665,18 @@ const musicCatalog = [
         "genre": "Jazz",
         "wav": null,
         "mood": "Premium",
+        "regDate": "2026/09/06",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3429625123",
+        "title": "without three or four"
+    },
+    {
+        "genre": "Jazz",
+        "wav": null,
+        "mood": "Premium",
         "regDate": "2026/01/03",
         "folders": [],
         "registered": true,
@@ -1344,15 +1686,15 @@ const musicCatalog = [
         "title": "woman on the island beach"
     },
     {
-        "genre": "Alternativo",
+        "genre": "Rock",
         "wav": null,
         "mood": "Premium",
-        "regDate": "",
+        "regDate": "2026/09/27",
         "folders": [],
-        "registered": false,
+        "registered": true,
         "mp3": "assets/audio_unificado/woodstock tigre celebration.mp3",
         "authors": "Eduardo Ramírez",
-        "iswc": "",
+        "iswc": "T3436450005",
         "title": "woodstock tigre celebration"
     },
     {
@@ -1380,6 +1722,18 @@ const musicCatalog = [
         "title": "yes chester, i feel"
     },
     {
+        "genre": "Rock",
+        "wav": null,
+        "mood": "Premium",
+        "regDate": "2026/09/27",
+        "folders": [],
+        "registered": true,
+        "mp3": null,
+        "authors": "Eduardo Ramírez",
+        "iswc": "T3436450481",
+        "title": "youth starship"
+    },
+    {
         "genre": "Jazz",
         "wav": null,
         "mood": "Premium",
@@ -1390,55 +1744,5 @@ const musicCatalog = [
         "authors": "Eduardo Ramírez",
         "iswc": "T3408172743",
         "title": "¿a donde bass?"
-    },
-    {
-        "genre": "Jazz-Rock funk",
-        "wav": "assets/audio_unificado/seeking a harbor.wav",
-        "mood": "Premium",
-        "regDate": "2026/08/15",
-        "folders": [],
-        "registered": false,
-        "mp3": "assets/audio_unificado/seeking a harbor.mp3",
-        "authors": "Eduardo Ramírez",
-        "iswc": "",
-        "title": "seeking a harbor"
-    },
-    {
-        "genre": "Jazz-Rock / Fusion",
-        "wav": "assets/audio_unificado/athenea me llama.wav",
-        "cover": "assets/img/portada_athenea_me_llama.jpeg",
-        "mood": "Premium",
-        "regDate": "2026/08/15",
-        "folders": [],
-        "registered": false,
-        "mp3": "assets/audio_unificado/athenea me llama.mp3",
-        "authors": "Eduardo Ramírez",
-        "iswc": "",
-        "title": "athenea me llama"
-    },
-    {
-        "genre": "Jazz-Rock Funk",
-        "wav": "assets/audio_unificado/busco un refugio.wav",
-        "mood": "Premium",
-        "regDate": "2026/08/15",
-        "folders": [],
-        "registered": false,
-        "mp3": "assets/audio_unificado/busco un refugio.mp3",
-        "authors": "Eduardo Ramírez",
-        "iswc": "",
-        "title": "busco un refugio"
-    },
-    {
-        "genre": "Smooth Jazz / Pop-Rock",
-        "wav": "assets/audio_unificado/tan cerca del mar.wav",
-        "cover": "assets/img/portada_tan_cerca_del_mar.jpeg",
-        "mood": "Premium",
-        "regDate": "2026/08/15",
-        "folders": [],
-        "registered": false,
-        "mp3": "assets/audio_unificado/tan cerca del mar.mp3",
-        "authors": "Eduardo Ramírez",
-        "iswc": "",
-        "title": "tan cerca del mar"
     }
 ];
