@@ -407,40 +407,251 @@ En el Acto II la tensión estalla: Donald descubre la humillación pública y la
 ---
 
 #### ESCENA 11: LA NOCHE DEL FUEGO (EL ASALTO AL ALMACÉN)
-- Duración estimada: ~04:30
+- Duración: 04:17 (Master mix final consolidado en WAV y MP3 320kbps con base melódica propia de Eduardo)
 - Personajes: Hugo, Laura, Donald, Guardias y los Crew.
 - Acción: Noche cerrada. Camiones blindados y excavadoras irrumpen en el muelle sin previo aviso. Los matones de Donald asaltan el almacén portuario con barras de hierro destrozando amplificadores, cables y escenarios. La Crew se defiende cuerpo a cuerpo con baquetas, cadenas e instrumentos en una coreografía salvaje de supervivencia.
-- Estilo musical: Rock virtuoso demoledor a tempo alto (140 BPM), dobles bombos contundentes, solos de guitarra abrasadores y coros masivos de batalla.
+- Estilo musical: Rock virtuoso demoledor a tempo alto (140 BPM), dobles bombos contundentes, solos de guitarra abrasadores y coros masivos de batalla. Gran carácter y personalidad melódica sin caer en el pastiche.
+- Nota de Postproducción / DAW: El efecto sonoro de cierre `[Sound FX: Crujido de madera quebrándose y fuego ardiendo]` queda agendado para montaje manual en DAW (Audition) durante la fase de postproducción, sirviendo de transición sonora orgánica y desoladora hacia la Escena 12.
+- Prompt de Estilo (Suno):
+  `Heavy theatrical rock opera, 140 BPM driving battle groove, Queen style Brian May harmonized screaming electric guitars, thunderous punchy Toto drums, roaring Hammond B3 organ, aggressive distorted bassline, gritty male rock tenor and raw powerful female rock alto trading fierce vocals, massive chanting choir, dramatic brass stabs, stadium rock battle anthem, analog tape warmth, dynamic stops, epic climax, no autotune`
+
+- Letra Completa & Estructura:
+  ```text
+  [Sound FX: Sirenas lejanas, chirrido de frenos pesados, rugido de motores diésel]
+  [Crash FX: Impacto metálico brutal - Un portón reventado cae al suelo]
+
+  [Intro - 140 BPM - Heavy Tom-Tom Rolls & Roaring Hammond B3 - Biting Guitar Riff]
+
+  [Donald - Megaphone / Radio Filter - Aggressive Fast Rap]
+  ¡Tumbad el tabique, quemad el furgón!
+  ¡Que no quede en pie ni un solo rincón!
+  ¡Arrasad con todo, a la de tres!
+  ¡Bang bang bang! ¡Esto es la ley!
+
+  [Verse 1 - Hugo - Gritty Rock Tenor]
+  ¡Atrás! ¡No deis un solo paso más!
+  Este suelo no se vende, no se va a entregar.
+  Habéis roto las cadenas, habéis roto el portón...
+  ¡pero aquí dentro manda el corazón!
+
+  [Verse 2 - Laura - Raw Soulful Alto]
+  ¡De pie, Dissonance, apretad los dientes!
+  ¡Que sientan la fuerza de los valientes!
+  Con pies de plomo y baquetas de nogal,
+  ¡no van a callarnos con su gas lacrimógeno ni su metal!
+
+  [Pre-Chorus - Both Hugo & Laura Harmonizing - Driving 140 BPM Snare]
+  Vienen con blindados, vienen con rencor,
+  quieren apagar a golpes nuestro tambor...
+  ¡Pero antes de rendirnos en este rincón...
+  ¡VERÁN ARDER EL SALÓN!
+
+  [Chorus - Explosive Stadium Rock Battle - Hugo, Laura & Full Crew Choir]
+  ¡LA NOCHE DEL FUEGO! ¡NO VAMOS A CEDER!
+  ¡Si cae el almacén, moriremos de pie!
+  ¡Golpe tras golpe, hierro contra voz,
+  no hay miedo al tirano ni a su falso dios!
+  ¡LA NOCHE DEL FUEGO! ¡VAMOS A RESISTIR!
+  ¡Si nos quitan la casa... nos van a tener que oír!
+
+  [Verse 3 - Hugo & Laura Trading Bars - Tension & Fight]
+  [Hugo] ¡Tiraron mi ampli, quebraron mi atril!
+  [Laura] ¡Te cubro la espalda frente al guardia civil!
+  [Hugo] ¡No toques mis notas, no toques mi fe!
+  [Laura] ¡Diles que la calle no besa sus pies!
+
+  [Bridge - Theatrical Percussion Battle - Drums, Metal Pipe Clashes & Slap Bass]
+  [Coro de la Crew - Aggressive Rhythmic Chant]
+  ¡Resiste el muelle! ¡Resiste el canal!
+  ¡Resiste el verso contra su metal!
+  ¡Uno, dos, tres, no van a pasar!
+  ¡Uno, dos, tres, no van a pasar!
+
+  [Guitar Solo - Virtuoso Brian May Screaming Harmonized Guitars - Explosive Clash]
+
+  [Chorus - Maximum Climax - Full Ensemble at 140 BPM]
+  ¡LA NOCHE DEL FUEGO! ¡NO VAMOS A CEDER!
+  ¡Si cae el almacén, moriremos de pie!
+  ¡Golpe tras golpe, hierro contra voz,
+  no hay miedo al tirano ni a su falso dios!
+  ¡LA NOCHE DEL FUEGO! ¡VAMOS A RESISTIR!
+  ¡Si nos quitan la casa... nos van a tener que oír!
+
+  [Outro - Sirens, Crackling Fire FX & Smoke - Heavy Fading Rock Chords]
+  [Donald - Distant Cold Voice]
+  Quemad el piano. Vámonos.
+  [Sound FX: Crujido de madera quebrándose y fuego ardiendo]
+  [End]
+  ```
 
 ---
 
-#### ESCENA 12: CENIZAS EN LA MAREA (EL DOLOR DE HUGO)
-- Duración estimada: ~04:20
-- Personajes: Hugo (Solo desgarrado).
-- Acción: El almacén humeante tras la retirada de los matones. El viejo piano de pared de Hugo destrozado en el suelo, partituras ardiendo y la Crew dispersa o herida. Hugo cae de rodillas entre los escombros. Es el momento más oscuro del héroe: la soledad, el fantasma de la audición de hace diez años y la rabia contenida.
-- Estilo musical: Rock operístico dramático estilo Freddie Mercury (arranque a piano solo y voz rota, sumando una guitarra eléctrica que llora notas agudas y un crescendo de estadio devastador).
-- Gancho dramático: "Romped la madera, quemad el metal... la canción sigue viva en la marea."
+#### ESCENA 12: CENIZAS EN LA MAREA (EL CABREO DE HUGO & LAURA)
+- Duración: 04:12 (Master consolidado en Suno con Blues-Rock en Tono Mayor)
+- Personajes: Hugo (Male lead tenor) y Laura (Female lead alto). Roles vocales estrictamente alternados.
+- Acción: El almacén humeante tras la embestida de los matones. El viejo piano de pared destrozado y las partituras quemadas. Hugo no se hunde en la tristeza: le hierve la sangre en un cabreo monumental. Laura irrumpe para azuzarle el fuego interior y ambos se levantan con rabia y chulería desafiante para responder al atentado.
+- Estilo musical: Blues-rock en tono mayor a 105 BPM, riff abierto y desafiante, slide guitar, órgano Hammond B3 arrollador, palmadas y stomp demoledor. Nada de luto menor ni balada triste: pura actitud de guerra callejera y rock and roll.
+- Prompt de Estilo (Suno):
+  `Upbeat defiant blues rock in major key, driving 105 BPM stomp groove, swaggering slide and lead electric guitars in open major chords, roaring Hammond B3 organ, punchy bassline, tight punchy drums with heavy handclaps, strictly distinct alternating vocal roles: gritty male rock tenor vs raspy raw female rock alto, no minor keys, no sad ballad, no gloom, pure energetic attitude and angry defiance, analog studio sound, no autotune, no opera`
+
+- Letra Completa & Estructura:
+  ```text
+  [Intro - Defiant Mid-Tempo Blues Stomp in A Major - 105 BPM - Roaring Hammond B3, Chuck Berry Style Double-Stops & Cracking Snare Drum]
+
+  [Verse 1 - Hugo - Male Lead Vocal Only - Gritty & Angry - No Female Vocal]
+  ¡Mirad lo que habéis hecho con mi piano!
+  Cuatro tablas quemadas en el barrizal.
+  ¿Os creéis que por romperme la madera
+  me voy a quedar llorando en el canal?
+  ¡Estáis muy equivocados, sinvergüenzas!
+  ¡Tengo la mala leche a punto de estallar!
+
+  [Verse 2 - Hugo - Male Lead Vocal Only - Increasing Anger & Swagger]
+  Diez años sudando cada nota,
+  cada cable soldado con dolor...
+  Han venido los perros de corbata
+  a cobrarse la fiesta del patrón.
+  ¡Pues venid a por mí si tenéis huevos,
+  que no me asusta vuestro bulldozer!
+
+  [Verse 3 - Laura - Female Lead Vocal Only - Raspy Punchy Alto - No Male Vocal]
+  ¡Así te quería yo ver, cojones!
+  ¡Basta de lloriquear en el rincón!
+  He contado a la Crew en la trinchera
+  y no falta ni un solo cabrón.
+  Donald cree que nos ha dejado mudos...
+  ¡y le vamos a meter el amplificador en el salón!
+
+  [Pre-Chorus - Alternating Lines with Strict Separation - Heavy Stomp Groove]
+  [Hugo - Male Lead Vocal Only] ¡Tengo las manos negras de carbón!
+  [Laura - Female Lead Vocal Only] ¡Pues úsalas para partirles el guion!
+  [Hugo - Male Lead Vocal Only] ¡No queda un puto piano donde tocar!
+  [Laura - Female Lead Vocal Only] ¡Nos sobra garganta para reventar!
+
+  [Chorus - Explosive Major Key Blues-Rock Anthem - Hugo & Laura Harmonizing]
+  [Both - Male & Female Duet in Full Power - High Energy & Defiance]
+  ¡QUE ARDA EL PUERTO, QUE ARDA EL METAL!
+  ¡A ver quién tiene agallas de hacernos callar!
+  Creíais que el fuego nos iba a enterrar...
+  ¡Y NOS HABÉIS DADO GANAS DE PELEAR!
+  ¡Romped lo que queráis, cobardes!
+  ¡ESTE BLUES OS VA A APLASTAR!
+
+  [Verse 4 - Quick Vocal Trade - Strict Roles - Swaggering Slide Guitar]
+  [Hugo - Male Lead Vocal Only] No hay tristeza, lo que tengo es rabia viva.
+  [Laura - Female Lead Vocal Only] ¡Esa rabia es la mejor medicina!
+  [Hugo - Male Lead Vocal Only] Me creían hundido en la marea...
+  [Laura - Female Lead Vocal Only] ¡Y ahora empieza la verdadera pelea!
+
+  [Guitar Solo - Virtuoso Major-Key Blues Rock Solo - Harmonized Bends, Screaming B3 Organ & Driving Bassline]
+
+  [Bridge - Tense Half-Time Breakdown - Raw Defiance]
+  [Hugo - Male Lead Vocal Only - Spoken Snarl]
+  Donald... escucha bien este acorde mayor.
+  [Laura - Female Lead Vocal Only - Feisty Laugh]
+  Porque es el último que vas a oír en paz.
+  [Both - Rising Harmony into Full Band Kick]
+  ¡AQUÍ NO SE RINDE NADIE!
+
+  [Chorus - Maximum Power Climax in Major Key - Massive Drums & Blazing Guitars]
+  [Both - Male & Female Duet at Maximum Volume]
+  ¡QUE ARDA EL PUERTO, QUE ARDA EL METAL!
+  ¡A ver quién tiene agallas de hacernos callar!
+  Creíais que el fuego nos iba a enterrar...
+  ¡Y NOS HABÉIS DADO GANAS DE PELEAR!
+  ¡Romped lo que queráis, cobardes!
+  ¡ESTE BLUES OS VA A APLASTAR!
+
+  [Outro - Heavy Driving Major Blues Riffing - Full Throttle Band]
+  [Hugo - Male Lead Vocal Only - Shouting with Grin] ¡Traed más cerillas, que tenemos frío!
+  [Laura - Female Lead Vocal Only] ¡Nos vemos en su torre!
+  [Big Final Major Chord Hit - Drum Cymbal Crash - B3 Organ Leslie Brake]
+  [End]
+  ```
 
 ---
 
 #### ESCENA 13: NO HAY VUELTA ATRÁS (EL GRAN CLÍMAX DEL ACTO II)
-- Duración estimada: ~05:30
-- Personajes: Laura, Megan, Hugo y Toda la Compañía (Ensemble completo).
-- Acción: Megan regresa al muelle, desafiando a su familia y poniéndose del lado de la Crew. Ayuda a levantar a Hugo. Laura y Megan deciden no huir: van a convocar a toda la juventud y a los barrios de la metrópoli a una resistencia cultural abierta frente al rascacielos. Hugo comprende la verdad de Megan y se une al pacto. Los tres bandos cantan en contrapunto hacia un final colosal que deja la guerra planteada para el Acto III.
-- Estilo musical: Himno apoteósico de rock sinfónico / arena rock (Queen + Toto), polifonía a cuatro voces, compases épicos y final en suspensión que deja al público al borde del asiento antes del intermedio.
+- Duración: 04:33 (Master mix consolidado en Suno - Final del Acto II)
+- Personajes: Megan (Female Singer 1 - Soprano lírica pura), Laura (Female Singer 2 - Contralto rasposa soul-rock), Hugo (Male Singer - Tenor rock potente) y Toda la Compañía (Ensemble completo).
+- Acción: Megan llega corriendo descalza al muelle tras romper definitivamente con la corporación y con Donald. Laura y Hugo la reciben y los tres sellan el pacto de honor: no van a esconderse ni a huir, van a convocar a toda la juventud y a los barrios a plantarse frente al rascacielos. La Crew entera se une en un himno apoteósico de rock de estadio que concluye con el grito de guerra hacia la planta 60, dejando el telón en suspensión para el intermedio antes del Acto III.
+- Estilo musical: Himno apoteósico de rock sinfónico / arena rock (Queen + Toto), 128 BPM, polifonía a tres voces solistas y coro masivo de estadio.
+- Nota de Dirección y Producción (Casting Real): Para esta maqueta/blueprint de venta a productoras teatrales e inversores, la generación de IA emite ambas voces femeninas con timbres muy parecidos. Queda consignado formalmente que en la producción escénica definitiva con presupuesto y reparto real, la dirección musical de Eduardo Ramírez de Cartagena impondrá el contraste estricto entre Laura (contralto profunda rasposa de soul-rock) y Megan (soprano lírica dulce y cristalina).
+- Prompt de Estilo (Suno):
+  `Epic arena rock anthem, 128 BPM, Queen Brian May guitars, Toto drums, Hammond B3, three alternating vocalists: [Female 1] is pure high soprano, [Female 2] is raspy deep rock contralto, [Male] is gritty rock tenor, massive stadium harmonies, analog warmth, no autotune`
+
+- Letra Completa & Estructura (con fonética castellana de precisión):
+  ```text
+  [Intro - Driving Arena Rock Groove - 128 BPM - Pounding Drums & Harmonized Guitars]
+
+  [Female Singer 1] He bajado corriendo las sesenta plantas,
+  [Female Singer 1] he tirado mi pase de seguridad.
+  [Female Singer 1] Llego tarde al asedio, pero estoy aquí descaltha...
+  [Female Singer 1] con las manos vazías y buscando verdad.
+  [Female Singer 1] Donald cree que la torre lo puede comprar todo...
+  [Female Singer 1] ¡pero yo elijo estar en el barro y la sal!
+
+  [Female Singer 2] Mírala, estamos juntas frente a la niebla,
+  [Female Singer 2] ha cruzado la noche para dar la cara.
+  [Female Singer 2] Ya no hay bandos de plata contra bandos de arrabal:
+  [Female Singer 2] ¡hay quien vende su sangre y quien sabe sangrar!
+  [Female Singer 2] Ven aquí a mi lado, ponte de pie...
+  [Female Singer 2] ¡que empiezze la thiudad a temblar!
+
+  [Male Singer] Ya no busco fantasmas en la oscuridad,
+  [Male Singer] ni me asusta la sombra de aquel tribunal.
+  [Male Singer] Nos quemaron las tablas, nos tumbaron el techo...
+  [Male Singer] ¡pero han despertado a una fiera en el pecho!
+  [Male Singer] Si la torre nos busca... ¡nos va a encontrar!
+
+  [Female Singer 1] ¡Ya no hay jaula que me ate!
+  [Female Singer 2] ¡Ya no hay miedo al combate!
+  [Male Singer] ¡Ya no hay tregua que firmar!
+  [All Three] ¡QUE VENGAN A VER LA THIUDAD DESPERTAR!
+
+  [All Three] ¡NO HAY VUELTA ATRÁS! ¡LA SUERTE ESTÁ ECHADA!
+  [All Three] ¡Hoy la noche del puerto se viste de espada!
+  [All Three] ¡Que thierren sus bancos, que apaguen su red!
+  [All Three] ¡ESTA VETH ES LA CALLE LA QUE TIENE LA SED!
+  [All Three] ¡No hay vuelta atrás, rompemos el guion!
+  [All Three] ¡Mil gargantas latiendo en un solo corathón!
+
+  [Female Singer 1] Mañana a las doce frente a su cristal...
+  [Female Singer 2] ...bajará la marea de cada arrabal.
+  [Male Singer] Con las manos vacías y el pulso despierto...
+  [All Three] ¡VAMOS A ABRIR LAS PUERTAS DEL PUERTO!
+
+  [Guitar Solo - Virtuoso Brian May Screaming Multi-Track Guitars]
+
+  [Female Singer 1] No podréis acallar... la verdad...
+  [Female Singer 2] Nadie compra la piel... nadie más...
+  [Male Singer] ¿Es que no nos oís? ¡Vais a tener que oír!
+  [All Three] ¡LA THIUDAD ENTERA SE PONE DE PIE!
+
+  [All Three] ¡NO HAY VUELTA ATRÁS! ¡LA SUERTE ESTÁ ECHADA!
+  [All Three] ¡Hoy la noche del puerto se viste de espada!
+  [All Three] ¡Que thierren sus bancos, que apaguen su red!
+  [All Three] ¡ESTA VETH ES LA CALLE LA QUE TIENE LA SED!
+  [All Three] ¡NO HAY VUELTA ATRÁS!
+  [All Three] ¡NO HAY VUELTA ATRÁS!
+
+  [All Three] ¡HASTA LA PLANTA SESENTA!
+  [Big Final Rock Hit - Sudden Cliffhanger Cut into Silence]
+  [End of Act II]
+  ```
 
 ---
 
-### ⏱️ BALANCE ACTUALIZADO DEL ACTO II:
-* Escena 8 (*Donald es la ley*): **05:14** (Master definitivo consolidado - Versión final)
+### ⏱️ BALANCE MATEMÁTICO DEL ACTO II (CERRADO Y CONSOLIDADO AL 100%):
+* Escena 8 (*Donald es la ley*): **05:14** (Master definitivo consolidado)
 * Escena 9 (*Bajo las grúas apagadas*): **05:23** (Master y stems consolidados)
 * Escena 10 (*¿De qué lado estás?*): **04:07** (Master definitivo consolidado)
-* Escena 11 (*La noche del fuego*): **~04:30**
-* Escena 12 (*Cenizas en la marea*): **~04:20**
-* Escena 13 (*No hay vuelta atrás*): **~05:30**
----
-* **Total Música Acto II:** **~29:04** (Con 14:44 ya consolidados en audio real)
-* **Total Escénico con transiciones:** **~32:00**
+* Escena 11 (*La noche del fuego*): **04:17** (Master mix consolidado WAV/MP3 320)
+* Escena 12 (*Cenizas en la marea*): **04:12** (Master consolidado Suno)
+* Escena 13 (*No hay vuelta atrás*): **04:33** (Master consolidado Suno)
+--------------------------------------------------------------------
+* **TOTAL MÚSICA PURA ACTO II:** **27:46** (¡Sincronía matemática perfecta con el Acto I: 27:46!)
+* **TOTAL ESCÉNICO CON DIÁLOGOS Y TRANSICIONES:** **~32:00** (Acto II Completado al 100%)
 
 ====================================================================
 

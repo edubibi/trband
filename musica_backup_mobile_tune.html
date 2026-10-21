@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Música y Merchandising — The Research Band</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-black: #000000;
+            --accent: #D4AF37;
+            --text-light: #ffffff;
+            --text-muted: #b3b3b3;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-black);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- HEADER UNIFICADO (FOTO 2 REPLICADO 1:1) --- */
+        .main-header {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 12px 40px;
+            box-sizing: border-box; display: flex; justify-content: space-between;
+            align-items: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 70%, transparent 100%);
+            z-index: 10000; transition: all 0.3s ease;
+        }
+        .logo-area { display: flex; align-items: center; gap: 15px; cursor: pointer; }
+        .header-logo { height: 60px; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); transition: transform 0.3s ease; }
+        .header-logo:hover { transform: scale(1.05); }
+        .header-title-white { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; color: #FFFFFF; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); }
+        
+        .main-nav { display: flex; gap: 32px; align-items: center; }
+        .nav-link { 
+            color: rgba(255, 255, 255, 0.85); text-decoration: none; font-weight: 500; 
+            text-transform: uppercase; font-size: 0.88rem; letter-spacing: 1.2px; 
+            transition: all 0.3s ease; position: relative; padding: 6px 0;
+        }
+        .nav-link:hover { color: #D4AF37; }
+        .nav-link.active { color: #D4AF37; font-weight: 700; }
+        .nav-link.active::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px;
+            background-color: #D4AF37; box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+        }
+
+        /* --- PUNTOS FLOTANTES LATERALES --- */
+        .navegacion-lateral {
+            position: fixed; right: 25px; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 16px; z-index: 9999;
+            background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(8px);
+            padding: 14px 9px; border-radius: 25px; border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        .punto-link {
+            width: 12px; height: 12px; border-radius: 50%; border: 2px solid #D4AF37;
+            background-color: transparent; transition: all 0.3s ease; display: block; cursor: pointer;
+        }
+        .punto-link:hover, .punto-link.active {
+            background-color: #D4AF37; transform: scale(1.3); box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        /* ================================================================= */
+        /* 👑 PANTALLA 1: LA MESA DE MEZCLAS (REPRODUCTOR MAESTRO ÚNICO)     */
+        /* ================================================================= */
+        .seccion-mezclas {
+            padding-top: 130px;
+            padding-bottom: 80px;
+            width: 100%;
+            max-width: 1250px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .main-title {
+            font-family: var(--font-serif);
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #D4AF37;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 0 0 20px 0;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+        }
+
+        .main-sub {
+            color: #ffffff;
+            font-size: 1.15rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        /* FILA HORIZONTAL DE PORTADAS EN MINIATURA (TABS) */
+        .tabs-albumes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .tab-album-btn {
+            background: #080808;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #ffffff;
+        }
+
+        .tab-album-btn img {
+            width: 46px;
+            height: 46px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .tab-album-btn .tab-info {
+            text-align: left;
+        }
+
+        .tab-album-btn .tab-info .tab-name {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .tab-album-btn .tab-info .tab-tag {
+            font-size: 0.72rem;
+            color: #D4AF37;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .tab-album-btn:hover {
+            border-color: #D4AF37;
+            transform: translateY(-3px);
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        .tab-album-btn.active {
+            border-color: #D4AF37;
+            background: rgba(212, 175, 55, 0.15);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* CONTENEDOR DEL REPRODUCTOR MAESTRO */
+        .master-player-container {
+            background: rgba(10, 10, 15, 0.95);
+            border: 1px solid #D4AF37;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.15), 0 10px 40px rgba(0,0,0,0.9);
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            min-height: 480px;
+        }
+
+        /* LADO IZQUIERDO: REPRODUCTOR */
+        .player-left {
+            flex: 1.1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000000;
+            text-align: center;
+            box-sizing: border-box;
+            border-right: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .player-album-art {
+            width: 220px;
+            height: 220px;
+            border-radius: 14px;
+            border: 2px solid #D4AF37;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+            object-fit: cover;
+            margin-bottom: 20px;
+            transition: transform 0.4s ease;
+        }
+
+        .player-album-art.playing {
+            animation: pulseArt 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseArt {
+            0% { transform: scale(1); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 15px 45px rgba(212, 175, 55, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4); }
+        }
+
+        .player-track-name {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 6px 0;
+        }
+
+        .player-album-name {
+            font-size: 0.9rem;
+            color: #D4AF37;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0 0 20px 0;
+            font-weight: 600;
+        }
+
+        .audio-controls-box {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 380px;
+            outline: none;
+        }
+
+        .btn-controls-row {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .ctrl-btn {
+            background: none;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #ffffff;
+            font-size: 1.4rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+
+        .ctrl-btn:hover {
+            border-color: #D4AF37;
+            color: #D4AF37;
+            transform: scale(1.1);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+        }
+
+        .ctrl-btn-play {
+            width: 58px;
+            height: 58px;
+            font-size: 1.8rem;
+            background: rgba(212, 175, 55, 0.15);
+            border-color: #D4AF37;
+            color: #D4AF37;
+        }
+
+        /* LADO DERECHO: PLAYLIST */
+        .player-right {
+            flex: 0.9;
+            background: #050505;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .playlist-header {
+            padding: 20px 25px;
+            background: #000000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: left;
+        }
+
+        .playlist-header h3 {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            color: #D4AF37;
+            margin: 0 0 6px 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .playlist-header p {
+            color: #888888;
+            font-size: 0.82rem;
+            margin: 0;
+        }
+
+        .track-list-ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow-y: auto;
+            max-height: 380px;
+        }
+
+        .track-item-li {
+            padding: 14px 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .track-item-li:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .track-item-li.active {
+            background: rgba(212, 175, 55, 0.18);
+            border-left: 4px solid #D4AF37;
+        }
+
+        .track-num {
+            font-family: var(--font-serif);
+            color: #D4AF37;
+            font-weight: 700;
+            font-size: 0.95rem;
+            width: 25px;
+        }
+
+        .track-title-text {
+            color: #ffffff;
+            font-size: 0.92rem;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .track-item-li.active .track-title-text {
+            color: #D4AF37;
+            font-weight: 700;
+        }
+
+        /* ================================================================= */
+        /* 💿 PANTALLA 2: EL CATÁLOGO COMPLETO (TIENDA PREMIUM)              */
+        /* ================================================================= */
+        .seccion-catalogo {
+            background-color: #000000;
+            padding: 90px 8%;
+            box-sizing: border-box;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .grid-catalogo {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1350px;
+            margin: 50px auto 0 auto;
+        }
+
+        .disco-card {
+            background: #050505;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 14px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.35s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .disco-card:hover {
+            transform: translateY(-8px);
+            border-color: #D4AF37;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25);
+        }
+
+        .disco-cover {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 18px;
+        }
+
+        .disco-titulo {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #D4AF37;
+            margin: 0 0 6px 0;
+            text-transform: uppercase;
+            line-height: 1.25;
+            min-height: 2.5em;
+            display: flex;
+            align-items: center;
+        }
+
+        .disco-year {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .btn-disco-row {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .btn-disco {
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            border: none;
+            display: block;
+            box-sizing: border-box;
+        }
+
+        .btn-cargar {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
+        }
+
+        .btn-cargar:hover {
+            background: #D4AF37;
+            color: #000000;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-comprar {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .btn-comprar:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* ================================================================= */
+        /* 👕 PANTALLA 3: EL MERCHANDISING (SEGUNDO SCROLL)                  */
+        /* ================================================================= */
+        .seccion-merch {
+            background-color: #000000;
+            padding: 90px 8% 100px 8%;
+            box-sizing: border-box;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .grid-merch {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1350px;
+            margin: 50px auto 0 auto;
+        }
+
+        .merch-item {
+            background: #050505;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.35s ease;
+        }
+
+        .merch-item:hover {
+            border-color: #D4AF37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .merch-img-box {
+            width: 100%;
+            height: 220px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .merch-img-box img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .merch-name {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: #ffffff;
+            margin: 0 0 5px 0;
+            font-weight: 700;
+        }
+
+        .merch-price {
+            color: #D4AF37;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        /* --- FOOTER CRÉDITOS --- */
+        .author-footer {
+            width: 100%;
+            padding: 45px 20px;
+            box-sizing: border-box;
+            background: #000000;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (max-width: 1050px) {
+            .master-player-container { flex-direction: column; height: auto; }
+            .player-left { border-right: none; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding: 30px 20px; }
+            .grid-catalogo { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .grid-merch { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .main-title { font-size: 2.4rem; }
+            .navegacion-lateral { display: none; }
+            .main-header { padding: 10px 15px !important; }
+            .header-logo { height: 45px !important; }
+            .header-title-white { font-size: 1.1rem !important; }
+            .main-nav { gap: 12px !important; }
+            .nav-link { font-size: 0.72rem !important; letter-spacing: 0.5px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 📌 HEADER UNIFICADO (FOTO 2) -->
+    <header class="main-header">
+        <div class="logo-area" onclick="window.location.href='index.html'">
+            <img src="assets/logo_trb_icon.png" alt="TRB Icon" class="header-logo">
+            <span class="header-title-white">The Research Band</span>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="nosotros.html" class="nav-link">Nosotros</a>
+            <a href="iliada.html" class="nav-link">Mi Ilíada</a>
+            <a href="galeria.html" class="nav-link">Galería</a>
+            <a href="musica.html" class="nav-link active">Música y Merchandising</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- 📍 PUNTOS FLOTANTES LATERALES -->
+    <nav class="navegacion-lateral" aria-label="Navegación lateral rápida">
+        <a href="#mesa-mezclas" class="punto-link active" title="Mesa de Mezclas"></a>
+        <a href="#catalogo" class="punto-link" title="Catálogo Discográfico"></a>
+        <a href="#merchandising" class="punto-link" title="Merchandising"></a>
+    </nav>
+
+    <main>
+        
+        <!-- ================================================================= -->
+        <!-- 👑 PANTALLA 1: LA MESA DE MEZCLAS (REPRODUCTOR MAESTRO ÚNICO)     -->
+        <!-- ================================================================= -->
+        <section id="mesa-mezclas" class="seccion-mezclas">
+            
+            <h1 class="main-title">El Estudio de Escucha</h1>
+            <div class="main-sub">Reproductor Maestro TRBandMusic</div>
+
+            <!-- FILA HORIZONTAL DE PORTADAS EN MINIATURA (TABS DE ÁLBUMES REALES) -->
+            <div class="tabs-albumes">
+                
+                <div class="tab-album-btn active" id="tab-album-0" onclick="cargarAlbum(0)">
+                    <img src="assets/portada_jazz.png" alt="Color Notes">
+                    <div class="tab-info">
+                        <div class="tab-name">One Thousand...</div>
+                        <div class="tab-tag">Instrumental</div>
+                    </div>
+                </div>
+
+                <div class="tab-album-btn" id="tab-album-1" onclick="cargarAlbum(1)">
+                    <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="FUGA El Gato">
+                    <div class="tab-info">
+                        <div class="tab-name">FUGA (El Gato)</div>
+                        <div class="tab-tag">2026 Versions</div>
+                    </div>
+                </div>
+
+                <div class="tab-album-btn" id="tab-album-2" onclick="cargarAlbum(2)">
+                    <img src="assets/portada_cut the roll and jazzrock.png" alt="Cut the Roll">
+                    <div class="tab-info">
+                        <div class="tab-name">Cut the Roll</div>
+                        <div class="tab-tag">15 Canciones</div>
+                    </div>
+                </div>
+
+                <div class="tab-album-btn" id="tab-album-3" onclick="cargarAlbum(3)">
+                    <img src="assets/cover_trband_songs.jpg" alt="Selección de Autor">
+                    <div class="tab-info">
+                        <div class="tab-name">Selección de Autor</div>
+                        <div class="tab-tag">Vocales & Exclusivos</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CONTENEDOR MAESTRO DEL REPRODUCTOR -->
+            <div class="master-player-container">
+                
+                <!-- LADO IZQUIERDO: CARÁTULA Y CONTROLES -->
+                <div class="player-left">
+                    <img src="assets/portada_jazz.png" id="masterCover" class="player-album-art" alt="Portada Álbum">
+                    <div class="player-track-name" id="masterTrackName">Selecciona una canción</div>
+                    <div class="player-album-name" id="masterAlbumName">One Thousand of Color Notes</div>
+
+                    <div class="audio-controls-box">
+                        <audio id="masterAudio" controls></audio>
+                        <div class="btn-controls-row">
+                            <button class="ctrl-btn" onclick="prevTrackMaster()" title="Anterior">⏮</button>
+                            <button class="ctrl-btn ctrl-btn-play" onclick="togglePlayMaster()" title="Reproducir/Pausa">⏯</button>
+                            <button class="ctrl-btn" onclick="nextTrackMaster()" title="Siguiente">⏭</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LADO DERECHO: PLAYLIST DINÁMICA -->
+                <div class="player-right">
+                    <div class="playlist-header">
+                        <h3 id="playlistHeaderTitle">Lista de Reproducción</h3>
+                        <p id="playlistHeaderCount">15 Canciones en este álbum</p>
+                    </div>
+                    <ul class="track-list-ul" id="masterPlaylistUl">
+                        <!-- Las canciones se cargan dinámicamente con JS -->
+                    </ul>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- 💿 PANTALLA 2: EL CATÁLOGO COMPLETO (TIENDA PREMIUM)              -->
+        <!-- ================================================================= -->
+        <section id="catalogo" class="seccion-catalogo">
+            
+            <h2 class="main-title" style="font-size: 2.4rem; margin-bottom: 20px;">Catálogo Discográfico</h2>
+            <div class="main-sub">Ediciones Digitales & Colección</div>
+
+            <div class="grid-catalogo">
+                
+                <!-- DISCO 1: ONE THOUSAND OF COLOR NOTES -->
+                <div class="disco-card">
+                    <img src="assets/portada_jazz.png" class="disco-cover" alt="Color Notes">
+                    <h3 class="disco-titulo">One Thousand of Color Notes</h3>
+                    <div class="disco-year">2026 • Instrumental Fusion (15 Tracks)</div>
+                    <div class="btn-disco-row">
+                        <button class="btn-disco btn-cargar" onclick="cargarAlbumYSubir(0)">🎵 Cargar en Reproductor</button>
+                        <button class="btn-disco btn-comprar" onclick="alert('Álbum disponible en descarga digital de alta calidad. Contacta con nosotros para adquirir el máster original.')">🛒 Comprar Digital · 9€</button>
+                    </div>
+                </div>
+
+                <!-- DISCO 2: FUGA (2026 VERSIONS - EL GATO) -->
+                <div class="disco-card">
+                    <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" class="disco-cover" alt="FUGA (El Gato)">
+                    <h3 class="disco-titulo">FUGA (2026 Versions)</h3>
+                    <div class="disco-year">2026 • In Memoriam Pepe y Lola (10 Tracks)</div>
+                    <div class="btn-disco-row">
+                        <button class="btn-disco btn-cargar" onclick="cargarAlbumYSubir(1)">🎵 Cargar en Reproductor</button>
+                        <button class="btn-disco btn-comprar" onclick="alert('Álbum disponible en descarga digital de alta calidad. Contacta con nosotros para adquirir el máster original.')">🛒 Comprar Digital · 9€</button>
+                    </div>
+                </div>
+
+                <!-- DISCO 3: CUT THE ROLL & JAZZROCK (15 CANCIONES) -->
+                <div class="disco-card">
+                    <img src="assets/portada_cut the roll and jazzrock.png" class="disco-cover" alt="Cut the Roll">
+                    <h3 class="disco-titulo">Cut the Roll & JazzRock</h3>
+                    <div class="disco-year">2025 • Jazz-Rock Experience (15 Tracks)</div>
+                    <div class="btn-disco-row">
+                        <button class="btn-disco btn-cargar" onclick="cargarAlbumYSubir(2)">🎵 Cargar en Reproductor</button>
+                        <button class="btn-disco btn-comprar" onclick="alert('Álbum disponible en descarga digital de alta calidad. Contacta con nosotros para adquirir el máster original.')">🛒 Comprar Digital · 9€</button>
+                    </div>
+                </div>
+
+                <!-- DISCO 4: SELECCIÓN DE AUTOR -->
+                <div class="disco-card">
+                    <img src="assets/cover_trband_songs.jpg" class="disco-cover" alt="Selección de Autor">
+                    <h3 class="disco-titulo">Selección de Autor</h3>
+                    <div class="disco-year">2026 • Vocales & Exclusivos (8 Tracks)</div>
+                    <div class="btn-disco-row">
+                        <button class="btn-disco btn-cargar" onclick="cargarAlbumYSubir(3)">🎵 Cargar en Reproductor</button>
+                        <button class="btn-disco btn-comprar" onclick="alert('Álbum disponible en descarga digital de alta calidad. Contacta con nosotros para adquirir el máster original.')">🛒 Comprar Digital · 9€</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- 👕 PANTALLA 3: EL MERCHANDISING (PRODUCTOS PARA FANS)             -->
+        <!-- ================================================================= -->
+        <section id="merchandising" class="seccion-merch">
+            
+            <h2 class="main-title" style="font-size: 2.4rem; margin-bottom: 20px;">Merchandising Oficial</h2>
+            <div class="main-sub">Ediciones Exclusivas & Colección TRBand</div>
+
+            <div class="grid-merch">
+                
+                <div class="merch-item">
+                    <div class="merch-img-box" style="background: #000;">
+                        <img src="assets/camiseta_trb_gold.jpg" alt="Camiseta TRB Neón Gold" style="object-fit: cover;">
+                    </div>
+                    <h4 class="merch-name">Camiseta TRB Neón Gold</h4>
+                    <div class="merch-price">25 €</div>
+                    <button class="btn-disco btn-comprar" onclick="alert('Merchandising oficial de edición limitada. Contacta a través de nuestro formulario para pedidos.')">Pedir Edición Fan</button>
+                </div>
+
+                <div class="merch-item">
+                    <div class="merch-img-box" style="background: #000;">
+                        <img src="assets/jarra_trb_neon.jpg" alt="Jarra de Cerámica Neón TRB" style="object-fit: cover;">
+                    </div>
+                    <h4 class="merch-name">Jarra de Cerámica Neón TRB</h4>
+                    <div class="merch-price">15 €</div>
+                    <button class="btn-disco btn-comprar" onclick="alert('Merchandising oficial de edición limitada. Contacta a través de nuestro formulario para pedidos.')">Pedir Edición Fan</button>
+                </div>
+
+                <div class="merch-item">
+                    <div class="merch-img-box">
+                        <img src="assets/vinilo_gold_fuga.jpg" alt="Vinilo Deluxe 180g (FUGA 2026)" style="object-fit: cover;">
+                    </div>
+                    <h4 class="merch-name">Vinilo Deluxe 180g (FUGA 2026)</h4>
+                    <div class="merch-price">35 €</div>
+                    <button class="btn-disco btn-comprar" onclick="alert('Merchandising oficial de edición limitada. Contacta a través de nuestro formulario para pedidos.')">Pedir Edición Fan</button>
+                </div>
+
+                <div class="merch-item">
+                    <div class="merch-img-box">
+                        <img src="assets/cover_trband_songs.jpg" alt="CD Digipack Selección de Autor">
+                    </div>
+                    <h4 class="merch-name">CD Digipack Selección de Autor</h4>
+                    <div class="merch-price">20 €</div>
+                    <button class="btn-disco btn-comprar" onclick="alert('Merchandising oficial de edición limitada. Contacta a través de nuestro formulario para pedidos.')">Pedir Edición Fan</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- 📌 FOOTER CRÉDITOS -->
+    <footer class="author-footer">
+        <div style="display: flex; align-items: center; font-weight: 700; margin-bottom: 15px; color: #fff;">
+            <span style="margin-right: 8px;">produced by KHEM</span>
+            <img src="assets/them_logo.png" alt="THEM" style="height: 30px;">
+        </div>
+        <div style="font-weight: 700; color: rgba(255,255,255,0.7);">eduardo ramírez de cartagena &copy; 2026</div>
+    </footer>
+
+    <!-- ================================================================= -->
+    <!-- 🎵 JAVASCRIPT DEL REPRODUCTOR MAESTRO ÚNICO DINÁMICO              -->
+    <!-- ================================================================= -->
+    <script>
+        // 1. DATOS DE LOS 4 ÁLBUMES DE LA BAND CON MÁXIMA RESOLUCIÓN E IDENTIDAD 1:1
+        const baseAlbumes = [
+            {
+                id: 0,
+                titulo: "One Thousand of Color Notes",
+                cover: "assets/portada_jazz.png",
+                tag: "Instrumental Fusion",
+                tracks: [
+                    { name: "Medianoche en la Terraza", url: "assets/audio/01Medianoche-en-la-Terraza.mp3" },
+                    { name: "All around if you want", url: "assets/audio/All_around_if_you_want.mp3" },
+                    { name: "Black and grey", url: "assets/audio/Black_and_grey_.mp3" },
+                    { name: "Close Your Feelings Extended", url: "assets/audio/Close_Your_Feelings_Extended.mp3" },
+                    { name: "Groove or not", url: "assets/audio/Groove_or_not.mp3" },
+                    { name: "Heaven's Glow", url: "assets/audio/Heaven_s_Glow.mp3" },
+                    { name: "Man island beach", url: "assets/audio/Man_island_beach.mp3" },
+                    { name: "Meanwhile I Love You", url: "assets/audio/Meanwhile_I_Love_You.mp3" },
+                    { name: "Saxo by the clouds", url: "assets/audio/Saxo_by_the_clouds.mp3" },
+                    { name: "Saxophone Serenade", url: "assets/audio/Saxophone_Serenade.mp3" },
+                    { name: "Secret of Velvet", url: "assets/audio/Secret-of-Velvet.mp3" },
+                    { name: "Sharp echoes", url: "assets/audio/Sharp-echoes.mp3" },
+                    { name: "Soft corners", url: "assets/audio/Soft-corners.mp3" },
+                    { name: "Voices for dreams", url: "assets/audio/Voices_for_dreams.mp3" },
+                    { name: "Woman on the island beach", url: "assets/audio/Woman_on_the_island_beach.mp3" }
+                ]
+            },
+            {
+                id: 1,
+                titulo: "FUGA (2026 Versions)",
+                cover: "assets/img/fuga/portada-fuga-2026-3000.jpg",
+                tag: "In Memoriam Pepe & Lola",
+                tracks: [
+                    { name: "Tanto trabajar", url: "assets/audio/fuga/TANTO TRABAJAR.mp3" },
+                    { name: "Cifras en la almohada", url: "assets/audio/fuga/Cifras en la almohada.mp3" },
+                    { name: "Dame tus manos", url: "assets/audio/fuga/Dame tus manos.mp3" },
+                    { name: "Te pienso", url: "assets/audio/fuga/Te pienso.mp3" },
+                    { name: "Y vienes tú", url: "assets/audio/fuga/Y vienes tu.mp3" },
+                    { name: "Siempre gritando", url: "assets/audio/fuga/Siempre gritando.mp3" },
+                    { name: "Y tal vez", url: "assets/audio/fuga/Y tal vez.mp3" },
+                    { name: "Déjalo estar", url: "assets/audio/fuga/Dejalo estar.mp3" },
+                    { name: "Trozos de amor", url: "assets/audio/fuga/trozos de amor.mp3" },
+                    { name: "Aún sin saber", url: "assets/audio/fuga/Aun sin saber.mp3" }
+                ]
+            },
+            {
+                id: 2,
+                titulo: "Cut the Roll & JazzRock",
+                cover: "assets/portada_cut the roll and jazzrock.png",
+                tag: "Jazz-Rock Experience",
+                tracks: [
+                    { name: "Ball in play", url: "assets/audio/cut_the_roll/Ball in play.mp3" },
+                    { name: "Bass stand yeah", url: "assets/audio/cut_the_roll/Bass stand yeah.mp3" },
+                    { name: "Bloody Lukas", url: "assets/audio/cut_the_roll/Bloody Lukas.mp3" },
+                    { name: "Books forever", url: "assets/audio/cut_the_roll/Books forever.mp3" },
+                    { name: "Bruma", url: "assets/audio/cut_the_roll/Bruma.mp3" },
+                    { name: "Chrome Rhythms", url: "assets/audio/cut_the_roll/Chrome Rhythms.mp3" },
+                    { name: "Deprisa, ven despacio", url: "assets/audio/cut_the_roll/Deprisa, ven despacio.mp3" },
+                    { name: "Dragon lands", url: "assets/audio/cut_the_roll/Dragon lands.mp3" },
+                    { name: "Feel your dreams", url: "assets/audio/cut_the_roll/Feel your dreams.mp3" },
+                    { name: "Lotus play", url: "assets/audio/cut_the_roll/Lotus play.mp3" },
+                    { name: "Macao no es Lao", url: "assets/audio/cut_the_roll/Macao no es Lao.mp3" },
+                    { name: "Much time ago", url: "assets/audio/cut_the_roll/Much time ago.mp3" },
+                    { name: "Plastic hard", url: "assets/audio/cut_the_roll/Plastic hard.mp3" },
+                    { name: "Tatum screen", url: "assets/audio/cut_the_roll/Tatum screen.mp3" },
+                    { name: "Without a trace of barbarism", url: "assets/audio/cut_the_roll/Without a trace of barbarism.mp3" }
+                ]
+            },
+            {
+                id: 3,
+                titulo: "Selección de Autor",
+                cover: "assets/cover_trband_songs.jpg",
+                tag: "Vocales & Exclusivos",
+                tracks: [
+                    { name: "Calles que respiran (Voz en español - Eduardo)", url: "assets/audio/seleccion_autor/04_Calles_que_respiran.mp3" },
+                    { name: "As We Fall (Voz en inglés - Eduardo)", url: "assets/audio/seleccion_autor/03_AS_WE_FALL.mp3" },
+                    { name: "Follow You Follow Me (ft. Nara Blue)", url: "assets/audio/seleccion_autor/05_Follow_You_Follow_Me_NARA.mp3" },
+                    { name: "Acrobatic Life (Voz - Eduardo)", url: "assets/audio/seleccion_autor/07_Acrobatic_life.mp3" },
+                    { name: "Sweet, Oh Love, Oh Life (Voz - Eduardo)", url: "assets/audio/seleccion_autor/08_SWEET_oh_love_oh_life.mp3" },
+                    { name: "She Walks Or They (Voz - Eduardo)", url: "assets/audio/seleccion_autor/She walks or they.mp3" },
+                    { name: "A Donde Bass (Slap Bass Funk)", url: "assets/audio/seleccion_autor/02_a_donde_bass.mp3" },
+                    { name: "Duck, Frog and Me (Jazz Fusion)", url: "assets/audio/seleccion_autor/01_Duck_Frog_and_me.mp3" }
+                ]
+            }
+        ];
+
+        let albumActualIdx = 0;
+        let trackActualIdx = 0;
+
+        const masterAudio = document.getElementById('masterAudio');
+        const masterCover = document.getElementById('masterCover');
+        const masterTrackName = document.getElementById('masterTrackName');
+        const masterAlbumName = document.getElementById('masterAlbumName');
+        const masterPlaylistUl = document.getElementById('masterPlaylistUl');
+        const playlistHeaderTitle = document.getElementById('playlistHeaderTitle');
+        const playlistHeaderCount = document.getElementById('playlistHeaderCount');
+
+        function cargarAlbum(albumIndex, autoPlay = false) {
+            albumActualIdx = albumIndex;
+            const alb = baseAlbumes[albumIndex];
+
+            // 1. Actualizar pestañas activas
+            for (let i = 0; i < 4; i++) {
+                const btn = document.getElementById(`tab-album-${i}`);
+                if (btn) btn.classList.toggle('active', i === albumIndex);
+            }
+
+            // 2. Transición idéntica de imagen de alta resolución
+            if (masterCover) masterCover.src = alb.cover;
+            if (masterAlbumName) masterAlbumName.innerText = alb.titulo;
+            if (playlistHeaderTitle) playlistHeaderTitle.innerText = alb.titulo;
+            if (playlistHeaderCount) playlistHeaderCount.innerText = `${alb.tracks.length} Canciones en este álbum`;
+
+            // 3. Renderizar Playlist
+            renderMasterPlaylist();
+
+            // 4. Cargar primera canción
+            loadTrackMaster(0, autoPlay);
+        }
+
+        function renderMasterPlaylist() {
+            if (!masterPlaylistUl) return;
+            const alb = baseAlbumes[albumActualIdx];
+            masterPlaylistUl.innerHTML = '';
+
+            alb.tracks.forEach((tr, idx) => {
+                const li = document.createElement('li');
+                li.className = 'track-item-li' + (trackActualIdx === idx ? ' active' : '');
+                li.innerHTML = `
+                    <span class="track-num">${(idx + 1).toString().padStart(2, '0')}</span>
+                    <span class="track-title-text">${tr.name}</span>
+                `;
+                li.onclick = () => loadTrackMaster(idx, true);
+                masterPlaylistUl.appendChild(li);
+            });
+        }
+
+        function loadTrackMaster(index, shouldPlay = true) {
+            const alb = baseAlbumes[albumActualIdx];
+            if (index < 0 || index >= alb.tracks.length) return;
+            trackActualIdx = index;
+            const track = alb.tracks[index];
+
+            if (masterAudio) {
+                masterAudio.src = track.url;
+                if (masterTrackName) masterTrackName.innerText = track.name;
+                renderMasterPlaylist();
+                if (shouldPlay) {
+                    masterAudio.play().catch(e => console.log('Audio play handling:', e));
+                }
+            }
+        }
+
+        function togglePlayMaster() {
+            if (!masterAudio) return;
+            if (masterAudio.paused) {
+                masterAudio.play().catch(e => console.log('Play error:', e));
+            } else {
+                masterAudio.pause();
+            }
+        }
+
+        function nextTrackMaster() {
+            const alb = baseAlbumes[albumActualIdx];
+            loadTrackMaster((trackActualIdx + 1) % alb.tracks.length, true);
+        }
+
+        function prevTrackMaster() {
+            const alb = baseAlbumes[albumActualIdx];
+            loadTrackMaster((trackActualIdx - 1 + alb.tracks.length) % alb.tracks.length, true);
+        }
+
+        function cargarAlbumYSubir(index) {
+            cargarAlbum(index, true);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (masterAudio) {
+                masterAudio.addEventListener('ended', nextTrackMaster);
+                masterAudio.onplay = () => masterCover && masterCover.classList.add('playing');
+                masterAudio.onpause = () => masterCover && masterCover.classList.remove('playing');
+            }
+            cargarAlbum(0, false);
+        });
+
+        // JS DETECCIÓN DE SCROLL PARA PUNTOS LATERALES
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const points = document.querySelectorAll('.punto-link');
+
+            function updateActivePoint() {
+                let currentId = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 200;
+                    if (window.scrollY >= sectionTop) {
+                        currentId = section.getAttribute('id');
+                    }
+                });
+
+                if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 80)) {
+                    if (sections.length > 0) {
+                        currentId = sections[sections.length - 1].getAttribute('id');
+                    }
+                }
+
+                points.forEach(point => {
+                    point.classList.remove('active');
+                    if (point.getAttribute('href') === `#${currentId}`) {
+                        point.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActivePoint);
+            updateActivePoint();
+        });
+    </script>
+</body>
+</html>

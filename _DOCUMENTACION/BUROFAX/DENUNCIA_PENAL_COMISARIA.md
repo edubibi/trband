@@ -1,13 +1,13 @@
-# DECLARACIÓN Y DENUNCIA PENAL PARA COMISARÍA / GUARDIA CIVIL
+# DECLARACIÓN Y DENUNCIA PENAL PARA COMISARÍA / GUARDIA CIVIL / JUZGADO DE GUARDIA
 
-**A LA COMISARÍA DE POLICÍA NACIONAL / CUARTEL DE LA GUARDIA CIVIL / JUZGADO DE INSTRUCCIÓN DE GUARDIA**
+**A LA COMISARÍA DE POLICÍA NACIONAL / PUESTO DE LA GUARDIA CIVIL / JUZGADO DE INSTRUCCIÓN DE GUARDIA**
 
 **DON EDUARDO RAMÍREZ DE CARTAGENA DE GABRIEL**, mayor de edad, provisto de D.N.I. nº **50.796.424G**, con domicilio a efectos de notificaciones en Calle Joaquina Santander, 13, 28ºA, C.P. 45600 Talavera de la Reina (Toledo), teléfono de contacto 678 70 87 29 y correo electrónico `ramirex00@gmail.com`, ante la Autoridad comparece y, como mejor en Derecho proceda, **EXPONE:**
 
 Que por medio del presente escrito formula **DENUNCIA PENAL por un presunto DELITO DE APROPIACIÓN INDEBIDA** tipificado en el artículo 253 del Código Penal, con la concurrencia de la circunstancia agravante de **ABUSO DE CONFIANZA** (Art. 22.6ª CP), contra:
 
-> **DON IVÁN GARCÍA-PELAYO**
-> D.N.I. nº **50720021F**
+> **DON IVÁN GARCÍA-PELAYO**  
+> D.N.I. nº **50720021F**  
 > Domicilio: Calle Encina, 22, C.P. 28721 Cabanillas de la Sierra (Madrid).
 
 La presente denuncia se fundamenta en los siguientes **HECHOS Y PRUEBAS:**
@@ -16,18 +16,24 @@ La presente denuncia se fundamenta en los siguientes **HECHOS Y PRUEBAS:**
 
 ### HECHOS
 
-#### PRIMERO.- Relación de confianza y depósito temporal de bienes.
-Hacia mayo/junio de 2025, tras finalizar mi estancia laboral y personal en el domicilio del denunciado sito en Calle Encina, 22, Cabanillas de la Sierra, por motivos sobrevenidos de salud me vi en la imposibilidad logística de trasladar de inmediato la totalidad de mis herramientas de trabajo profesional e instrumentos musicales de mi exclusiva propiedad. Amparado por la estrecha relación de confianza y amistad existente, dichos bienes quedaron depositados en su inmueble con carácter meramente precario y temporal.
+#### PRIMERO.- Relación artística/laboral, proyecto musical y depósito temporal en precario.
+Hacia mayo/junio de 2025, el compareciente y el denunciado, junto a otros músicos, formaban parte de un proyecto y grupo musical en activo. Para los ensayos y trabajos de producción, el compareciente trasladó e instaló un conjunto de herramientas de trabajo profesional e instrumentos musicales de su exclusiva propiedad en el inmueble del denunciado, sito en Calle Encina, 22, Cabanillas de la Sierra (Madrid).
 
-#### SEGUNDO.- Intentos de recuperación y reconocimiento explícito por el denunciado.
-Desde dicha fecha he intentado de forma reiterada acordar la entrega de mi material. En fecha 24 de junio de 2026, mediante mensajería instantánea WhatsApp, el denunciado reconoció expresamente la tenencia y posesión de mis bienes en su inmueble. No obstante, lejos de facilitar la entrega, procedió posteriormente a bloquear todos mis canales de comunicación (teléfono y WhatsApp), impidiendo cualquier solución pacífica.
+Al finalizar dicha convivencia y actividad en el inmueble, y por motivos sobrevenidos de salud, el denunciante se vio en la imposibilidad física y logística de trasladar de inmediato la totalidad de su equipo. Amparado por la estrecha relación de amistad, confianza y colaboración artística, dichos bienes quedaron depositados en el inmueble del denunciado con carácter meramente precario y temporal hasta que pudieran ser retirados.
+
+#### SEGUNDO.- Intentos de recuperación, admisión expresa del denunciado y posterior bloqueo de mala fe.
+Desde dicha fecha, el compareciente ha intentado de manera reiterada coordinar la recogida de su material. En fecha **24 de junio de 2026**, a través de la aplicación de mensajería instantánea WhatsApp, el denunciado Don Iván García-Pelayo **reconoció de forma expresa y por escrito tener en su posesión y custodia el material del denunciante** en su domicilio. 
+
+Lejos de facilitar la entrega acordada, el denunciado procedió de manera deliberada y con manifiesta mala fe a **bloquear todos los canales de comunicación** del denunciante (llamadas telefónicas y mensajería WhatsApp), impidiendo cualquier vía amistosa de recuperación de las herramientas de trabajo.
 
 #### TERCERO.- Requerimiento fehaciente mediante Burofax (14 de agosto de 2026).
-En fecha 14 de agosto de 2026 procedí a enviar un Burofax oficial de la Sociedad Estatal Correos y Telégrafos con Acuse de Recibo y Certificación de Contenido, otorgándole un plazo de SIETE (7) DÍAS NATURALES para la entrega de los bienes y advirtiéndole expresamente de la interposición de acciones penales. El Burofax fue fehacientemente entregado por Correos. Transcurrido holgadamente dicho plazo, el denunciado ha hecho absoluto caso omiso, manteniendo la ilícita retención y disposición de mis pertenencias.
+Ante el bloqueo total, en fecha **14 de agosto de 2026** el denunciante remitió a Don Iván García-Pelayo un **Burofax oficial de la Sociedad Estatal Correos y Telégrafos** con Certificación de Contenido y Acuse de Recibo, otorgándole un plazo improrrogable de SIETE (7) DÍAS NATURALES para la entrega de los bienes en su domicilio y advirtiéndole expresamente del ejercicio de acciones penales.
+
+Consta en la certificación expedida por Correos que dicho Burofax fue **fehacientemente entregado**. No obstante, transcurrido con creces el plazo otorgado, el denunciado ha hecho absoluto caso omiso al requerimiento legal, manteniendo la retención ilícita de los bienes y negándose de facto a su devolución.
 
 ---
 
-### INVENTARIO DE BIENES RETENIDOS ILÍCITAMENTE (17 OBJETOS)
+### INVENTARIO DE BIENES RETENIDOS ILÍCITAMENTE (17 HERRAMIENTAS Y EQUIPOS)
 
 1. **Bajo eléctrico Yamaha RBX170** (Color caoba con su funda).
 2. **Guitarra eléctrica Squier Stratocaster** (Color azul con su funda).
@@ -49,28 +55,44 @@ En fecha 14 de agosto de 2026 procedí a enviar un Burofax oficial de la Socieda
 
 ---
 
-### ACREDITACIÓN DOCUMENTAL Y GRÁFICA ADJUNTA
+### PROPOSICIÓN DE PRUEBA TESTIFICAL
 
-* **DOCUMENTO Nº 1:** Copia sellada del Burofax de Requerimiento Fehaciente de fecha 14/08/2026.
-* **DOCUMENTO Nº 2:** Certificación oficial de entrega expedida por Correos y Telégrafos.
-* **DOCUMENTO Nº 3:** Captura de pantalla de mensajería WhatsApp de fecha 24/06/2026 acreditando el reconocimiento expreso del denunciado sobre la posesión del material (`captura_whatsapp_admision_ivan_24junio.png`).
-* **DOCUMENTO Nº 4:** Captura de pantalla acreditando el bloqueo deliberado de comunicaciones por parte del denunciado (`captura_whatsapp_bloqueo.png`).
-* **DOCUMENTO Nº 5:** Reclamaciones formales enviadas por correo electrónico en fechas 03/07/2026 y posteriores (`captura_email_reclamacion_3julio.png`, `segundo email de reclamación.png`).
-* **DOCUMENTO Nº 6:** Set de fotografías acreditativas de la propiedad de las herramientas:
-  - Fotografías del denunciante ensayando con el equipo (`edu con Mac ensayo.jpeg`).
-  - Fotografía del denunciado manipulando la guitarra española del denunciante (`IVAN con mi guitarra ESPAÑOLA.jpg`).
-  - Panorámica general de la totalidad del material de trabajo (`todo mi equipo.jpeg`).
+Se propone la declaración en sede policial/judicial en calidad de **TESTIGO PRESENCIAL** de los hechos a:
+
+> **DON JAVIER DE JUAN ROMEU**  
+> (Batería de la formación musical)  
+> Teléfono / Contacto: A aportar a requerimiento de la Autoridad.
+
+El testigo formaba parte del grupo musical junto al denunciante y el denunciado, habiendo entrado en el proyecto de forma simultánea. El testigo **presenció directamente la entrada de los instrumentos en el domicilio de Cabanillas de la Sierra, constató de forma directa la propiedad exclusiva de los bienes a favor del denunciante**, estuvo presente durante los ensayos y conoce con exactitud que dichos 17 objetos pertenecen a Don Eduardo Ramírez de Cartagena, estando plenamente dispuesto a ratificar estos extremos ante la Autoridad competente.
+
+---
+
+### RELACIÓN DE DOCUMENTOS Y PRUEBAS ADJUNTAS (FOLIADAS)
+
+* **DOCUMENTO Nº 1:** Copia del Burofax de Requerimiento Fehaciente remitido el 14 de agosto de 2026 con certificación de contenido oficial.
+* **DOCUMENTO Nº 2:** Certificado oficial de entrega emitido por la Sociedad Estatal Correos y Telégrafos acreditando la recepción por el denunciado.
+* **DOCUMENTO Nº 3:** Captura de pantalla de la conversación de WhatsApp de fecha 24 de junio de 2026 donde Don Iván García-Pelayo reconoce expresamente la tenencia y posesión del material en su casa.
+* **DOCUMENTO Nº 4:** Captura de pantalla acreditando el bloqueo deliberado de llamadas y WhatsApp ejecutado por el denunciado.
+* **DOCUMENTO Nº 5:** Copia de las reclamaciones formales enviadas por correo electrónico con fechas 3 de julio de 2026 y sucesivas.
+* **DOCUMENTO Nº 6:** Dosier fotográfico demostrativo de la propiedad y tenencia previa de los equipos:
+  * Fotografía 6.1: El denunciante ensayando con sus equipos e instrumentos musicales.
+  * Fotografía 6.2: El denunciado Don Iván García-Pelayo tocando la guitarra clásica propiedad del denunciante.
+  * Fotografía 6.3: Panorámica general del conjunto del material e instrumental de trabajo.
 
 ---
 
 ### SOLICITUD A LA AUTORIDAD POLICIAL / JUDICIAL
 
-1. Tenga por presentada la presente **DENUNCIA PENAL por Delito de Apropiación Indebida (Art. 253 CP)** con agravante de abuso de confianza contra D. Iván García-Pelayo.
-2. Se proceda a la apertura de las correspondientes Diligencias Previas y se practiquen las gestiones de averiguación oportunas.
-3. Se requiera a las Fuerzas y Cuerpos de Seguridad para la inspección en el domicilio del denunciado (Calle Encina, 22, Cabanillas de la Sierra) y la inmediata intervención y restitución al denunciante de la totalidad de las 17 herramientas de trabajo descritas.
-4. Se cite a declarar al denunciado en calidad de investigado.
+Por todo lo expuesto, **SOLICITA:**
 
-En Talavera de la Reina, a _____ de _________________ de 2026.
+1. Tenga por formalizada la presente **DENUNCIA PENAL por Delito de Apropiación Indebida (Art. 253 CP)** con agravante de abuso de confianza contra **Don Iván García-Pelayo**.
+2. Se incoen las correspondientes Diligencias y se cite a declarar al denunciado en calidad de investigado.
+3. Se tome declaración testifical a **Don Javier de Juan Romeu**.
+4. Se libren las órdenes oportunas a las Fuerzas y Cuerpos de Seguridad para la personación en el domicilio sito en Calle Encina, 22, Cabanillas de la Sierra (Madrid), al objeto de intervenir cautelarmente y restituir de forma inmediata a Don Eduardo Ramírez de Cartagena de Gabriel la totalidad de sus 17 herramientas de trabajo descritas.
 
-Fdo.: **Eduardo Ramírez de Cartagena de Gabriel**
-DNI: 50.796.424G
+En Talavera de la Reina, a 11 de septiembre de 2026.
+
+<br><br>
+
+Fdo.: **Don Eduardo Ramírez de Cartagena de Gabriel**  
+D.N.I. nº: **50.796.424G**

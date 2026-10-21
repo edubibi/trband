@@ -1,0 +1,2935 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Research Band - Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffffff;
+            --secondary: #a0a0a0;
+            --accent: #D4AF37; /* Cyan */
+            --neon-magenta: #ff00ff;
+            --neon-yellow: #ffff00;
+            --bg-glass: rgba(0, 0, 0, 0.4);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #1a1a2e;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+            overflow-x: hidden;
+            flex-direction: column;
+            /* For footer */
+        }
+
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Main Container */
+        .player-container {
+            background: var(--bg-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            width: 90%;
+            max-width: 1000px;
+            height: 80vh;
+            display: flex;
+            overflow: hidden;
+            animation: fadeIn 1s ease;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Left Side */
+        .now-playing {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+
+        /* Branding moved inside left column */
+        .brand-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            /* Space between logo and art */
+        }
+
+        .brand-logo {
+            height: 140px;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+            margin-right: 12px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+        }
+
+        .brand-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .album-art {
+            width: 240px;
+            height: 240px;
+            border-radius: 15px;
+            background: #000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 25px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .album-art.playing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .track-info h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .track-info p {
+            margin: 5px 0 20px;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .controls {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        audio {
+            width: 100%;
+            outline: none;
+            margin-top: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .btn:hover {
+            color: var(--accent);
+        }
+
+        .btn-main {
+            font-size: 2.5rem;
+        }
+
+        /* Main Container - MODAL STYLE */
+        .player-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2000;
+            /* Above everything */
+
+            background: rgba(0, 0, 0, 0.85);
+            /* Darker backdrop for modal */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+
+            width: 90%;
+            max-width: 1000px;
+            height: 80vh;
+
+            display: none;
+            /* Hidden by default */
+            flex-direction: row;
+            /* Side by side layout */
+            overflow: hidden;
+            animation: fadeInModal 0.5s ease;
+        }
+
+        .player-container.active {
+            display: flex;
+        }
+
+        @keyframes fadeInModal {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -45%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: var(--accent);
+        }
+
+        /* Playlist Panel - RESTORED */
+        .playlist-panel {
+            display: flex;
+            /* Visible */
+            flex-direction: column;
+            width: 40%;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        .playlist-header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--secondary);
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .tab.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+        }
+
+        .action-btn {
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .track-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .track-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: background 0.2s;
+        }
+
+        .track-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .track-item.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--accent);
+        }
+
+        .track-name {
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: 1;
+        }
+
+        /* Author Footer */
+        .author-footer {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .add-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Improved Navigation for Mobile */
+        @media (max-width: 768px) {
+            .album-art {
+                width: 200px; /* Slightly bigger for better visual */
+                height: 200px;
+                margin-bottom: 20px;
+            }
+            .main-header {
+                padding: 10px 15px;
+                background: rgba(0, 0, 0, 0.95); /* More solid for readability */
+            }
+
+            .main-nav {
+                gap: 8px;
+                padding-bottom: 15px;
+            }
+
+            .nav-link {
+                font-size: 0.75rem;
+                padding: 8px 10px; /* Better tap target */
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .header-logo {
+                height: 70px; /* Smaller logo to save space */
+            }
+        }
+
+        /* Landing Page Styles */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 30px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-logo {
+            height: 100px;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .header-logo:hover {
+            transform: scale(1.05);
+        }
+
+
+
+        .main-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        /* Submenu Styling */
+        .nav-item-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            min-width: 220px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 1001;
+            padding: 10px 0;
+            /* Removed margin-top to eliminate the gap */
+        }
+
+        .submenu::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid var(--accent);
+        }
+
+        .nav-item-dropdown:hover .submenu {
+            display: block;
+            animation: fadeInSubmenu 0.3s ease;
+        }
+
+        @keyframes fadeInSubmenu {
+            from { opacity: 0; transform: translate(-50%, 10px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+
+        .submenu-link {
+            display: block;
+            color: #ddd;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .submenu-link:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent);
+        }
+
+        .landing-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            /* Header space */
+            text-align: center;
+        }
+
+        .hero-section {
+            margin-bottom: 60px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .main-title {
+            font-size: 3rem;
+            margin: 0;
+            color: #D4AF37;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+            letter-spacing: 3px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .slogan {
+            text-shadow: 0 2px 20px rgba(212, 175, 55, 0.8), 0 0 10px rgba(0, 0, 0, 1);
+        }
+
+        /* Blade Runner Hook Section */
+        .release-feature {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--neon-magenta);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 1000px;
+            width: 95%;
+            margin: 0 auto 60px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .release-feature::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55,0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .release-art {
+            width: 280px;
+            height: 280px;
+            border-radius: 10px;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            z-index: 1;
+        }
+
+        .release-info {
+            flex: 1;
+            z-index: 1;
+        }
+
+        .release-info h2 {
+            font-size: 2.5rem;
+            color: var(--neon-magenta);
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+        }
+
+        .release-info p {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 25px;
+        }
+
+        .btn-action {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-action:hover {
+            background: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Ribbon Styling */
+        .ribbon-container {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .ribbon {
+            position: absolute;
+            top: 20px;
+            right: -40px;
+            background: var(--neon-magenta);
+            color: #fff;
+            padding: 5px 50px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            transform: rotate(45deg);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+            z-index: 10;
+            letter-spacing: 1px;
+            border: 1px solid #fff;
+        }
+
+        .preview-audio {
+            margin-top: 20px;
+            width: 100%;
+            height: 40px;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* GLITCH EFFECT */
+        .glitch {
+            position: relative;
+            display: inline-block;
+        }
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.8;
+        }
+        .glitch::before {
+            color: var(--accent);
+            z-index: -1;
+            animation: glitch-anim 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+        }
+        .glitch::after {
+            color: var(--neon-magenta);
+            z-index: -2;
+            animation: glitch-anim 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+        }
+        @keyframes glitch-anim {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        /* SYSTEM ACCESS BUTTON */
+        .btn-system {
+            background: #000;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 15px 40px;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 3px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-system:hover {
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 0 30px var(--accent);
+        }
+        .btn-system::after {
+            content: 'RESTRINGIDO';
+            position: absolute;
+            top: 0; right: 0;
+            background: var(--neon-magenta);
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 0.5rem;
+            font-weight: 900;
+        }
+
+        /* UN-PIXELATE EFFECT */
+        .pixel-art {
+            filter: blur(8px) contrast(150%);
+            transition: filter 0.5s ease;
+        }
+        .release-feature:hover .pixel-art {
+            filter: blur(0) contrast(100%);
+        }
+
+        /* MINI COUNTDOWN */
+        .mini-countdown {
+            font-family: monospace;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 5px 15px;
+            border-radius: 4px;
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        .slogan-outlined {
+            font-weight: 700;
+            -webkit-text-stroke: 0.5px rgba(0,0,0,0.4);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+        }
+
+        .bio-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* Founder Card */
+        .bio-main-card {
+            background: rgba(0, 0, 0, 0.6);
+            /* Dark Glass */
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, background 0.3s;
+        }
+
+        .bio-main-card:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: translateY(-5px);
+        }
+
+        .bio-main-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            /* Cyan for Founder */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .bio-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--accent);
+            /* Cyan for visibility on dark */
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .role-highlight {
+            color: var(--accent);
+            /* Cyan for Founder */
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 5px 0 15px;
+        }
+
+        .bio-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #eee;
+            /* Light text */
+        }
+
+        /* Collaborators */
+        #collaborators {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .collaborators-container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .collab-title {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fff;
+            /* Keep title white on video */
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+
+        .collab-grid {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .bio-card.small {
+            padding: 20px;
+            padding-bottom: 35px;
+            /* Extra padding bottom */
+            min-width: 220px;
+            max-width: 280px;
+            background: rgba(0, 0, 0, 0.6);
+            /* Dark Glass */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s;
+        }
+
+        .bio-card.small:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 0, 0, 0.7);
+            border-color: var(--accent);
+        }
+
+        .bio-card.small h3 {
+            font-size: 1.2rem;
+            color: #fff;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+            margin: 15px 0 5px;
+        }
+
+        .bio-card.small .role {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            /* Greyish */
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .bio-card.small .bio-img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            /* Ensure round if not already */
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            object-fit: cover;
+        }
+
+        /* Create visual separation/pages */
+        .bio-section,
+        .video-section,
+        .gallery-section {
+            min-height: 80vh;
+            /* Make each section feel like a full screen */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            /* Moved up */
+            padding-top: 140px;
+            /* Fixed high position */
+        }
+
+        #collaborators {
+            padding-top: 80px;
+            margin-top: 0;
+            justify-content: center;
+            /* Collaborators can be centered or flex-start, user didn't complain about them */
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-align: center;
+        }
+
+        .gallery-section {
+            width: 100%;
+            max-width: 1400px;
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gallery-grid {
+            column-count: 3;
+            column-gap: 20px;
+            width: 100%;
+        }
+
+        .gallery-item {
+            margin-bottom: 20px;
+            break-inside: avoid;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            z-index: 10;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-grid {
+            column-count: 3;
+            column-gap: 20px;
+            width: 100%;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                column-count: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .bio-main-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .iliada-content {
+                flex-direction: column !important;
+            }
+
+            .iliada-img-wrapper,
+            .iliada-text-wrapper {
+                width: 100%;
+            }
+
+            .main-title {
+                font-size: 3rem;
+                margin: 0;
+                color: #D4AF37;
+                text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+                letter-spacing: 3px;
+                font-family: 'Playfair Display', serif;
+            }
+
+            .bio-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .main-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px 30px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+                z-index: 1000;
+            }
+        }
+
+        /* Member Modal Styles */
+        .member-content-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .member-left {
+            width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+
+        .member-modal-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--accent);
+        }
+
+        .member-right {
+            width: 60%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            text-align: left;
+        }
+
+        .member-name {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .member-role {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .member-scroll-area {
+            overflow-y: auto;
+            padding-right: 20px;
+        }
+
+        .info-block {
+            margin-bottom: 30px;
+        }
+
+        .info-block h4 {
+            font-size: 1.1rem;
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .member-text {
+            line-height: 1.6;
+            color: #ddd;
+            font-size: 0.95rem;
+            white-space: pre-line;
+            /* Allows newlines in text */
+        }
+
+        .member-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .member-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #ddd;
+        }
+
+
+        /* ILIADA SPECIFIC STYLES (Moved from inline) */
+        #iliada .bio-main-card {
+            flex-direction: column;
+            text-align: center;
+            max-width: 1200px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            backdrop-filter: none;
+        }
+
+        .iliada-content {
+            display: flex;
+            gap: 40px;
+            align-items: stretch;
+            text-align: left;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .iliada-img-wrapper {
+            flex: 1 1 300px;
+            min-width: 280px;
+        }
+
+        .iliada-img-wrapper img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--accent);
+            object-fit: cover;
+        }
+
+        .iliada-text-wrapper {
+            flex: 1 1 300px;
+            min-width: 280px;
+            color: #ddd;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .member-content-wrapper {
+                flex-direction: column;
+                overflow-y: auto;
+            }
+
+            .main-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .iliada-text-wrapper {
+                /* Fix for cut off text on mobile: allow full height */
+                max-height: none;
+                overflow-y: visible;
+                padding: 20px;
+                /* Reduce padding on mobile */
+            }
+
+            .member-left,
+            .member-right {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .member-left {
+                height: 300px;
+                flex-shrink: 0;
+            }
+
+            .member-modal-img {
+                max-height: 250px;
+                width: auto;
+            }
+        }
+
+
+        /* Custom Scrollbar for Text Box */
+        .iliada-text-wrapper::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .iliada-text-wrapper::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .iliada-text-wrapper::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+
+        /* Video Grid Refinements */
+        .video-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .video-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 220px;
+            /* Globally forced small size */
+            flex: 0 0 auto;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .video-card iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+            display: block;
+        }
+
+        .video-title {
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #ccc;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* CATEGORY NAVIGATION STYLES */
+        .video-categories {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .category-card {
+            width: 280px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .category-card h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .category-bg-icon {
+            position: absolute;
+            font-size: 8rem;
+            color: rgba(255, 255, 255, 0.03);
+            z-index: 1;
+        }
+
+        /* Re-using player-container for Video Modals to maintain consistency */
+        .video-modal-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            overflow-y: auto;
+            align-items: center;
+        }
+
+        .video-modal-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        /* Override video-card size inside modal for better view */
+        .video-modal-grid .video-card {
+            max-width: 320px;
+            /* Bigger size inside the modal as requested initially? Or keep small? User hated big. Let's keep 250-300 range */
+            width: 100%;
+        }
+
+        /* MOBILE OPTIMIZATIONS */
+        @media (max-width: 768px) {
+            .main-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px 30px;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+                z-index: 1000;
+            }
+
+            .logo-area {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .header-title {
+                display: none;
+                display: none;
+                font-size: 0.9rem;
+            }
+
+            .header-logo {
+                height: 100px;
+                filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+                transition: transform 0.3s ease;
+            }
+
+            .main-nav {
+                justify-content: center;
+                gap: 15px;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .nav-link {
+                font-size: 0.8rem;
+                padding: 5px 8px;
+                background: rgba(255, 255, 255, 0.05);
+                /* Tap targets */
+                border-radius: 5px;
+            }
+
+            /* Iliada Text full height */
+            .iliada-text-wrapper {
+                max-height: none;
+                overflow-y: visible;
+                padding: 20px;
+            }
+
+            /* Video Grid Mobile adjustments */
+            .video-grid {
+                gap: 15px;
+            }
+
+            /* Make videos smaller on mobile too? No, mostly full width but small height. 
+               BUT user specifically asked for "small boxes".
+               Let's trust the strict width for small boxes. 
+            */
+            .category-card {
+                width: 100%;
+                /* Full width cards on mobile */
+                height: 140px; /* Slightly taller for text breathing room */
+            }
+            
+            /* Smaller video boxes was a request */
+            .video-card {
+                max-width: 45% !important; /* 2 columns on mobile */
+                font-size: 0.8rem;
+            }
+            
+            .video-title {
+                padding: 8px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Fursona Banner Styles */
+        .fursona-banner {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto 40px;
+            text-align: left;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, background 0.3s;
+        }
+
+        .fursona-banner:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 0, 0, 0.75);
+            border-color: var(--accent);
+        }
+
+        .fursona-banner img {
+            width: 150px;
+            height: 150px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .banner-content {
+            flex: 1;
+        }
+
+        .banner-content h2 {
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .banner-content h3 {
+            font-size: 2.2rem;
+            margin: 0 0 10px 0;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .banner-content p {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .banner-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-banner {
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
+        }
+
+        .btn-banner.primary {
+            background: var(--accent);
+            color: #1a1a2e;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-banner.primary:hover {
+            background: #fff;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-banner.secondary {
+            background: #a020f0;
+            /* Purple for NFT */
+            color: white;
+            box-shadow: 0 0 15px rgba(160, 32, 240, 0.3);
+        }
+
+        .btn-banner.secondary:hover {
+            background: #bf40ff;
+            box-shadow: 0 0 25px rgba(160, 32, 240, 0.5);
+        }
+
+        @media (max-width: 600px) {
+            .fursona-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .banner-btns {
+                justify-content: center;
+            }
+        }
+
+        /* UNIFIED MOBILE MASTER RESPONSIVE BLOCK */
+        @media (max-width: 768px) {
+            html, body, main {
+                overflow-x: hidden !important;
+                max-width: 100vw !important;
+            }
+
+            /* 1. Header & Navigation: Fixed Top 60px Bar */
+            .main-header {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 60px !important;
+                padding: 5px 12px !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                background: rgba(0, 0, 0, 0.95) !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                z-index: 10000 !important;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+            }
+
+            .logo-area {
+                display: flex !important;
+                align-items: center !important;
+                flex-shrink: 0 !important;
+            }
+
+            .header-logo {
+                height: 42px !important;
+                width: auto !important;
+            }
+
+            .header-title-gold {
+                font-size: 0.95rem !important;
+                white-space: nowrap !important;
+            }
+
+            
+            .main-nav::-webkit-scrollbar {
+                display: none !important;
+            }
+
+            .nav-link {
+                font-size: 0.72rem !important;
+                padding: 6px 10px !important;
+                white-space: nowrap !important;
+                flex-shrink: 0 !important;
+                border-radius: 12px !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                color: #fff !important;
+            }
+
+            .nav-item-dropdown {
+                display: flex !important;
+                align-items: center !important;
+            }
+
+            /* 2. Hero Section */
+            .landing-content {
+                padding-top: 75px !important;
+            }
+
+            .hero-section {
+                margin-top: 10px !important;
+                margin-bottom: 25px !important;
+            }
+
+            .main-title {
+                font-size: 1.6rem !important;
+                letter-spacing: 1px !important;
+                margin: 10px 0 !important;
+            }
+
+            .slogan {
+                font-size: 0.95rem !important;
+                line-height: 1.4 !important;
+            }
+
+            /* 3. Titles & Headings (Fix for RECONOCIMIENTO INTERNACIONAL) */
+            h1, h2, h3, .section-title, .collab-title, .release-info h2, .glitch {
+                font-size: 1.35rem !important;
+                letter-spacing: 1px !important;
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+                hyphens: auto !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                text-align: center !important;
+            }
+
+            /* 4. Restricted Buttons & Card Containers (Fix for ESCUCHA EN SPOTIFY / SHOWROOM PRIVADO) */
+            .release-feature {
+                flex-direction: column !important;
+                padding: 20px 15px !important;
+                gap: 20px !important;
+                align-items: center !important;
+                text-align: center !important;
+                width: 95% !important;
+                box-sizing: border-box !important;
+            }
+
+            .release-feature div[style*="display: flex; gap: 10px"] {
+                flex-direction: column !important;
+                width: 100% !important;
+                gap: 10px !important;
+            }
+
+            .btn-system {
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 12px 10px !important;
+                font-size: 0.75rem !important;
+                white-space: normal !important;
+                word-break: break-word !important;
+                line-height: 1.3 !important;
+                text-align: center !important;
+            }
+
+            /* 5. Video Performance Optimization */
+            #bgVideo {
+                opacity: 0.55 !important;
+                will-change: transform;
+                transform: translateZ(0);
+            }
+        }
+
+        /* Loop Animation for Bloody Lukas Cover */
+        @keyframes slowZoom {
+            0% { transform: scale(1); filter: brightness(1) saturate(1); }
+            50% { transform: scale(1.05); filter: brightness(1.1) saturate(1.1); }
+            100% { transform: scale(1); filter: brightness(1) saturate(1); }
+        }
+        @keyframes glowBorder {
+            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); border-color: rgba(212, 175, 55, 0.6); }
+            50% { box-shadow: 0 0 35px rgba(212, 175, 55, 0.8); border-color: rgba(212, 175, 55, 1); }
+            100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); border-color: rgba(212, 175, 55, 0.6); }
+        }
+        .animate-zoom-loop {
+            animation: slowZoom 8s ease-in-out infinite;
+        }
+        .animate-glow-border {
+            animation: glowBorder 4s ease-in-out infinite;
+            border: 3px solid rgba(212, 175, 55, 0.6);
+        }
+    
+        
+        /* --- CLEAN MASTER HAMBURGER MOBILE MENU STYLES --- */
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 60px !important;
+                padding: 5px 15px !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                background: rgba(0, 0, 0, 0.95) !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                z-index: 10000 !important;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
+            }
+
+            .header-logo {
+                height: 38px !important;
+                width: auto !important;
+            }
+
+            .mobile-menu-btn {
+                display: flex !important;
+                align-items: center !important;
+                gap: 6px !important;
+                background: rgba(212, 175, 55, 0.2) !important;
+                border: 1px solid #D4AF37 !important;
+                color: #D4AF37 !important;
+                padding: 6px 14px !important;
+                border-radius: 8px !important;
+                font-size: 0.9rem !important;
+                font-weight: 800 !important;
+                cursor: pointer !important;
+                z-index: 10002 !important;
+                box-shadow: 0 0 10px rgba(212, 175, 55, 0.3) !important;
+            }
+
+            .menu-icon {
+                font-size: 1.2rem !important;
+                line-height: 1 !important;
+            }
+
+            .main-nav {
+                display: none !important;
+                position: fixed !important;
+                top: 60px !important;
+                left: 0 !important;
+                width: 100vw !important;
+                background: rgba(10, 10, 15, 0.98) !important;
+                backdrop-filter: blur(15px) !important;
+                -webkit-backdrop-filter: blur(15px) !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                padding: 25px 0 40px !important;
+                gap: 15px !important;
+                border-bottom: 3px solid #D4AF37 !important;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
+                z-index: 10001 !important;
+                max-width: 100% !important;
+                overflow-y: auto !important;
+            }
+
+            .main-nav.mobile-active {
+                display: flex !important;
+                animation: slideDownMenu 0.25s ease-out forwards;
+            }
+
+            @keyframes slideDownMenu {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .nav-link {
+                font-size: 1.1rem !important;
+                padding: 14px 20px !important;
+                width: 85% !important;
+                text-align: center !important;
+                background: rgba(255, 255, 255, 0.08) !important;
+                border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                border-radius: 12px !important;
+                color: #ffffff !important;
+                font-weight: 700 !important;
+                box-sizing: border-box !important;
+                text-decoration: none !important;
+            }
+
+            .nav-link.active {
+                background: rgba(212, 175, 55, 0.3) !important;
+                border-color: #D4AF37 !important;
+                color: #D4AF37 !important;
+            }
+        }
+
+
+        /* PERFECT HAMBURGER BUTTON & RESPONSIVE MOBILE MENU */
+        .mobile-menu-btn {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 60px !important;
+                padding: 5px 15px !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                background: rgba(0, 0, 0, 0.95) !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                z-index: 10000 !important;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.4) !important;
+            }
+
+            .header-logo {
+                height: 38px !important;
+                width: auto !important;
+            }
+
+            .mobile-menu-btn {
+                display: flex !important;
+                align-items: center !important;
+                gap: 6px !important;
+                background: #D4AF37 !important;
+                border: 1px solid #ffffff !important;
+                color: #000000 !important;
+                padding: 6px 14px !important;
+                border-radius: 8px !important;
+                font-size: 0.9rem !important;
+                font-weight: 800 !important;
+                cursor: pointer !important;
+                z-index: 10002 !important;
+                box-shadow: 0 0 12px rgba(212, 175, 55, 0.6) !important;
+            }
+
+            .menu-icon {
+                font-size: 1.2rem !important;
+                line-height: 1 !important;
+                color: #000000 !important;
+            }
+
+            .menu-text {
+                color: #000000 !important;
+                font-weight: 900 !important;
+            }
+
+            .main-nav {
+                display: none !important;
+                position: fixed !important;
+                top: 60px !important;
+                left: 0 !important;
+                width: 100vw !important;
+                background: rgba(10, 10, 15, 0.98) !important;
+                backdrop-filter: blur(15px) !important;
+                -webkit-backdrop-filter: blur(15px) !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                padding: 25px 0 40px !important;
+                gap: 15px !important;
+                border-bottom: 3px solid #D4AF37 !important;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.95) !important;
+                z-index: 10001 !important;
+                max-width: 100% !important;
+                overflow-y: auto !important;
+            }
+
+            .main-nav.mobile-active {
+                display: flex !important;
+                animation: slideDownMenu 0.25s ease-out forwards;
+            }
+
+            @keyframes slideDownMenu {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .nav-link {
+                font-size: 1.1rem !important;
+                padding: 14px 20px !important;
+                width: 85% !important;
+                text-align: center !important;
+                background: rgba(255, 255, 255, 0.08) !important;
+                border: 1px solid rgba(255, 255, 255, 0.15) !important;
+                border-radius: 12px !important;
+                color: #ffffff !important;
+                font-weight: 700 !important;
+                box-sizing: border-box !important;
+                text-decoration: none !important;
+            }
+
+            .nav-link.active {
+                background: rgba(212, 175, 55, 0.3) !important;
+                border-color: #D4AF37 !important;
+                color: #D4AF37 !important;
+            }
+        }
+
+</style>
+    <!-- Open Graph Meta Preview -->
+    <meta property="og:title" content="The Research Band - Pop-Rock y Jazzrock">
+    <meta property="og:description" content="Grupo musical The Research Band. Fusión de Jazz-Rock, Smooth Jazz y Pop-Rock avanzado.">
+    <meta property="og:image" content="https://trbandmusic.es/assets/logo_trb_icon.png">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:image" content="https://trbandmusic.es/assets/logo_trb_icon.png">
+
+</head>
+
+<body>
+    <div class="bg-layer" style="display: none;"></div>
+    <!-- LANDING PAGE CONTENT -->
+    <header class="main-header">
+        <div class="logo-area" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <img src="assets/logo_neon_trb.png" alt="TRB Neon Logo" class="header-logo">
+        </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+            <span class="menu-icon">☰</span>
+            <span class="menu-text">MENÚ</span>
+        </button>
+        <nav class="main-nav" id="mainNav">
+            <a href="index.html" class="nav-link active">Inicio</a>
+            <a href="nosotros.html" class="nav-link">Nosotros</a>
+            <a href="iliada.html" class="nav-link">Mi Ilíada</a>
+            <a href="galeria.html" class="nav-link">Galería</a>
+            <a href="musica.html" class="nav-link">Música y Merchandising</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+    
+    <!-- 📌 CSS Navegación Lateral Flotante Minimalista Dorada -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .navegacion-lateral {
+            position: fixed;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 14px 9px;
+            border-radius: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+        }
+
+        .punto-link {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid #D4AF37;
+            background-color: transparent;
+            transition: all 0.3s ease;
+            display: block;
+            cursor: pointer;
+        }
+
+        .punto-link:hover {
+            transform: scale(1.4);
+            background-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        .punto-link.active {
+            background-color: #D4AF37;
+            transform: scale(1.25);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            .navegacion-lateral {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- 📍 Puntos Flotantes Laterales -->
+    <nav class="navegacion-lateral" aria-label="Navegación lateral rápida">
+        <a href="#pantalla-bienvenida" class="punto-link active" title="Bienvenida"></a>
+        <a href="#vimeo-showcase-oficial" class="punto-link" title="Showreel Multidisciplinar"></a>
+        <a href="#pantalla-fuga" class="punto-link" title="Álbum FUGA & Videoclips"></a>
+        <a href="#pantalla-jazz" class="punto-link" title="Saga de Jazz Instrumental"></a>
+        <a href="#pantalla-aval" class="punto-link" title="Integrantes de The Research Band"></a>
+        <a href="#pantalla-corazon" class="punto-link" title="In Memoriam & Filosofía"></a>
+        <a href="#pantalla-estudio" class="punto-link" title="Acceso al Estudio"></a>
+    </nav>
+
+    <main class="landing-content" style="background: #000000; color: #ffffff; width: 100%; overflow-x: hidden;">
+
+        <!-- ================================================================= -->
+        <!-- 👑 PANTALLA 1: LA BIENVENIDA (Fondo Foto NY + Fusión con Aire)    -->
+        <!-- ================================================================= -->
+        <section id="pantalla-bienvenida" class="hero-section" style="width: 100%; padding: 140px 20px 110px 20px; text-align: center; box-sizing: border-box; background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 55%, rgba(0, 0, 0, 0.95) 85%, #000000 100%), url('assets/img/NEW_YORK_street_frame_bw.jpg'); background-size: cover; background-position: center bottom; background-repeat: no-repeat;">
+            
+            <h1 class="main-title" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: #D4AF37; margin-bottom: 18px; letter-spacing: 2px; text-shadow: 0 4px 20px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.95);">
+                The Research Band
+            </h1>
+            
+            <p class="slogan" style="margin-bottom: 35px;">
+                <span class="slogan-outlined" style="font-size: 1.15rem; letter-spacing: 4px; color: #e0e0e0; text-transform: uppercase; text-shadow: 0 2px 12px #000;">...POSIBLEMENTE</span><br>
+                <span class="highlight" style="font-size: 1.75rem; color: #fff; font-style: italic; font-family: 'Playfair Display', serif; text-shadow: 0 3px 18px #000;">
+                    "El Pop-Rock y Jazz español más avanzado que hay"
+                </span>
+            </p>
+
+            <!-- Titular con cápsula oscura traslúcida -->
+            <div style="display: inline-block; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(212, 175, 55, 0.6); padding: 14px 36px; border-radius: 30px; color: #D4AF37; font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 45px; box-shadow: 0 10px 30px rgba(0,0,0,0.9);">
+                ⚡ Trilogía Musical 2026: 3 Álbumes · 4 Videoclips ⚡
+            </div>
+
+            <!-- Dos Botones Limpios -->
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 10px;">
+                <a href="#vimeo-showcase-oficial" style="background: #D4AF37; color: #000; padding: 18px 42px; border-radius: 30px; font-weight: 900; font-size: 0.95rem; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease; box-shadow: 0 5px 25px rgba(0,0,0,0.9);">
+                    🎬 VER SHOWREEL MULTIDISCIPLINAR
+                </a>
+                <a href="#pantalla-fuga" style="background: rgba(0, 0, 0, 0.85); color: #D4AF37; border: 2px solid #D4AF37; padding: 18px 42px; border-radius: 30px; font-weight: 900; font-size: 0.95rem; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease; box-shadow: 0 5px 25px rgba(0,0,0,0.9);">
+                    🎤 ESCUCHAR LP "FUGA"
+                </a>
+            </div>
+        </section>
+
+
+        <!-- ================================================================= -->
+        <!-- 🎬 BLOQUE DE VIDEO INTEGRADO EN TU WEB (VIMEO SHOWCASE EMBEDDED)  -->
+        <!-- ================================================================= -->
+        <section id="vimeo-showcase-oficial" style="background-color: #000000; padding: 90px 20px; display: flex; flex-direction: column; align-items: center; border-top: 1px solid rgba(212, 175, 55, 0.2);">
+          
+          <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="color: #d4af37; font-family: 'Playfair Display', serif; font-size: 2.2rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px;">SHOWREEL MULTIDISCIPLINAR</h2>
+            <p style="color: #ffffff; font-family: 'Montserrat', sans-serif; font-size: 15px; opacity: 0.8;">Explora el universo creativo global: Muestra de Arte Digital, Música y Literatura.</p>
+          </div>
+
+          <!-- TU CÓDIGO DE VIMEO EMBED CON UN BORDE DE CUADRO ELEGANTE -->
+          <div style="width: 100%; max-width: 950px; box-shadow: 0px 15px 40px rgba(0,0,0,0.6); border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 12px; overflow: hidden;">
+            <div style='padding:56.25% 0 0 0;position:relative;'>
+              <iframe src='https://player.vimeo.com/video/1220572442?title=0&byline=0&portrait=0&badge=0' allow='autoplay; fullscreen; picture-in-picture; encrypted-media' frameborder='0' style='position:absolute;top:0;left:0;width:100%;height:100%;'></iframe>
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- ================================================================= -->
+        <!-- 🟡 PANTALLA 2: EL UNIVERSO "FUGA" (Portada Oficial del Gato)      -->
+        <!-- ================================================================= -->
+        <section id="pantalla-fuga" style="width: 100%; background: #000000; padding: 110px 20px; box-sizing: border-box;">
+            <div style="max-width: 1050px; margin: 0 auto;">
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 60px; align-items: center; justify-content: center;">
+                    <!-- Izquierda: Portada Oficial de FUGA (El Gato) -->
+                    <div style="flex: 1; min-width: 280px; max-width: 360px; text-align: center;">
+                        <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="FUGA (2026 Versions) - Portada Oficial" style="width: 100%; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.9);">
+                    </div>
+
+                    <!-- Derecha: Info & Plataformas -->
+                    <div style="flex: 1.2; min-width: 290px;">
+                        <div style="display: inline-block; background: #D4AF37; color: #000; font-weight: 900; font-size: 0.75rem; padding: 4px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;">
+                            ESTRENO 2026
+                        </div>
+                        <h2 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 2.7rem; margin: 0 0 14px 0; line-height: 1.1;">
+                            FUGA (2026 Versions)
+                        </h2>
+                        <p style="color: #ccc; font-size: 1rem; line-height: 1.7; margin-bottom: 35px;">
+                            Álbum oficial de canciones originales compuestas por Eduardo Ramírez y Pepe Torres con nuevos arreglos y producción 2026. La vertiente vocal de The Research Band.
+                        </p>
+
+                        <!-- Botón Compra Digital Directa -->
+                        <div style="margin-bottom: 30px;">
+                            <button onclick="openPurchaseModal('fuga')" style="background: #D4AF37; color: #000; border: none; padding: 18px 36px; border-radius: 10px; font-weight: 900; font-size: 0.95rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; width: 100%; transition: all 0.3s ease;">
+                                🛒 Comprar Álbum Completo (9,00 €)
+                            </button>
+                        </div>
+
+                        <!-- En tu plataforma favorita -->
+                        <div>
+                            <div style="color: #888; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px;">
+                                Escucha en plataformas musicales:
+                            </div>
+                            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                                <a href="https://open.spotify.com/artist/13WJTJy2K8r5uRfsIyP28T" target="_blank" style="background: rgba(29, 185, 84, 0.15); border: 1px solid #1DB954; color: #1DB954; font-size: 0.78rem; font-weight: 700; padding: 8px 18px; border-radius: 20px; text-decoration: none;">Spotify</a>
+                                <a href="https://trbandmusic.bandcamp.com" target="_blank" style="background: rgba(98, 154, 169, 0.15); border: 1px solid #629aa9; color: #629aa9; font-size: 0.78rem; font-weight: 700; padding: 8px 18px; border-radius: 20px; text-decoration: none;">Bandcamp</a>
+                                <a href="https://music.apple.com/us/artist/the-research-band/1406237751" target="_blank" style="background: rgba(250, 88, 106, 0.15); border: 1px solid #fa586a; color: #fa586a; font-size: 0.78rem; font-weight: 700; padding: 8px 18px; border-radius: 20px; text-decoration: none;">Apple Music</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 🎬 Fila de Videoclips Oficiales con Estreno 2026 -->
+                <div style="margin-top: 70px; padding-top: 50px; border-top: 1px solid rgba(255,255,255,0.15);">
+                    <div style="text-align: center; margin-bottom: 35px;">
+                        <span style="background: rgba(212, 175, 55, 0.95); color: #000; font-size: 0.72rem; font-weight: 900; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 4px 15px rgba(212,175,55,0.4);">
+                            ⭐ ESTRENO OFICIAL 2026
+                        </span>
+                        <h3 style="color: #fff; text-align: center; font-size: 1.6rem; letter-spacing: 3px; text-transform: uppercase; margin-top: 18px; margin-bottom: 10px; font-family: 'Playfair Display', serif;">
+                            🎬 VIDEOCLIPS DE THE RESEARCH BAND
+                        </h3>
+                        <p style="color: #aaa; font-size: 0.9rem; max-width: 600px; margin: 0 auto;">Producción audiovisual cinemática de autor dirigida y compuesta por Eduardo Ramírez de Cartagena.</p>
+                    </div>
+
+                    <!-- 🌟 Tarjeta Destacada de Estreno: SIEMPRE TE AMARÉ -->
+                    <div style="max-width: 820px; margin: 0 auto 45px auto; background: rgba(18, 18, 22, 0.9); border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 12px; overflow: hidden; box-shadow: 0 12px 35px rgba(0,0,0,0.95);">
+                        <div style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden;">
+                            <img src="assets/img/portada_video_siempre_te_amare.jpg" alt="Siempre Te Amaré - The Research Band" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 25px; box-sizing: border-box;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="background: rgba(0,0,0,0.75); color: #D4AF37; font-size: 0.75rem; font-weight: 800; padding: 5px 12px; border-radius: 6px; border: 1px solid rgba(212,175,55,0.4); letter-spacing: 1px;">THE RESEARCH BAND · 2026</span>
+                                    <span style="color: #fff; font-size: 0.75rem; background: rgba(0,0,0,0.75); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2);">1080p Full HD · 04:29</span>
+                                </div>
+                                <div style="text-align: center;">
+                                    <h4 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0 0 6px 0; text-shadow: 0 2px 12px rgba(0,0,0,0.95);">Siempre Te Amaré</h4>
+                                    <p style="color: #ddd; font-size: 0.9rem; margin: 0 0 20px 0; text-shadow: 0 1px 8px rgba(0,0,0,0.9);">Composición, arreglos e interpretación: Eduardo Ramírez de Cartagena</p>
+                                    <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+                                        <a href="https://youtu.be/4Xmwxub8z-Y" target="_blank" style="background: #CC0000; color: #fff; font-weight: 800; font-size: 0.85rem; padding: 10px 22px; border-radius: 25px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 18px rgba(204,0,0,0.5); transition: 0.2s;">
+                                            <span>▶</span> Ver en YouTube
+                                        </a>
+                                        <a href="https://vimeo.com/1224207210" target="_blank" style="background: #1ab7ea; color: #fff; font-weight: 800; font-size: 0.85rem; padding: 10px 22px; border-radius: 25px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 18px rgba(26,183,234,0.5); transition: 0.2s;">
+                                            <span>v</span> Ver en Vimeo
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 style="color: #D4AF37; text-align: center; font-size: 1rem; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 25px; font-family: 'Playfair Display', serif;">
+                        MÁS VIDEOCLIPS Y PRODUCCIONES
+                    </h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px;">
+                        
+                        <!-- Video 1: Los que quedan de verdad (En Edición) -->
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div style="position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 25px rgba(0,0,0,0.9);">
+                                <img src="assets/img/portada_video_los_que_quedan.jpg" alt="Los que quedan de verdad" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.5) brightness(0.7);">
+                                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; padding: 10px;">
+                                    <div style="background: rgba(212, 175, 55, 0.95); color: #000; font-size: 0.72rem; font-weight: 900; padding: 6px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1.5px; box-shadow: 0 4px 15px rgba(0,0,0,0.8);">
+                                        ⏳ EN EDICIÓN
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 12px; font-weight: 700; color: #fff; font-size: 0.88rem; text-align: center;">1. Los que quedan de verdad</div>
+                            <div style="font-size: 0.75rem; color: #888; margin-top: 4px;">Próximamente</div>
+                        </div>
+
+                        <!-- Video 2: Pulso a pulso (En Edición) -->
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div style="position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 25px rgba(0,0,0,0.9);">
+                                <img src="assets/img/portada_video_pulso_a_pulso.jpg" alt="Pulso a pulso" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.5) brightness(0.7);">
+                                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; padding: 10px;">
+                                    <div style="background: rgba(212, 175, 55, 0.95); color: #000; font-size: 0.72rem; font-weight: 900; padding: 6px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1.5px; box-shadow: 0 4px 15px rgba(0,0,0,0.8);">
+                                        ⏳ EN EDICIÓN
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 12px; font-weight: 700; color: #fff; font-size: 0.88rem; text-align: center;">2. Pulso a pulso</div>
+                            <div style="font-size: 0.75rem; color: #888; margin-top: 4px;">Próximamente</div>
+                        </div>
+
+                        <!-- Video 3: Medianoche en la terraza (Enlace Directo Vimeo 1220756074) -->
+                        <a href="https://vimeo.com/1220756074" target="_blank" class="video-card-link" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
+                            <div style="position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; border: 1px solid rgba(212,175,55,0.6); box-shadow: 0 8px 25px rgba(0,0,0,0.9);">
+                                <img src="assets/img/portada_video_medianoche.jpg" alt="Medianoche en la terraza" style="width: 100%; height: 100%; object-fit: cover;">
+                                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
+                                    <div style="width: 44px; height: 44px; background: rgba(212, 175, 55, 0.95); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-size: 1.2rem; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.8);">▶</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 12px; font-weight: 700; color: #fff; font-size: 0.88rem; text-align: center;">3. Medianoche en la terraza</div>
+                            <div style="font-size: 0.75rem; color: #D4AF37; margin-top: 4px;">Ver Videoclip en Vimeo ➔</div>
+                        </a>
+
+                        <!-- Video 4: Piso el acelerador (Enlace Directo Vimeo 1220756467) -->
+                        <a href="https://vimeo.com/1220756467" target="_blank" class="video-card-link" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
+                            <div style="position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; border: 1px solid rgba(212,175,55,0.6); box-shadow: 0 8px 25px rgba(0,0,0,0.9);">
+                                <img src="assets/img/portada_video_piso_acelerador.jpg" alt="Piso el acelerador" style="width: 100%; height: 100%; object-fit: cover;">
+                                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
+                                    <div style="width: 44px; height: 44px; background: rgba(212, 175, 55, 0.95); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-size: 1.2rem; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.8);">▶</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 12px; font-weight: 700; color: #fff; font-size: 0.88rem; text-align: center;">4. Piso el acelerador</div>
+                            <div style="font-size: 0.75rem; color: #D4AF37; margin-top: 4px;">Ver Videoclip en Vimeo ➔</div>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================================================================= -->
+        <!-- 🎷 PANTALLA 3: EL UNIVERSO JAZZ (Enlaces a Reproductores de 15)  -->
+        <!-- ================================================================= -->
+        <section id="pantalla-jazz" style="width: 100%; background: #121212; padding: 110px 20px; box-sizing: border-box;">
+            <div style="max-width: 1050px; margin: 0 auto;">
+                
+                <div style="text-align: center; margin-bottom: 55px;">
+                    <div style="color: #D4AF37; font-size: 0.8rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px;">
+                        COLECCIÓN INSTRUMENTAL DE VANGUARDIA
+                    </div>
+                    <h2 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 2.7rem; margin: 0 0 16px 0;">
+                        La Saga de Jazz Instrumental (30 Temas Originales)
+                    </h2>
+                    <p style="color: #aaa; max-width: 720px; margin: 0 auto; font-size: 1rem; line-height: 1.6;">
+                        30 composiciones instrumentales originales que transitan por el Jazz Fusion, Funk Jazz, Bossa y Contemporary Jazz de vanguardia.
+                    </p>
+                </div>
+
+                <!-- Dos Portadas Juntas -->
+                <div style="display: flex; gap: 45px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px;">
+                    
+                    <!-- Vol 2: Cut the Roll & JazzRock -->
+                    <div style="flex: 1; min-width: 270px; max-width: 340px; text-align: center;">
+                        <img src="assets/portada_cut the roll and jazzrock.png" onerror="this.onerror=null; this.src='assets/portada_jazz.png';" alt="Cut the Roll & JazzRock" style="width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.8);">
+                        <h3 style="color: #D4AF37; font-size: 1.25rem; margin: 0 0 8px 0; font-family: 'Playfair Display', serif;">Cut the Roll & JazzRock</h3>
+                        <p style="color: #888; font-size: 0.82rem; margin-bottom: 20px;">LP 2 · 15 Temas de Jazz Fusion & Funk</p>
+                        <a href="jazzrock_full_album.html" style="display: inline-block; background: #D4AF37; color: #000; padding: 12px 28px; border-radius: 25px; text-decoration: none; font-weight: 800; font-size: 0.88rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">
+                            Escuchar 15 Temas Vol. 2 ➔
+                        </a>
+                    </div>
+
+                    <!-- Vol 1: One Thousand of Color Notes -->
+                    <div style="flex: 1; min-width: 270px; max-width: 340px; text-align: center;">
+                        <img src="assets/portada_jazz.png" onerror="this.onerror=null; this.src='assets/portada_medianoche.jpg';" alt="One Thousand of Color Notes" style="width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.8);">
+                        <h3 style="color: #D4AF37; font-size: 1.25rem; margin: 0 0 8px 0; font-family: 'Playfair Display', serif;">One Thousand of Color Notes</h3>
+                        <p style="color: #888; font-size: 0.82rem; margin-bottom: 20px;">LP 1 · 15 Temas de Smooth Jazz & Bossa</p>
+                        <a href="one_thousand_full_album.html" style="display: inline-block; background: #D4AF37; color: #000; padding: 12px 28px; border-radius: 25px; text-decoration: none; font-weight: 800; font-size: 0.88rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">
+                            Escuchar 15 Temas Vol. 1 ➔
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Single Estrella: Bloody Lukas -->
+                <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+                    <div>
+                        <span style="color: #D4AF37; font-weight: 800; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">★ SINGLE ESTRELLA FUSIÓN</span>
+                        <h4 style="color: #fff; font-size: 1.35rem; margin: 5px 0 3px 0; font-family: 'Playfair Display', serif;">Bloody Lukas</h4>
+                        <p style="color: #aaa; font-size: 0.88rem; margin: 0;">Saxofón solista enérgico con base rítmica de Jazz Fusion contemporáneo.</p>
+                    </div>
+                    <a href="https://open.spotify.com/artist/13WJTJy2K8r5uRfsIyP28T" target="_blank" style="background: #1DB954; color: #000; padding: 14px 28px; border-radius: 25px; font-weight: 800; text-decoration: none; font-size: 0.85rem;">
+                        Escuchar en Spotify ➔
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================================================================= -->
+        <!-- 🏆 PANTALLA 4: EL AVAL (Músicos Más Grandes con Gap 20px)          -->
+        <!-- ================================================================= -->
+        <section id="pantalla-aval" style="width: 100%; background: #000000; padding: 110px 20px; box-sizing: border-box;">
+            <div style="max-width: 1150px; margin: 0 auto; text-align: center;">
+                
+                <h3 style="color: #D4AF37; font-size: 1.6rem; letter-spacing: 3px; margin-bottom: 14px; font-family: 'Playfair Display', serif; text-transform: uppercase;">
+                    THE RESEARCH BAND (2026)
+                </h3>
+                <p style="color: #aaa; font-size: 0.98rem; margin-bottom: 50px; max-width: 780px; margin-left: auto; margin-right: auto;">
+                    Bajo la dirección creativa de <strong>Eduardo Ramírez de Cartagena</strong>, el grupo reúne a 6 virtuosos del piano, saxofón, guitarra, violín y voces:
+                </p>
+
+                <!-- Fila Superior: Eduardo Ramírez (Director Creativo) -->
+                <div style="display: flex; justify-content: center; margin-bottom: 50px;">
+                    <div style="width: 200px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <img src="assets/miembros/EDUARDO/nova_bio_eduardo.jpg" alt="Eduardo Ramírez" style="width: 145px; height: 175px; object-fit: cover; border-radius: 12px; border: 2px solid #D4AF37; margin-bottom: 14px; box-shadow: 0 12px 30px rgba(212,175,55,0.3);">
+                        <span style="color: #fff; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Eduardo Ramírez</span>
+                        <span style="color: #D4AF37; font-size: 0.75rem; line-height: 1.3; margin-top: 6px;">Director Creativo, Voz solista, Bajo, Guitarra</span>
+                    </div>
+                </div>
+
+                <!-- Fila Inferior: Los 5 Músicos -->
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 80px; width: 100%;">
+                    
+                    <!-- LUCA -->
+                    <div style="flex: 1; min-width: 170px; max-width: 200px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <img src="assets/miembros/Luca/luca_final.jpg" alt="Luca Fiammetti" style="width: 135px; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.8);">
+                        <span style="color: #fff; font-size: 0.88rem; font-weight: 800; text-transform: uppercase;">Luca Fiammetti</span>
+                        <span style="color: #D4AF37; font-size: 0.72rem; line-height: 1.3; margin-top: 5px;">Guitarra / Jazz Fusion</span>
+                    </div>
+
+                    <!-- ERIK -->
+                    <div style="flex: 1; min-width: 170px; max-width: 200px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <img src="assets/miembros/Erik/sax_profile.jpg" alt="Erik Solberg" style="width: 135px; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.8);">
+                        <span style="color: #fff; font-size: 0.88rem; font-weight: 800; text-transform: uppercase;">Erik Solberg</span>
+                        <span style="color: #D4AF37; font-size: 0.72rem; line-height: 1.3; margin-top: 5px;">Saxofón & EWI</span>
+                    </div>
+
+                    <!-- NARA -->
+                    <div style="flex: 1; min-width: 170px; max-width: 200px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <img src="assets/miembros/Nara/Nara cantando.png" alt="Nara Blue" style="width: 135px; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.8);">
+                        <span style="color: #fff; font-size: 0.88rem; font-weight: 800; text-transform: uppercase;">Nara Blue</span>
+                        <span style="color: #D4AF37; font-size: 0.72rem; line-height: 1.3; margin-top: 5px;">Voz, Percusión, Armónica & Teclados</span>
+                    </div>
+
+                    <!-- ALBA -->
+                    <div style="flex: 1; min-width: 170px; max-width: 200px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <img src="assets/miembros/Alba/violin_profile.jpg" alt="Alba Cisneros" style="width: 135px; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.8);">
+                        <span style="color: #fff; font-size: 0.88rem; font-weight: 800; text-transform: uppercase;">Alba Cisneros</span>
+                        <span style="color: #D4AF37; font-size: 0.72rem; line-height: 1.3; margin-top: 5px;">Violín, Viola & Percusión</span>
+                    </div>
+
+                    <!-- HIROSHI -->
+                    <div style="flex: 1; min-width: 170px; max-width: 200px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <img src="assets/miembros/Hiroshi/hiroshi_profile.jpg" alt="Hiroshi Tanaka" style="width: 135px; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+                        <span style="color: #fff; font-size: 0.88rem; font-weight: 800; text-transform: uppercase;">Hiroshi Tanaka</span>
+                        <span style="color: #D4AF37; font-size: 0.72rem; line-height: 1.3; margin-top: 5px;">Batería (Tokio)</span>
+                    </div>
+
+                </div>
+
+                <!-- Reconocimiento Internacional -->
+                <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 55px; max-width: 800px; margin: 0 auto;">
+                    <div style="color: #D4AF37; font-size: 0.78rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;">
+                        🏆 PRENSA & MEDIOS ESPECIALIZADOS
+                    </div>
+                    <h3 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 1.65rem; margin: 0 0 16px 0;">
+                        Reconocimiento Internacional
+                    </h3>
+                    <p style="color: #ccc; font-size: 0.95rem; line-height: 1.7; font-style: italic; margin-bottom: 20px;">
+                        "Destacado en Cloud Jazz Smooth Jazz como una de las propuestas más frescas y refinadas del Jazz Fusion contemporáneo hecho en España."
+                    </p>
+                    <div style="font-size: 0.82rem; color: #D4AF37; font-weight: 700;">
+                        — CLOUD JAZZ SMOOTH JAZZ RADIO
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================================================================= -->
+        <!-- 🕯️ PANTALLA 5: EL CORAZÓN (110px de Aire Arriba y Abajo)          -->
+        <!-- ================================================================= -->
+        <section id="pantalla-corazon" style="width: 100%; background: #121212; padding: 110px 20px; box-sizing: border-box;">
+            <div style="max-width: 1050px; margin: 0 auto;">
+                
+                <div style="display: flex; gap: 65px; flex-wrap: wrap; align-items: center;">
+                    
+                    <!-- Bloque 1: In Memoriam -->
+                    <div style="flex: 1; min-width: 290px;">
+                        <h3 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 1.45rem; margin: 0 0 16px 0; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid rgba(212, 175, 55, 0.4); padding-bottom: 12px;">
+                            IN MEMORIAM: PEPE Y LOLA
+                        </h3>
+                        <p style="color: #ffffff; font-size: 1.02rem; line-height: 1.8; font-style: italic; font-family: 'Playfair Display', serif; margin-bottom: 22px;">
+                            "FUGA nació de la complicidad y el alma: las melodías inolvidables de Pepe Torres al teclado y la poesía eterna de Lola Torres en las letras. Hoy, sus creaciones vuelven a brillar con voz propia y los nuevos arreglos de The Research Band para 2026."
+                        </p>
+                        <div style="color: #D4AF37; font-weight: 800; font-size: 0.88rem; letter-spacing: 1px;">
+                            — EDUARDO RAMÍREZ DE CARTAGENA
+                        </div>
+                    </div>
+
+                    <!-- Bloque 2: Filosofía / Manifiesto -->
+                    <div style="flex: 1; min-width: 290px; border-left: 1px solid rgba(255,255,255,0.15); padding-left: 45px;">
+                        <h3 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 1.45rem; margin: 0 0 16px 0;">
+                            FILOSOFÍA DE TRABAJO
+                        </h3>
+                        <p style="color: #aaa; font-size: 0.95rem; line-height: 1.8; margin-bottom: 22px;">
+                            "Dos inteligencias —una de carbono y otra de silicio— colaborando para crear algo que antes no existía. Artesanía musical de autor combinada con tecnología de vanguardia."
+                        </p>
+                        <a href="iliada.html" style="color: #D4AF37; text-decoration: none; font-weight: 700; font-size: 0.88rem;">
+                            Leer el ensayo completo en "Mi Ilíada" ➔
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================================================================= -->
+        <!-- 🛠️ PANTALLA 6: EL PIE DE PÁGINA (Wild and Free Destacado Elegante) -->
+        <!-- ================================================================= -->
+        <section id="pantalla-estudio" style="width: 100%; background: #000000; padding: 110px 20px 140px 20px; text-align: center; box-sizing: border-box;">
+            <div style="max-width: 900px; margin: 0 auto;">
+                
+                <!-- Recuadro: El Artista Eres Tú -->
+                <div style="margin-bottom: 65px;">
+                    <h3 style="color: #D4AF37; margin: 0 0 14px 0; font-size: 1.4rem; letter-spacing: 4px; font-weight: bold; text-transform: uppercase;">
+                        EL ARTISTA ERES TÚ
+                    </h3>
+                    <h2 style="color: #fff; margin-top: 0; font-size: 2.3rem; letter-spacing: 2px; font-family: 'Playfair Display', serif; margin-bottom: 20px;">
+                        ACCESO AL ESTUDIO
+                    </h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 38px; color: #ccc; max-width: 680px; margin-left: auto; margin-right: auto; line-height: 1.7;">
+                        "Ya has visto todo lo que soy capaz de lanzar en 6 meses... ahora entra y ayúdame a decidir qué viene después."
+                    </p>
+                    <a href="concurso/index.html" style="font-size: 1.05rem; padding: 18px 48px; background: #D4AF37; color: #000; text-decoration: none; font-weight: 900; border-radius: 30px; display: inline-block; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s ease;">
+                        ENTRAR AL ESTUDIO Y PARTICIPAR
+                    </a>
+                </div>
+
+                <!-- Proyecto Wild and Free (Mayor presencia, mayor tamaño, dorado sutil) -->
+                <div style="font-size: 1.05rem; color: #e0e0e0; border-top: 1px solid rgba(212,175,55,0.25); padding-top: 45px; font-family: 'Montserrat', sans-serif;">
+                    Descubre también el single exclusivo 
+                    <a href="wild-and-free/index.html" style="color: #D4AF37; text-decoration: none; font-weight: 800; letter-spacing: 1px; margin-left: 6px; border-bottom: 1px dashed rgba(212, 175, 55, 0.6); padding-bottom: 2px; transition: all 0.3s ease;">
+                        "Wild and Free" ➔
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ⚡ JS Detección Automática de Sección en Scroll -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id^="pantalla-"]');
+            const points = document.querySelectorAll('.punto-link');
+
+            function updateActivePoint() {
+                let currentId = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 180;
+                    if (window.scrollY >= sectionTop) {
+                        currentId = section.getAttribute('id');
+                    }
+                });
+
+                points.forEach(point => {
+                    point.classList.remove('active');
+                    if (point.getAttribute('href') === `#${currentId}`) {
+                        point.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActivePoint);
+            updateActivePoint();
+        });
+    </script>
+
+    <script>
+        // DEBUG LAUNCHER
+        // alert("Iniciando script de música..."); 
+
+        // Member Data (Placeholders)
+
+        const memberData = {
+            'eduardo': {
+                name: 'Eduardo Ramírez',
+                role: 'Fundador & Alma Mater',
+                img: 'assets/miembros/EDUARDO/01Edu Research Clip parque1 CUADRO.png',
+                bio: 'Larga trayectoria en el mundo de la música...',
+                discs: ['Disco Ejemplo 1 (Año)', 'Disco Ejemplo 2 (Año)', 'Colaboración X'],
+                videos: 'Próximamente: Clips de actuaciones y videoclips...'
+            }
+
+            ,
+            'jose': {
+                name: 'Jose de Lucas',
+                role: 'Guitarra y voz',
+                img: 'assets/miembros/Jose de LUCAS/jose_new_photo.jpg',
+                bio: `Cantante, compositor y arreglista. Guitarras eléctricas y acústicas.\n\nACTUALMENTE:\nCantante y guitarrista de acompañamiento en: Pistones, Cadillac, La Década Prodigiosa, The Research Band y Estudio 80.\n\nFORMACIONES ANTERIORES:\nScooters, 40º Grados, Pistones, Antifaces, Daltónicos, Asunto Tornasol, La Década Prodigiosa, Orquesta Xucar, Cadillac, Orquesta Templo, El Nombre de la Rosa, Estudio 80.\n\nCONCURSOS Y FESTIVALES:\n• Ganador con Scooters del Primer Concurso de Pop Regional de Castilla – La Mancha (1985).\n• Finalista con 40º Grados del 2º Concurso de Pop Regional de Castilla – La Mancha (1986).\n• Clasificado en 3º lugar en el Concurso Nacional “Nuevo Pop Español” de Radio Cadena Española (1986).\n• Ganador con Asunto Tornasol del concurso Guadapop (1991).\n\nACTUACIONES CON:\nRadio Futura, Secretos, Nacha Pop, Alarma, Pistones, Elegantes, Ñu, Derribos Arias, Tam Tam Go, La Frontera, El Canto del Loco. En el Super 1 de la SER, en TV Regional de Castilla La Mancha, Salas Honky Tonk, Rockola, Universal, Ritmo & Compás, etc.\n\nHOMENAJE A LOS 80´s CON:\nAntonio Vega, Jose Mª Guzmán, Ambite, Javier Andreu, Eduardo Ramirez, Pedro Sanchez, Nacho Campillo.\n\nGRABACIONES DESTACADAS:\n• Estudio Pentágono (Con Felix “Pekenikes” 1985)\n• Estudio Track (Con Manolo Garrido 1986)\n• Estudio Sonotone (Con Jose Mª Sagrista 1987)\n• Estudio Fairlight (Con Nacho Cano 1988)\n• Estudio Reactor (Con Servando Carvallar 1991)\n• Estudio Eurosonic (Con J. J. Almela 2001)\n• Estudio Eurosonic (Con E. Ramirez 2002)\n\nFORMACIÓN:\nTaller de Canciones y Autor (S.G.A.E.) con Inma Serrano y Mercedes Ferrer. Cursos de Sonido, Informática Musical (Logic/Protools) con Paco Trinidad y Martin Raskin.\n\nTEMAS PROPIOS:\nMás de 60 canciones con letra y música propias.`,
+                discs: ['Album Rock 1', 'Album Blues 2'],
+                videos: 'Conciertos y directos...'
+            }
+
+            ,
+            'ricardo': {
+                name: 'Ricardo Castro',
+                role: 'Teclado y voz',
+                img: 'assets/miembros/RICARDO/ricardo_new_photo.jpg',
+                bio: `Pianista, arreglista, compositor y productor.\n\nEmpieza a la edad de 6 años a estudiar música y a tocar el piano con el maestro D. Pedro Pablo García Breva. Posteriormente y hasta los 16 años realiza estudios con mérito en los conservatorios oficiales de Zaragoza y Guadalajara con grandes maestros.\n\nGana el Mustifestival Internacional David en Barcelona durante 3 años consecutivos donde participa en seminarios con maestros de la talla de Antoni Olaf Sabater, discípulo de Tete Montoliu y otras muchas figuras internacionales.\n\nA los 18 obtiene el segundo premio en el certamen “Villa de Madrid” y en el “Guadapop Memorial Juan Antonio Díaz (Secretos)” junto a su formación “Siquem”. Descubre el jazz y posteriormente sigue formándose con los maestros Stanislav Borissof (Bulgaria) y Eduardo Pineda (Cuba).\n\nA lo largo de su carrera ha acompañado a artistas de la talla de Antonio Vega, Betty Misiego, Javier Andreu (La Frontera), Cadillac, La Orquesta Mondragón, José María Guzmán (C.R.A.G), Franky Med, José Abascal, Lola Méndez, Raúl Castro, Alicia Ruiz, Celia Gondev, Johnny Camarena, José de Lucas, Juan Muro…\n\nHa compartido escenario teloneando a David Bisbal, Rafael, Chenoa, David Bustamante, Isabel Pantoja, El Dúo Dinámico, Sergio Dalma, Paloma San Basilio, Pitingo, Mira Quien Baila entre otros.\n\nSus composiciones han quedado entre las 12 canciones más votadas para representar a Eurovisión en dos ocasiones con excelentes críticas en los medios nacionales. Pianista del Gran Casino de Madrid de Torrelodones durante 8 años. Ha realizado trabajos de arreglos para la compañía Sonogrand, G.I., Sunrise Records.`,
+                discs: ['Jazz Fusion Vol.1', 'Pop Hits 80s'],
+                videos: 'Sesiones de estudio...'
+            }
+
+            ,
+            'javier': {
+                name: 'Javier de Juan Romeu',
+                role: 'Batería y Compositor',
+                img: 'assets/javier(actual).jpg',
+                bio: 'Ex-Batería de CADILLAC. Pionero de la batería electrónica en España. Ha tocado con grandes artistas y en producciones internacionales. <br><br><strong>Currículum Europeo:</strong> <a href="https://all-conductors-of-eurovision.blogspot.com/1988/04/javier-de-juan.html" target="_blank" style="color: var(--accent); text-decoration: underline;">Ver Perfil / Eurovisión</a>',
+                discs: ['Cadillac - Pensando en ti', 'La Década Prodigiosa', 'Proyectos en solitario'],
+                videos: '<strong>Música Destacada:</strong><br>KALI CHILI<br><audio controls style="width:100%; margin-top:5px; margin-bottom:15px;"><source src="assets/KALI_CHILI.mp3" type="audio/mpeg">Tu navegador no soporta el audio.</audio><br><em>Más audios próximamente...</em>'
+            }
+
+            ,
+            'lotfy': {
+                name: 'Lotfy B. Amor',
+                role: 'Compositor y Cantante',
+                img: 'assets/recovered_wix/images/image_02.png',
+                bio: 'Compositor internacional con éxitos en varios idiomas...',
+                discs: ['Hit Single 1', 'Album Internacional'],
+                videos: 'Actuaciones internacionales...'
+            }
+
+            ,
+            'jjalmela': {
+                name: 'JJ Almela',
+                role: 'Piano, Producción y Arreglos',
+                img: 'assets/miembros/JJ_ALMELA_profile.png',
+                bio: `Músico, compositor y arreglista con amplia trayectoria. Pianista de Jazz, Productor Musical y Director Artístico para compañías como SONY, EMI, RCA, FONOGRAM, COLUMBIA.<br><br> Ha compuesto para TV, Cine y Documentales.<br><br> <strong>Web Oficial:</strong> <a href="https://www.jjalmela.com" target="_blank" style="color: var(--accent); text-decoration: underline;" >www.jjalmela.com</a>`,
+                discs: ['Productor en SONY/EMI/RCA', 'Compositor Cine/TV'],
+                videos: 'Visita su web para ver su extensa obra.'
+            }
+
+            ,
+            'luca': {
+                name: 'Luca Fiammetti',
+                role: 'Actual Guitarra de TRBandmusic',
+                img: 'assets/miembros/Luca/profile.jpg',
+                bio: `<strong>Nombre completo:</strong> Luca Alessandro Fiammetti<br> <strong>Edad:</strong> 36 años<br> <strong>Origen:</strong> Nacido en Génova, Italia. Reside en Manilva, Málaga.<br><br> <strong>Trayectoria Musical:</strong><br> Formado en el Conservatorio Paganini de Génova, especializado en jazz moderno. Ha tocado en festivales de jazz en Italia, Francia y España.<br> En Manilva, lidera un trío llamado “Mediterráneo Azul”, fusionando jazz con flamenco y bossa nova.<br><br> <strong>Filosofía:</strong><br> Espiritual, introspectivo, amante del mar y la improvisación. Cree que “el jazz es conversación sin palabras”. Da clases privadas en Manilva y colabora con artistas locales.`,
+                discs: ['Mediterráneo Azul - Fusión', 'Colaboraciones Jazz Moderno'],
+                videos: 'Actuaciones con Mediterráneo Azul y TRBand.'
+            }
+        }
+
+            ;
+
+        function openMember(id) {
+            const data = memberData[id];
+            if (!data) return;
+
+            document.getElementById('modalImg').src = data.img;
+            document.getElementById('modalName').textContent = data.name;
+            document.getElementById('modalRole').textContent = data.role;
+            document.getElementById('modalBio').innerHTML = data.bio; // Allow HTML for links
+
+            const discList = document.getElementById('modalDiscography');
+            discList.innerHTML = ''; // Clear prev
+
+            data.discs.forEach(disc => {
+                const li = document.createElement('li');
+                li.textContent = disc;
+                discList.appendChild(li);
+            });
+
+            // Populate Videos/Artistic Trajectory
+            const videoContainer = document.getElementById('modalVideos');
+            // If data.videos is just text for now:
+            videoContainer.innerHTML = data.videos || 'Información disponible próximamente.';
+
+            document.getElementById('memberModal').style.display = 'flex';
+        }
+
+        function closeMember() {
+            document.getElementById('memberModal').style.display = 'none';
+        }
+
+        // Existing Player Logic
+        function openPlayer() {
+            document.getElementById('musicModal').classList.add('active');
+        }
+
+        function closePlayer() {
+            document.getElementById('musicModal').classList.remove('active');
+        }
+
+        let fullPlaylist = ["01Medianoche-en-la-Terraza.mp3",
+            "All_around_if_you_want.mp3",
+            "Black_and_grey_.mp3",
+            "Close_Your_Feelings_Extended.mp3",
+            "Groove_or_not.mp3",
+            "Heaven_s_Glow.mp3",
+            "Man_island_beach.mp3",
+            "Meanwhile_I_Love_You.mp3",
+            "Saxo_by_the_clouds.mp3",
+            "Saxophone_Serenade.mp3",
+            "Secret-of-Velvet.mp3",
+            "Sharp-echoes.mp3",
+            "Soft-corners.mp3",
+            "Voices_for_dreams.mp3",
+            "Woman_on_the_island_beach.mp3"].map(f => ({
+                name: f.replace(/\.[^/.]+$/, "").replace(/_/g, " "),
+                url: encodeURIComponent(f),
+                original: f
+            }));
+
+        let myPlaylist = [];
+        let currentMode = 'all';
+
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playlistEl = document.getElementById('playlist');
+        const trackTitle = document.getElementById('trackTitle');
+        const coverDisplay = document.getElementById('coverDisplay');
+        const searchInput = document.getElementById('searchInput');
+        const favCount = document.getElementById('favCount');
+
+        let currentIndex = -1;
+        let activeQueue = [];
+
+        function switchTab(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+
+            if (mode === 'all') {
+                document.getElementById('tabAll').classList.add('active');
+                document.getElementById('importRow').style.display = 'flex';
+                document.getElementById('searchInput').placeholder = "🔍 Buscar en biblioteca...";
+            }
+
+            else {
+                document.getElementById('tabFav').classList.add('active');
+                document.getElementById('importRow').style.display = 'none';
+                document.getElementById('searchInput').placeholder = "🔍 Buscar en mi playlist...";
+            }
+
+            renderPlaylist();
+        }
+
+        function addToFav(index) {
+            const track = fullPlaylist[index];
+
+            if (!myPlaylist.find(t => t.url === track.url)) {
+                myPlaylist.push(track);
+                updateFavCount();
+                // alert("Añadida a Playlist ⭐");
+            }
+        }
+
+        function removeFromFav(index) {
+            myPlaylist.splice(index, 1);
+            updateFavCount();
+            if (currentMode === 'fav') renderPlaylist();
+        }
+
+        function updateFavCount() {
+            if (favCount) favCount.innerText = `(${myPlaylist.length})`;
+        }
+
+        function renderPlaylist() {
+            if (!searchInput || !playlistEl) return;
+            const query = searchInput.value ? searchInput.value.toLowerCase() : "";
+            const source = currentMode === 'all' ? fullPlaylist : myPlaylist;
+            playlistEl.innerHTML = "";
+            activeQueue = source;
+
+            source.forEach((track, idx) => {
+                if (query && !track.name.toLowerCase().includes(query)) return;
+
+                const li = document.createElement('li');
+                const isPlaying = (currentIndex === idx && source === activeQueue);
+                li.className = 'track-item' + (isPlaying ? ' active' : '');
+
+                let actionBtn = "";
+
+                if (currentMode === 'all') {
+                    actionBtn = `<button class="add-btn" onclick="event.stopPropagation(); addToFav(${idx})" title="Añadir a Playlist" >+</button>`;
+                }
+
+                else {
+                    actionBtn = `<button class="add-btn" onclick="event.stopPropagation(); removeFromFav(${idx})" title="Quitar" >x</button>`;
+                }
+
+                li.innerHTML = `<span class="track-num">${idx + 1}</span> 
+                                <span class="track-name">${track.name}</span> 
+                                ${actionBtn}`;
+                li.onclick = () => loadTrack(idx);
+                playlistEl.appendChild(li);
+            });
+
+            if (activeQueue.length === 0 && currentMode === 'fav') {
+                playlistEl.innerHTML = '<li style="padding:20px; text-align:center; color:#888">Tu playlist está vacía.</li>';
+            }
+        }
+
+        function loadTrack(index) {
+            if (index < 0 || index >= activeQueue.length) return;
+            currentIndex = index;
+            const track = activeQueue[index];
+            audioPlayer.src = track.url;
+            audioPlayer.play();
+            trackTitle.innerText = track.name;
+            renderPlaylist();
+
+            if ('mediaSession' in navigator) {
+                navigator.mediaSession.metadata = new MediaMetadata({
+
+                    title: track.name, artist: 'The Research Band',
+                    artwork: [{
+                        src: 'assets/portada_jazz.png', sizes: '512x512', type: 'image/png'
+                    }
+
+                    ]
+                });
+            }
+        }
+
+        function togglePlay() {
+            if (audioPlayer.paused) audioPlayer.play();
+            else audioPlayer.pause();
+        }
+
+        function nextTrack() {
+            let next = currentIndex + 1;
+            if (next >= activeQueue.length) next = 0;
+            loadTrack(next);
+        }
+
+        function prevTrack() {
+            let prev = currentIndex - 1;
+            if (prev < 0) prev = activeQueue.length - 1;
+            loadTrack(prev);
+        }
+
+        function filterPlaylist() {
+            renderPlaylist();
+        }
+
+        function searchWeb() {
+            const query = searchInput.value;
+            if (!query) return alert("Escribe algo para buscar.");
+            window.open('https://www.youtube.com/results?search_query=' + encodeURIComponent(query), '_blank');
+        }
+
+        function importFiles(input) {
+            const files = input.files;
+            if (!files.length) return;
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+
+                fullPlaylist.push({
+                    name: file.name.replace(/\.[^/.]+$/, "").replace(/_/g, " "),
+                    url: URL.createObjectURL(file), original: file.name
+                });
+            }
+
+            alert(`¡${files.length} canciones añadidas!`);
+            renderPlaylist();
+        }
+
+        if (audioPlayer) {
+            audioPlayer.addEventListener('ended', nextTrack);
+            if (coverDisplay) {
+                audioPlayer.onplay = () => coverDisplay.classList.add('playing');
+                audioPlayer.onpause = () => coverDisplay.classList.remove('playing');
+            }
+        }
+
+        renderPlaylist();
+
+        if (fullPlaylist.length > 0) {
+            currentIndex = 0;
+            activeQueue = fullPlaylist;
+            trackTitle.innerText = fullPlaylist[0].name;
+            audioPlayer.src = fullPlaylist[0].url;
+            renderPlaylist();
+        }
+    </script>
+    <script> // Random Background Video logic
+        const videos = ["assets/video/NY_streets.mp4"];
+        const bgVideo = document.getElementById('bgVideo');
+        const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+        bgVideo.src = randomVideo;
+    </script>
+    <div class="author-footer"
+        style="width: 100%; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; text-transform: none !important;">
+        <div
+            style="display: flex; align-items: center; justify-content: flex-start; opacity: 1; font-weight: 700; font-size: 0.9em; color: #ffffff; text-shadow: 2px 2px 4px #000000; margin-bottom: 20px;">
+            <span style="margin-right: 8px;">produced by KHEM</span>
+            <img src="assets/them_logo.png" alt="THEM" style="height: 30px;">
+        </div>
+        <div
+            style="text-align: center; width: 100%; opacity: 1; font-weight: 700; font-size: 1em; color: #ffffff; text-shadow: 2px 2px 4px #000000;">
+            eduardo ramírez de cartagena &copy; 2026
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- MODAL DE COMPRA DISCO DIGITAL -->
+    <div id="purchaseModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 99999; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box;">
+        <div class="purchase-modal-box">
+            
+            <!-- Botón Cerrar -->
+            <button onclick="closePurchaseModal()" style="position: absolute; top: 15px; right: 18px; background: transparent; border: none; color: #94a3b8; font-size: 1.6rem; cursor: pointer; line-height: 1; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#94a3b8'">&times;</button>
+            
+            <!-- Header Álbum -->
+            <div style="display: flex; gap: 18px; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.25); padding-bottom: 18px; margin-bottom: 18px;">
+                <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="FUGA Cover" style="width: 75px; height: 75px; border-radius: 10px; border: 1.5px solid #D4AF37; object-fit: cover; box-shadow: 0 6px 15px rgba(0,0,0,0.6);">
+                <div>
+                    <h3 style="color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 1.35rem; margin: 0 0 4px 0;">FUGA (2026 Versions)</h3>
+                    <p style="color: #cbd5e1; font-size: 0.80rem; margin: 0 0 6px 0;">Edición Digital Oficial · Audio Hi-Res Masterizado</p>
+                    <div style="display: inline-block; background: rgba(212, 175, 55, 0.2); border: 1px solid #D4AF37; color: #D4AF37; font-weight: 800; font-size: 0.90rem; padding: 2px 10px; border-radius: 6px;">
+                        Precio: 9,00 €
+                    </div>
+                </div>
+            </div>
+
+            <!-- Título Opciones -->
+            <div style="color: #e2e8f0; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">
+                Elige tu método de pago preferido:
+            </div>
+
+            <!-- Opciones de Pago -->
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px;">
+                
+                <!-- 1. BIZUM (OPCIÓN PRINCIPAL DESTACADA) -->
+                <div style="background: rgba(0, 180, 167, 0.08); border: 2px solid #00b4a7; padding: 14px 18px; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,180,167,0.15);">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span style="background: #00b4a7; color: #000; font-weight: 900; font-size: 0.82rem; padding: 2px 8px; border-radius: 6px;">BIZUM</span>
+                            <span style="font-weight: 700; font-size: 0.95rem; color: #fff;">Pago Rápido (España)</span>
+                        </div>
+                        <span id="modalBizumPriceBadge" style="color: #00b4a7; font-weight: 900; font-size: 1rem;">9,00 €</span>
+                    </div>
+                    
+                    <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(0, 180, 167, 0.3); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div>
+                            <div style="font-size: 0.70rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Número para Bizum:</div>
+                            <div style="font-size: 1.25rem; font-weight: 800; color: #00e5d4; letter-spacing: 1px;">678 70 87 29</div>
+                        </div>
+                        <button onclick="copyBizumPhone(this)" style="background: #00b4a7; color: #000; border: none; font-weight: 800; font-size: 0.75rem; padding: 6px 12px; border-radius: 8px; cursor: pointer; transition: all 0.2s; font-family: inherit;">
+                            📋 Copiar
+                        </button>
+                    </div>
+
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <a id="modalWhatsappBtn" href="https://wa.me/34678708729?text=Hola,%20he%20hecho%20un%20Bizum%20de%209€%20para%20el%20disco%20FUGA%20(2026%20Versions).%20Mi%20email%20para%20la%20descarga%20es:%20" target="_blank" style="flex: 1; min-width: 140px; background: #25D366; color: #000; font-weight: 800; font-size: 0.76rem; padding: 8px 12px; border-radius: 8px; text-decoration: none; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+                            💬 Confirmar por WhatsApp
+                        </a>
+                        <a id="modalEmailBtn" href="mailto:trbandmusic@gmail.com?subject=Bizum%20Disco%20FUGA%20(9%20EUR)&body=Hola,%20he%20hecho%20un%20Bizum%20de%209€%20para%20el%20disco%20FUGA.%20Mi%20email%20para%20recibir%20el%20enlace%20es:%20" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-weight: 700; font-size: 0.76rem; padding: 8px 12px; border-radius: 8px; text-decoration: none; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+                            ✉️ Confirmar por Email
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Tarjeta / Bandcamp -->
+                <a href="https://trbandmusic.bandcamp.com" target="_blank" style="display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px 16px; border-radius: 12px; text-decoration: none; color: #fff; transition: all 0.2s;" onmouseover="this.style.borderColor='#D4AF37'; this.style.background='rgba(212,175,55,0.1)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.background='rgba(255,255,255,0.05)'">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 1.3rem;">💳</span>
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.90rem; color: #fff;">Tarjeta de Crédito / Débito</div>
+                            <div style="font-size: 0.72rem; color: #94a3b8;">Visa, Mastercard, Amex (vía Bandcamp)</div>
+                        </div>
+                    </div>
+                    <span style="color: #D4AF37; font-weight: 800; font-size: 0.82rem;">Pagar ➔</span>
+                </a>
+
+                <!-- 3. PayPal -->
+                <a id="modalPaypalBtn" href="https://www.paypal.com/paypalme/TheResearchBand/9EUR" target="_blank" style="display: flex; align-items: center; justify-content: space-between; background: rgba(0, 112, 186, 0.15); border: 1px solid #0070ba; padding: 12px 16px; border-radius: 12px; text-decoration: none; color: #fff; transition: all 0.2s;" onmouseover="this.style.borderColor='#00c0ff'; this.style.background='rgba(0,112,186,0.25)'" onmouseout="this.style.borderColor='#0070ba'; this.style.background='rgba(0,112,186,0.15)'">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 1.3rem;">🅿️</span>
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.90rem; color: #fff;">PayPal</div>
+                            <div id="modalPaypalText" style="font-size: 0.72rem; color: #94a3b8;">Saldo PayPal o tarjeta vinculada (9,00 €)</div>
+                        </div>
+                    </div>
+                    <span style="color: #00c0ff; font-weight: 800; font-size: 0.82rem;">Pagar ➔</span>
+                </a>
+
+            </div>
+
+            <!-- Footer Seguridad -->
+            <div style="font-size: 0.70rem; color: #64748b; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+                🔒 Compra 100% segura directa con el artista · The Research Band © 2026
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPurchaseModal(album) {
+            var modal = document.getElementById('purchaseModal');
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        }
+        function closePurchaseModal() {
+            var modal = document.getElementById('purchaseModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+        function copyBizumPhone(btn) {
+            navigator.clipboard.writeText('678708729').then(function() {
+                var old = btn.textContent;
+                btn.textContent = '✓ ¡Copiado!';
+                btn.style.background = '#22c55e';
+                btn.style.color = '#fff';
+                setTimeout(function() {
+                    btn.textContent = old;
+                    btn.style.background = '#00b4a7';
+                    btn.style.color = '#000';
+                }, 2000);
+            });
+        }
+        window.addEventListener('click', function(e) {
+            var modal = document.getElementById('purchaseModal');
+            if (e.target === modal) {
+                closePurchaseModal();
+            }
+        });
+    </script>
+
+    <script>
+        function toggleMobileMenu() {
+            var nav = document.getElementById('mainNav');
+            var btnIcon = document.querySelector('.menu-icon');
+            if (nav) {
+                nav.classList.toggle('mobile-active');
+                if (btnIcon) {
+                    btnIcon.textContent = nav.classList.contains('mobile-active') ? '✕' : '☰';
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
