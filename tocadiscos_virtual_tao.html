@@ -425,6 +425,18 @@
       height: 380px;
       overflow: visible;
       filter: drop-shadow(4px 10px 12px rgba(0, 0, 0, 0.65));
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.45s ease;
+    }
+
+    /* ESTADO ELEVADO / CUE-LIFTED (SUSPENDIDO EN PAUSA O VIAJANDO A OTRO SURCO) */
+    .tonearm-rod-wrapper.cue-lifted .tonearm-rod-svg {
+      transform: translateY(-10px) scale(1.035);
+      filter: drop-shadow(15px 25px 20px rgba(0, 0, 0, 0.55));
+    }
+
+    .tonearm-rod-wrapper.cue-lifted .needle-stylus {
+      stroke: #fbbf24;
+      filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.9));
     }
 
     /* SOPORTE DE REPOSO (REST POST) */
@@ -946,7 +958,7 @@
 
               <!-- Cápsula y Aguja (Cartridge & Needle stylus con luz dorada) -->
               <rect x="-56" y="365" width="8" height="6" fill="#d97706" rx="1" />
-              <line x1="-52" y1="371" x2="-54" y2="378" stroke="#f8fafc" stroke-width="1.5" />
+              <line class="needle-stylus" id="needleStylus" x1="-52" y1="371" x2="-54" y2="378" stroke="#f8fafc" stroke-width="1.5" />
             </svg>
           </div>
         </div>
@@ -956,9 +968,10 @@
       <!-- CONTROLES DEL TOCADISCOS -->
       <div class="turntable-controls">
         <div class="control-cluster">
-          <button class="btn-step" onclick="prevTrack()" title="Pista anterior">⏮</button>
+          <button class="btn-step" onclick="prevTrack()" title="Pista anterior (⏮)">⏮</button>
           <button class="btn-transport" id="mainPlayBtn" onclick="togglePlayPause()" title="Play / Pausa">▶</button>
-          <button class="btn-step" onclick="nextTrack()" title="Siguiente pista">⏭</button>
+          <button class="btn-step" onclick="stopTurntable()" title="Parar y volver al reposo (⏹)">⏹</button>
+          <button class="btn-step" onclick="nextTrack()" title="Siguiente pista (⏭)">⏭</button>
         </div>
 
         <div class="now-playing-banner">
@@ -1229,6 +1242,7 @@
     // ESTADO DEL TOCADISCOS
     let currentTrackIndex = 0;
     let isPlaying = false;
+    let isPaused = false;
     let currentSpeed = 33;
     let customAudioFiles = {}; // Archivos locales cargados por el usuario
     const REST_ANGLE = -28;    // Ángulo de reposo del brazo en su soporte
@@ -1269,7 +1283,7 @@
         ring.title = `Surco #${track.id}: ${track.title} - Haz clic para colocar la aguja`;
         ring.onclick = (e) => {
           e.stopPropagation();
-          selectTrack(idx, true);
+          jumpToTrack(idx);
         };
         groovesContainer.appendChild(ring);
       });
@@ -1294,7 +1308,7 @@
         const row = document.createElement('div');
         row.className = `track-row ${idx === currentTrackIndex ? 'active' : ''}`;
         row.id = `track-row-${idx}`;
-        row.onclick = () => selectTrack(idx, true);
+        row.onclick = () => jumpToTrack(idx);
 
         const instBadge = track.isInstrumental
           ? `<span class="track-badge-inst">Instrumental</span>`
@@ -1312,7 +1326,7 @@
       });
     }
 
-    // SELECCIONAR PISTA Y MOVER EL BRAZO AL SURCO EXACTO
+    // ACTUALIZAR METADATOS Y TARJETA DEL LIBRETO
     function selectTrack(index, autoPlay = true) {
       currentTrackIndex = index;
       const track = ALBUM_TRACKS[index];
@@ -1341,14 +1355,15 @@
         activeRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
 
-      // POSICIONAR EL BRAZO DEL PICKUP
-      if (isPlaying || autoPlay) {
+      if (autoPlay) {
         moveTonearmTo(track.armAngle);
-        playTrackAudio(track, autoPlay);
-      } else {
-        // En reposo si no está sonando
-        moveTonearmTo(REST_ANGLE);
+        playTrackAudio(track, true);
       }
+    }
+
+    // SALTAR A UN SURCO (AL HACER CLIC EN UN SURCO O EN LA LISTA)
+    function jumpToTrack(index) {
+      transitionToTrack(index, true);
     }
 
     // ANIMAR EL BRAZO DEL TOCADISCOS
@@ -1356,24 +1371,27 @@
       tonearmRodWrapper.style.transform = `rotate(${angleDeg}deg)`;
     }
 
-    // REPRODUCCIÓN DE AUDIO (AUDIO REAL O GENERADOR DEMO SINTÉTICO)
+    // REPRODUCCIÓN DE AUDIO
     function playTrackAudio(track, shouldPlay) {
-      // Comprobar si el usuario ha subido el archivo MP3 correspondiente
       const customFile = customAudioFiles[track.id] || customAudioFiles[track.title.toLowerCase()];
 
       if (customFile) {
         audioEngine.src = URL.createObjectURL(customFile);
       } else {
-        audioEngine.src = track.audioUrl;
+        // Si no está cargada la misma pista, cambiar origen
+        if (!audioEngine.src.includes(encodeURI(track.audioUrl)) && !audioEngine.src.includes(track.audioUrl)) {
+          audioEngine.src = track.audioUrl;
+        }
       }
 
       if (shouldPlay) {
         audioEngine.play().then(() => {
           setPlayState(true);
-        }).catch(() => {
-          // Si el archivo físico aún no existe en el disco, simulamos reproducción ambiental de prueba
-          console.log(`[Audio Demo] Pista #${track.id}: ${track.title} lista.`);
+          isPaused = false;
+        }).catch((e) => {
+          console.log(`[Audio Demo] Pista #${track.id}: ${track.title} lista. (${e})`);
           setPlayState(true);
+          isPaused = false;
           showToast(`Aguja en Surco #${track.id}: ${track.title}`);
         });
       }
@@ -1384,23 +1402,121 @@
       if (isPlaying) {
         pauseTurntable();
       } else {
-        startTurntable();
+        resumeOrStartTurntable();
       }
     }
 
-    function startTurntable() {
+    // INICIAR O REANUDAR (BAJA LA AGUJA Y CONTINÚA DONDE SE QUEDÓ)
+    function resumeOrStartTurntable() {
       const track = ALBUM_TRACKS[currentTrackIndex];
-      moveTonearmTo(track.armAngle);
-      setPlayState(true);
-      playTrackAudio(track, true);
-      showToast(`Reproduciendo Surco #${track.id}: ${track.title}`);
+
+      // Si estaba en pausa en esta misma pista, simplemente bajamos la aguja y reanudamos
+      if (isPaused && audioEngine.src && audioEngine.currentTime > 0) {
+        tonearmRodWrapper.classList.remove('cue-lifted');
+        setPlayState(true);
+        isPaused = false;
+        setTimeout(() => {
+          audioEngine.play().catch(e => console.log('Resume error:', e));
+          showToast(`Aguja en el surco #${track.id}: Continuando reproducción`);
+        }, 250);
+      } else {
+        // Iniciar desde el principio
+        tonearmRodWrapper.classList.add('cue-lifted');
+        moveTonearmTo(track.armAngle);
+        setTimeout(() => {
+          tonearmRodWrapper.classList.remove('cue-lifted');
+          setPlayState(true);
+          isPaused = false;
+          playTrackAudio(track, true);
+          showToast(`Reproduciendo Surco #${track.id}: ${track.title}`);
+        }, 350);
+      }
     }
 
+    // PAUSA: LEVANTA EL BRAZO EN EL MISMO SITIO (SUSPENDIDO) SIN VOLVER AL REPOSO
     function pauseTurntable() {
+      const track = ALBUM_TRACKS[currentTrackIndex];
+
+      // 1. Pausar el motor de audio en el segundo exacto
       audioEngine.pause();
-      moveTonearmTo(REST_ANGLE);
+
+      // 2. Levantar la aguja (cue lever up) permaneciendo exactamente sobre el surco
+      tonearmRodWrapper.classList.add('cue-lifted');
+      moveTonearmTo(track.armAngle);
+
+      // 3. Parar giro de vinilo y actualizar botones
       setPlayState(false);
-      showToast("Tocadiscos en pausa. Brazo en reposo.");
+      isPaused = true;
+
+      trackSurcoLabel.textContent = `Surco #${track.id} • [PAUSA: Aguja suspendida en el surco]`;
+      showToast(`Aguja suspendida sobre el surco #${track.id}. Pulsa ▶ para continuar.`);
+    }
+
+    // PARAR TOCADISCOS Y VOLVER AL SOPORTE DE REPOSO
+    function stopTurntable() {
+      audioEngine.pause();
+      audioEngine.currentTime = 0;
+      tonearmRodWrapper.classList.add('cue-lifted');
+
+      setTimeout(() => {
+        moveTonearmTo(REST_ANGLE);
+        setTimeout(() => {
+          tonearmRodWrapper.classList.remove('cue-lifted');
+        }, 1200);
+      }, 150);
+
+      setPlayState(false);
+      isPaused = false;
+      trackSurcoLabel.textContent = `Tocadiscos detenido • Brazo en soporte de reposo`;
+      showToast("Tocadiscos en reposo. Brazo aparcado.");
+    }
+
+    // SIGUIENTE PISTA (NEXT): ELEVAR AGUJA, VOLAR AL SIGUIENTE SURCO Y POSAR
+    function nextTrack() {
+      const nextIdx = (currentTrackIndex + 1) % ALBUM_TRACKS.length;
+      transitionToTrack(nextIdx, isPlaying);
+    }
+
+    // PISTA ANTERIOR (PREV)
+    function prevTrack() {
+      if (audioEngine.currentTime > 3) {
+        audioEngine.currentTime = 0;
+        showToast(`Rebobinado al inicio del surco #${ALBUM_TRACKS[currentTrackIndex].id}`);
+        return;
+      }
+      const prevIdx = (currentTrackIndex - 1 + ALBUM_TRACKS.length) % ALBUM_TRACKS.length;
+      transitionToTrack(prevIdx, isPlaying);
+    }
+
+    // TRANSICIÓN ELEGANTE ENTRE SURCOS (LEVANTAR, VOLAR, POSAR)
+    function transitionToTrack(targetIdx, shouldAutoPlay) {
+      const targetTrack = ALBUM_TRACKS[targetIdx];
+
+      // 1. Elevar aguja de inmediato
+      tonearmRodWrapper.classList.add('cue-lifted');
+      audioEngine.pause();
+
+      // 2. Mover brazo en el aire hacia el nuevo surco
+      setTimeout(() => {
+        selectTrack(targetIdx, false); // actualiza textos, libreto e info
+        moveTonearmTo(targetTrack.armAngle);
+
+        // 3. Bajar aguja suavemente al nuevo surco
+        setTimeout(() => {
+          if (shouldAutoPlay) {
+            tonearmRodWrapper.classList.remove('cue-lifted');
+            setTimeout(() => {
+              playTrackAudio(targetTrack, true);
+              setPlayState(true);
+              isPaused = false;
+              showToast(`Aguja posada en Surco #${targetTrack.id}: ${targetTrack.title}`);
+            }, 300);
+          } else {
+            trackSurcoLabel.textContent = `Surco #${targetTrack.id} • [Aguja suspendida lista para Play]`;
+            showToast(`Brazo posicionado sobre Surco #${targetTrack.id} (Pausa)`);
+          }
+        }, 750);
+      }, 150);
     }
 
     function setPlayState(playing) {
@@ -1408,22 +1524,12 @@
       if (playing) {
         vinylRecord.classList.add('spinning');
         mainPlayBtn.innerHTML = '⏸';
-        mainPlayBtn.title = 'Pausar tocadiscos';
+        mainPlayBtn.title = 'Pausar y elevar aguja';
       } else {
         vinylRecord.classList.remove('spinning');
         mainPlayBtn.innerHTML = '▶';
-        mainPlayBtn.title = 'Poner aguja y reproducir';
+        mainPlayBtn.title = isPaused ? 'Bajar aguja y continuar' : 'Poner aguja y reproducir';
       }
-    }
-
-    function nextTrack() {
-      const nextIdx = (currentTrackIndex + 1) % ALBUM_TRACKS.length;
-      selectTrack(nextIdx, isPlaying);
-    }
-
-    function prevTrack() {
-      const prevIdx = (currentTrackIndex - 1 + ALBUM_TRACKS.length) % ALBUM_TRACKS.length;
-      selectTrack(prevIdx, isPlaying);
     }
 
     // CAMBIO DE VELOCIDAD (33 RPM / 45 RPM)
@@ -1476,6 +1582,24 @@
     audioEngine.addEventListener('ended', () => {
       nextTrack();
     });
+
+    // SEGUIMIENTO DE TIEMPO TRANSCURRIDO EN EL BANNER
+    audioEngine.addEventListener('timeupdate', () => {
+      if (!audioEngine.duration || isNaN(audioEngine.duration)) return;
+      const cur = formatAudioTime(audioEngine.currentTime);
+      const dur = formatAudioTime(audioEngine.duration);
+      const track = ALBUM_TRACKS[currentTrackIndex];
+      if (isPlaying) {
+        trackSurcoLabel.textContent = `Surco #${track.id} • Cara ${track.side} • [${cur} / ${dur}]`;
+      }
+    });
+
+    function formatAudioTime(seconds) {
+      if (!seconds || isNaN(seconds)) return '0:00';
+      const m = Math.floor(seconds / 60);
+      const s = Math.floor(seconds % 60);
+      return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
 
     // MOSTRAR NOTIFICACIONES TOAST
     let toastTimeout;
