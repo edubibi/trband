@@ -58,23 +58,22 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 ## 🎼 3. Análisis Musical Exhaustivo por Capas (Las 14 Pistas)
 
 ### SURCO 01 — *Dreams and Other Things* (梦境与余事)
-- **Rol en el álbum:** Lead Single Oficial / Gran apertura de la Cara A.
-- **Estilo & ADN:** Puro **King Crimson** época Adrian Belew / Robert Fripp con bajo fretless cantable estilo Tony Levin.
-- **Análisis por capas:**
-  - **Base rítmica:** Batería precisa con hi-hat articulado en semicorcheas y síncopas métricas. Bombo seco que empuja sin saturar.
-  - **Armonía & Cuerdas:** Dos guitarras eléctricas entrelazadas en contrapunto politonal, ejecutando patrones rápidos de púa alterna.
-  - **Línea melódica:** Voz de barítono sobria, reflexiva, con estribillo hipnótico y magnético.
-  - **Solo de guitarra:** Mordisco directo, sin exceso de distorsión ni efectos innecesarios; ataque puro de púa con intervalos angulares.
+- **Género & Estilo:** Worldbeat / New Age / Cinematic Ethno-Electronic (Deep Forest, Enigma, Sacred Spirit, Karl Jenkins / Adiemus).
+- **Análisis Musical y Estructura:**
+  - **Introducción y motivo temático inicial:** Arranca de forma directa con una sección rítmica electrónica a medio tiempo (*mid-tempo groove*), marcada por un bombo definido, caja/rim reverberada y una sutil línea de bajo que asienta la armonía en modo menor. Sobre esta base entra de inmediato una flauta étnica (con timbre y articulaciones semejantes a una flauta de bambú o flauta dulce oriental/andina) tocando un motivo melódico ágil, muy ornamentado con trinos y notas de paso.
+  - **Aparición y función de las voces:** Alrededor del minuto 0:30, la melodía instrumental cede el protagonismo a una voz femenina solista. No canta texto articulado, sino melismas y quejíos etéreos (*aahs, oohs*) cargados de aire, reverberación amplia y un carácter místico y nostálgico. Posteriormente se suman coros y armonizaciones vocales en bloque que amplían la imagen estéreo y refuerzan los cambios de acorde, creando un efecto ceremonial o litúrgico dentro del contexto tribal.
+  - **Desarrollo tímbrico y dinámica:** La instrumentación acústica y tradicional (flauta y percusiones menores como shakers) se entrelaza con capas de sintetizadores de fondo (pads sedosos) que sostienen la tensión dramática. La pieza se estructura alternando las respuestas entre la flauta virtuosa y las frases vocales, repitiendo el gancho melódico mientras se van sumando capas de densidad sonora hasta llegar al clímax melódico antes de su resolución final.
 
 ---
 
 ### SURCO 02 — *Keep a Place for You* (为你留一席地)
-- **Rol en el álbum:** Balada de transición melódica y calidez humana.
-- **Estilo & Atmósfera:** Art-rock intimista, calidez analógica, melancolía noble.
-- **Análisis por capas:**
-  - **Teclados:** Piano eléctrico Fender Rhodes con trémolo suave y campaneo sedoso en los medios.
-  - **Cuerda frotada:** Entradas quirúrgicas del *erhu* (violín chino de dos cuerdas), que aporta un llanto melódico oriental sin perder el colchón armónico occidental.
-  - **Bajo:** Líneas en glissando continuo de fretless que contestan a las frases vocales.
+- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk (sensibilidad del prog británico de los 70 al estilo de Camel: *Moonmadness*, *Rain Dances*, *Breathless*, Andrew Latimer, Peter Bardens, Richard Sinclair).
+- **Análisis Musical y Estructural con Enfoque Progresivo:**
+  - **Introducción (El preludio atmosférico):** Arranca con un entramado de pulsos rítmicos procesados y texturas de sintetizador que establecen un espacio reflexivo y envolvente. La entrada del rasgueo nítido de la guitarra acústica fija el centro tonal en modo menor, aportando ese aire pastoril y orgánico tan característico del folk-prog inglés previo a la entrada narrativa.
+  - **Versos (Narrativa sobria y elegancia melódica):** La línea vocal principal se mueve en un registro medio, cálido y contenido. Esta emisión sin sobreactuaciones, sobria y cercana, enlaza con la forma de cantar de figuras como Andrew Latimer o Richard Sinclair. La base rítmica electrónica mantiene un *mid-tempo groove* constante y limpio (bombo seco y chasquidos percusivos), sobre el que descansa un bajo redondo y articulado, encargado de dibujar los cimientos armónicos con notas ligadas que dan aire al arreglo. Entre las frases cantadas asoman contrapuntos sutiles de guitarra y pequeños matices percusivos que enriquecen la textura sin sobrecargarla.
+  - **Estribillos (Apertura melódica y polifonía lírica):** La composición se abre hacia un terreno netamente sinfónico: la melodía principal gana vuelo melódico y se viste de armonías vocales ricas, combinando registros masculinos con respuestas corales etéreas en registros altos. Los sintetizadores analógicos/ambientales (pads) se abren en estéreo, sosteniendo acordes suspendidos y nostálgicos que recuerdan a los arreglos de teclado de Peter Bardens en el rock progresivo clásico.
+  - **Puente (Tensión, corte dinámico y dramatismo prog):** Hacia el minuto 2:40, la pieza quiebra la linealidad: los instrumentos cortan en un patrón más rítmico, sincopado y en staccato, mientras la voz adopta una inflexión más urgente y tensa. Este pasaje actúa como la clásica modulación o suspensión progresiva, acumulando energía armónica antes de resolver en el clímax.
+  - **Clímax y Coda:** El retorno al estribillo final despliega todas las capas: el motivo melódico de fondo (con ese eco de flauta/lead tan deudor del lirismo de Camel), la base rítmica completa y las capas corales entrelazadas. La conclusión va restando capas con delicadeza, dejando que los acordes de la guitarra acústica y los últimos vestigios vocales con reverberación se diluyan, cerrando el viaje sonoro con un fundido íntimo y contemplativo.
 
 ---
 
