@@ -26,7 +26,7 @@ Eduardo is an acclaimed figure in European contemporary music: co-founder of the
 ## 🎼 2. ARTISTIC VISION & MUSICAL ARCHITECTURE
 
 Drawing directly from **Chapter 64 of Lao Tzu’s *Tao Te Ching*** (道德经), this album is an audiophile bridge connecting two rich musical legacies:
-* **The European Melodic Progressive Tradition of the 1970s:** The noble harmonic sensibility, pastoral woodwinds, and sophisticated arrangements in the tradition of *Camel* (*Rain Dances*, *Breathless*, *The Snow Goose*), *The Alan Parsons Project*, and *Peter Gabriel*.
+* **The European Melodic Progressive Tradition of the 1970s:** The noble harmonic sensibility, evocative atmosphere, and melodic architecture inheriting directly the finest 1970s British progressive and lyrical rock tradition, presented through contemporary electronic rhythms.
 * **Classical Eastern Acoustic Timbre:** Virtuoso performances on the 21-string *Guzheng* (with expressive left-hand pitch-bending and pentatonic modal scales), the traditional bamboo *Dizi* flute, and the *Erhu*.
 * **Contemporary Production Pulse:** Driving mid-tempo electronic grooves, warm analog basslines, and expansive stereo coral polyphonies that give the album a modern, cinematic pulse.
 
