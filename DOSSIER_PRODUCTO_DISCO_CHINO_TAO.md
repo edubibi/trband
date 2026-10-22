@@ -43,7 +43,7 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 | **05** | Paper Lantern River | 纸灯之河 | Vocal | A | 04:22 | Progressive Ambient / Lyrical | Eduardo Ramírez de Cartagena (100%) |
 | **06** | In the Warmth of the Yangtze River | 长江的温存 | **Instrumental 2** | A | 04:11 | Symphonic Prog / Chinese Crossover | Eduardo Ramírez de Cartagena (100%) |
 | **07** | I Remain | 我依然在 | Vocal | A | 06:16 | Epic Progressive Rock (Fin Cara A) | Eduardo Ramírez de Cartagena (100%) |
-| **08** | Angular A Minor | 棱角A小调 | Vocal / Prog | B | 04:11 | Math-Prog / Frippertronics (5/8, 7/8) | Eduardo Ramírez de Cartagena (100%) |
+| **08** | Angular A Minor | 棱角A小调 | Vocalise / Worldbeat | B | 04:11 | Worldbeat / New Age / Ambient Étnico | Eduardo Ramírez de Cartagena (100%) |
 | **09** | Spanish Misty Guzheng | 西班牙迷雾古筝 | **Instrumental 3** | B | 04:27 | Chillout / Spanish-Oriental Fusion | Eduardo Ramírez de Cartagena (100%) |
 | **10** | Li Ann, My Sunshine | 丽安，我的阳光 | Vocal | B | 05:33 | Acoustic 12-String / Lyrical Folk-Prog | Eduardo Ramírez de Cartagena (100%) |
 | **11** | Pause Before the Rain | 雨前伫足 | Vocal | B | 05:41 | Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
@@ -132,12 +132,12 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 ---
 
 ### SURCO 08 — *Angular A Minor* (棱角A小调)
-- **Rol en el álbum:** Apertura electrizante y matemática de la CARA B.
-- **Estilo:** Math-Rock / Progressive Frippertronics en La Menor.
-- **Análisis por capas:**
-  - **Métrica:** Alternancia constante de compases amalgama de 5/8, 7/8 y 4/4.
-  - **Tensión interválica:** Uso premeditado de cuartas aumentadas (tritonos) y quintas disminuidas.
-  - **Batería:** Redobles polirrítmicos cruzando compases sobre la caja y los toms, exigiendo la máxima destreza interpretativa.
+- **Género & Estilo:** Worldbeat / New Age / Ambient Étnico (en la senda de formaciones como Deep Forest, Kitaro, Enigma o Karl Jenkins), abriendo la CARA B con el formato instrumental y vocalizado que inauguró el recorrido sonoro del álbum, con una marcada paleta tímbrica oriental y un pulso electrónico meditativo.
+- **Análisis Musical por Capas y Momentos:**
+  - **Atmósfera inicial y motivo de cuerda oriental:** Arranca sobre un fondo de pads sintéticos envolventes y espaciosos en modo menor. Rápidamente entra el instrumento de cuerda pulsada tradicional asiática (cítara oriental, tipo *guzheng* o *koto*), dibujando arpegios rápidos y escalas pentatónicas con inflexiones en las notas (*bends*) muy expresivas.
+  - **Línea vocal melismática:** Alrededor del medio minuto se incorpora una voz femenina etérea, tratada melódicamente como un instrumento solista más dentro del espacio estéreo cargado de reverberación. No articula texto léxico: canta sobre melismas, *aahs* y quejíos ondulantes en tesituras medias y agudas, aportando esa cualidad mística, ceremonial y evocadora del gran Worldbeat y el sinfonismo más lírico.
+  - **Base rítmica y percusión:** La percusión electrónica asienta un groove a medio-lento tempo (*downtempo / chillout* de raíz tribal), caracterizado por un bombo redondo y profundo junto a un golpe de rimshot seco y reverberado, complementado con shakers y percusión orgánica de madera que aportan calidez al compás.
+  - **Desarrollo tímbrico y flauta tradicional:** La cítara y los sintetizadores dan paso al diálogo con la flauta tradicional (*dizi / shakuhachi*). Este instrumento de viento madera ejecuta frases líricas, fluidas y ornamentadas conectadas con el lirismo pastoral de la gran escuela sinfónica europea. Hacia el final, las capas melódicas de cuerda, flauta y coros se entrelazan en un clímax armónico antes de diluirse progresivamente en un fundido suave sobre el eco de la cítara.
 
 ---
 
