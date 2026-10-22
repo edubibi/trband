@@ -1,0 +1,22 @@
+CARPETA DE AUDIOS PARA EL LP VIRTUAL:
+"A journey of a thousand miles begins with a single step" (千里之行 始于足下)
+The Research Band (TRBAND)
+
+Puedes exportar o copiar aquí tus 14 canciones en formato MP3 con estos nombres para que el tocadiscos las reproduzca automáticamente:
+
+01_dreams_and_other_things.mp3
+02_oriental_pagoda.mp3
+03_keep_a_place_for_you.mp3
+04_hold_the_measure.mp3
+05_paper_lantern_river.mp3
+06_i_remain.mp3
+07_pause_before_the_rain.mp3
+08_angular_a_minor.mp3
+09_where_the_pieces_fell.mp3
+10_the_turning_of_the_tide.mp3
+11_li_ann_my_sunshine.mp3
+12_in_the_warmth_of_the_yangtze_river.mp3
+13_spanish_misty_guzheng.mp3
+14_a_single_spanish_step.mp3
+
+(O bien, puedes pulsar el botón "📁 Cargar Audios Locales" en la cabecera del tocadiscos y seleccionar tus archivos MP3 directamente desde cualquier carpeta de tu PC).

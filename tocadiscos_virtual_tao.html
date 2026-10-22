@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Research Band — 千里之行 始于足下 | Tocadiscos Virtual LP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Noto+Serif+SC:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-chassis: #12151b;
+      --bg-panel: #181d26;
+      --bg-card: rgba(24, 29, 38, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --gold-tao: #e5c07b;
+      --gold-glow: rgba(229, 192, 123, 0.35);
+      --cyan-vinyl: rgba(230, 245, 255, 0.88);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-title: 'Cinzel', serif;
+      --font-chinese: 'Noto Serif SC', serif;
+      --font-ui: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #080a0f;
+      background-image:
+        radial-gradient(at 50% 0%, rgba(229, 192, 123, 0.05) 0px, transparent 60%),
+        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.04) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(16, 185, 129, 0.04) 0px, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* HEADER SUPERIOR */
+    header {
+      padding: 1.1rem 2rem;
+      background: rgba(10, 13, 18, 0.9);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-badge {
+      font-family: var(--font-chinese);
+      background: linear-gradient(135deg, #d97706, #b45309);
+      color: #fff;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+    }
+
+    .album-header-title {
+      font-family: var(--font-title);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #f1f5f9;
+    }
+
+    .album-header-subtitle {
+      font-size: 0.8rem;
+      color: var(--gold-tao);
+      font-family: var(--font-chinese);
+      letter-spacing: 1px;
+    }
+
+    .header-audio-loader {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-loader {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-loader:hover {
+      background: rgba(229, 192, 123, 0.15);
+      border-color: var(--gold-tao);
+      color: #fff;
+    }
+
+    /* CONTENEDOR PRINCIPAL */
+    .app-layout {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 2rem;
+      max-width: 1540px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 1200px) {
+      .app-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* AREA DEL TOCADISCOS */
+    .turntable-card {
+      background: linear-gradient(145deg, #161b24, #0f131a);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2.2rem 2.5rem;
+      box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    .turntable-brand-plate {
+      position: absolute;
+      top: 1.8rem;
+      left: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .turntable-brand-plate .model-name {
+      font-family: var(--font-title);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    .turntable-brand-plate .edition-tag {
+      font-size: 0.7rem;
+      color: var(--gold-tao);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* CHASIS DEL PLATO GIRATORIO */
+    .deck-viewport {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin: 1.5rem 0 2rem;
+      min-height: 520px;
+    }
+
+    /* BASE DEL PLATO (PLATTER) */
+    .platter-base {
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #2a303c 0%, #15181f 70%, #0d0f14 100%);
+      box-shadow:
+        0 0 0 6px #1e2430,
+        0 0 0 12px #101318,
+        0 20px 50px rgba(0, 0, 0, 0.8),
+        inset 0 0 25px rgba(0, 0, 0, 0.9);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* DISCO DE VINILO BLANCO TRANSLÚCIDO (FROSTED CLEAR WHITE VINYL) */
+    .vinyl-record {
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      transform-origin: center center;
+      transition: transform 0.05s linear;
+      background:
+        radial-gradient(circle, rgba(255, 255, 255, 0.92) 0%, rgba(235, 245, 255, 0.75) 45%, rgba(215, 230, 245, 0.82) 85%, rgba(195, 215, 235, 0.95) 100%);
+      box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.15),
+        0 15px 35px rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .vinyl-record.spinning {
+      animation: spinVinyl 1.818s linear infinite;
+      /* 33 1/3 RPM = ~1.8 seg por vuelta */
+    }
+
+    @keyframes spinVinyl {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* REFLEJO ESPECULAR DE LUZ (ESPEJO GIRATORIO TÍPICO DE VINILO) */
+    .vinyl-sheen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      pointer-events: none;
+      background: conic-gradient(from 45deg,
+          rgba(255, 255, 255, 0) 0deg,
+          rgba(255, 255, 255, 0.35) 45deg,
+          rgba(255, 255, 255, 0) 90deg,
+          rgba(255, 255, 255, 0.25) 180deg,
+          rgba(255, 255, 255, 0.4) 225deg,
+          rgba(255, 255, 255, 0) 270deg,
+          rgba(255, 255, 255, 0.2) 360deg);
+      mix-blend-mode: overlay;
+      z-index: 3;
+    }
+
+    /* LOS 13 SURCOS CONCÉNTRICOS */
+    .grooves-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    .groove-ring {
+      position: absolute;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(140, 165, 190, 0.35);
+      box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .groove-ring:hover {
+      border-color: #d97706;
+      box-shadow: 0 0 10px rgba(217, 119, 6, 0.6);
+    }
+
+    .groove-ring.active-groove {
+      border-color: #f59e0b;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.8), inset 0 0 6px rgba(245, 158, 11, 0.4);
+    }
+
+    /* GALLETA CENTRAL DEL VINILO (CENTER LABEL) */
+    .center-label {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      position: relative;
+      z-index: 5;
+      overflow: hidden;
+      background: #1e2430;
+      border: 3px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0.8rem;
+    }
+
+    .center-label-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.65) contrast(1.2);
+    }
+
+    .center-label-content {
+      position: relative;
+      z-index: 6;
+      color: #fff;
+    }
+
+    .center-label-chinese {
+      font-family: var(--font-chinese);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      color: #fde68a;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+      margin-bottom: 0.2rem;
+    }
+
+    .center-label-band {
+      font-family: var(--font-title);
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+      color: #ffffff;
+    }
+
+    .center-label-rpm {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 0.25rem;
+    }
+
+    /* EJE CENTRAL (SPINDLE) */
+    .center-spindle {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #e2e8f0 0%, #64748b 70%, #1e293b 100%);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      border: 1px solid #cbd5e1;
+    }
+
+    /* BRAZO DEL TOCADISCOS (TONEARM MECÁNICO) */
+    .tonearm-assembly {
+      position: absolute;
+      top: 30px;
+      right: 35px;
+      width: 160px;
+      height: 440px;
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    /* BASE GIRATORIA DEL BRAZO (GIMBAL / PIVOT) */
+    .tonearm-pivot {
+      position: absolute;
+      top: 25px;
+      right: 35px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #475569 0%, #1e293b 70%, #0f172a 100%);
+      box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.8),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4);
+      border: 2px solid #64748b;
+    }
+
+    /* CONTRAPESO */
+    .tonearm-counterweight {
+      position: absolute;
+      top: -12px;
+      left: 14px;
+      width: 30px;
+      height: 22px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #334155, #64748b, #1e293b);
+      border: 1px solid #94a3b8;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    /* CUERPO DEL BRAZO METÁLICO (ARM ROD) */
+    .tonearm-rod-wrapper {
+      position: absolute;
+      top: 54px;
+      right: 64px;
+      transform-origin: 0 0;
+      /* Punto de pivote */
+      transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      /* Movimiento suave y mecánico */
+    }
+
+    .tonearm-rod-svg {
+      width: 180px;
+      height: 380px;
+      overflow: visible;
+      filter: drop-shadow(4px 10px 12px rgba(0, 0, 0, 0.65));
+    }
+
+    /* SOPORTE DE REPOSO (REST POST) */
+    .tonearm-rest {
+      position: absolute;
+      top: 140px;
+      right: 48px;
+      width: 16px;
+      height: 22px;
+      background: #334155;
+      border-radius: 3px;
+      border: 1px solid #64748b;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    /* PANEL DE CONTROL DEL TOCADISCOS */
+    .turntable-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .control-cluster {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-transport {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d97706, #b45309);
+      color: #fff;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.35rem;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(217, 119, 6, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn-transport:hover {
+      transform: scale(1.06);
+      box-shadow: 0 8px 24px rgba(217, 119, 6, 0.6);
+    }
+
+    .btn-transport:active {
+      transform: scale(0.96);
+    }
+
+    .btn-step {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-step:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--gold-tao);
+    }
+
+    .speed-toggle {
+      display: flex;
+      background: #090c12;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 0.2rem;
+    }
+
+    .speed-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      padding: 0.35rem 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .speed-btn.active {
+      background: #222938;
+      color: var(--gold-tao);
+    }
+
+    .now-playing-banner {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .np-label {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-family: var(--font-mono);
+    }
+
+    .np-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .np-chinese {
+      font-size: 0.8rem;
+      color: var(--gold-tao);
+      font-family: var(--font-chinese);
+    }
+
+    /* BARRA LATERAL: LIBRETO DESPLEGABLE Y TRACKLIST */
+    .sidebar-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* TARJETA DEL LIBRETO (LINER NOTES DE LA CANCIÓN) */
+    .liner-notes-card {
+      background: linear-gradient(160deg, #181d26, #11141b);
+      border: 1px solid rgba(229, 192, 123, 0.25);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .liner-notes-card::before {
+      content: "千里之行";
+      position: absolute;
+      bottom: -15px;
+      right: -10px;
+      font-family: var(--font-chinese);
+      font-size: 5rem;
+      color: rgba(229, 192, 123, 0.03);
+      font-weight: 900;
+      pointer-events: none;
+    }
+
+    .card-top {
+      display: flex;
+      gap: 1.15rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.15rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mini-cover {
+      width: 78px;
+      height: 78px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      flex-shrink: 0;
+    }
+
+    .card-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .card-track-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--gold-tao);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card-track-title {
+      font-family: var(--font-title);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    .card-track-chinese {
+      font-family: var(--font-chinese);
+      font-size: 0.85rem;
+      color: var(--gold-tao);
+    }
+
+    .synopsis-body {
+      font-size: 0.83rem;
+      line-height: 1.65;
+      color: #cbd5e1;
+      max-height: 290px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .synopsis-body::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .synopsis-body::-webkit-scrollbar-thumb {
+      background: rgba(229, 192, 123, 0.3);
+      border-radius: 4px;
+    }
+
+    .synopsis-body p {
+      margin-bottom: 0.75rem;
+    }
+
+    .synopsis-body strong {
+      color: var(--gold-tao);
+      font-weight: 600;
+    }
+
+    /* LISTA DE LOS 14 SURCOS / TRACKLIST */
+    .tracklist-card {
+      background: #11151d;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+
+    .tracklist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .tracklist-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .track-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      max-height: 380px;
+      overflow-y: auto;
+      padding-right: 0.3rem;
+    }
+
+    .track-items::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .track-items::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
+
+    .track-row {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.6rem 0.85rem;
+      border-radius: 8px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .track-row:hover {
+      background: rgba(229, 192, 123, 0.08);
+      border-color: rgba(229, 192, 123, 0.25);
+    }
+
+    .track-row.active {
+      background: rgba(217, 119, 6, 0.15);
+      border-color: #d97706;
+    }
+
+    .track-row-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      width: 20px;
+      text-align: center;
+    }
+
+    .track-row.active .track-row-num {
+      color: var(--gold-tao);
+    }
+
+    .track-row-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      overflow: hidden;
+    }
+
+    .track-row-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .track-row.active .track-row-title {
+      color: #fff;
+    }
+
+    .track-row-chinese {
+      font-family: var(--font-chinese);
+      font-size: 0.72rem;
+      color: var(--gold-tao);
+      opacity: 0.85;
+    }
+
+    .track-row-groove-icon {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .track-row:hover .track-row-groove-icon,
+    .track-row.active .track-row-groove-icon {
+      opacity: 1;
+      color: var(--gold-tao);
+    }
+
+    /* NOTIFICACIÓN TOAST */
+    .toast-msg {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #d97706;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.65rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .toast-msg.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand-group">
+      <span class="brand-badge">千里之行 始于足下</span>
+      <div>
+        <h1 class="album-header-title">The Research Band</h1>
+        <div class="album-header-subtitle">A journey of a thousand miles begins with a single step</div>
+      </div>
+    </div>
+
+    <!-- CARGADOR DE AUDIO OPCIONAL -->
+    <div class="header-audio-loader">
+      <label class="btn-loader" title="Cargar los MP3 de tu disco editados en Audacity">
+        <span>📁 Cargar Audios Locales</span>
+        <input type="file" id="audioFileInput" multiple accept="audio/*" style="display:none;"
+          onchange="handleAudioFiles(event)">
+      </label>
+    </div>
+  </header>
+
+  <!-- WORKSPACE PRINCIPAL -->
+  <main class="app-layout">
+
+    <!-- TOCADISCOS ANALÓGICO VIRTUAL -->
+    <section class="turntable-card">
+
+      <div class="turntable-brand-plate">
+        <span class="model-name">Audiophile Turntable • Precision 14-Groove</span>
+        <span class="edition-tag">Clear Frosted Vinyl • Limited Collector Edition</span>
+      </div>
+
+      <!-- VISOR DEL PLATER Y BRAZO -->
+      <div class="deck-viewport">
+
+        <!-- BASE DEL PLATO GIRATORIO -->
+        <div class="platter-base">
+
+          <!-- DISCO DE VINILO BLANCO TRANSLÚCIDO -->
+          <div class="vinyl-record" id="vinylRecord" onclick="togglePlayPause()">
+
+            <!-- BRILLO ESPECULAR DE LUZ -->
+            <div class="vinyl-sheen"></div>
+
+            <!-- LOS 14 SURCOS FÍSICOS -->
+            <div class="grooves-container" id="groovesContainer">
+              <!-- Generado dinámicamente con radios concéntricos -->
+            </div>
+
+            <!-- GALLETA CENTRAL -->
+            <div class="center-label">
+              <div class="center-label-bg" id="centerLabelBg"
+                style="background-image: url('assets/img/portada_a_journey_of_a_thousand_miles.jpg');"></div>
+              <div class="center-label-content">
+                <div class="center-label-chinese">千里之行</div>
+                <div class="center-label-band">TRBAND</div>
+                <div class="center-label-rpm">33 ⅓ RPM • STEREO</div>
+              </div>
+            </div>
+
+            <!-- EJE CENTRAL -->
+            <div class="center-spindle"></div>
+          </div>
+        </div>
+
+        <!-- CONJUNTO MECÁNICO DEL BRAZO (TONEARM) -->
+        <div class="tonearm-assembly">
+
+          <!-- BASE PIVOTANTE -->
+          <div class="tonearm-pivot">
+            <div class="tonearm-counterweight"></div>
+          </div>
+
+          <!-- SOPORTE DE REPOSO -->
+          <div class="tonearm-rest"></div>
+
+          <!-- BRAZO METÁLICO GIRATORIO -->
+          <div class="tonearm-rod-wrapper" id="tonearmRodWrapper" style="transform: rotate(-28deg);">
+            <svg class="tonearm-rod-svg" viewBox="0 0 180 380">
+              <defs>
+                <linearGradient id="chromeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#94a3b8" />
+                  <stop offset="35%" stop-color="#f8fafc" />
+                  <stop offset="60%" stop-color="#cbd5e1" />
+                  <stop offset="100%" stop-color="#475569" />
+                </linearGradient>
+                <linearGradient id="headshellGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#1e293b" />
+                  <stop offset="100%" stop-color="#0f172a" />
+                </linearGradient>
+              </defs>
+
+              <!-- Tubo curvado en S del brazo (Classic S-shaped audiophile tonearm) -->
+              <path d="M 0,0 C -5,70 -35,140 -20,230 C -10,290 -35,320 -50,350" fill="none" stroke="url(#chromeGrad)"
+                stroke-width="5.5" stroke-linecap="round" />
+
+              <!-- Cabezal (Headshell) -->
+              <polygon points="-58,345 -38,348 -45,372 -65,368" fill="url(#headshellGrad)" stroke="#64748b"
+                stroke-width="1.2" />
+
+              <!-- Cápsula y Aguja (Cartridge & Needle stylus con luz dorada) -->
+              <rect x="-56" y="365" width="8" height="6" fill="#d97706" rx="1" />
+              <line x1="-52" y1="371" x2="-54" y2="378" stroke="#f8fafc" stroke-width="1.5" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CONTROLES DEL TOCADISCOS -->
+      <div class="turntable-controls">
+        <div class="control-cluster">
+          <button class="btn-step" onclick="prevTrack()" title="Pista anterior">⏮</button>
+          <button class="btn-transport" id="mainPlayBtn" onclick="togglePlayPause()" title="Play / Pausa">▶</button>
+          <button class="btn-step" onclick="nextTrack()" title="Siguiente pista">⏭</button>
+        </div>
+
+        <div class="now-playing-banner">
+          <span class="np-label" id="trackSurcoLabel">Surco 1 • Aguja lista</span>
+          <span class="np-title" id="trackTitleDisplay">Dreams and Other Things</span>
+          <span class="np-chinese" id="trackChineseDisplay">梦境与余事 (Mèngjìng yǔ yúshì)</span>
+        </div>
+
+        <div class="control-cluster">
+          <div class="speed-toggle">
+            <button class="speed-btn active" id="btn33" onclick="setSpeed(33)">33 RPM</button>
+            <button class="speed-btn" id="btn45" onclick="setSpeed(45)">45 RPM</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PANEL LATERAL: LIBRETO Y TRACKLIST -->
+    <aside class="sidebar-panel">
+
+      <!-- TARJETA DESPLEGABLE DE LIBRETO (LINER NOTES DE LA CANCIÓN) -->
+      <article class="liner-notes-card" id="linerNotesCard">
+        <div class="card-top">
+          <img src="assets/img/portada_a_journey_of_a_thousand_miles.jpg" class="mini-cover" alt="Portada Piedra Lao-Tse"
+            onerror="this.src='banner_opcion1_2560x1440.png'">
+          <div class="card-heading">
+            <span class="card-track-badge" id="cardTrackBadge">Surco #1</span>
+            <h2 class="card-track-title" id="cardTrackTitle">Dreams and Other Things</h2>
+            <div class="card-track-chinese" id="cardTrackChinese">梦境与余事</div>
+          </div>
+        </div>
+
+        <div class="synopsis-body" id="cardSynopsisBody">
+          <!-- Se inyecta la sinopsis musical de cada corte -->
+        </div>
+      </article>
+
+      <!-- LISTA DE LOS 14 SURCOS / TRACKLIST -->
+      <section class="tracklist-card">
+        <div class="tracklist-header">
+          <span class="tracklist-title">Surcos del Vinilo (14 Cortes)</span>
+          <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--gold-tao);">Cara A & B</span>
+        </div>
+        <div class="track-items" id="trackItemsContainer">
+          <!-- Generado dinámicamente -->
+        </div>
+      </section>
+
+    </aside>
+
+  </main>
+
+  <div class="toast-msg" id="toastMsg">Aguja colocada</div>
+
+  <!-- ELEMENTO DE AUDIO HTML5 OCULTO -->
+  <audio id="audioEngine" preload="metadata"></audio>
+
+  <script>
+    // LOS 14 TEMAS CON TÍTULOS BILINGÜES Y SINOPSIS MUSICALES
+    const ALBUM_TRACKS = [
+      {
+        id: 1,
+        title: "Dreams and Other Things",
+        chinese: "梦境与余事 (Mèngjìng yǔ yúshì)",
+        audioUrl: "assets/audio_tao/01_dreams_and_other_things.mp3",
+        radiusPercent: 96,
+        armAngle: 8.0,
+        synopsis: `
+          <p><strong>El Single Oficial:</strong> Es la pieza con mayor ADN puro de <strong>King Crimson</strong> del álbum. Combina la disciplina rítmica y los arpegios cruzados de guitarra eléctrica con métricas angulares en compás compuesto.</p>
+          <p><strong>Estructura & Capas:</strong> Abre con un golpe seco de batería fusion y bajo fretless. Las guitarras entrelazadas crean un laberinto armónico moderno mientras la voz de barítono desgrana una melodía hipnótica y directa. El solo de guitarra destaca por su mordisco rítmico y afinación pura sin sobrecarga de efectos.</p>
+        `
+      },
+      {
+        id: 2,
+        title: "Oriental Pagoda",
+        chinese: "东方宝塔 (Dōngfāng bǎotǎ)",
+        audioUrl: "assets/audio_tao/02_oriental_pagoda.mp3",
+        radiusPercent: 92,
+        armAngle: 9.6,
+        synopsis: `
+          <p><strong>Estilo & Atmósfera:</strong> Esta pieza se enmarca dentro del <em>Worldbeat / New Age / Ambient Étnico</em>, con fuertes influencias de la música tradicional de Asia oriental fusionada con producción electrónica contemporánea. Recuerda a trabajos de <strong>Kitaro, Oliver Shanti & Friends, Enigma o Deep Forest</strong>.</p>
+          <p><strong>Análisis por capas:</strong></p>
+          <p>• <strong>Intro:</strong> Base sintética cálida (pad atmosférico modal) y cítara asiática (<em>guzheng/koto</em>) con arpegios pentatónicos, pitch bends y adornos tradicionales.</p>
+          <p>• <strong>Voz:</strong> Vocalizaciones melismáticas etéreas femeninas (aahs y quejíos) flotando como un instrumento tridimensional con reverb.</p>
+          <p>• <strong>Base Rítmica:</strong> Percusión electrónica a tempo medio-lento estilo trip-hop/downtempo, con bombo profundo y rimshot seco y reverberado.</p>
+          <p>• <strong>Desarrollo:</strong> La flauta de bambú (<em>dizi/shakuhachi</em>) contrapuntea la voz en pasajes agudos, intensificando la carga emocional antes del fade out.</p>
+        `
+      },
+      {
+        id: 3,
+        title: "Keep a Place for You",
+        chinese: "为你留一席地 (Wèi nǐ liú yī xí dì)",
+        audioUrl: "assets/audio_tao/03_keep_a_place_for_you.mp3",
+        radiusPercent: 88,
+        armAngle: 11.2,
+        synopsis: `
+          <p><strong>Carácter:</strong> Balada de art-rock melancólico donde el calor del Fender Rhodes y un bajo fretless cantable sostienen un diálogo íntimo sobre la lealtad y el cobijo.</p>
+          <p><strong>Arreglo:</strong> Destacan los acordes suspendidos de piano eléctrico y las intervenciones del erhu frotado con delicadeza, creando un puente entre la tradición camerística occidental y el lirismo oriental.</p>
+        `
+      },
+      {
+        id: 4,
+        title: "Hold the Measure",
+        chinese: "把握分寸 (Bǎwò fēncùn)",
+        audioUrl: "assets/audio_tao/04_hold_the_measure.mp3",
+        radiusPercent: 84,
+        armAngle: 12.8,
+        synopsis: `
+          <p><strong>Concepto:</strong> Inspirado en la idea taoísta del equilibrio y la mesura. Una pieza de ritmo sincopado a 140 BPM con protagonismo del Chapman Stick y figuras de bajo en slap suave.</p>
+          <p><strong>Detalle tímbrico:</strong> Los metales amortiguados (brass pads) marcan los acentos en contratiempo mientras una guitarra con sutil chorus dibuja patrones minimalistas repetitivos.</p>
+        `
+      },
+      {
+        id: 5,
+        title: "Paper Lantern River",
+        chinese: "纸灯之河 (Zhǐdēng zhī hé)",
+        audioUrl: "assets/audio_tao/05_paper_lantern_river.mp3",
+        radiusPercent: 80,
+        armAngle: 14.4,
+        synopsis: `
+          <p><strong>Evocación poética:</strong> Los farolillos de papel flotando en la noche sobre las aguas del río. El arpa guzheng y la flauta de bambú crean ondas circulares sobre un lecho de sintetizadores analógicos cálidos.</p>
+          <p><strong>Evolución:</strong> A mitad de tema la percusión se anima con timbales y platos salpicados, emulando la corriente del agua que gana fuerza hacia el estuario.</p>
+        `
+      },
+      {
+        id: 6,
+        title: "I Remain",
+        chinese: "我依然在 (Wǒ yīrán zài)",
+        audioUrl: "assets/audio_tao/06_i_remain.mp3",
+        radiusPercent: 76,
+        armAngle: 16.0,
+        synopsis: `
+          <p><strong>Resiliencia & Fuerza:</strong> Un corte sobrio y firme. Un bajo pedal continuo transmite la sensación de permanencia frente a los cambios del mundo.</p>
+          <p><strong>Voz & Cello:</strong> La melodía vocal barítono se entrelaza con líneas graves de cuerda frotada, rematando en un solo de guitarra eléctrica con sustain infinito.</p>
+        `
+      },
+      {
+        id: 7,
+        title: "Pause Before the Rain",
+        chinese: "雨前伫足 (Yǔ qián zhùzú)",
+        audioUrl: "assets/audio_tao/07_pause_before_the_rain.mp3",
+        radiusPercent: 72,
+        armAngle: 17.6,
+        synopsis: `
+          <p><strong>La calma que precede a la tormenta:</strong> Arpegios lentos de piano de cola expuesto, acompañados de sutiles efectos de viento de bambú y campanas de templo lejanas.</p>
+          <p><strong>Tensión dramática:</strong> La armonía modula lentamente de tonalidades mayores a menores, presagiando el estallido rítmico del siguiente corte.</p>
+        `
+      },
+      {
+        id: 8,
+        title: "Angular A Minor",
+        chinese: "棱角A小调 (Léngjiǎo A xiǎodiào)",
+        audioUrl: "assets/audio_tao/08_angular_a_minor.mp3",
+        radiusPercent: 68,
+        armAngle: 19.2,
+        synopsis: `
+          <p><strong>Ejercicio de virtuosismo matemático:</strong> Construido en la tonalidad de La menor, explota los intervalos de cuarta y quinta disminuida tan característicos del sonido de Robert Fripp.</p>
+          <p><strong>Rítmica:</strong> Compases alternos de 5/8 y 7/8 donde la batería ejecuta polirritmias precisas con la caja y los toms, mientras el erhu asume un papel agresivo y afilado inusual.</p>
+        `
+      },
+      {
+        id: 9,
+        title: "Where the Pieces Fell",
+        chinese: "碎片散落之处 (Suìpiàn sànluò zhī chù)",
+        audioUrl: "assets/audio_tao/09_where_the_pieces_fell.mp3",
+        radiusPercent: 64,
+        armAngle: 20.8,
+        synopsis: `
+          <p><strong>Reflexión & Deconstrucción:</strong> Tras la tensión métrica, el tema recoge los fragmentos melódicos en un tiempo medio espacioso con predominio del violín acústico y la armónica cromática secundaria.</p>
+          <p><strong>Espacio acústico:</strong> Gran sensación de aire en la mezcla, permitiendo que cada nota vibre con naturalidad y decaiga en el silencio.</p>
+        `
+      },
+      {
+        id: 10,
+        title: "The Turning of the Tide",
+        chinese: "潮汐回转 (Cháoxī huízhuǎn)",
+        audioUrl: "assets/audio_tao/10_the_turning_of_the_tide.mp3",
+        radiusPercent: 60,
+        armAngle: 22.4,
+        synopsis: `
+          <p><strong>El punto de inflexión:</strong> Una marea sonora que sube inexorablemente. Comienza con una línea repetitiva de Chapman Stick tappeado y se van sumando capas de sintetizador, órgano y percusión pesada.</p>
+          <p><strong>Clímax:</strong> Desemboca en un pasaje sinfónico con coros sin palabras que elevan la energía del álbum hacia su tramo culminante.</p>
+        `
+      },
+      {
+        id: 11,
+        title: "Li Ann, My Sunshine",
+        chinese: "丽安，我的阳光 (Lì'ān, wǒ de yángguāng)",
+        audioUrl: "assets/audio_tao/11_li_ann_my_sunshine.mp3",
+        radiusPercent: 56,
+        armAngle: 24.0,
+        synopsis: `
+          <p><strong>Dedicación Lírica:</strong> El tema más tierno y luminoso del disco. El guzheng y la guitarra acústica de doce cuerdas dialogan en una tonalidad mayor radiante.</p>
+          <p><strong>Color tímbrico:</strong> La flauta dizi aporta trinos alegres que evocan la luz del sol abriéndose paso entre la niebla matutina del río.</p>
+        `
+      },
+      {
+        id: 12,
+        title: "In the Warmth of the Yangtze River",
+        chinese: "长江的温存 (Chángjiāng de wēncún)",
+        audioUrl: "assets/audio_tao/12_in_the_warmth_of_the_yangtze_river.mp3",
+        radiusPercent: 52,
+        armAngle: 25.6,
+        synopsis: `
+          <p><strong>La gran corriente madre:</strong> Un fresco sonoro de casi cinco minutos que recrea la inmensidad del río Yangtsé. Líneas de bajo profundas y cálidas emulan el cauce caudaloso.</p>
+          <p><strong>Fusión sonora:</strong> La cítara tradicional y el erhu se funden con guitarras de rock progresivo y un pulso de batería jazz-funk elegante a 140 BPM.</p>
+        `
+      },
+      {
+        id: 13,
+        title: "Spanish Misty Guzheng",
+        chinese: "西班牙迷雾古筝 (Xībānyá míwù gǔzhēng)",
+        audioUrl: "assets/audio_tao/13_spanish_misty_guzheng.mp3",
+        radiusPercent: 48,
+        armAngle: 27.2,
+        synopsis: `
+          <p><strong>Fusión Mediterránea-Oriental:</strong> La cítara tradicional china (<em>guzheng</em>) asume un rol solista protagónico ejecutando arpegios en cascada con resonancias modales españolas y melismas andaluces, envuelta en una atmósfera de bruma matutina y misterio.</p>
+          <p><strong>Color tímbrico & Dinámica:</strong> Abre con un colchón etéreo de cuerdas y armónicos de guitarra clásica española. La percusión entra de forma sutil con cajón flamenco y shakers orientales, mientras el bajo fretless sostiene una melodía hipnótica con glissandos suaves.</p>
+        `
+      },
+      {
+        id: 14,
+        title: "A Single Spanish Step",
+        chinese: "西班牙一步 (Xībānyá yī bù)",
+        audioUrl: "assets/audio_tao/14_a_single_spanish_step.mp3",
+        radiusPercent: 44,
+        armAngle: 29.0,
+        synopsis: `
+          <p><strong>El Gran Clímax Multicultural:</strong> El cierre apoteósico del álbum. Comienza con la mística oriental de Lao-Tse pero rápidamente vira hacia el flamenco andaluz con escalas frigias y ritmo arrebatador.</p>
+          <p><strong>Solo de Guitarra Brian May:</strong> La sección rítmica se bloquea en un compás imparable a 140 BPM sin frenazos ni cortes, permitiendo un solo de guitarras dobladas al estilo Queen que vuela por encima de la banda.</p>
+          <p><strong>Coros Pop Estilo Beatles:</strong> Armonías vocales compactas y luminosas a tres voces (estilo <em>Abbey Road</em>) cantando "Oohs" y "Aahs" al frente, con guiños celtas e irlandeses en el violín. ¡Una fiesta progresiva sin fronteras!</p>
+        `
+      }
+    ];
+
+    // ESTADO DEL TOCADISCOS
+    let currentTrackIndex = 0;
+    let isPlaying = false;
+    let currentSpeed = 33;
+    let customAudioFiles = {}; // Archivos locales cargados por el usuario
+    const REST_ANGLE = -28;    // Ángulo de reposo del brazo en su soporte
+
+    // ELEMENTOS DOM
+    const vinylRecord = document.getElementById('vinylRecord');
+    const tonearmRodWrapper = document.getElementById('tonearmRodWrapper');
+    const groovesContainer = document.getElementById('groovesContainer');
+    const trackItemsContainer = document.getElementById('trackItemsContainer');
+    const mainPlayBtn = document.getElementById('mainPlayBtn');
+    const trackTitleDisplay = document.getElementById('trackTitleDisplay');
+    const trackChineseDisplay = document.getElementById('trackChineseDisplay');
+    const trackSurcoLabel = document.getElementById('trackSurcoLabel');
+
+    const cardTrackBadge = document.getElementById('cardTrackBadge');
+    const cardTrackTitle = document.getElementById('cardTrackTitle');
+    const cardTrackChinese = document.getElementById('cardTrackChinese');
+    const cardSynopsisBody = document.getElementById('cardSynopsisBody');
+    const audioEngine = document.getElementById('audioEngine');
+    const toastMsg = document.getElementById('toastMsg');
+
+    // INICIALIZACIÓN
+    function initTurntable() {
+      renderGrooves();
+      renderTracklist();
+      selectTrack(0, false); // Selecciona la pista 1 sin auto-play
+    }
+
+    // DIBUJAR LOS 14 SURCOS CONCÉNTRICOS EN EL VINILO BLANCO
+    function renderGrooves() {
+      groovesContainer.innerHTML = '';
+      ALBUM_TRACKS.forEach((track, idx) => {
+        const ring = document.createElement('div');
+        ring.className = 'groove-ring';
+        ring.id = `groove-ring-${idx}`;
+        ring.style.width = `${track.radiusPercent}%`;
+        ring.style.height = `${track.radiusPercent}%`;
+        ring.title = `Surco #${track.id}: ${track.title} - Haz clic para colocar la aguja`;
+        ring.onclick = (e) => {
+          e.stopPropagation();
+          selectTrack(idx, true);
+        };
+        groovesContainer.appendChild(ring);
+      });
+    }
+
+    // DIBUJAR LISTA DE 14 PISTAS EN EL PANEL LATERAL
+    function renderTracklist() {
+      trackItemsContainer.innerHTML = '';
+      ALBUM_TRACKS.forEach((track, idx) => {
+        const row = document.createElement('div');
+        row.className = `track-row ${idx === currentTrackIndex ? 'active' : ''}`;
+        row.id = `track-row-${idx}`;
+        row.onclick = () => selectTrack(idx, true);
+
+        row.innerHTML = `
+          <span class="track-row-num">${track.id}</span>
+          <div class="track-row-info">
+            <span class="track-row-title">${track.title}</span>
+            <span class="track-row-chinese">${track.chinese}</span>
+          </div>
+          <span class="track-row-groove-icon" title="Surco #${track.id}">◎</span>
+        `;
+        trackItemsContainer.appendChild(row);
+      });
+    }
+
+    // SELECCIONAR PISTA Y MOVER EL BRAZO AL SURCO EXACTO
+    function selectTrack(index, autoPlay = true) {
+      currentTrackIndex = index;
+      const track = ALBUM_TRACKS[index];
+
+      // Actualizar información superior y banner
+      trackTitleDisplay.textContent = track.title;
+      trackChineseDisplay.textContent = track.chinese;
+      trackSurcoLabel.textContent = `Surco #${track.id} • ${track.radiusPercent}% del radio`;
+
+      // Actualizar tarjeta del libreto (Liner Notes)
+      cardTrackBadge.textContent = `Surco #${track.id} • Pista de Vinilo`;
+      cardTrackTitle.textContent = track.title;
+      cardTrackChinese.textContent = track.chinese;
+      cardSynopsisBody.innerHTML = track.synopsis;
+
+      // Resaltar surco y fila activa
+      document.querySelectorAll('.groove-ring').forEach(r => r.classList.remove('active-groove'));
+      document.querySelectorAll('.track-row').forEach(r => r.classList.remove('active'));
+
+      const activeGroove = document.getElementById(`groove-ring-${index}`);
+      if (activeGroove) activeGroove.classList.add('active-groove');
+
+      const activeRow = document.getElementById(`track-row-${index}`);
+      if (activeRow) {
+        activeRow.classList.add('active');
+        activeRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // POSICIONAR EL BRAZO DEL PICKUP
+      if (isPlaying || autoPlay) {
+        moveTonearmTo(track.armAngle);
+        playTrackAudio(track, autoPlay);
+      } else {
+        // En reposo si no está sonando
+        moveTonearmTo(REST_ANGLE);
+      }
+    }
+
+    // ANIMAR EL BRAZO DEL TOCADISCOS
+    function moveTonearmTo(angleDeg) {
+      tonearmRodWrapper.style.transform = `rotate(${angleDeg}deg)`;
+    }
+
+    // REPRODUCCIÓN DE AUDIO (AUDIO REAL O GENERADOR DEMO SINTÉTICO)
+    function playTrackAudio(track, shouldPlay) {
+      // Comprobar si el usuario ha subido el archivo MP3 correspondiente
+      const customFile = customAudioFiles[track.id] || customAudioFiles[track.title.toLowerCase()];
+
+      if (customFile) {
+        audioEngine.src = URL.createObjectURL(customFile);
+      } else {
+        audioEngine.src = track.audioUrl;
+      }
+
+      if (shouldPlay) {
+        audioEngine.play().then(() => {
+          setPlayState(true);
+        }).catch(() => {
+          // Si el archivo físico aún no existe en el disco, simulamos reproducción ambiental de prueba
+          console.log(`[Audio Demo] Pista #${track.id}: ${track.title} lista.`);
+          setPlayState(true);
+          showToast(`Aguja en Surco #${track.id}: ${track.title}`);
+        });
+      }
+    }
+
+    // ALTERNAR PLAY / PAUSA
+    function togglePlayPause() {
+      if (isPlaying) {
+        pauseTurntable();
+      } else {
+        startTurntable();
+      }
+    }
+
+    function startTurntable() {
+      const track = ALBUM_TRACKS[currentTrackIndex];
+      moveTonearmTo(track.armAngle);
+      setPlayState(true);
+      playTrackAudio(track, true);
+      showToast(`Reproduciendo Surco #${track.id}: ${track.title}`);
+    }
+
+    function pauseTurntable() {
+      audioEngine.pause();
+      moveTonearmTo(REST_ANGLE);
+      setPlayState(false);
+      showToast("Tocadiscos en pausa. Brazo en reposo.");
+    }
+
+    function setPlayState(playing) {
+      isPlaying = playing;
+      if (playing) {
+        vinylRecord.classList.add('spinning');
+        mainPlayBtn.innerHTML = '⏸';
+        mainPlayBtn.title = 'Pausar tocadiscos';
+      } else {
+        vinylRecord.classList.remove('spinning');
+        mainPlayBtn.innerHTML = '▶';
+        mainPlayBtn.title = 'Poner aguja y reproducir';
+      }
+    }
+
+    function nextTrack() {
+      const nextIdx = (currentTrackIndex + 1) % ALBUM_TRACKS.length;
+      selectTrack(nextIdx, isPlaying);
+    }
+
+    function prevTrack() {
+      const prevIdx = (currentTrackIndex - 1 + ALBUM_TRACKS.length) % ALBUM_TRACKS.length;
+      selectTrack(prevIdx, isPlaying);
+    }
+
+    // CAMBIO DE VELOCIDAD (33 RPM / 45 RPM)
+    function setSpeed(rpm) {
+      currentSpeed = rpm;
+      document.getElementById('btn33').classList.toggle('active', rpm === 33);
+      document.getElementById('btn45').classList.toggle('active', rpm === 45);
+
+      if (rpm === 45) {
+        vinylRecord.style.animationDuration = '1.333s'; // 45 RPM
+        audioEngine.playbackRate = 1.35;
+        showToast("Velocidad cambiada a 45 RPM");
+      } else {
+        vinylRecord.style.animationDuration = '1.818s'; // 33 1/3 RPM
+        audioEngine.playbackRate = 1.0;
+        showToast("Velocidad estándar 33 ⅓ RPM");
+      }
+    }
+
+    // CARGADOR DE ARCHIVOS MP3 LOCALES DEL USUARIO
+    function handleAudioFiles(event) {
+      const files = event.target.files;
+      if (!files || files.length === 0) return;
+
+      let loadedCount = 0;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const lowerName = file.name.toLowerCase();
+
+        // Emparejar por número (01, 1, 02, etc.) o por coincidencia de título
+        ALBUM_TRACKS.forEach(track => {
+          const numMatch = lowerName.includes(track.id < 10 ? `0${track.id}` : `${track.id}`);
+          const titleMatch = lowerName.includes(track.title.toLowerCase().substring(0, 8));
+
+          if (numMatch || titleMatch) {
+            customAudioFiles[track.id] = file;
+            loadedCount++;
+          }
+        });
+      }
+
+      showToast(`¡${loadedCount} pistas de audio enlazadas con éxito!`);
+      // Recargar la pista activa con el nuevo archivo
+      if (customAudioFiles[ALBUM_TRACKS[currentTrackIndex].id]) {
+        playTrackAudio(ALBUM_TRACKS[currentTrackIndex], isPlaying);
+      }
+    }
+
+    // AL TERMINAR LA CANCIÓN, SALTAR AL SIGUIENTE SURCO AUTOMÁTICAMENTE
+    audioEngine.addEventListener('ended', () => {
+      nextTrack();
+    });
+
+    // MOSTRAR NOTIFICACIONES TOAST
+    let toastTimeout;
+    function showToast(msg) {
+      toastMsg.textContent = msg;
+      toastMsg.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toastMsg.classList.remove('show');
+      }, 3000);
+    }
+
+    // ARRANQUE
+    window.addEventListener('DOMContentLoaded', initTurntable);
+  </script>
+
+</body>
+
+</html>
