@@ -8,7 +8,7 @@
 **ARTIST:** The Research Band (TRBAND)  
 **COMPOSER & PRODUCER:** Eduardo Ramírez de Cartagena (SGAE Member Nº 29.751 / Co-Founder of CADILLAC)  
 **RECORD LABEL & RIGHTS OWNER:** Khem Aura Records  
-**FORMAT:** Full-Length LP Master (Side A & Side B) / Interactive Audiophile Virtual Turntable & Luxury Digital eBook  
+**FORMAT:** Full-Length Vinyl LP with 14 tracks (8 vocal and 6 instrumental) / Interactive Audiophile Virtual Turntable & Luxury Digital eBook  
 **TOTAL DURATION:** 66 Minutes (14 Movements: 8 Vocals + 6 Instrumental / Vocalises)  
 **RELEASE YEAR:** 2026  
 **TERRITORIES AVAILABLE:** Worldwide (Focus: Greater China, East Asia, UK, European Union, North America)
@@ -17,7 +17,7 @@
 
 ## 🌟 1. EXECUTIVE SUMMARY
 
-**Khem Aura Records** is proud to present the definitive master recording of ***A Journey of a Thousand Miles Begins with a Single Step* (千里之行 始于足下)**, a conceptual vinyl LP (Side A & Side B) masterwork written, performed, and produced by veteran composer **Eduardo Ramírez de Cartagena**.
+**Khem Aura Records** is proud to present the definitive master recording of ***A Journey of a Thousand Miles Begins with a Single Step* (千里之行 始于足下)**, a conceptual Full-Length Vinyl LP with 14 tracks (8 vocal and 6 instrumental), written, performed, and produced by veteran composer **Eduardo Ramírez de Cartagena**.
 
 Eduardo is an acclaimed figure in European contemporary music: co-founder of the legendary Spanish band **CADILLAC** (representing Spain at the Eurovision Song Contest 1986, multiple gold and platinum records, prominent tours across Europe and Latin America) and leader of **The Research Band (TRBAND)**. Holding complete, unencumbered intellectual property registered with SGAE (Member Nº 29.751), this production represents a pristine licensing opportunity with zero third-party encumbrances.
 
@@ -61,7 +61,7 @@ Khem Aura Records is seeking established partners for:
 1. **Digital Streaming Distribution & Editorial Placement:**
    * Exclusive regional or non-exclusive global distribution on major Asian platforms (NetEase Cloud Music, Tencent Music TME / QQ Music, Taihe) and Western DSPs (Spotify, Apple Music, Tidal).
 2. **Physical Audiophile Vinyl Edition:**
-   * 180g Frosted Clear Vinyl LP (Side A & Side B) for international collectors and high-end audio enthusiasts.
+   * 180g Frosted Clear Vinyl LP with 14 tracks (8 vocal and 6 instrumental) for international collectors and high-end audio enthusiasts.
 3. **Synchronization & Media Licensing:**
    * High-value soundtrack synchronization for feature films, historical and fantasy television series (Wuxia / Xianxia / Drama), international documentaries, and AAA video games.
 4. **Interactive Digital Innovation:**
