@@ -47,7 +47,7 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 | **09** | Spanish Misty Guzheng | 西班牙迷雾古筝 | **Instrumental 3** | B | 04:27 | Chillout / Spanish-Oriental Fusion | Eduardo Ramírez de Cartagena (100%) |
 | **10** | Li Ann, My Sunshine | 丽安，我的阳光 | Vocal | B | 05:33 | Acoustic 12-String / Lyrical Folk-Prog | Eduardo Ramírez de Cartagena (100%) |
 | **11** | Pause Before the Rain | 雨前伫足 | Vocal | B | 05:41 | Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
-| **12** | Where the Pieces Fell | 碎片散落之处 | Vocal | B | 04:53 | Deconstructed Acoustic / Violin | Eduardo Ramírez de Cartagena (100%) |
+| **12** | Where the Pieces Fell | 碎片散落之处 | Vocal | B | 04:53 | Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
 | **13** | The Turning of the Tide | 潮汐回转 | Vocal | B | 05:50 | Symphonic Crescendo / Choral Climax | Eduardo Ramírez de Cartagena (100%) |
 | **14** | A Single Spanish Step | 西班牙一步 | **Instrumental 4** | B | 03:32 | Multicultural Grand Climax (140 BPM) | Eduardo Ramírez de Cartagena (100%) |
 
@@ -172,11 +172,13 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 ---
 
 ### SURCO 12 — *Where the Pieces Fell* (碎片散落之处)
-- **Rol en el álbum:** Deconstrucción emocional y espacial.
-- **Estilo:** Art-Rock acústico de cámara.
-- **Análisis por capas:**
-  - **Espacio sonoro:** Mezcla con amplio paneo estéreo donde cada instrumento respira en su propio cuadrante acústico.
-  - **Cuerda & Viento:** Violín acústico en diálogo con una armónica cromática sutil en segundo plano.
+- **Género & Estilo:** Art-Pop / Crossover Progresivo, apoyada en un pulso rítmico sincopado y electrónico que dialoga con los arreglos líricos y la flauta melódica en la tradición de la gran escuela sinfónica europea de los 70 (en la órbita melódica de clásicos como *Rain Dances* y *Breathless*).
+- **Análisis Musical y Estructura:**
+  - **Arranque y pulso rítmico:** Arranca directamente con un motivo de percusión seca y rítmica junto a una línea de sintetizador en staccato, estableciendo un tempo medio ágil y bailable en modo menor. La base rítmica electrónica se complementa con chasquidos y palmas que marcan las síncopas, manteniendo el aire moderno y definido.
+  - **Versos y entrega vocal:** La voz masculina principal entra en un registro medio, sobrio y narrativo, con una articulación clara y contenida. En las estrofas, la instrumentación se aligera para darle protagonismo al texto: un bajo redondo sostiene los cambios armónicos mientras los teclados puntean notas cortas y espaciadas.
+  - **Estribillos (Fuerza polifónica y expansión):** Al llegar al estribillo (*"I can stand where the pieces fell..."*), la energía asciende con determinación. La voz gana brillo y se respalda con armonías vocales y coros que abren la imagen estéreo, transmitiendo una resolución dramática y luminosa sobre la armonía menor.
+  - **La flauta y los contrapuntos progresivos:** Entre las frases cantadas y en las transiciones vuelve a aparecer la flauta solista con su sonido pastoral y etéreo. Ejecuta trinos, arpegios rápidos y adornos melódicos que responden a la línea vocal, funcionando como el ancla tímbrica que conecta la pieza con el lirismo clásico y noble del gran rock progresivo melódico.
+  - **Puente, clímax y desenlace:** Alrededor del minuto 2:15, el tema aborda un puente de tensión creciente (*"If you meet me in the doorway..."*), donde la voz sube de intensidad y dramatismo rítmico. La canción desemboca en un estribillo culminante a pleno rendimiento de capas corales y melódicas, para luego resolver en una coda donde la flauta y los ecos vocales se despiden flotando sobre el pulso rítmico final.
 
 ---
 
