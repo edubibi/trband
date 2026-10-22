@@ -44,7 +44,7 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 | **06** | In the Warmth of the Yangtze River | 长江的温存 | **Instrumental 2** | A | 04:11 | Worldbeat / New Age / Ethno-Electronic | Eduardo Ramírez de Cartagena (100%) |
 | **07** | I Remain | 我依然在 | Vocal | A | 06:16 | Epic Progressive Rock (Fin Cara A) | Eduardo Ramírez de Cartagena (100%) |
 | **08** | Angular A Minor | 棱角A小调 | Vocalise / Worldbeat | B | 04:11 | Worldbeat / New Age / Ambient Étnico | Eduardo Ramírez de Cartagena (100%) |
-| **09** | Spanish Misty Guzheng | 西班牙迷雾古筝 | **Instrumental 3** | B | 04:27 | Chillout / Spanish-Oriental Fusion | Eduardo Ramírez de Cartagena (100%) |
+| **09** | Spanish Misty Guzheng | 西班牙迷雾古筝 | **Instrumental 3** | B | 04:27 | Worldbeat / New Age / Ethno-Electronic | Eduardo Ramírez de Cartagena (100%) |
 | **10** | Li Ann, My Sunshine | 丽安，我的阳光 | Vocal | B | 05:33 | Sophisti-Pop / Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
 | **11** | Pause Before the Rain | 雨前伫足 | Vocal | B | 05:41 | Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
 | **12** | Where the Pieces Fell | 碎片散落之处 | Vocal | B | 04:53 | Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
@@ -144,12 +144,14 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 ---
 
 ### SURCO 09 — *Spanish Misty Guzheng* (西班牙迷雾古筝) — [3ª INSTRUMENTAL]
-- **Rol en el álbum:** Tercer oasis instrumental / Encuentro entre Granada y Pekín.
-- **Estilo:** Chillout Mediterráneo-Oriental / Fusión Guzheng & Guitarra Española.
-- **Análisis por capas:**
-  - **Atmósfera:** Bruma matutina generada por sintetizadores ambientales y armónicos de guitarra clásica de concierto.
-  - **Solista:** El *guzheng* abandona las escalas pentatónicas puras para adentrarse en la escala frigia mayor andaluza (modo flamenco), produciendo un híbrido sonoro inédito en el mercado musical.
-  - **Percusión:** Toques ligeros de cajón flamenco con shakers y semillas orientales.
+- **Rol en el álbum:** Tercer oasis instrumental / Encuentro lírico entre el misticismo oriental y la atmósfera meditativa contemporánea.
+- **Género & Estilo:** Worldbeat / New Age / Ethno-Electronic con lirismo progresivo, manteniendo la conexión con la narrativa melódica y pastoral de la gran escuela sinfónica europea de los 70 (en la senda de suites clásicas como *The Snow Goose*), enriquecida con instrumentación tradicional de Asia Oriental y un pulso rítmico contemporáneo.
+- **Análisis Musical por Secciones y Elementos:**
+  - **Introducción y motivo de cuerda asiática:** Arranca con arpegios fluidos y cristalinos de cítara oriental (*guzheng* o *koto*) sobre un colchón de sintetizadores en modo menor. La ejecución resalta por el uso de notas estiradas (*bending*) y microtonalidades pentatónicas que fijan un ambiente introspectivo y meditativo.
+  - **Base rítmica y percusión vocal:** Alrededor del segundo 0:25 entra un recurso rítmico distintivo: un coro rítmico en staccato (*"da-da-da..."*) que funciona a modo de percusión tonal humana. A continuación se asienta la base rítmica electrónica a medio-lento tempo (*downtempo / chillout*), con un bombo seco y profundo, chasquidos definidos y una línea de bajo sintético que ancla los cambios armónicos.
+  - **Melodía vocal y entrada de la flauta:** La voz femenina interviene mediante melismas etéreos y vocalizaciones sin texto léxico, proyectada con una amplia reverberación que genera sensación de espacio abierto. La flauta tradicional toma el liderazgo melódico, dibujando líneas cantables, trinos y arabescos de corte pastoral que dialogan con la cítara con gran expresividad y vibrato lírico.
+  - **Desarrollo tímbrico y polifonía climática:** En la parte central, la pieza incrementa su densidad sonora con la superposición de capas: las respuestas melódicas entre la flauta y la cítara se intensifican, respaldadas por sintetizadores analógicos (pads envolventes) y las inflexiones agudas de la voz. La combinación de los motivos tradicionales con la cadencia electrónica otorga un carácter majestuoso y ceremonial al clímax.
+  - **Coda y resolución:** En el tramo final, la batería electrónica y los patrones corales rítmicos van desapareciendo de forma progresiva. La composición concluye desnudando el arreglo hasta dejar únicamente las notas suspendidas de la cítara y los ecos lejanos de la flauta, disolviéndose suavemente en el silencio.
 
 ---
 
