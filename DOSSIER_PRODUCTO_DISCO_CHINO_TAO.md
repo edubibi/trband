@@ -121,12 +121,13 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 ---
 
 ### SURCO 07 — *I Remain* (我依然在)
-- **Rol en el álbum:** Cierre magistral y rotundo de la CARA A del LP.
-- **Estilo:** Himno de resiliencia progresiva.
-- **Análisis por capas:**
-  - **Armonía:** Nota pedal de bajo inamovible sobre la que se van sucediendo acordes modales de tensión y resolución.
-  - **Sección de cuerda:** Cellos en registro grave reforzando la sensación de solemnidad.
-  - **Desenlace:** Solo desgarrador de guitarra con overdrive cremoso que se desvanece lentamente en el silencio del surco de salida de la Cara A.
+- **Género & Estilo:** Balada de Art-Pop / Crossover Progresivo (vertiente pausada, reflexiva y sinfónica del gran rock progresivo británico de los 70 al estilo de los pasajes lentos de *Moonmadness* o *The Snow Goose*, con producción contemporánea).
+- **Análisis Musical y Estructura:**
+  - **Introducción y atmósfera inicial:** Arranca con un pulso sintético suave y una atmósfera flotante donde una flauta tradicional/étnica expone el tema melódico principal. La articulación es melancólica y lírica, empleando trinos y portamentos de gran sensibilidad.
+  - **Versos (Introspección y pulso contenido):** La voz masculina principal entra en un registro grave/medio, con una dicción pausada, sobria y cercana. La instrumentación en la estrofa se vacía: se sostiene sobre un colchón de sintetizadores analógicos en tonos menores y pequeños detalles rítmicos secos, dejando espacio total a la narración.
+  - **Estribillos (Apertura y armonización coral):** La dinámica se eleva al llegar al estribillo: entra una base rítmica electrónica mid-tempo con bombo redondo y palmas/chasquidos marcados. La melodía vocal se expande con armonías vocales y coros que abren la imagen estéreo, aportando esa sensación de desahogo y nostalgia clásica del prog sinfónico británico.
+  - **Desarrollo instrumental y puente:** Tras los estribillos, la flauta solista reaparece como hilo conductor, retomando y variando el motivo melódico sobre la base rítmica activa. Hacia el minuto 2:30, la pieza introduce un puente donde la voz adopta un tono más resolutivo y dinámico, apoyada por una mayor presencia de sintetizadores rítmicos antes de volver al estribillo culminante.
+  - **Coda y desenlace:** El tema concluye desnudando progresivamente la base: los ritmos se silencian y la voz se apaga en una repetición íntima y reverberada (*"And I remain..."*), dejando que los acordes finales de sintetizador y los ecos de la flauta se extingan en una atmósfera de calma contemplativa, cerrando con gran belleza la Cara A del LP.
 
 ---
 
