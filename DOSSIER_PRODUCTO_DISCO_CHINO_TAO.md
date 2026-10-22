@@ -100,12 +100,13 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 ---
 
 ### SURCO 05 — *Paper Lantern River* (纸灯之河)
-- **Rol en el álbum:** Evocación poética nocturna sobre el fluir del destino.
-- **Estilo:** Progressive Ambient Lyrical.
-- **Análisis por capas:**
-  - **Capa acústica:** Arpegios de cítara china que simulan gotas de agua cayendo en la corriente.
-  - **Capa electrónica:** Sintetizadores analógicos de corte cálido (Moog / Prophet) con filtros de apertura lenta.
-  - **Evolución:** Hacia el minuto 2:30, entran timbales orquestales y platos salpicados, emulando la corriente de un río que se ensancha hacia la desembocadura.
+- **Género & Estilo:** Art-Pop / Sophisti-Pop contemporáneo y Rock Progresivo Lírico (heredero de la sensibilidad melódica de la escuela progresiva europea de los 70, tamizada con personalidad propia y pulso electrónico actual).
+- **Análisis Musical por Secciones y Elementos:**
+  - **Introducción y arranque:** Comienza con una breve apertura etérea y vocalizada que rápidamente da paso al golpe rítmico: una base electrónica sincopada y precisa, con caja seca, palmas (*claps*) y un bajo pulsante que marca un tempo ágil y bailable sin perder un ápice de elegancia armónica.
+  - **Versos (Fraseo rítmico y sobriedad):** La voz masculina adopta una interpretación contenida, rítmica y muy articulada, con una sobriedad elegante y cercana. La instrumentación en las estrofas se vuelve más espaciosa: los acordes de sintetizador entran en síncopa mientras el bajo sostiene el peso, dejando silencios estratégicos que dan aire a la narración vocal.
+  - **Estribillos (Apertura lírica y polifonía):** Al llegar al coro (*"Lead me through..."*), la canción experimenta una apertura melódica dramática. La melodía principal se desdobla con respuestas corales femeninas y armonías en octavas, creando un contraste espacial que ensancha el estéreo y aporta ese matiz nostálgico y envolvente propio del gran sinfonismo.
+  - **La presencia de la flauta y los vientos:** El elemento melódico distintivo vuelve a ser la flauta traversa/étnica. Aparece en contrapunto con la voz y como motivo de enganche, ejecutando frases virtuosas, trinos y arabescos que rompen la rigidez de la batería sintética y aportan la calidez melódica definitoria.
+  - **Puente dramático y resolución:** Hacia el minuto 2:10, la canción intensifica su empuje (*"Go, go slow..."*). La interpretación vocal sube de energía y urgencia, apoyada por una acumulación de percusiones y acordes mantenidos. Tras este clímax, el tema vuelve a su estribillo coral con todas las capas a pleno rendimiento (flauta, coros, base rítmica completa), concluyendo en una bajada dinámica controlada que deja desvanecer los ecos vocales y el pulso rítmico final.
 
 ---
 
