@@ -89,12 +89,13 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 ---
 
 ### SURCO 04 — *Hold the Measure* (把握分寸)
-- **Rol en el álbum:** Recuperación del pulso rítmico y concepto taoísta de la mesura.
-- **Estilo:** Progressive Funk-Rock a 140 BPM.
-- **Análisis por capas:**
-  - **Bajo & Chapman Stick:** Figura continua de slap percusivo y tapping a dos manos que sostiene el esqueleto del tema.
-  - **Metales / Brass sintético:** Acentos staccato a contratiempo que aportan una frescura jazz-rock vintage.
-  - **Guitarras:** Riffs cortados con chorus sutil al estilo Talking Heads / Crimson de los 80.
+- **Género & Estilo:** Art-Pop / Sophisti-Pop / Crossover Progresivo (Camel: *Rain Dances*, *Breathless*, Peter Gabriel, The Alan Parsons Project).
+- **Análisis Musical y Estructura:**
+  - **Introducción y motivo rítmico principal:** Arranca de inmediato con un riff marcado por un teclado/sintetizador percusivo y una guitarra en staccato, estableciendo un pulso ágil, sofisticado y sincopado en modo menor. La batería electrónica entra con un patrón limpio, apoyada por una línea de bajo ágil y melódica que conduce el fraseo.
+  - **Versos y entrega vocal:** La voz masculina principal se mueve en un registro medio, sobrio y teatral, con una entonación rítmica casi hablada en ciertos pasajes y un fraseo que recuerda a la elegancia contenida de Andrew Latimer o Richard Sinclair. Los versos juegan con pausas métricas y arreglos dinámicos en los que los instrumentos cortan para dar protagonismo a la voz antes de reanudar el groove.
+  - **Estribillos y expansiones melódicas:** Al llegar al estribillo, la armonía se abre y se añaden armonías vocales y segundas voces que enriquecen la tesitura. Los sintetizadores analógicos (pads y leads suaves) ganan amplitud estéreo, aportando un dramatismo melancólico característico del sinfonismo británico.
+  - **Pasajes instrumentales y la impronta de Camel:** Entre las secciones vocales emerge una flauta solista virtuosa (con ese timbre lírico y articulado tan deudor de la flauta de Andrew Latimer en obras como *The Snow Goose*), ejecutando líneas muy expresivas, con vibrato y adornos tradicionales que contrastan con la modernidad de la base rítmica. Se entrelazan también capas de guitarra acústica y guitarras eléctricas limpias que responden a la melodía de la flauta mediante contrapuntos melódicos.
+  - **Dinámica y Coda final:** Hacia el tramo final, la intensidad decae momentáneamente para dar paso a un pasaje más íntimo y despojado donde la voz baja de volumen y se vuelve reflexiva. La canción remata retomando el tema rítmico y la flauta en un último diálogo melódico antes de resolverse con un final seco y preciso sobre el pulso sincopado.
 
 ---
 
