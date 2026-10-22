@@ -867,16 +867,14 @@
       </div>
     </div>
 
-    <!-- ACCESO AL EBOOK Y CARGADOR DE AUDIO -->
-    <div style="display:flex; gap:10px; align-items:center;">
+    <!-- ACCESO AL EBOOK Y RETORNO -->
+    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+      <a href="khem_aura_records.html#studio" class="btn-loader" style="text-decoration:none; background:linear-gradient(135deg, #d4af37, #aa820a); border-color:#d4af37; color:#050505; font-weight:800;" title="Volver al Catálogo de Khem Aura Records">
+        <span>← Volver a Khem Aura Records</span>
+      </a>
       <a href="ebook_tao_8caras.html" target="_blank" class="btn-loader" style="text-decoration:none; background:rgba(217, 119, 6, 0.2); border-color:#d97706; color:#fef3c7;" title="Abrir eBook Dossier Oficial de 8 Caras">
         <span>📖 eBook Dossier Oficial</span>
       </a>
-      <label class="btn-loader" title="Cargar los MP3 de tu disco editados en Audacity">
-        <span>📁 Cargar Audios Locales</span>
-        <input type="file" id="audioFileInput" multiple accept="audio/*" style="display:none;"
-          onchange="handleAudioFiles(event)">
-      </label>
     </div>
   </header>
 
@@ -1017,7 +1015,7 @@
       <section class="tracklist-card">
         <div class="tracklist-header">
           <span class="tracklist-title">Surcos del Vinilo (14 Cortes)</span>
-          <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--gold-tao);">Cara A & B</span>
+          <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--gold-tao);">Tracks 01 - 14</span>
         </div>
         <div class="track-items" id="trackItemsContainer">
           <!-- Generado dinámicamente -->
@@ -1034,9 +1032,9 @@
   <audio id="audioEngine" preload="metadata"></audio>
 
   <script>
-    // LOS 14 TEMAS EQUILIBRADOS EN CARA A Y CARA B CON INSTRUMENTALES ALTERNADAS
+    // LOS 14 TEMAS DEL VINILO EN FLUJO CONTINUO CON INSTRUMENTALES ALTERNADAS
     const ALBUM_TRACKS = [
-      // ====== CARA A (SURCOS 1 A 7) ======
+      // ====== SURCOS 1 A 7 ======
       {
         id: 1,
         side: "A",
@@ -1146,11 +1144,11 @@
           <p><strong>Género & Estilo:</strong> Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.</p>
           <p>• <strong>Emoción:</strong> Resiliencia, soledad estoica y consuelo íntimo.</p>
           <p>• <strong>Qué evoca:</strong> Es de las piezas más lentas y hondas del disco. Evoca la quietud de una casa vacía tras una marcha definitiva; el momento exacto en que te das cuenta de que, a pesar de la ausencia, uno sigue en pie, entero y en paz consigo mismo.</p>
-          <p>• <strong>Estructura Sonora:</strong> Atmósfera flotante con flauta solista melancólica. Versos íntimos en registro grave/medio sobre colchón de sintetizadores analógicos en tonos menores. Estribillos de apertura luminosa con armonías vocales estéreo y base electrónica mid-tempo. Puente dinámico al 2:30 y coda íntima (<em>"And I remain..."</em>) que se apaga en contemplación para cerrar la Cara A.</p>
+          <p>• <strong>Estructura Sonora:</strong> Atmósfera flotante con flauta solista melancólica. Versos íntimos en registro grave/medio sobre colchón de sintetizadores analógicos en tonos menores. Estribillos de apertura luminosa con armonías vocales estéreo y base electrónica mid-tempo. Puente dinámico al 2:30 y coda íntima (<em>"And I remain..."</em>) que se apaga en contemplación hacia el siguiente corte.</p>
         `
       },
 
-      // ====== CARA B (SURCOS 8 A 14) ======
+      // ====== SURCOS 8 A 14 ======
       {
         id: 8,
         side: "B",
@@ -1317,22 +1315,10 @@
       });
     }
 
-    // DIBUJAR LISTA DE 14 PISTAS EN EL PANEL LATERAL CON CARA A Y B
+    // DIBUJAR LISTA CONTINUA DE LOS 14 SURCOS DEL VINILO
     function renderTracklist() {
       trackItemsContainer.innerHTML = '';
       ALBUM_TRACKS.forEach((track, idx) => {
-        if (idx === 0) {
-          const sideA = document.createElement('div');
-          sideA.className = 'side-header';
-          sideA.innerHTML = `<span>CARA A • The Awakening</span><span>Surcos 1-7</span>`;
-          trackItemsContainer.appendChild(sideA);
-        } else if (idx === 7) {
-          const sideB = document.createElement('div');
-          sideB.className = 'side-header';
-          sideB.innerHTML = `<span>CARA B • The Spanish Horizon</span><span>Surcos 8-14</span>`;
-          trackItemsContainer.appendChild(sideB);
-        }
-
         const row = document.createElement('div');
         row.className = `track-row ${idx === currentTrackIndex ? 'active' : ''}`;
         row.id = `track-row-${idx}`;
@@ -1362,10 +1348,10 @@
       // Actualizar información superior y banner
       trackTitleDisplay.textContent = track.title;
       trackChineseDisplay.textContent = track.chinese;
-      trackSurcoLabel.textContent = `Surco #${track.id} • Cara ${track.side} • ${track.radiusPercent}% del radio`;
+      trackSurcoLabel.textContent = `Surco #${track.id} • ${track.isInstrumental ? 'Instrumental' : 'Vocal'} • ${track.radiusPercent}% del radio`;
 
       // Actualizar tarjeta del libreto (Liner Notes)
-      cardTrackBadge.textContent = `Surco #${track.id} • Cara ${track.side} • ${track.isInstrumental ? 'Instrumental' : 'Vocal'}`;
+      cardTrackBadge.textContent = `Surco #${track.id} • ${track.isInstrumental ? 'Instrumental' : 'Vocal'}`;
       cardTrackTitle.innerHTML = `${track.title} ${track.isInstrumental ? '<span class="track-badge-inst">Instrumental</span>' : ''}`;
       cardTrackChinese.textContent = track.chinese;
       cardSynopsisBody.innerHTML = track.synopsis;

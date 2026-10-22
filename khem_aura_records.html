@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khem Aura Records — Estudio de Grabación & Archivo Discográfico | The Research Band</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400;1,700&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-bright: #F7E7CE;
+            --gold-glow: rgba(212, 175, 55, 0.45);
+            --bg-dark: #080608;
+            --surface-glass: rgba(14, 10, 14, 0.88);
+            --border-glass: rgba(212, 175, 55, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-dark);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ---------------- NAVBAR ---------------- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(5, 3, 5, 0.95) 0%, rgba(5, 3, 5, 0.6) 70%, transparent 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 12px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .header-logo {
+            height: 38px;
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--gold);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 12px;
+            right: 12px;
+            height: 2px;
+            background: var(--gold);
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        .nav-badge-live {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 12px;
+            letter-spacing: 1px;
+            margin-left: 6px;
+        }
+
+        /* ---------------- ESCENARIO PUERTA / ESTUDIO ---------------- */
+        .stage-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Fondo del estudio interior */
+        .studio-background {
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/khem_aura_studio_door.jpg');
+            background-size: cover;
+            background-position: center center;
+            transform: scale(1);
+            transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1), filter 1.6s ease;
+            filter: brightness(0.9) contrast(1.05);
+            z-index: 1;
+        }
+
+        .studio-background.zoomed-in {
+            transform: scale(1.18);
+            filter: brightness(0.65) blur(3px) contrast(1.1);
+        }
+
+        /* Overlays de hojas de cristal */
+        .door-leaf {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            z-index: 10;
+            backdrop-filter: blur(1.5px);
+            -webkit-backdrop-filter: blur(1.5px);
+            background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.02) 100%);
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.4);
+            transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.2s ease;
+            pointer-events: none;
+        }
+
+        .door-leaf-left {
+            left: 0;
+            border-right: 2px solid rgba(255, 255, 255, 0.25);
+            transform: translateX(0);
+        }
+
+        .door-leaf-right {
+            right: 0;
+            border-left: 2px solid rgba(255, 255, 255, 0.25);
+            transform: translateX(0);
+        }
+
+        /* Estado abierto de las puertas */
+        .stage-container.doors-open .door-leaf-left {
+            transform: translateX(-102%);
+            opacity: 0;
+        }
+
+        .stage-container.doors-open .door-leaf-right {
+            transform: translateX(102%);
+            opacity: 0;
+        }
+
+        /* Iluminación de estudio en la marquesina superior */
+        .studio-marquee-glow {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(850px, 90vw);
+            text-align: center;
+            z-index: 15;
+            pointer-events: none;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .stage-container.doors-open .studio-marquee-glow {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-20px);
+        }
+
+        .marquee-tag {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+            color: var(--gold-bright);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 8px 24px;
+            border-radius: 30px;
+            box-shadow: 0 4px 25px rgba(212, 175, 55, 0.35);
+            backdrop-filter: blur(8px);
+        }
+
+        /* ---------------- BOTÓN CENTRAL "PUSH" ---------------- */
+        .push-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 25;
+            text-align: center;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .stage-container.doors-open .push-wrapper {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.6);
+            pointer-events: none;
+        }
+
+        .btn-push {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: none;
+            background: radial-gradient(circle, #2a1f12 0%, #120d09 60%, #080605 100%);
+            box-shadow: 
+                0 0 0 4px rgba(212, 175, 55, 0.35),
+                0 0 35px rgba(212, 175, 55, 0.55),
+                0 15px 35px rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            outline: none;
+            user-select: none;
+        }
+
+        .btn-push::before {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            border-radius: 50%;
+            border: 2px dashed rgba(212, 175, 55, 0.6);
+            animation: rotateDashed 25s linear infinite;
+        }
+
+        @keyframes rotateDashed {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn-push:hover {
+            transform: scale(1.08);
+            box-shadow: 
+                0 0 0 6px rgba(212, 175, 55, 0.65),
+                0 0 55px rgba(212, 175, 55, 0.85),
+                0 20px 45px rgba(0, 0, 0, 0.95);
+        }
+
+        .btn-push:active {
+            transform: scale(0.95);
+        }
+
+        .push-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: #fff;
+            text-shadow: 0 0 12px var(--gold-bright), 0 2px 4px rgba(0,0,0,0.9);
+            margin-top: 4px;
+        }
+
+        .push-subtext {
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .push-hint {
+            margin-top: 22px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            background: rgba(0,0,0,0.75);
+            padding: 6px 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(6px);
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+
+        /* ---------------- SALA INTERIOR / CATÁLOGO DISCOGRÁFICO ---------------- */
+        .vault-content {
+            position: absolute;
+            inset: 0;
+            z-index: 20;
+            overflow-y: auto;
+            padding: 95px 25px 60px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(40px);
+            pointer-events: none;
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .stage-container.doors-open .vault-content {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        /* Cabecera del sello discográfico */
+        .vault-header {
+            text-align: center;
+            max-width: 900px;
+            margin-bottom: 40px;
+        }
+
+        .vault-seal {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.85);
+            border: 1.5px solid var(--gold);
+            padding: 8px 24px;
+            border-radius: 30px;
+            color: var(--gold-bright);
+            font-family: 'Cinzel', serif;
+            font-size: 0.82rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .vault-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95);
+        }
+
+        .vault-title span {
+            color: var(--gold);
+        }
+
+        .vault-desc {
+            font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+            color: #e0d8c3;
+            max-width: 720px;
+            margin: 0 auto 15px auto;
+            line-height: 1.6;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+            font-weight: 300;
+        }
+
+        .vault-author-badge {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+            background: rgba(14, 10, 14, 0.8);
+            padding: 6px 18px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        /* ---------------- GRID DE LOS 4 ÁLBUMES ---------------- */
+        .albums-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            max-width: 1320px;
+            width: 100%;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .album-card {
+            background: var(--surface-glass);
+            border: 1.5px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .album-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 28px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(212, 175, 55, 0.3);
+            border-color: var(--gold);
+        }
+
+        /* Destacado para el disco Chino Tao */
+        .album-card.highlight-tao {
+            border: 2px solid var(--gold);
+            background: radial-gradient(circle at top, rgba(35, 25, 15, 0.95) 0%, rgba(14, 10, 14, 0.92) 100%);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 175, 55, 0.35);
+        }
+
+        .card-ribbon {
+            position: absolute;
+            top: 14px;
+            right: -35px;
+            background: var(--gold);
+            color: #000;
+            font-size: 0.65rem;
+            font-weight: 900;
+            padding: 4px 38px;
+            transform: rotate(45deg);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+        }
+
+        /* Carátula con efecto de vinilo deslizante */
+        .cover-vinyl-container {
+            position: relative;
+            width: 210px;
+            height: 210px;
+            margin: 10px auto 22px auto;
+        }
+
+        .cover-art {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.85);
+            z-index: 2;
+            transition: transform 0.4s ease;
+        }
+
+        .vinyl-disc {
+            position: absolute;
+            top: 5px;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #222 0%, #111 60%, #000 100%);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.9);
+            z-index: 1;
+            transition: transform 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vinyl-disc::before {
+            content: '';
+            position: absolute;
+            inset: 15px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .vinyl-label {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 900;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+            text-align: center;
+            padding: 4px;
+        }
+
+        .album-card:hover .cover-art {
+            transform: translateX(-15px);
+        }
+
+        .album-card:hover .vinyl-disc {
+            transform: translateX(35px) rotate(45deg);
+        }
+
+        .album-genre {
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .album-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            line-height: 1.25;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .album-details {
+            font-size: 0.85rem;
+            color: #b5b5b5;
+            margin-bottom: 22px;
+            line-height: 1.4;
+            min-height: 42px;
+        }
+
+        /* Botonera de acciones por álbum */
+        .album-actions {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .btn-action.gold-main {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA820A 100%);
+            color: #050505;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-action.gold-main:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.5);
+            transform: scale(1.02);
+        }
+
+        .btn-action.outline-gold {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--gold);
+            color: var(--gold-bright);
+        }
+
+        .btn-action.outline-gold:hover {
+            background: rgba(212, 175, 55, 0.2);
+            color: #fff;
+            border-color: #fff;
+            transform: scale(1.02);
+        }
+
+        /* Botón de salir / cerrar puertas */
+        .btn-back-door {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ddd;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .btn-back-door:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(0,0,0,0.9);
+        }
+
+        /* ---------------- RESPONSIVE ---------------- */
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 10px 16px;
+            }
+            .main-nav {
+                display: none;
+            }
+            .push-text {
+                font-size: 1.35rem;
+            }
+            .btn-push {
+                width: 120px;
+                height: 120px;
+            }
+            .albums-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .cover-vinyl-container {
+                width: 180px;
+                height: 180px;
+            }
+            .vinyl-disc {
+                width: 170px;
+                height: 170px;
+            }
+            .vault-content {
+                padding: 80px 16px 40px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN SUPERIOR -->
+    <header class="main-header">
+        <a href="index.html" class="logo-area">
+            <img src="assets/logo_neon_trb.png" alt="TRB Neon Logo" class="header-logo">
+        </a>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="nosotros.html" class="nav-link">Nosotros</a>
+            <a href="iliada.html" class="nav-link">Mi Ilíada</a>
+            <a href="galeria.html" class="nav-link">Galería</a>
+            <a href="khem_aura_records.html" class="nav-link active">Khem Aura Records <span class="nav-badge-live">STUDIO</span></a>
+            <a href="musica.html" class="nav-link">Música</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- ESCENARIO INTERACTIVO DE LA ENTRADA AL ESTUDIO -->
+    <div class="stage-container" id="stageContainer">
+
+        <!-- FOTOGRAFÍA DE FONDO (CONTROL ROOM Y PUERTA) -->
+        <div class="studio-background" id="studioBg"></div>
+
+        <!-- HOJAS DE CRISTAL DE LA PUERTA (IZQUIERDA Y DERECHA) -->
+        <div class="door-leaf door-leaf-left" id="doorLeft"></div>
+        <div class="door-leaf door-leaf-right" id="doorRight"></div>
+
+        <!-- RÓTULO LUMINOSO SUPERIOR -->
+        <div class="studio-marquee-glow" id="marqueeGlow">
+            <span class="marquee-tag">Control Room & Mastering Suite</span>
+        </div>
+
+        <!-- BOTÓN CENTRAL TÁCTIL "PUSH" -->
+        <div class="push-wrapper" id="pushWrapper">
+            <button class="btn-push" id="btnPush" onclick="enterStudio()" aria-label="Entrar al estudio Khem Aura Records">
+                <span class="push-text">PUSH</span>
+                <span class="push-subtext">TO ENTER</span>
+            </button>
+            <div>
+                <span class="push-hint">Toca para abrir las puertas del estudio</span>
+            </div>
+        </div>
+
+        <!-- CONTENIDO INTERIOR: SALA DE AUDICIÓN & ARCHIVO DISCOGRÁFICO -->
+        <div class="vault-content" id="vaultContent">
+            
+            <button class="btn-back-door" onclick="exitStudio()">
+                ← Volver a la puerta del estudio
+            </button>
+
+            <header class="vault-header">
+                <div class="vault-seal">
+                    <span>✦</span> Khem Aura Records <span>✦</span>
+                </div>
+                <h1 class="vault-title">Archivo Discográfico <span>Oficial</span></h1>
+                <p class="vault-desc">
+                    Colección máster de las obras completas de The Research Band. Grabación analógica, arquitectura melódica sin límites y masterización de autor.
+                </p>
+                <div class="vault-author-badge">
+                    Dirección musical, guion y composición original: Eduardo Ramírez de Cartagena
+                </div>
+            </header>
+
+            <!-- LOS 4 DISCOS OFICIALES -->
+            <div class="albums-grid">
+
+                <!-- 1. JAZZ 1: ONE THOUSAND OF COLOUR NOTES -->
+                <div class="album-card">
+                    <div class="album-genre">Jazz Fusion I · 2026</div>
+                    
+                    <div class="cover-vinyl-container">
+                        <img src="assets/portada_jazz.png" alt="One Thousand of Colour Notes" class="cover-art">
+                        <div class="vinyl-disc">
+                            <div class="vinyl-label">JAZZ 1<br>TRBAND</div>
+                        </div>
+                    </div>
+
+                    <h2 class="album-name">One Thousand of Colour Notes</h2>
+                    <p class="album-details">
+                        Exploración jazzística contemporánea, improvisación orgánica y riqueza tímbrica instrumental.
+                    </p>
+
+                    <div class="album-actions">
+                        <a href="one_thousand_full_album.html" class="btn-action gold-main">
+                            <span>🎧</span> Reproductor LP
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. JAZZ 2: CUT THE ROLL & JAZZROCK -->
+                <div class="album-card">
+                    <div class="album-genre">Jazz-Rock II · 2026</div>
+
+                    <div class="cover-vinyl-container">
+                        <img src="assets/portada_cut the roll and jazzrock.png" alt="Cut the Roll & JazzRock" class="cover-art">
+                        <div class="vinyl-disc">
+                            <div class="vinyl-label">JAZZ 2<br>TRBAND</div>
+                        </div>
+                    </div>
+
+                    <h2 class="album-name">Cut the Roll & JazzRock</h2>
+                    <p class="album-details">
+                        Pulsión rítmica sincopada, funk cinemático y virtuosismo eléctrico de alta precisión analógica.
+                    </p>
+
+                    <div class="album-actions">
+                        <a href="jazzrock_full_album.html" class="btn-action gold-main">
+                            <span>🎧</span> Reproductor LP
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. FUGA 2026 -->
+                <div class="album-card">
+                    <div class="album-genre">Jazz-Rock / Pop-Rock · 2026</div>
+
+                    <div class="cover-vinyl-container">
+                        <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="Fuga 2026" class="cover-art">
+                        <div class="vinyl-disc">
+                            <div class="vinyl-label">FUGA<br>2026</div>
+                        </div>
+                    </div>
+
+                    <h2 class="album-name">FUGA 2026</h2>
+                    <p class="album-details">
+                        Temas creados y grabados en 1987, con nuevos arreglos al estilo Jazz-Rock de 2026 del grupo.
+                    </p>
+
+                    <div class="album-actions">
+                        <a href="fuga_2026_full_album.html" class="btn-action gold-main">
+                            <span>🎧</span> Álbum Completo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. EL NUEVO DISCO: 千里之行 始于足下 (TAO) -->
+                <div class="album-card highlight-tao">
+                    <div class="card-ribbon">NUEVO LP</div>
+                    <div class="album-genre">New Journey-2026</div>
+
+                    <div class="cover-vinyl-container">
+                        <img src="assets/img/portada_a_journey_of_a_thousand_miles.jpg" alt="千里之行 始于足下 - Tao" class="cover-art">
+                        <div class="vinyl-disc">
+                            <div class="vinyl-label">TAO LP<br>14 TRACKS</div>
+                        </div>
+                    </div>
+
+                    <h2 class="album-name">千里之行 始于足下</h2>
+                    <p class="album-details">
+                        <strong>A Journey of a Thousand Miles.</strong> 14 cortes oficiales (8 cantados y 6 instrumentales). Formación: TRBAND + nuevo miembro: Mei-Ling Zhou (Erhu, Guzheng & Flauta Dizi).
+                    </p>
+
+                    <div class="album-actions">
+                        <a href="tocadiscos_virtual_tao.html" class="btn-action gold-main">
+                            <span>💿</span> Tocadiscos Virtual LP
+                        </a>
+                        <a href="ebook_tao_8caras.html" class="btn-action outline-gold">
+                            <span>📖</span> Dossier & Libreto Oficial
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SCRIPT DE INTERACCIÓN Y AUDIO NATIVO DE ESTUDIO -->
+    <script>
+        function playStudioAirlockSound() {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const ctx = new AudioContext();
+
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(320, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.08);
+                gain.gain.setValueAtTime(0.3, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.09);
+
+                const bufferSize = ctx.sampleRate * 0.4;
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = (Math.random() * 2 - 1) * 0.05;
+                }
+                const noise = ctx.createBufferSource();
+                noise.buffer = buffer;
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(800, ctx.currentTime);
+                filter.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.35);
+
+                const noiseGain = ctx.createGain();
+                noiseGain.gain.setValueAtTime(0.15, ctx.currentTime);
+                noiseGain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.35);
+
+                noise.connect(filter);
+                filter.connect(noiseGain);
+                noiseGain.connect(ctx.destination);
+                noise.start(ctx.currentTime + 0.03);
+            } catch (e) {
+                // Audio no bloqueante
+            }
+        }
+
+        function enterStudio(playSound = true) {
+            if (playSound) playStudioAirlockSound();
+            const stage = document.getElementById('stageContainer');
+            const bg = document.getElementById('studioBg');
+
+            stage.classList.add('doors-open');
+            bg.classList.add('zoomed-in');
+            sessionStorage.setItem('khemStudioOpen', 'true');
+        }
+
+        function exitStudio() {
+            playStudioAirlockSound();
+            const stage = document.getElementById('stageContainer');
+            const bg = document.getElementById('studioBg');
+
+            stage.classList.remove('doors-open');
+            bg.classList.remove('zoomed-in');
+            sessionStorage.removeItem('khemStudioOpen');
+            // Limpiar hash de la URL sin recargar
+            if (window.location.hash) {
+                history.replaceState(null, null, window.location.pathname + window.location.search);
+            }
+        }
+
+        // Si se regresa de escuchar un disco (#studio, ?open=1 o estado previo en sesión)
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#studio' || window.location.search.includes('open=1') || sessionStorage.getItem('khemStudioOpen') === 'true') {
+                enterStudio(false);
+            }
+        });
+    </script>
+</body>
+</html>
