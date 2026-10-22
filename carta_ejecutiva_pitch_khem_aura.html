@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khem Aura Records — Executive Pitch & Licensing One-Sheet</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0a0d14;
+      --card-bg: rgba(18, 23, 33, 0.85);
+      --gold: #d4af37;
+      --gold-light: #f5e6a3;
+      --cinnabar: #9e2a2b;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border-soft: rgba(212, 175, 55, 0.22);
+      --border-accent: rgba(212, 175, 55, 0.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Lora', Georgia, serif;
+      line-height: 1.7;
+      padding: 2.5rem 1rem 5rem;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(158, 42, 43, 0.08) 0%, transparent 50%);
+    }
+
+    .one-sheet-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 3.5rem 3rem;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    /* HEADER */
+    .sheet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--border-soft);
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .brand-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .seal-box {
+      width: 44px;
+      height: 44px;
+      background: var(--cinnabar);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      border-radius: 6px;
+      border: 1px solid var(--gold);
+      box-shadow: 0 0 15px rgba(158, 42, 43, 0.4);
+    }
+
+    .btn-print {
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--border-accent);
+      color: var(--gold-light);
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-print:hover {
+      background: var(--gold);
+      color: #0a0d14;
+      font-weight: 700;
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+    }
+
+    /* PROJECT HERO */
+    .project-hero {
+      margin-bottom: 2.5rem;
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+
+    .hero-chinese {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 2.2rem;
+      color: var(--gold-light);
+      letter-spacing: 4px;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 4px 16px;
+      border-radius: 20px;
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid var(--border-soft);
+      margin-top: 0.6rem;
+    }
+
+    /* SECCIONES EDITORIALES */
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      margin: 2rem 0 0.8rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border-soft);
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #cbd5e1;
+      font-size: 0.96rem;
+    }
+
+    p strong {
+      color: #fff;
+    }
+
+    .quote-card {
+      border-left: 3px solid var(--gold);
+      padding: 0.8rem 1.2rem;
+      background: rgba(212, 175, 55, 0.05);
+      font-style: italic;
+      color: var(--gold-light);
+      margin: 1.2rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.95rem;
+    }
+
+    /* TRACKLIST GRID */
+    .track-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 20px;
+      margin: 1.5rem 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+    }
+
+    .track-column-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-soft);
+      margin-bottom: 8px;
+    }
+
+    .track-cell {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.07);
+      color: #94a3b8;
+    }
+
+    .track-cell strong {
+      color: #f1f5f9;
+      font-weight: 500;
+    }
+
+    .track-cell .badge-mini {
+      font-size: 0.65rem;
+      color: #38bdf8;
+      margin-left: 4px;
+    }
+
+    /* HIGHLIGHT CARDS */
+    .features-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 1.5rem 0;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      font-size: 0.88rem;
+    }
+
+    .feature-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.5px;
+    }
+
+    .feature-card p {
+      font-size: 0.84rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+      color: #94a3b8;
+    }
+
+    /* FOOTER & BUTTONS */
+    .sheet-footer {
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 2px solid var(--border-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .links-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 1rem;
+    }
+
+    .btn-link {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(158, 42, 43, 0.35));
+      border: 1px solid var(--gold);
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-link:hover {
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+      background: var(--gold);
+      color: #0a0d14;
+      font-weight: 700;
+    }
+
+    @media print {
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0;
+      }
+      .one-sheet-container {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 1.5rem !important;
+        background: #fff !important;
+      }
+      .btn-print, .links-group { display: none !important; }
+      .brand-title, .hero-title, .hero-chinese, h2, .feature-card h3 { color: #000 !important; }
+      p, .track-cell, .feature-card p { color: #333 !important; }
+      .feature-card, .project-hero { border: 1px solid #ccc !important; background: #fafafa !important; }
+    }
+
+    @media (max-width: 768px) {
+      .one-sheet-container { padding: 2rem 1.5rem; }
+      .sheet-header { flex-direction: column; gap: 1rem; }
+      .track-grid, .features-list { grid-template-columns: 1fr; }
+      .sheet-footer { flex-direction: column; text-align: center; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="one-sheet-container">
+
+    <!-- HEADER -->
+    <header class="sheet-header">
+      <div class="brand-title">
+        <div class="seal-box">道</div>
+        <div>
+          <span>KHEM AURA RECORDS</span>
+          <span style="display:block; font-size:0.65rem; color:var(--text-muted); font-family:'Montserrat',sans-serif; letter-spacing:1.5px; font-weight:500;">
+            EXECUTIVE PITCH & LICENSING ONE-SHEET
+          </span>
+        </div>
+      </div>
+
+      <button class="btn-print" onclick="window.print()">
+        <span>🖨️ Print / Save PDF</span>
+      </button>
+    </header>
+
+    <!-- PROJECT HERO -->
+    <section class="project-hero">
+      <div class="hero-chinese">千里之行 始于足下</div>
+      <h1 class="hero-title">A Journey of a Thousand Miles Begins with a Single Step</h1>
+      <div style="font-family:'Lora',serif; font-style:italic; color:#cbd5e1; font-size:0.95rem;">
+        Concept Double LP Album • The Research Band (TRBAND)
+      </div>
+      <div class="hero-badge">
+        14 Master Movements • 66 Minutes • Audiophile Production 2026
+      </div>
+    </section>
+
+    <!-- EXECUTIVE PROFILE -->
+    <section>
+      <h2>Executive Profile & Creator</h2>
+      <p>
+        <strong>Eduardo Ramírez de Cartagena</strong> is a prominent veteran composer, arranger, and multi-instrumentalist from Madrid, Spain. He is a historic co-founder of the renowned group <strong>CADILLAC</strong> (representing Spain at Eurovision 1986, earning multiple Gold and Platinum records, and touring extensively across Europe and Latin America). 
+      </p>
+      <p>
+        Currently leading <strong>The Research Band (TRBAND)</strong>, Eduardo presents this masterwork under his own independent label imprint, <strong>Khem Aura Records</strong>. All compositions, recordings, and publishing rights are <strong>100% owned, free of third-party encumbrances</strong>, and registered with the Spanish Copyright Society (<strong>SGAE Member Nº 29.751</strong>).
+      </p>
+    </section>
+
+    <!-- ARTISTIC CONCEPT -->
+    <section>
+      <h2>Artistic Architecture & Concept</h2>
+      <div class="quote-card">
+        «A tree as big as a man’s embrace grows from a tiny sprout. A terrace nine stories high rises from a basket of earth. A journey of a thousand miles begins with a single step.» — Lao Tzu (Tao Te Ching, Chapter 64)
+      </div>
+      <p>
+        This album bridges two profound musical traditions:
+      </p>
+      <ul style="font-size:0.92rem; color:#cbd5e1; margin-left:1.5rem; margin-bottom:1rem; line-height:1.7;">
+        <li><strong>European 1970s Melodic Progressive Heritage:</strong> Drawing from the lyrical, noble tradition of <em>Camel</em> (*Rain Dances*, *Breathless*, *The Snow Goose*), <em>Alan Parsons</em>, and <em>Peter Gabriel</em>, characterized by pastoral woodwinds, melodic fretless and analog basses, and expansive harmonic vocal polyphonies.</li>
+        <li><strong>Classical Eastern Acoustic Timbre:</strong> Authentic master performances on the 21-string <em>Guzheng</em> (featuring intricate left-hand pitch-bending and modal pentatonics), the bamboo <em>Dizi</em> flute, and the expressive <em>Erhu</em>.</li>
+        <li><strong>Contemporary Electronic Foundation:</strong> Pristine mid-tempo syncopations, tight sub-bass grooves, and ambient spatial reverbs designed for state-of-the-art audiophile listening.</li>
+      </ul>
+    </section>
+
+    <!-- TRACKLIST -->
+    <section>
+      <h2>Consolidated Tracklist (14 Movements)</h2>
+      <div class="track-grid">
+        <!-- SIDE A -->
+        <div>
+          <div class="track-column-title">Side A • The Awakening (31:24)</div>
+          <div class="track-cell"><span>01. Dreams and Other Things (梦境与余事) <span class="badge-mini">[Vocalise]</span></span><strong>04:37</strong></div>
+          <div class="track-cell"><span>02. Keep a Place for You (为你留一席地)</span><strong>04:54</strong></div>
+          <div class="track-cell"><span>03. Oriental Pagoda (东方宝塔) <span class="badge-mini">[Inst. 1]</span></span><strong>03:53</strong></div>
+          <div class="track-cell"><span>04. Hold the Measure (把握分寸)</span><strong>03:51</strong></div>
+          <div class="track-cell"><span>05. Paper Lantern River (纸灯之河)</span><strong>04:22</strong></div>
+          <div class="track-cell"><span>06. Yangtze River (长江的温存) <span class="badge-mini">[Inst. 2]</span></span><strong>04:11</strong></div>
+          <div class="track-cell"><span>07. I Remain (我依然在)</span><strong>06:16</strong></div>
+        </div>
+
+        <!-- SIDE B -->
+        <div>
+          <div class="track-column-title">Side B • The Transcendence (34:47)</div>
+          <div class="track-cell"><span>08. Angular A Minor (棱角A小调) <span class="badge-mini">[Vocalise]</span></span><strong>04:11</strong></div>
+          <div class="track-cell"><span>09. Spanish Misty Guzheng (西班牙迷雾古筝) <span class="badge-mini">[Inst. 3]</span></span><strong>04:27</strong></div>
+          <div class="track-cell"><span>10. Li Ann, My Sunshine (丽安，我的阳光)</span><strong>05:33</strong></div>
+          <div class="track-cell"><span>11. Pause Before the Rain (雨前伫足)</span><strong>05:41</strong></div>
+          <div class="track-cell"><span>12. Where the Pieces Fell (碎片散落之处)</span><strong>04:53</strong></div>
+          <div class="track-cell"><span>13. The Turning of the Tide (潮汐回转)</span><strong>05:50</strong></div>
+          <div class="track-cell"><span>14. A Single Spanish Step (西班牙一步) <span class="badge-mini">[Inst. 4]</span></span><strong>03:32</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMERCIAL & LICENSING OPPORTUNITIES -->
+    <section>
+      <h2>Licensing & Distribution Opportunities</h2>
+      <div class="features-list">
+        <div class="feature-card">
+          <h3>Streaming & Regional Distribution</h3>
+          <p>Territorial exclusivity available for Greater China (NetEase Cloud Music, Tencent Music TME, Taihe) and worldwide DSP placement in Worldbeat and Progressive crossover playlists.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Collector’s Vinyl Edition</h3>
+          <p>Complete master ready for 180g Frosted Clear Vinyl double LP pressing with deluxe gatefold artwork.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Film, TV & Game Sync</h3>
+          <p>Cinematic compositions perfectly suited for historical drama, epic series (Wuxia / Xianxia), nature documentaries, and high-end video game soundtracks.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Interactive Web Turntable & eBook</h3>
+          <p>Comes bundled with a proprietary Virtual Vinyl Turntable and an 8-page interactive eBook flipbook for next-generation digital marketing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER & DIRECT CONTACT -->
+    <footer class="sheet-footer">
+      <div>
+        <strong>Khem Aura Records</strong> • Official Independent Label<br>
+        Principal & Master Rights Holder: <strong>Eduardo Ramírez de Cartagena</strong><br>
+        SGAE Registered Member Nº 29.751 • Madrid, Spain<br>
+        Web Portal: <strong>khem.es</strong> / TRBANDMUSIC
+      </div>
+
+      <div>
+        <div class="links-group">
+          <a href="tocadiscos_virtual_tao.html" target="_blank" class="btn-link">
+            <span>📻 Virtual Turntable</span>
+          </a>
+          <a href="ebook_tao_8caras.html" target="_blank" class="btn-link">
+            <span>📖 8-Page eBook</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
