@@ -45,7 +45,7 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 | **07** | I Remain | 我依然在 | Vocal | A | 06:16 | Epic Progressive Rock (Fin Cara A) | Eduardo Ramírez de Cartagena (100%) |
 | **08** | Angular A Minor | 棱角A小调 | Vocalise / Worldbeat | B | 04:11 | Worldbeat / New Age / Ambient Étnico | Eduardo Ramírez de Cartagena (100%) |
 | **09** | Spanish Misty Guzheng | 西班牙迷雾古筝 | **Instrumental 3** | B | 04:27 | Chillout / Spanish-Oriental Fusion | Eduardo Ramírez de Cartagena (100%) |
-| **10** | Li Ann, My Sunshine | 丽安，我的阳光 | Vocal | B | 05:33 | Acoustic 12-String / Lyrical Folk-Prog | Eduardo Ramírez de Cartagena (100%) |
+| **10** | Li Ann, My Sunshine | 丽安，我的阳光 | Vocal | B | 05:33 | Sophisti-Pop / Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
 | **11** | Pause Before the Rain | 雨前伫足 | Vocal | B | 05:41 | Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
 | **12** | Where the Pieces Fell | 碎片散落之处 | Vocal | B | 04:53 | Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
 | **13** | The Turning of the Tide | 潮汐回转 | Vocal | B | 05:50 | Art-Pop / Rock Progresivo Lírico | Eduardo Ramírez de Cartagena (100%) |
@@ -152,11 +152,13 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 ---
 
 ### SURCO 10 — *Li Ann, My Sunshine* (丽安，我的阳光)
-- **Rol en el álbum:** El remanso luminoso y tierno de la Cara B.
-- **Estilo:** Lyrical Folk-Prog acústico.
-- **Análisis por capas:**
-  - **Instrumento central:** Guitarra acústica de 12 cuerdas afinada en tono brillante, dialogando en terceras con la cítara.
-  - **Flauta Dizi:** Frases alegres con trinos de ave que iluminan la melodía vocal, transmitiendo pureza y devoción.
+- **Género & Estilo:** Sophisti-Pop / Art-Pop / Crossover Progresivo, en un registro mucho más luminoso y extrovertido, recordando la faceta más optimista y melódica de la gran escuela sinfónica europea en su etapa de transición pop (en la estela melódica de *Breathless*), fusionada con un tratamiento coral y rítmico que evoca el espíritu pop de The Alan Parsons Project o Peter Gabriel.
+- **Análisis Musical por Secciones y Elementos:**
+  - **Introducción y arranque:** Comienza con una breve vocalización etérea que rápidamente da paso a un estallido dinámico: una base electrónica a medio tiempo animada por palmas marcadas, un bombo rotundo y un groove de bajo sintetizado muy melódico y caminante. La flauta tradicional entra inmediatamente exponiendo el gancho temático con giros melódicos ágiles y festivos, estableciendo una tonalidad mayor luminosa.
+  - **Versos (Narrativa cercana y pulso bailable):** La voz masculina principal canta en su tesitura media habitual con una cadencia más animada y rítmica. La instrumentación en la estrofa se despeja ligeramente para que el bombo y el bajo marquen el paso, acompañada por pequeños acordes de teclado y respuestas sutiles de la percusión.
+  - **Estribillos (Explosión coral y fuerza pop):** Al llegar al coro (*"You are my sunshine, you pull me through..."*), la canción alcanza su punto de máxima apertura: armonización vocal masiva que combina la voz masculina con coros y respuestas femeninas en registros altos que amplían el estéreo y dotan al estribillo de un tono eufórico y celebratorio arropado por sintetizadores y flauta al unísono.
+  - **El diálogo de la flauta:** La flauta no actúa como un mero adorno; es la contraparte melódica constante de la voz con arabescos rápidos, trinos y respuestas constantes a cada frase cantada, aportando textura acústica y orgánica que equilibra el pulso electrónico.
+  - **Puente y clímax final:** Alrededor del minuto 2:10 se abre un puente (*"If the world goes cold..."*) donde la percusión adopta acentos más sincopados y las voces se contestan en un formato de llamada y respuesta antes de volver al estribillo. El tema concluye en un clímax donde los coros repiten el estribillo con total entrega dinámica, cerrando finalmente en una caída suave donde la voz susurra las últimas notas sobre la reverberación y el eco de los sintetizadores.
 
 ---
 
