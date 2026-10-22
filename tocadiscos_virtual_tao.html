@@ -785,6 +785,38 @@
       color: var(--gold-tao);
     }
 
+    .side-header {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-tao);
+      background: rgba(229, 192, 123, 0.08);
+      border-left: 3px solid var(--gold-tao);
+      padding: 0.4rem 0.65rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0.35rem;
+      border-radius: 0 6px 6px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .track-badge-inst {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      margin-left: 0.4rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
     /* NOTIFICACIÓN TOAST */
     .toast-msg {
       position: fixed;
@@ -864,7 +896,7 @@
             <!-- GALLETA CENTRAL -->
             <div class="center-label">
               <div class="center-label-bg" id="centerLabelBg"
-                style="background-image: url('assets/img/portada_a_journey_of_a_thousand_miles.jpg');"></div>
+                style="background-image: url('assets/img/portada_el_viaje_de_mil_millas_lp.png'), url('assets/img/portada_a_journey_of_a_thousand_miles.jpg');"></div>
               <div class="center-label-content">
                 <div class="center-label-chinese">千里之行</div>
                 <div class="center-label-band">TRBAND</div>
@@ -951,8 +983,8 @@
       <!-- TARJETA DESPLEGABLE DE LIBRETO (LINER NOTES DE LA CANCIÓN) -->
       <article class="liner-notes-card" id="linerNotesCard">
         <div class="card-top">
-          <img src="assets/img/portada_a_journey_of_a_thousand_miles.jpg" class="mini-cover" alt="Portada Piedra Lao-Tse"
-            onerror="this.src='banner_opcion1_2560x1440.png'">
+          <img src="assets/img/portada_el_viaje_de_mil_millas_lp.png" class="mini-cover" alt="Portada Piedra Lao-Tse"
+            onerror="this.src='assets/img/portada_a_journey_of_a_thousand_miles.jpg'">
           <div class="card-heading">
             <span class="card-track-badge" id="cardTrackBadge">Surco #1</span>
             <h2 class="card-track-title" id="cardTrackTitle">Dreams and Other Things</h2>
@@ -986,177 +1018,208 @@
   <audio id="audioEngine" preload="metadata"></audio>
 
   <script>
-    // LOS 14 TEMAS CON TÍTULOS BILINGÜES Y SINOPSIS MUSICALES
+    // LOS 14 TEMAS EQUILIBRADOS EN CARA A Y CARA B CON INSTRUMENTALES ALTERNADAS
     const ALBUM_TRACKS = [
+      // ====== CARA A (SURCOS 1 A 7) ======
       {
         id: 1,
+        side: "A",
+        isInstrumental: false,
         title: "Dreams and Other Things",
         chinese: "梦境与余事 (Mèngjìng yǔ yúshì)",
-        audioUrl: "assets/audio_tao/01_dreams_and_other_things.mp3",
+        audioUrl: "assets/audio_tao/Dreams and other things (instrumental).mp3",
         radiusPercent: 96,
         armAngle: 8.0,
         synopsis: `
-          <p><strong>El Single Oficial:</strong> Es la pieza con mayor ADN puro de <strong>King Crimson</strong> del álbum. Combina la disciplina rítmica y los arpegios cruzados de guitarra eléctrica con métricas angulares en compás compuesto.</p>
+          <p><strong>El Single Oficial (Apertura Cara A):</strong> La pieza con mayor ADN puro de <strong>King Crimson</strong> del álbum. Combina la disciplina rítmica y los arpegios cruzados de guitarra eléctrica con métricas angulares en compás compuesto.</p>
           <p><strong>Estructura & Capas:</strong> Abre con un golpe seco de batería fusion y bajo fretless. Las guitarras entrelazadas crean un laberinto armónico moderno mientras la voz de barítono desgrana una melodía hipnótica y directa. El solo de guitarra destaca por su mordisco rítmico y afinación pura sin sobrecarga de efectos.</p>
         `
       },
       {
         id: 2,
-        title: "Oriental Pagoda",
-        chinese: "东方宝塔 (Dōngfāng bǎotǎ)",
-        audioUrl: "assets/audio_tao/02_oriental_pagoda.mp3",
+        side: "A",
+        isInstrumental: false,
+        title: "Keep a Place for You",
+        chinese: "为你留一席地 (Wèi nǐ liú yī xí dì)",
+        audioUrl: "assets/audio_tao/Keep a Place for You.mp3",
         radiusPercent: 92,
         armAngle: 9.6,
         synopsis: `
-          <p><strong>Estilo & Atmósfera:</strong> Esta pieza se enmarca dentro del <em>Worldbeat / New Age / Ambient Étnico</em>, con fuertes influencias de la música tradicional de Asia oriental fusionada con producción electrónica contemporánea. Recuerda a trabajos de <strong>Kitaro, Oliver Shanti & Friends, Enigma o Deep Forest</strong>.</p>
-          <p><strong>Análisis por capas:</strong></p>
-          <p>• <strong>Intro:</strong> Base sintética cálida (pad atmosférico modal) y cítara asiática (<em>guzheng/koto</em>) con arpegios pentatónicos, pitch bends y adornos tradicionales.</p>
-          <p>• <strong>Voz:</strong> Vocalizaciones melismáticas etéreas femeninas (aahs y quejíos) flotando como un instrumento tridimensional con reverb.</p>
-          <p>• <strong>Base Rítmica:</strong> Percusión electrónica a tempo medio-lento estilo trip-hop/downtempo, con bombo profundo y rimshot seco y reverberado.</p>
-          <p>• <strong>Desarrollo:</strong> La flauta de bambú (<em>dizi/shakuhachi</em>) contrapuntea la voz en pasajes agudos, intensificando la carga emocional antes del fade out.</p>
-        `
-      },
-      {
-        id: 3,
-        title: "Keep a Place for You",
-        chinese: "为你留一席地 (Wèi nǐ liú yī xí dì)",
-        audioUrl: "assets/audio_tao/03_keep_a_place_for_you.mp3",
-        radiusPercent: 88,
-        armAngle: 11.2,
-        synopsis: `
-          <p><strong>Carácter:</strong> Balada de art-rock melancólico donde el calor del Fender Rhodes y un bajo fretless cantable sostienen un diálogo íntimo sobre la lealtad y el cobijo.</p>
+          <p><strong>Carácter & Melodía:</strong> Balada de art-rock melancólico donde el calor del Fender Rhodes y un bajo fretless cantable sostienen un diálogo íntimo sobre la lealtad y el cobijo.</p>
           <p><strong>Arreglo:</strong> Destacan los acordes suspendidos de piano eléctrico y las intervenciones del erhu frotado con delicadeza, creando un puente entre la tradición camerística occidental y el lirismo oriental.</p>
         `
       },
       {
+        id: 3,
+        side: "A",
+        isInstrumental: true,
+        title: "Oriental Pagoda",
+        chinese: "东方宝塔 (Dōngfāng bǎotǎ)",
+        audioUrl: "assets/audio_tao/Oriental pagoda (instrumental).mp3",
+        radiusPercent: 88,
+        armAngle: 11.2,
+        synopsis: `
+          <p><strong>1ª Instrumental — Worldbeat / Ambient Étnico:</strong> Fuertes influencias de la música tradicional de Asia oriental fusionada con producción electrónica contemporánea. Recuerda a <strong>Kitaro, Oliver Shanti & Friends, Enigma y Deep Forest</strong>.</p>
+          <p><strong>Análisis por capas:</strong></p>
+          <p>• <strong>Intro:</strong> Pad atmosférico cálido modal y cítara china (<em>guzheng/koto</em>) con arpegios pentatónicos y pitch bends tradicionales.</p>
+          <p>• <strong>Voz Instrumentalizada:</strong> Vocalizaciones melismáticas etéreas como instrumento tridimensional con reverb.</p>
+          <p>• <strong>Ritmo:</strong> Base trip-hop / downtempo a tempo medio-lento, bombo profundo y rimshot seco.</p>
+          <p>• <strong>Desarrollo:</strong> La flauta de bambú (<em>dizi/shakuhachi</em>) intensifica la emoción melódica antes de fundirse en el aire.</p>
+        `
+      },
+      {
         id: 4,
+        side: "A",
+        isInstrumental: false,
         title: "Hold the Measure",
         chinese: "把握分寸 (Bǎwò fēncùn)",
-        audioUrl: "assets/audio_tao/04_hold_the_measure.mp3",
+        audioUrl: "assets/audio_tao/Hold the Measure.mp3",
         radiusPercent: 84,
         armAngle: 12.8,
         synopsis: `
-          <p><strong>Concepto:</strong> Inspirado en la idea taoísta del equilibrio y la mesura. Una pieza de ritmo sincopado a 140 BPM con protagonismo del Chapman Stick y figuras de bajo en slap suave.</p>
+          <p><strong>Concepto Taoísta:</strong> Inspirado en la idea de Lao-Tse sobre el equilibrio y la mesura. Una pieza de ritmo sincopado a 140 BPM con protagonismo del Chapman Stick y figuras de bajo en slap suave.</p>
           <p><strong>Detalle tímbrico:</strong> Los metales amortiguados (brass pads) marcan los acentos en contratiempo mientras una guitarra con sutil chorus dibuja patrones minimalistas repetitivos.</p>
         `
       },
       {
         id: 5,
+        side: "A",
+        isInstrumental: false,
         title: "Paper Lantern River",
         chinese: "纸灯之河 (Zhǐdēng zhī hé)",
-        audioUrl: "assets/audio_tao/05_paper_lantern_river.mp3",
+        audioUrl: "assets/audio_tao/Paper Lantern River.mp3",
         radiusPercent: 80,
         armAngle: 14.4,
         synopsis: `
-          <p><strong>Evocación poética:</strong> Los farolillos de papel flotando en la noche sobre las aguas del río. El arpa guzheng y la flauta de bambú crean ondas circulares sobre un lecho de sintetizadores analógicos cálidos.</p>
+          <p><strong>Evocación Poética:</strong> Los farolillos de papel flotando en la noche sobre las aguas del río. El arpa guzheng y la flauta de bambú crean ondas circulares sobre un lecho de sintetizadores analógicos cálidos.</p>
           <p><strong>Evolución:</strong> A mitad de tema la percusión se anima con timbales y platos salpicados, emulando la corriente del agua que gana fuerza hacia el estuario.</p>
         `
       },
       {
         id: 6,
-        title: "I Remain",
-        chinese: "我依然在 (Wǒ yīrán zài)",
-        audioUrl: "assets/audio_tao/06_i_remain.mp3",
+        side: "A",
+        isInstrumental: true,
+        title: "In the Warmth of the Yangtze River",
+        chinese: "长江的温存 (Chángjiāng de wēncún)",
+        audioUrl: "assets/audio_tao/In the warmth of the Yangtze River (instrumental).mp3",
         radiusPercent: 76,
         armAngle: 16.0,
         synopsis: `
-          <p><strong>Resiliencia & Fuerza:</strong> Un corte sobrio y firme. Un bajo pedal continuo transmite la sensación de permanencia frente a los cambios del mundo.</p>
-          <p><strong>Voz & Cello:</strong> La melodía vocal barítono se entrelaza con líneas graves de cuerda frotada, rematando en un solo de guitarra eléctrica con sustain infinito.</p>
+          <p><strong>2ª Instrumental — El Gran Fresco del Yangtsé:</strong> Obra cumbre instrumental de casi cinco minutos que recrea la inmensidad del gran río madre. Líneas de bajo profundas y cálidas emulan el cauce caudaloso.</p>
+          <p><strong>Fusión Sonora:</strong> La cítara tradicional y el erhu se funden con guitarras de rock progresivo y un pulso de batería jazz-funk elegante a 140 BPM.</p>
         `
       },
       {
         id: 7,
-        title: "Pause Before the Rain",
-        chinese: "雨前伫足 (Yǔ qián zhùzú)",
-        audioUrl: "assets/audio_tao/07_pause_before_the_rain.mp3",
+        side: "A",
+        isInstrumental: false,
+        title: "I Remain",
+        chinese: "我依然在 (Wǒ yīrán zài)",
+        audioUrl: "assets/audio_tao/I Remain.mp3",
         radiusPercent: 72,
         armAngle: 17.6,
         synopsis: `
-          <p><strong>La calma que precede a la tormenta:</strong> Arpegios lentos de piano de cola expuesto, acompañados de sutiles efectos de viento de bambú y campanas de templo lejanas.</p>
-          <p><strong>Tensión dramática:</strong> La armonía modula lentamente de tonalidades mayores a menores, presagiando el estallido rítmico del siguiente corte.</p>
+          <p><strong>Clímax de Cierre de la Cara A:</strong> Corte sobrio y firme de gran resiliencia y poder. Un bajo pedal continuo transmite la sensación de permanencia frente a los cambios del mundo.</p>
+          <p><strong>Voz & Cello:</strong> La melodía vocal barítono se entrelaza con líneas graves de cuerda frotada, rematando en un solo de guitarra eléctrica con sustain infinito.</p>
         `
       },
+
+      // ====== CARA B (SURCOS 8 A 14) ======
       {
         id: 8,
+        side: "B",
+        isInstrumental: false,
         title: "Angular A Minor",
         chinese: "棱角A小调 (Léngjiǎo A xiǎodiào)",
-        audioUrl: "assets/audio_tao/08_angular_a_minor.mp3",
+        audioUrl: "assets/audio_tao/Angular A Minor.mp3",
         radiusPercent: 68,
         armAngle: 19.2,
         synopsis: `
-          <p><strong>Ejercicio de virtuosismo matemático:</strong> Construido en la tonalidad de La menor, explota los intervalos de cuarta y quinta disminuida tan característicos del sonido de Robert Fripp.</p>
-          <p><strong>Rítmica:</strong> Compases alternos de 5/8 y 7/8 donde la batería ejecuta polirritmias precisas con la caja y los toms, mientras el erhu asume un papel agresivo y afilado inusual.</p>
+          <p><strong>Apertura Eléctrica Cara B — Virtuosismo Matemático:</strong> Construido en la tonalidad de La menor, explota los intervalos de cuarta y quinta disminuida característicos del sonido de Robert Fripp.</p>
+          <p><strong>Rítmica Compleja:</strong> Compases alternos de 5/8 y 7/8 donde la batería ejecuta polirritmias precisas con la caja y los toms, mientras el erhu asume un papel agresivo y afilado inusual.</p>
         `
       },
       {
         id: 9,
-        title: "Where the Pieces Fell",
-        chinese: "碎片散落之处 (Suìpiàn sànluò zhī chù)",
-        audioUrl: "assets/audio_tao/09_where_the_pieces_fell.mp3",
+        side: "B",
+        isInstrumental: true,
+        title: "Spanish Misty Guzheng",
+        chinese: "西班牙迷雾古筝 (Xībānyá míwù gǔzhēng)",
+        audioUrl: "assets/audio_tao/Spanish Misty Guzheng (instrumental chillout).mp3",
         radiusPercent: 64,
         armAngle: 20.8,
+        synopsis: `
+          <p><strong>3ª Instrumental — Fusión Mediterránea-Oriental Chillout:</strong> La cítara tradicional china (<em>guzheng</em>) asume un rol solista protagónico ejecutando arpegios en cascada con resonancias modales españolas y melismas andaluces, envuelta en una atmósfera de bruma matutina y misterio.</p>
+          <p><strong>Color tímbrico & Dinámica:</strong> Abre con un colchón etéreo de cuerdas y armónicos de guitarra clásica española. La percusión entra de forma sutil con cajón flamenco y shakers orientales, mientras el bajo fretless sostiene una melodía hipnótica con glissandos suaves.</p>
+        `
+      },
+      {
+        id: 10,
+        side: "B",
+        isInstrumental: false,
+        title: "Li Ann, My Sunshine",
+        chinese: "丽安，我的阳光 (Lì'ān, wǒ de yángguāng)",
+        audioUrl: "assets/audio_tao/Li Ann, my sunshine.mp3",
+        radiusPercent: 60,
+        armAngle: 22.4,
+        synopsis: `
+          <p><strong>Luminosidad & Amor:</strong> El corte más tierno y brillante de la Cara B. El guzheng y la guitarra acústica de doce cuerdas dialogan en una tonalidad mayor radiante.</p>
+          <p><strong>Color tímbrico:</strong> La flauta dizi aporta trinos alegres que evocan la luz del sol abriéndose paso entre la niebla del río.</p>
+        `
+      },
+      {
+        id: 11,
+        side: "B",
+        isInstrumental: false,
+        title: "Pause Before the Rain",
+        chinese: "雨前伫足 (Yǔ qián zhùzú)",
+        audioUrl: "assets/audio_tao/Pause Before the Rain.mp3",
+        radiusPercent: 56,
+        armAngle: 24.0,
+        synopsis: `
+          <p><strong>La Calma que Precede a la Tormenta:</strong> Arpegios lentos de piano de cola expuesto, acompañados de sutiles efectos de viento de bambú y campanas de templo lejanas.</p>
+          <p><strong>Tensión Dramática:</strong> La armonía modula lentamente de tonalidades mayores a menores, preparando la ascensión épica final.</p>
+        `
+      },
+      {
+        id: 12,
+        side: "B",
+        isInstrumental: false,
+        title: "Where the Pieces Fell",
+        chinese: "碎片散落之处 (Suìpiàn sànluò zhī chù)",
+        audioUrl: "assets/audio_tao/Where the Pieces Fell.mp3",
+        radiusPercent: 52,
+        armAngle: 25.6,
         synopsis: `
           <p><strong>Reflexión & Deconstrucción:</strong> Tras la tensión métrica, el tema recoge los fragmentos melódicos en un tiempo medio espacioso con predominio del violín acústico y la armónica cromática secundaria.</p>
           <p><strong>Espacio acústico:</strong> Gran sensación de aire en la mezcla, permitiendo que cada nota vibre con naturalidad y decaiga en el silencio.</p>
         `
       },
       {
-        id: 10,
+        id: 13,
+        side: "B",
+        isInstrumental: false,
         title: "The Turning of the Tide",
         chinese: "潮汐回转 (Cháoxī huízhuǎn)",
-        audioUrl: "assets/audio_tao/10_the_turning_of_the_tide.mp3",
-        radiusPercent: 60,
-        armAngle: 22.4,
-        synopsis: `
-          <p><strong>El punto de inflexión:</strong> Una marea sonora que sube inexorablemente. Comienza con una línea repetitiva de Chapman Stick tappeado y se van sumando capas de sintetizador, órgano y percusión pesada.</p>
-          <p><strong>Clímax:</strong> Desemboca en un pasaje sinfónico con coros sin palabras que elevan la energía del álbum hacia su tramo culminante.</p>
-        `
-      },
-      {
-        id: 11,
-        title: "Li Ann, My Sunshine",
-        chinese: "丽安，我的阳光 (Lì'ān, wǒ de yángguāng)",
-        audioUrl: "assets/audio_tao/11_li_ann_my_sunshine.mp3",
-        radiusPercent: 56,
-        armAngle: 24.0,
-        synopsis: `
-          <p><strong>Dedicación Lírica:</strong> El tema más tierno y luminoso del disco. El guzheng y la guitarra acústica de doce cuerdas dialogan en una tonalidad mayor radiante.</p>
-          <p><strong>Color tímbrico:</strong> La flauta dizi aporta trinos alegres que evocan la luz del sol abriéndose paso entre la niebla matutina del río.</p>
-        `
-      },
-      {
-        id: 12,
-        title: "In the Warmth of the Yangtze River",
-        chinese: "长江的温存 (Chángjiāng de wēncún)",
-        audioUrl: "assets/audio_tao/12_in_the_warmth_of_the_yangtze_river.mp3",
-        radiusPercent: 52,
-        armAngle: 25.6,
-        synopsis: `
-          <p><strong>La gran corriente madre:</strong> Un fresco sonoro de casi cinco minutos que recrea la inmensidad del río Yangtsé. Líneas de bajo profundas y cálidas emulan el cauce caudaloso.</p>
-          <p><strong>Fusión sonora:</strong> La cítara tradicional y el erhu se funden con guitarras de rock progresivo y un pulso de batería jazz-funk elegante a 140 BPM.</p>
-        `
-      },
-      {
-        id: 13,
-        title: "Spanish Misty Guzheng",
-        chinese: "西班牙迷雾古筝 (Xībānyá míwù gǔzhēng)",
-        audioUrl: "assets/audio_tao/13_spanish_misty_guzheng.mp3",
+        audioUrl: "assets/audio_tao/The Turning of the Tide .mp3",
         radiusPercent: 48,
         armAngle: 27.2,
         synopsis: `
-          <p><strong>Fusión Mediterránea-Oriental:</strong> La cítara tradicional china (<em>guzheng</em>) asume un rol solista protagónico ejecutando arpegios en cascada con resonancias modales españolas y melismas andaluces, envuelta en una atmósfera de bruma matutina y misterio.</p>
-          <p><strong>Color tímbrico & Dinámica:</strong> Abre con un colchón etéreo de cuerdas y armónicos de guitarra clásica española. La percusión entra de forma sutil con cajón flamenco y shakers orientales, mientras el bajo fretless sostiene una melodía hipnótica con glissandos suaves.</p>
+          <p><strong>El Punto de Inflexión Sinfónico:</strong> Una marea sonora que sube inexorablemente. Comienza con una línea repetitiva de Chapman Stick tappeado y se van sumando capas de sintetizador, órgano y percusión pesada.</p>
+          <p><strong>Clímax:</strong> Desemboca en un pasaje sinfónico con coros sin palabras que elevan la energía del álbum hacia su gran desenlace.</p>
         `
       },
       {
         id: 14,
+        side: "B",
+        isInstrumental: true,
         title: "A Single Spanish Step",
         chinese: "西班牙一步 (Xībānyá yī bù)",
-        audioUrl: "assets/audio_tao/14_a_single_spanish_step.mp3",
+        audioUrl: "assets/audio_tao/A Single Spanish Step (instrumental).mp3",
         radiusPercent: 44,
         armAngle: 29.0,
         synopsis: `
-          <p><strong>El Gran Clímax Multicultural:</strong> El cierre apoteósico del álbum. Comienza con la mística oriental de Lao-Tse pero rápidamente vira hacia el flamenco andaluz con escalas frigias y ritmo arrebatador.</p>
+          <p><strong>4ª Instrumental — El Gran Clímax Multicultural del Álbum:</strong> El cierre apoteósico del disco. Comienza con la mística oriental de Lao-Tse pero rápidamente vira hacia el flamenco andaluz con escalas frigias y ritmo imparable.</p>
           <p><strong>Solo de Guitarra Brian May:</strong> La sección rítmica se bloquea en un compás imparable a 140 BPM sin frenazos ni cortes, permitiendo un solo de guitarras dobladas al estilo Queen que vuela por encima de la banda.</p>
           <p><strong>Coros Pop Estilo Beatles:</strong> Armonías vocales compactas y luminosas a tres voces (estilo <em>Abbey Road</em>) cantando "Oohs" y "Aahs" al frente, con guiños celtas e irlandeses en el violín. ¡Una fiesta progresiva sin fronteras!</p>
         `
@@ -1212,19 +1275,35 @@
       });
     }
 
-    // DIBUJAR LISTA DE 14 PISTAS EN EL PANEL LATERAL
+    // DIBUJAR LISTA DE 14 PISTAS EN EL PANEL LATERAL CON CARA A Y B
     function renderTracklist() {
       trackItemsContainer.innerHTML = '';
       ALBUM_TRACKS.forEach((track, idx) => {
+        if (idx === 0) {
+          const sideA = document.createElement('div');
+          sideA.className = 'side-header';
+          sideA.innerHTML = `<span>CARA A • The Awakening</span><span>Surcos 1-7</span>`;
+          trackItemsContainer.appendChild(sideA);
+        } else if (idx === 7) {
+          const sideB = document.createElement('div');
+          sideB.className = 'side-header';
+          sideB.innerHTML = `<span>CARA B • The Spanish Horizon</span><span>Surcos 8-14</span>`;
+          trackItemsContainer.appendChild(sideB);
+        }
+
         const row = document.createElement('div');
         row.className = `track-row ${idx === currentTrackIndex ? 'active' : ''}`;
         row.id = `track-row-${idx}`;
         row.onclick = () => selectTrack(idx, true);
 
+        const instBadge = track.isInstrumental
+          ? `<span class="track-badge-inst">Instrumental</span>`
+          : '';
+
         row.innerHTML = `
           <span class="track-row-num">${track.id}</span>
           <div class="track-row-info">
-            <span class="track-row-title">${track.title}</span>
+            <span class="track-row-title">${track.title} ${instBadge}</span>
             <span class="track-row-chinese">${track.chinese}</span>
           </div>
           <span class="track-row-groove-icon" title="Surco #${track.id}">◎</span>
@@ -1241,11 +1320,11 @@
       // Actualizar información superior y banner
       trackTitleDisplay.textContent = track.title;
       trackChineseDisplay.textContent = track.chinese;
-      trackSurcoLabel.textContent = `Surco #${track.id} • ${track.radiusPercent}% del radio`;
+      trackSurcoLabel.textContent = `Surco #${track.id} • Cara ${track.side} • ${track.radiusPercent}% del radio`;
 
       // Actualizar tarjeta del libreto (Liner Notes)
-      cardTrackBadge.textContent = `Surco #${track.id} • Pista de Vinilo`;
-      cardTrackTitle.textContent = track.title;
+      cardTrackBadge.textContent = `Surco #${track.id} • Cara ${track.side} • ${track.isInstrumental ? 'Instrumental' : 'Vocal'}`;
+      cardTrackTitle.innerHTML = `${track.title} ${track.isInstrumental ? '<span class="track-badge-inst">Instrumental</span>' : ''}`;
       cardTrackChinese.textContent = track.chinese;
       cardSynopsisBody.innerHTML = track.synopsis;
 
