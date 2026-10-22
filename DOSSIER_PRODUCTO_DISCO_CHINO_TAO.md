@@ -48,7 +48,7 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 | **10** | Li Ann, My Sunshine | 丽安，我的阳光 | Vocal | B | 05:33 | Acoustic 12-String / Lyrical Folk-Prog | Eduardo Ramírez de Cartagena (100%) |
 | **11** | Pause Before the Rain | 雨前伫足 | Vocal | B | 05:41 | Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
 | **12** | Where the Pieces Fell | 碎片散落之处 | Vocal | B | 04:53 | Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
-| **13** | The Turning of the Tide | 潮汐回转 | Vocal | B | 05:50 | Symphonic Crescendo / Choral Climax | Eduardo Ramírez de Cartagena (100%) |
+| **13** | The Turning of the Tide | 潮汐回转 | Vocal | B | 05:50 | Art-Pop / Rock Progresivo Lírico | Eduardo Ramírez de Cartagena (100%) |
 | **14** | A Single Spanish Step | 西班牙一步 | **Instrumental 4** | B | 03:32 | Multicultural Grand Climax (140 BPM) | Eduardo Ramírez de Cartagena (100%) |
 
 **Duración Total Estimada:** ~66 minutos de alta artesanía sonora.
@@ -183,12 +183,14 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 ---
 
 ### SURCO 13 — *The Turning of the Tide* (潮汐回转)
-- **Rol en el álbum:** El gran punto de inflexión y crescendo sinfónico hacia el final.
-- **Estilo:** Symphonic Prog Crescendo.
-- **Análisis por capas:**
-  - **Motor inicial:** Secuencia repetitiva tappeada de Chapman Stick que marca el avance ineludible de la marea.
-  - **Capas añadidas:** Entrada progresiva de bajo continuo, órgano Hammond rugiente, sintetizadores analógicos en cascada y percusión masiva.
-  - **Coda:** Coros épicos a varias voces sin texto articulado preparando el estallido del último corte.
+- **Género & Estilo:** Crossover de Art-Pop / Rock Progresivo Lírico, consolidando la fórmula maestra del álbum: una base rítmica electrónica contemporánea a medio tiempo sobre la que se despliegan armonías vocales ricas y melodías de viento madera directamente emparentadas con el sonido más refinado de la escuela sinfónica europea de los 70 (en la órbita melódica de *Rain Dances* y *Breathless*).
+- **Análisis Musical y Estructura:**
+  - **Apertura y motivo inicial:** Comienza con una breve introducción atmosférica y vocalizada que fija el tono menor y el espacio reflexivo. De inmediato entra una base rítmica electrónica limpia (*mid-tempo groove*), marcada por un bombo definido, caja/rimshot seco y un sutil bajo sintetizado que marca el pulso armónico sin sobrecargar la mezcla.
+  - **Versos (Introspección y pulso sobrio):** La voz masculina principal entra en un registro medio, narrativo y sosegado, con una afinación limpia y cercana que prescinde de artificios dramáticos. La instrumentación en las estrofas se vuelve diáfana: pequeños detalles de cuerda o sintetizador percusivo puntúan los compases, dejando que el bajo y la voz lleven el peso de la dinámica.
+  - **Estribillos (Apertura polifónica y elevación melódica):** En el coro (*"Stay for the turning of the tide..."*), la pista experimenta una apertura luminosa y nostálgica. La voz principal asciende en tesitura y se complementa con armonías vocales y coros en planos superiores que ensanchan la imagen estéreo, aportando esa calidez melancólica clásica del sinfonismo británico.
+  - **El papel de la flauta (Lirismo sinfónico):** Entre las secciones vocales y en los momentos de transición, la flauta solista vuelve a ser el eje melódico indiscutible. Ejecuta frases líricas, trinos y arabescos pastoriles con el timbre dulce y expresivo característico de las grandes obras de la escuela sinfónica europea, sirviendo de puente melódico entre estrofas y estribillos.
+  - **Puente dramático y tensión:** Alrededor del minuto 2:15 (*"If all we held was borrowed time..."*), la dinámica rítmica se detiene y la estructura entra en suspensión. La voz canta con mayor urgencia y dramatismo sobre acordes sostenidos de sintetizador, generando una tensión armónica que resuelve con fuerza en el retorno al estribillo final a pleno rendimiento.
+  - **Coda y resolución íntima:** El tema concluye desarmando el ritmo (*"Kettle cools, the clocks move on..."*): la batería electrónica cesa y la voz se queda casi a solas con un colchón de teclados analógicos y pequeños ecos de flauta reverberada, desvaneciéndose en un cierre reposado y contemplativo.
 
 ---
 
