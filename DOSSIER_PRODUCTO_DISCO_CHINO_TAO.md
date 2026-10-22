@@ -3,7 +3,7 @@
 **Artista:** The Research Band (TRBAND)  
 **Compositor, Productor & Arreglista:** Eduardo Ramírez de Cartagena (SGAE Socio Nº 29.751 / Fundador de CADILLAC)  
 **Sello Discográfico Independiente:** Khem Aura Records  
-**Formato Oficial:** Álbum Doble LP Virtual (14 Cortes: 8 Vocales con Letra + 6 Frentes Instrumentales / Vocalizadas)  
+**Formato Oficial:** Álbum LP (Cara A y Cara B, 14 Cortes: 8 Vocales con Letra + 6 Frentes Instrumentales / Vocalizadas)  
 **Plataforma Interactiva:** Tocadiscos Analógico Virtual Audiófilo (Vinilo Translúcido 33 ⅓ RPM con Cue Lever y Libreto Interactivo)  
 **Fecha de Producción:** Octubre 2026  
 
