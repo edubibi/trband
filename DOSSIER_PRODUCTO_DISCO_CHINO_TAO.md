@@ -49,7 +49,7 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 | **11** | Pause Before the Rain | 雨前伫足 | Vocal | B | 05:41 | Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
 | **12** | Where the Pieces Fell | 碎片散落之处 | Vocal | B | 04:53 | Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
 | **13** | The Turning of the Tide | 潮汐回转 | Vocal | B | 05:50 | Art-Pop / Rock Progresivo Lírico | Eduardo Ramírez de Cartagena (100%) |
-| **14** | A Single Spanish Step | 西班牙一步 | **Instrumental 4** | B | 03:32 | Multicultural Grand Climax (140 BPM) | Eduardo Ramírez de Cartagena (100%) |
+| **14** | A Single Spanish Step | 西班牙一步 | **Instrumental 4** | B | 03:32 | Worldbeat / New Age / Ethno-Ambient | Eduardo Ramírez de Cartagena (100%) |
 
 **Duración Total Estimada:** ~66 minutos de alta artesanía sonora.
 
@@ -198,14 +198,15 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 
 ---
 
-### SURCO 14 — *A Single Spanish Step* (西班牙一步) — [4ª INSTRUMENTAL & CLÍMAX]
-- **Rol en el álbum:** El gran clímax multicultural / Apoteosis final del disco.
-- **Estilo:** Fiesta progresiva sin fronteras: Flamenco + Brian May Queen Solo + Beatles Pop Choruses a 140 BPM continuo.
-- **Análisis por capas:**
-  - **Intro:** Breve toque místico oriental que estalla súbitamente en una rumba-rock flamenca acompasada.
-  - **Ritmo sin cortes:** La sección de bajo y batería se clava en un compás implacable y continuo a 140 BPM, sin frenazos ni paradas.
-  - **Solo estilo Brian May:** Guitarras eléctricas multitrack dobladas en terceras y quintas con booster de agudos (estilo Red Special), volando por encima del ritmo con poderío melódico de estadio.
-  - **Coros estilo Beatles (Abbey Road):** Armonías vocales luminosas a 3 voces cantando "Oohs" y "Aahs" al frente de la mezcla, entrelazándose con un violín celta arrebatador. ¡La celebración definitiva de que todo gran viaje concluye con un paso valiente!
+### SURCO 14 — *A Single Spanish Step* (西班牙一步) — [4ª INSTRUMENTAL & CLÍMAX CONCEPTUAL]
+- **Rol en el álbum:** Cierre del álbum y culminación filosófica del viaje (*千里之行 始于足下 - Un viaje de mil millas comienza con un solo paso*).
+- **Género & Estilo:** Worldbeat / New Age / Ethno-Ambient con narrativa progresiva, conectando con el carácter descriptivo y lírico de la gran escuela sinfónica europea (en la senda de suites conceptuales clásicas como *The Snow Goose*), sostenida sobre una producción rítmica electrónica contemporánea y un tapiz tímbrico oriental.
+- **Análisis Musical por Secciones y Elementos:**
+  - **Introducción y motivo de cítara tradicional:** Arranca de forma limpia con arpegios brillantes de cítara asiática (*guzheng* o *koto*). La interpretación se mueve sobre escalas pentatónicas, alternando notas percusivas en staccato con estiramientos de cuerda (*bends*) y trinos que establecen de inmediato un carácter reflexivo y meditativo.
+  - **Entrada vocal melismática y base rítmica:** Hacia el segundo 0:25, entra una vocalización etérea femenina tratada como un instrumento de viento melancólico mediante reverberación amplia. No articula texto, sino giros melódicos ondulantes en registro medio y agudo. Paralelamente se asienta un groove electrónico a medio-lento tempo (*mid-tempo downtempo*), con un bombo profundo, un chasquido seco (*rimshot*) y capas sutiles de percusión orgánica de madera que marcan el pulso sin restar espacio al aire meditativo.
+  - **Aparición de la flauta (El hilo conductor lírico):** La flauta tradicional toma el relevo melódico principal. Ejecuta frases cantables de carácter pastoral, con portamentos y vibrato expresivo. Este tratamiento lírico del viento madera como narrador central de la melodía teje un puente entre la tradición acústica asiática y el sinfonismo lírico europeo.
+  - **Desarrollo tímbrico y clímax polifónico:** Alrededor del minuto 1:30, la instrumentación se densifica: se integran capas de sintetizadores analógicos (pads envolventes) y una línea de bajo redonda que afirma las progresiones en modo menor. La flauta, la cítara y las vocalizaciones femeninas se cruzan en un diálogo polifónico continuo, elevando la tensión dinámica y la carga emotiva de la pieza.
+  - **Coda y disolución espacial:** En el tramo final, la base rítmica electrónica se desvanece de forma progresiva. La obra concluye despojándose de percusión, dejando que las últimas frases suspendidas de la cítara y los ecos lejanos de la voz se apaguen suavemente en una atmósfera de quietud contemplativa, sellando el álbum con el primer paso del Tao.
 
 ---
 
