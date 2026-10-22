@@ -2,7 +2,8 @@
 ## *千里之行 始于足下 — A Journey of a Thousand Miles Begins with a Single Step*
 **Artista:** The Research Band (TRBAND)  
 **Compositor, Productor & Arreglista:** Eduardo Ramírez de Cartagena (SGAE Socio Nº 29.751 / Fundador de CADILLAC)  
-**Formato Oficial:** Álbum Doble LP Virtual (14 Cortes: 10 Vocales + 4 Grandes Frentes Instrumentales)  
+**Sello Discográfico Independiente:** TRBAND RECORDS  
+**Formato Oficial:** Álbum Doble LP Virtual (14 Cortes: 8 Vocales con Letra + 6 Frentes Instrumentales / Vocalizadas)  
 **Plataforma Interactiva:** Tocadiscos Analógico Virtual Audiófilo (Vinilo Translúcido 33 ⅓ RPM con Cue Lever y Libreto Interactivo)  
 **Fecha de Producción:** Octubre 2026  
 
