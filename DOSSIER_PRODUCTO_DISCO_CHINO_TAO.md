@@ -41,7 +41,7 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 | **03** | Oriental Pagoda | 东方宝塔 | **Instrumental 1** | A | 03:53 | Worldbeat / Ambient Étnico | Eduardo Ramírez de Cartagena (100%) |
 | **04** | Hold the Measure | 把握分寸 | Vocal | A | 03:51 | Prog-Funk / Chapman Stick (140 BPM) | Eduardo Ramírez de Cartagena (100%) |
 | **05** | Paper Lantern River | 纸灯之河 | Vocal | A | 04:22 | Progressive Ambient / Lyrical | Eduardo Ramírez de Cartagena (100%) |
-| **06** | In the Warmth of the Yangtze River | 长江的温存 | **Instrumental 2** | A | 04:11 | Symphonic Prog / Chinese Crossover | Eduardo Ramírez de Cartagena (100%) |
+| **06** | In the Warmth of the Yangtze River | 长江的温存 | **Instrumental 2** | A | 04:11 | Worldbeat / New Age / Ethno-Electronic | Eduardo Ramírez de Cartagena (100%) |
 | **07** | I Remain | 我依然在 | Vocal | A | 06:16 | Epic Progressive Rock (Fin Cara A) | Eduardo Ramírez de Cartagena (100%) |
 | **08** | Angular A Minor | 棱角A小调 | Vocalise / Worldbeat | B | 04:11 | Worldbeat / New Age / Ambient Étnico | Eduardo Ramírez de Cartagena (100%) |
 | **09** | Spanish Misty Guzheng | 西班牙迷雾古筝 | **Instrumental 3** | B | 04:27 | Chillout / Spanish-Oriental Fusion | Eduardo Ramírez de Cartagena (100%) |
@@ -111,12 +111,14 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 ---
 
 ### SURCO 06 — *In the Warmth of the Yangtze River* (长江的温存) — [2ª INSTRUMENTAL]
-- **Rol en el álbum:** Segundo pilar instrumental / El gran fresco sinfónico de Asia.
-- **Estilo:** Symphonic Progressive Crossover. Más de 4 minutos de viaje instrumental.
-- **Análisis por capas:**
-  - **Graves:** Líneas profundas de bajo con compresión cálida que representan la fuerza caudalosa del gran río Yangtsé.
-  - **Melodía solista compartida:** Diálogo virtuoso entre el *erhu* frotado y una guitarra solista eléctrica de largo sustain (estilo David Gilmour / Steve Hackett).
-  - **Percusión:** Ritmo jazz-funk refinado a tempo medio, con juego de campana de ride y escobillas en los pasajes tranquilos que mutan a baqueta pesada en el clímax.
+- **Rol en el álbum:** Segundo pilar instrumental / El gran fresco sonoro del río madre de Asia.
+- **Género & Estilo:** Worldbeat / New Age / Ethno-Electronic, con una clara fusión entre la música tradicional de Asia Oriental y el pop/rock progresivo atmosférico. Comparte con la gran tradición del rock sinfónico europeo de los 70 esa concepción de la música instrumental como una narrativa lírica continua y descriptiva, donde los instrumentos solistas asumen el rol vocal con profunda carga emocional.
+- **Análisis Musical por Secciones y Elementos:**
+  - **Introducción y motivo de cítara oriental:** Arranca con un arpegio ágil y cristalino de cítara asiática (*guzheng* o *koto*), ejecutado sobre escalas pentatónicas con notas bending y adornos tradicionales muy limpios. Rápidamente entra una vocalización etérea femenina en registro medio/agudo, que no articula texto y actúa como un instrumento melancólico y evocador sobre un colchón de reverberación profunda.
+  - **Ritmo y patrón vocal polirrítmico:** Hacia los 25 segundos se establece una base rítmica electrónica a medio-lento tempo (*mid-tempo downtempo*), con un bombo seco y definido. Sobre esta base se añade una capa rítmica vocal muy singular: coros sincopados en staccato (*"da-da-da..."*) que funcionan como percusión armónica y articulan el pulso con un toque ceremonial y contemporáneo.
+  - **Aparición de la flauta y desarrollo temático:** La flauta de bambú / traversa entra para asumir la voz cantante, ejecutando líneas melódicas de corte pastoral, ornamentadas y con un vibrato muy expresivo que dialoga de forma fluida con las frases de la cítara. La estructura se desarrolla alternando las frases melismáticas de la voz femenina, los ataques rápidos de la cítara y los cantábiles de la flauta, creando un contrapunto dinámico constante.
+  - **Crescendo, clímax y polifonía:** Hacia el minuto 2:00, la pista gana densidad con la suma de capas de sintetizadores analógicos (pads y leads suaves), un bajo redondo que enraíza la progresión en modo menor y una mayor energía en las vocalizaciones agudas. La flauta y la cítara se cruzan en un momento de intensidad climática que recuerda a los pasajes instrumentales más sinfónicos y expansivos de la escuela prog europea.
+  - **Coda y disolución final:** La percusión y los coros rítmicos desaparecen gradualmente en el último medio minuto, dejando que los ecos de la cítara y los últimos melismas vocales se apaguen en un ambiente suspendido y meditativo.
 
 ---
 
