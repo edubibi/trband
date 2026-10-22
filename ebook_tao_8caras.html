@@ -700,7 +700,7 @@
 
           <div class="page-footer">
             <span>The Research Band (TRBAND)</span>
-            <span>Pliego I • Cara 2</span>
+            <span>Pliego I • Manifiesto</span>
           </div>
         </div>
       </section>
@@ -713,7 +713,7 @@
         <!-- CARA 3: CARA A (PISTAS 1 A 4) -->
         <div class="book-page">
           <div class="page-header">
-            <span>Cara A • El Despertar Sonoro (I)</span>
+            <span>Tracks 01 al 04 • El Despertar Sonoro</span>
             <span class="page-number">03</span>
           </div>
 
@@ -783,14 +783,14 @@
 
           <div class="page-footer">
             <span>KHEM AURA RECORDS</span>
-            <span>Pliego II • Cara 3</span>
+            <span>Pliego II • Pág 3</span>
           </div>
         </div>
 
         <!-- CARA 4: CARA A (PISTAS 5 A 7 + CIERRE CARA A) -->
         <div class="book-page page-right">
           <div class="page-header">
-            <span>Cara A • El Despertar Sonoro (II)</span>
+            <span>Tracks 05 al 07 • El Despertar Sonoro</span>
             <span class="page-number">04</span>
           </div>
 
@@ -848,7 +848,7 @@
 
           <div class="page-footer">
             <span>KHEM AURA RECORDS</span>
-            <span>Pliego II • Cara 4</span>
+            <span>Pliego II • Pág 4</span>
           </div>
         </div>
       </section>
@@ -861,7 +861,7 @@
         <!-- CARA 5: CARA B (PISTAS 8 A 11) -->
         <div class="book-page">
           <div class="page-header">
-            <span>Cara B • La Calma y la Marea (I)</span>
+            <span>Tracks 08 al 11 • La Calma y la Marea</span>
             <span class="page-number">05</span>
           </div>
 
@@ -931,14 +931,14 @@
 
           <div class="page-footer">
             <span>KHEM AURA RECORDS</span>
-            <span>Pliego III • Cara 5</span>
+            <span>Pliego III • Pág 5</span>
           </div>
         </div>
 
         <!-- CARA 6: CARA B (PISTAS 12 A 14 + EL RETORNO AL TAO) -->
         <div class="book-page page-right">
           <div class="page-header">
-            <span>Cara B • La Calma y la Marea (II)</span>
+            <span>Tracks 12 al 14 • La Calma y la Marea</span>
             <span class="page-number">06</span>
           </div>
 
@@ -996,7 +996,7 @@
 
           <div class="page-footer">
             <span>KHEM AURA RECORDS</span>
-            <span>Pliego III • Cara 6</span>
+            <span>Pliego III • Pág 6</span>
           </div>
         </div>
       </section>
@@ -1034,7 +1034,7 @@
 
           <div class="page-footer">
             <span>KHEM AURA RECORDS</span>
-            <span>Pliego IV • Cara 7</span>
+            <span>Pliego IV • Pág 7</span>
           </div>
         </div>
 
@@ -1088,7 +1088,7 @@
 
             <div class="page-footer" style="margin-top:1rem; border-top:none;">
               <span>KHEM AURA RECORDS</span>
-              <span>Contraportada • Cara 8</span>
+              <span>Contraportada • Tracklist</span>
             </div>
           </div>
         </div>
@@ -1100,10 +1100,10 @@
     <!-- CONTROLES INFERIORES DE PLIEGOS -->
     <div class="bottom-controls">
       <div class="spread-indicator">
-        <button class="spread-dot active" onclick="jumpToSpread(0)">Pliego I (Caras 1-2)</button>
-        <button class="spread-dot" onclick="jumpToSpread(1)">Pliego II (Caras 3-4)</button>
-        <button class="spread-dot" onclick="jumpToSpread(2)">Pliego III (Caras 5-6)</button>
-        <button class="spread-dot" onclick="jumpToSpread(3)">Pliego IV (Caras 7-8)</button>
+        <button class="spread-dot active" onclick="jumpToSpread(0)">Pliego I (Portada)</button>
+        <button class="spread-dot" onclick="jumpToSpread(1)">Pliego II (Tracks 01-07)</button>
+        <button class="spread-dot" onclick="jumpToSpread(2)">Pliego III (Tracks 08-14)</button>
+        <button class="spread-dot" onclick="jumpToSpread(3)">Pliego IV (Tracklist)</button>
       </div>
 
       <div class="spread-caption" id="spreadCaptionDisplay">
@@ -1119,9 +1119,9 @@
     const totalSpreads = 4;
     const spreadCaptions = [
       "Pliego I de IV • Portada Oficial & Manifiesto del Tao",
-      "Pliego II de IV • Cara A (Surcos 01 al 07)",
-      "Pliego III de IV • Cara B (Surcos 08 al 14)",
-      "Pliego IV de IV • Producción, Sello KHEM AURA RECORDS & Contraportada"
+      "Pliego II de IV • Tracks 01 al 07 (El Despertar Sonoro)",
+      "Pliego III de IV • Tracks 08 al 14 (La Calma y la Marea)",
+      "Pliego IV de IV • Producción, Sello KHEM AURA RECORDS & Tracklist Consolidado"
     ];
 
     function updateSpreadUI() {
