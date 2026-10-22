@@ -46,7 +46,7 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 | **08** | Angular A Minor | 棱角A小调 | Vocal / Prog | B | 04:11 | Math-Prog / Frippertronics (5/8, 7/8) | Eduardo Ramírez de Cartagena (100%) |
 | **09** | Spanish Misty Guzheng | 西班牙迷雾古筝 | **Instrumental 3** | B | 04:27 | Chillout / Spanish-Oriental Fusion | Eduardo Ramírez de Cartagena (100%) |
 | **10** | Li Ann, My Sunshine | 丽安，我的阳光 | Vocal | B | 05:33 | Acoustic 12-String / Lyrical Folk-Prog | Eduardo Ramírez de Cartagena (100%) |
-| **11** | Pause Before the Rain | 雨前伫足 | Vocal | B | 05:41 | Dramatic Intimate Piano / Tension | Eduardo Ramírez de Cartagena (100%) |
+| **11** | Pause Before the Rain | 雨前伫足 | Vocal | B | 05:41 | Art-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
 | **12** | Where the Pieces Fell | 碎片散落之处 | Vocal | B | 04:53 | Deconstructed Acoustic / Violin | Eduardo Ramírez de Cartagena (100%) |
 | **13** | The Turning of the Tide | 潮汐回转 | Vocal | B | 05:50 | Symphonic Crescendo / Choral Climax | Eduardo Ramírez de Cartagena (100%) |
 | **14** | A Single Spanish Step | 西班牙一步 | **Instrumental 4** | B | 03:32 | Multicultural Grand Climax (140 BPM) | Eduardo Ramírez de Cartagena (100%) |
@@ -161,12 +161,13 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 ---
 
 ### SURCO 11 — *Pause Before the Rain* (雨前伫足)
-- **Rol en el álbum:** La calma tensa antes de la tempestad final.
-- **Estilo:** Dramatic Piano & Ambient Suspense.
-- **Análisis por capas:**
-  - **Piano de cola:** Arpegios aislados con pedal de resonancia abierto.
-  - **Efectos sonoros:** Silbidos de viento entre cañas de bambú y campanas de templo tibetano a lo lejos.
-  - **Transición:** Modulación gradual de Do Mayor a Do Menor preparando la llegada de la marea.
+- **Género & Estilo:** Art-Pop / Crossover Progresivo fuertemente anclado en el lirismo de la gran escuela sinfónica europea de los 70 (en la órbita melódica de clásicos como *Rain Dances* y *Breathless*), fusionada con una base rítmica electrónica contemporánea.
+- **Análisis Musical y Estructura:**
+  - **Apertura y motivo conductor:** Inicia con vocalizaciones etéreas que dan paso al ritmo electrónico a medio tiempo (*mid-tempo groove*), con un bombo seco y percusiones nítidas. La flauta tradicional toma de inmediato la iniciativa melódica, interpretando el motivo principal con articulaciones expresivas, portamentos y un aire pastoral característico del sinfonismo progresivo más lírico y elegante.
+  - **Versos y entrega vocal:** La voz masculina principal entra en un registro medio y narrativo, con un tono sobrio, cercano y sin dramatismos impostados. La instrumentación en las estrofas se vuelve diáfana: los sintetizadores analógicos en modo menor sostienen la armonía de fondo, dejando respirar el texto y el fraseo.
+  - **Estribillos (Apertura polifónica):** Al llegar al estribillo (*"Stay..."*), la intensidad asciende: la voz gana tesitura y se arropa con armonías vocales y coros que abren la imagen estéreo. Los sintetizadores expanden su rango armónico, reforzando ese contraste entre la melancolía del acorde menor y la luminosidad de la melodía.
+  - **Puente y desarrollo dinámico:** Tras los estribillos, la flauta solista vuelve a actuar como hilo conductor y contrapunto melódico a la voz. Alrededor del minuto 2:20, se introduce un puente con mayor impulso rítmico y tensión melódica que prepara la reentrada triunfal del estribillo.
+  - **Coda y desvanecimiento final:** La parte final despoja gradualmente la instrumentación: la voz atenúa su volumen hasta un tono reflexivo e íntimo, cediendo los últimos compases a los ecos de la flauta y los sintetizadores ambientales que se extinguen en reverberación.
 
 ---
 
