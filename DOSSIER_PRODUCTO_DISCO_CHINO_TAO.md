@@ -35,209 +35,158 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 
 ## 📋 2. Ficha Técnica para Registro SGAE (Socio 29.751)
 
-| Nº | Título Oficial (EN) | Título en Chino | Tipo | Cara | Minutaje Aprox. | Género / Estilo | Autor / Compositor |
-|---|---|---|---|---|---|---|---|
-| **01** | Dreams and Other Things | 梦境与余事 | Vocalise / Single | A | 04:37 | Crossover Prog Lírico / Art-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **02** | Keep a Place for You | 为你留一席地 | Vocal | A | 04:54 | Crossover Prog Lírico / Art-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **03** | Oriental Pagoda | 东方宝塔 | **Instrumental 1** | A | 03:53 | Crossover Prog Lírico / Art-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **04** | Hold the Measure | 把握分寸 | Vocal | A | 03:51 | Crossover Prog Lírico / Art-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **05** | Paper Lantern River | 纸灯之河 | Vocal | A | 04:22 | Crossover Prog Lírico / Art-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **06** | In the Warmth of the Yangtze River | 长江的温存 | **Instrumental 2** | A | 04:11 | Crossover Prog Lírico / Art-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **07** | I Remain | 我依然在 | Vocal | A | 06:16 | Crossover Prog Lírico / Art-Pop (Fin Cara A) | Eduardo Ramírez de Cartagena (100%) |
-| **08** | Angular A Minor | 棱角A小调 | Vocalise | B | 04:11 | Crossover Prog Lírico / Art-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **09** | Spanish Misty Guzheng | 西班牙迷雾古筝 | **Instrumental 3** | B | 04:27 | Crossover Prog Lírico / Art-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **10** | Li Ann, My Sunshine | 丽安，我的阳光 | Vocal | B | 05:33 | Crossover Prog Lírico / Art-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **11** | Pause Before the Rain | 雨前伫足 | Vocal | B | 05:41 | Crossover Prog Lírico / Art-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **12** | Where the Pieces Fell | 碎片散落之处 | Vocal | B | 04:53 | Crossover Prog Lírico / Art-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **13** | The Turning of the Tide | 潮汐回转 | Vocal | B | 05:50 | Crossover Prog Lírico / Art-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **14** | A Single Spanish Step | 西班牙一步 | **Instrumental 4** | B | 03:32 | Crossover Prog Lírico / Art-Pop (Coda Final) | Eduardo Ramírez de Cartagena (100%) |
+| Nº | Título Oficial (EN) | Título en Chino | Naturaleza / Tipo | Minutaje | Género / Estilo | Autor / Compositor |
+|---|---|---|---|---|---|---|
+| **01** | Dreams and Other Things | 梦境与余事 | Instrumental / Vocalizada | 04:37 | Worldbeat / Lirismo Fusión | Eduardo Ramírez de Cartagena (100%) |
+| **02** | Keep a Place for You | 为你留一席地 | Canción con letra | 04:54 | Folk-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
+| **03** | Oriental Pagoda | 东方宝塔 | Instrumental / Vocalizada | 03:53 | Ambient Étnico / Worldbeat | Eduardo Ramírez de Cartagena (100%) |
+| **04** | Hold the Measure | 把握分寸 | Canción con letra | 03:51 | Art-Pop sincopado / Sophisti-Pop | Eduardo Ramírez de Cartagena (100%) |
+| **05** | Paper Lantern River | 纸灯之河 | Canción con letra | 04:22 | Art-Pop / Rock Progresivo Lírico | Eduardo Ramírez de Cartagena (100%) |
+| **06** | In the Warmth of the Yangtze River | 长江的温存 | Instrumental / Vocalizada | 04:11 | Worldbeat ceremonial / Fusión | Eduardo Ramírez de Cartagena (100%) |
+| **07** | I Remain | 我依然在 | Balada cantada | 06:16 | Crossover Prog / Balada reflexiva | Eduardo Ramírez de Cartagena (100%) |
+| **08** | Angular A Minor | 棱角A小调 | Instrumental / Vocalizada | 04:11 | Ethno-Ambient / Prog contemplativo | Eduardo Ramírez de Cartagena (100%) |
+| **09** | Spanish Misty Guzheng | 西班牙迷雾古筝 | Instrumental / Vocalizada | 04:27 | Ambient Chillout / Coda meditativa | Eduardo Ramírez de Cartagena (100%) |
+| **10** | Li Ann, My Sunshine | 丽安，我的阳光 | Canción con letra | 05:33 | Sophisti-Pop / Crossover optimista | Eduardo Ramírez de Cartagena (100%) |
+| **11** | Pause Before the Rain | 雨前伫足 | Canción con letra | 05:41 | Art-Pop / Prog pastoral | Eduardo Ramírez de Cartagena (100%) |
+| **12** | Where the Pieces Fell | 碎片散落之处 | Canción con letra | 04:53 | Art-Pop progresivo / Catarsis rítmica | Eduardo Ramírez de Cartagena (100%) |
+| **13** | The Turning of the Tide | 潮汐回转 | Canción con letra | 05:50 | Sophisti-## 🎼 3. Las Fichas Oficiales del Libreto y Análisis por Surcos
 
-**Duración Total Estimada:** ~66 minutos de alta artesanía sonora.
+### 🏮 BLOQUE A: Las 6 Piezas Instrumentales / Vocalizadas (Paisaje y Atmósfera)
 
----
-
-## 🎼 3. Análisis Musical Exhaustivo por Capas (Las 14 Pistas)
-
-### SURCO 01 — *Dreams and Other Things* (梦境与余事)
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Nostalgia poética y ensoñación.
-- **Qué evoca:** La agilidad de la flauta y los quejíos etéreos de la voz evocan el fluir libre del pensamiento antes de dormir; ese punto dulce entre el recuerdo que conmueve el pecho y la ligereza de dejarse llevar por el viento.
-- **Estructura Sonora y Análisis Musical:**
-  - **Introducción y motivo temático inicial:** Arranca de forma directa con una sección rítmica electrónica a medio tiempo (*mid-tempo groove*), marcada por un bombo definido, caja/rim reverberada y una sutil línea de bajo que asienta la armonía en modo menor. Sobre esta base entra de inmediato una flauta tradicional ágil, muy ornamentada con trinos y notas de paso.
-  - **Aparición y función de las voces:** Alrededor del minuto 0:30, la melodía instrumental cede el protagonismo a una voz femenina solista. No canta texto articulado, sino melismas y quejíos etéreos (*aahs, oohs*) cargados de aire, reverberación amplia y un carácter místico y nostálgico. Posteriormente se suman coros y armonizaciones vocales en bloque que amplían la imagen estéreo y refuerzan los cambios de acorde, creando un efecto ceremonial.
-  - **Desarrollo tímbrico y dinámica:** La instrumentación acústica y tradicional (flauta y percusiones menores como shakers) se entrelaza con capas de sintetizadores de fondo (pads sedosos) que sostienen la tensión dramática. La pieza se estructura alternando las respuestas entre la flauta virtuosa y las frases vocales, repitiendo el gancho melódico mientras se van sumando capas de densidad sonora hasta llegar al clímax melódico antes de su resolución final.
+#### SURCO 01 — *Dreams and Other Things* (梦境与余事)
+- **Naturaleza:** Instrumental / Vocalizada (Worldbeat / Lirismo Fusión).
+- **Instrumentación destacada:** Violín solista acústico, base rítmica mid-tempo, bajo, teclados envolventes y vocalizaciones etéreas.
+- **Carácter y emoción:** Nostalgia poética y ensoñación.
+- **Ficha para libreto:** Diálogo melancólico donde el violín asume el protagonismo melódico con un fraseo noble y expresivo, arropado por el pulso constante de la base y coros femeninos en suspensión que evocan el tránsito entre la vigilia y el sueño.
+- **Estructura Sonora:** Arranca con una sección rítmica electrónica a medio tiempo, marcada por bombo definido y línea de bajo en modo menor. Sobre esta base entra el violín acústico noble y expresivo, antes de que los coros femeninos en suspensión amplíen la imagen estéreo hacia un clímax melódico de gran vuelo lírico.
 
 ---
 
-### SURCO 02 — *Keep a Place for You* (为你留一席地)
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Ternura protectora y fidelidad melancólica.
-- **Qué evoca:** Ese rasgueo acústico inicial y la calidez del estribillo transmiten la nobleza de quien despide a alguien querido pero le guarda un rincón intacto en casa y en el alma. Es un dolor bañado por un inmenso cariño.
-- **Estructura Sonora y Análisis Musical:**
-  - **Introducción (El preludio atmosférico):** Arranca con un entramado de pulsos rítmicos procesados y texturas de sintetizador que establecen un espacio reflexivo y envolvente. La entrada del rasgueo nítido de la guitarra acústica fija el centro tonal en modo menor, aportando ese aire pastoral y orgánico previo a la entrada narrativa.
-  - **Versos (Narrativa sobria y elegancia melódica):** La línea vocal principal se mueve en un registro medio, cálido y contenido. Esta emisión sobria y cercana conduce la narración sobre una base rítmica electrónica a *mid-tempo groove* constante y limpio (bombo seco y chasquidos percusivos), apoyada por un bajo redondo y articulado que dibuja los cimientos armónicos con notas ligadas.
-  - **Estribillos (Apertura melódica y polifonía lírica):** La composición se abre hacia un terreno sinfónico: la melodía principal gana vuelo melódico y se viste de armonías vocales ricas, combinando registros masculinos con respuestas corales etéreas en registros altos. Los sintetizadores analógicos y ambientales se abren en estéreo, sosteniendo acordes suspendidos y nostálgicos.
-  - **Puente (Tensión, corte dinámico y dramatismo):** Hacia el minuto 2:40, la pieza quiebra la linealidad: los instrumentos cortan en un patrón más rítmico, sincopado y en staccato, mientras la voz adopta una inflexión más urgente y tensa, acumulando energía armónica antes de resolver en el clímax.
-  - **Clímax y Coda:** El retorno al estribillo final despliega todas las capas: el motivo melódico de fondo con eco de flauta solista, la base rítmica completa y las capas corales entrelazadas. La conclusión va restando capas con delicadeza, dejando que los acordes de la guitarra acústica y los últimos vestigios vocales con reverberación se diluyan en un fundido íntimo y contemplativo.
+#### SURCO 03 — *Oriental Pagoda* (东方宝塔)
+- **Naturaleza:** Instrumental / Vocalizada (Ambient Étnico / Worldbeat).
+- **Instrumentación destacada:** Guzheng (cítara china), pads de teclados analógicos, base rítmica electrónica/batería, EWI y vocalizaciones femeninas melismáticas (sin texto).
+- **Carácter y emoción:** Serenidad mística y misterio contemplativo.
+- **Ficha para libreto:** Pieza de apertura sensorial dominada por arpegios pentatónicos de guzheng sobre un lecho armónico suspendido. La voz femenina y el EWI actúan como texturas aéreas que recrean la quietud y la niebla de un paisaje sagrado.
+- **Estructura Sonora:** Colchón atmosférico de sintetizadores en modo menor y arpegios virtuosos de cítara oriental (guzheng) con inflexiones de cuerda (bends). El EWI dialoga en octavas agudas con la cítara sobre un pulso downtempo relajado antes del desvanecimiento meditativo.
 
 ---
 
-### SURCO 03 — *Oriental Pagoda* (东方宝塔) — [1ª INSTRUMENTAL]
-- **Rol en el álbum:** Primer oasis instrumental / Inmersión en el Lejano Oriente.
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Serenidad mística y misterio contemplativo.
-- **Qué evoca:** La sensación de entrar en un templo antiguo o un jardín oriental cubierto por la niebla al amanecer. Transmite calma interior, silencio mental y una reverencia tranquila ante la belleza del paisaje.
-- **Estructura Sonora y Análisis Musical:**
-  - **Introducción:** Pad sintético cálido en tonos menores envolventes. Arpegios de *guzheng* (cítara de 21 cuerdas) con pitch-bends tradicionales en la mano izquierda.
-  - **Voz instrumentalizada:** Melismas etéreos femeninos ("aahs" y quejíos lejanos) utilizados como instrumento melódico procesado con reverb espacial.
-  - **Percusión:** Downtempo a compás relajado, bombo subgrave redondo y rimshot reverberado.
-  - **Clímax melódico:** La flauta de bambú (*dizi*) dialoga en octavas agudas con la cítara antes del desvanecimiento meditativo.
+#### SURCO 06 — *In the Warmth of the Yangtze River* (长江的温存)
+- **Naturaleza:** Instrumental / Vocalizada (Worldbeat ceremonial / Fusión contemporánea).
+- **Instrumentación destacada:** Guzheng, EWI, batería, bajo, coros rítmicos percusivos en staccato (da-da-da) y vocalizaciones agudas.
+- **Carácter y emoción:** Esperanza ceremonial, calidez y trascendencia.
+- **Ficha para libreto:** Fusión rítmica donde los patrones vocales percusivos impulsan un viaje fluvial ceremonial. El EWI y el guzheng se entrelazan en pasajes climáticos que transmiten la disipación del frío y la llegada de la luz.
+- **Estructura Sonora:** Arpegio cristalino de cítara tradicional con escalas pentatónicas y notas bending. Vocalización femenina etérea sobre reverberación amplia y coros sincopados en staccato ("da-da-da") que articulan el compás, mientras el EWI y el guzheng tejen un crescendo de gran densidad sinfónica.
 
 ---
 
-### SURCO 04 — *Hold the Measure* (把握分寸)
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Tensión lúcida, dignidad y determinación.
-- **Qué evoca:** Con su ritmo sincopado y cortes en staccato, no evoca tristeza pasiva, sino el acto consciente de mantener el control y el compás vital cuando todo alrededor intenta desordenarte. Es firme, elegante y desafiante.
-- **Estructura Sonora y Análisis Musical:**
-  - **Introducción y motivo rítmico principal:** Arranca de inmediato con un riff marcado por un teclado percusivo y una guitarra en staccato, estableciendo un pulso ágil, sofisticado y sincopado en modo menor. La batería electrónica entra con un patrón limpio, apoyada por una línea de bajo ágil y melódica que conduce el fraseo.
-  - **Versos y entrega vocal:** La voz masculina principal se mueve en un registro medio, sobrio y teatral, con una entonación rítmica casi hablada en ciertos pasajes y un fraseo de elegancia contenida. Los versos juegan con pausas métricas y arreglos dinámicos en los que los instrumentos cortan para dar protagonismo a la voz antes de reanudar el groove.
-  - **Estribillos y expansiones melódicas:** Al llegar al estribillo, la armonía se abre y se añaden armonías vocales y segundas voces que enriquecen la tesitura. Los sintetizadores analógicos ganan amplitud estéreo, aportando un dramatismo melancólico característico del sinfonismo británico.
-  - **Pasajes instrumentales y diálogo melódico:** Entre las secciones vocales emerge una flauta solista virtuosa, ejecutando líneas muy expresivas, con vibrato y adornos tradicionales que contrastan con la modernidad de la base rítmica. Se entrelazan también capas de guitarra acústica y guitarras eléctricas limpias que responden a la melodía de la flauta mediante contrapuntos melódicos.
-  - **Dinámica y Coda final:** Hacia el tramo final, la intensidad decae momentáneamente para dar paso a un pasaje más íntimo y despojado donde la voz baja de volumen y se vuelve reflexiva. La canción remata retomando el tema rítmico y la flauta en un último diálogo melódico antes de resolverse con un final seco y preciso sobre el pulso sincopado.
+#### SURCO 08 — *Angular A Minor* (棱角A小调)
+- **Naturaleza:** Instrumental / Vocalizada (Ethno-Ambient / Prog contemplativo).
+- **Instrumentación destacada:** Guzheng, EWI solista, teclados atmosféricos, bajo, batería y capas vocales melismáticas.
+- **Carácter y emoción:** Melancolía cinematográfica y recogimiento interior.
+- **Ficha para libreto:** Ejercicio en modo menor apoyado en la tímbrica percusiva de la cítara china y las respuestas líricas del EWI. Una composición de tempo pausado que dibuja una sensación de introspección solemne y horizonte abierto.
+- **Estructura Sonora:** Fondo de pads envolventes en La menor y arpegios rápidos de cítara oriental con estiramientos de cuerda. Voz femenina etérea en melismas sobre groove downtempo tribal con shakers y maderas, enlazando con el EWI solista en un clímax armónico antes de diluirse sobre el eco de la cítara.
 
 ---
 
-### SURCO 05 — *Paper Lantern River* (纸灯之河)
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Despedida luminosa y aceptación serena.
-- **Qué evoca:** La imagen de una linterna de papel flotando corriente abajo: hay pena por lo que se va, pero la melodía coral transmite alivio, desahogo y el agradecimiento por lo vivido mientras se contempla el curso natural de las cosas.
-- **Estructura Sonora y Análisis Musical:**
-  - **Introducción y arranque:** Comienza con una breve apertura etérea y vocalizada que rápidamente da paso al golpe rítmico: una base electrónica sincopada y precisa, con caja seca, palmas (*claps*) y un bajo pulsante que marca un tempo ágil y bailable sin perder un ápice de elegancia armónica.
-  - **Versos (Fraseo rítmico y sobriedad):** La voz masculina adopta una interpretación contenida, rítmica y muy articulada, con una sobriedad elegante y cercana. La instrumentación en las estrofas se vuelve más espaciosa: los acordes de sintetizador entran en síncopa mientras el bajo sostiene el peso, dejando silencios estratégicos que dan aire a la narración vocal.
-  - **Estribillos (Apertura lírica y polifonía):** Al llegar al coro (*"Lead me through..."*), la canción experimenta una apertura melódica dramática. La melodía principal se desdobla con respuestas corales femeninas y armonías en octavas, creando un contraste espacial que ensancha el estéreo y aporta ese matiz nostálgico y envolvente propio del gran sinfonismo.
-  - **La presencia de la flauta:** El elemento melódico distintivo vuelve a ser la flauta traversa/étnica. Aparece en contrapunto con la voz y como motivo de enganche, ejecutando frases virtuosas, trinos y arabescos que rompen la rigidez de la batería sintética y aportan la calidez melódica definitoria.
-  - **Puente dramático y resolución:** Hacia el minuto 2:10, la canción intensifica su empuje (*"Go, go slow..."*). La interpretación vocal sube de energía y urgencia, apoyada por una acumulación de percusiones y acordes mantenidos. Tras este clímax, el tema vuelve a su estribillo coral con todas las capas a pleno rendimiento (flauta, coros, base rítmica completa), concluyendo en una bajada dinámica controlada.
+#### SURCO 09 — *Spanish Misty Guzheng* (西班牙迷雾古筝)
+- **Naturaleza:** Instrumental / Vocalizada (Ambient Chillout / Coda meditativa).
+- **Instrumentación destacada:** Guzheng, EWI, percusión vocal rítmica (da-da-da), bajo sintético, batería downtempo y ecos vocales.
+- **Carácter y emoción:** Paz nocturna, sosiego y disolución espiritual.
+- **Ficha para libreto:** Atmósfera crepuscular donde los arpegios con bends del guzheng se desvanecen gradualmente junto a las frases del EWI. Cierra el arco contemplativo del álbum en una sensación de calma y silencio recuperado.
+- **Estructura Sonora:** Arpegios cristalinos de cítara oriental sobre sintetizadores ambientales en tono menor. Coro rítmico en staccato ("da-da-da") como percusión humana que abre paso a una base downtempo/chillout, con el EWI trazando arabescos líricos antes de disolverse en el silencio.
 
 ---
 
-### SURCO 06 — *In the Warmth of the Yangtze River* (长江的温存) — [2ª INSTRUMENTAL]
-- **Rol en el álbum:** Segundo pilar instrumental / El gran fresco sonoro del río madre de Asia.
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Esperanza ceremonial, calidez y trascendencia.
-- **Qué evoca:** Ese rastro vocal rítmico ("da-da-da") combinado con la cítara y la flauta transmite el despertar de una comunidad o el tránsito por aguas calmas. Se siente como el calor del sol disipando el frío matutino, con un aire solemne y a la vez reconfortante.
-- **Estructura Sonora y Análisis Musical:**
-  - **Introducción y motivo de cítara oriental:** Arranca con un arpegio ágil y cristalino de cítara asiática (*guzheng* o *koto*), ejecutado sobre escalas pentatónicas con notas bending y adornos tradicionales muy limpios. Rápidamente entra una vocalización etérea femenina en registro medio/agudo, que no articula texto y actúa como un instrumento melancólico y evocador sobre un colchón de reverberación profunda.
-  - **Ritmo y patrón vocal polirrítmico:** Hacia los 25 segundos se establece una base rítmica electrónica a medio-lento tempo (*mid-tempo downtempo*), con un bombo seco y definido. Sobre esta base se añade una capa rítmica vocal muy singular: coros sincopados en staccato (*"da-da-da..."*) que funcionan como percusión armónica y articulan el pulso con un toque ceremonial y contemporáneo.
-  - **Aparición de la flauta y desarrollo temático:** La flauta de bambú / traversa entra para asumir la voz cantante, ejecutando líneas melódicas de corte pastoral, ornamentadas y con un vibrato muy expresivo que dialoga de forma fluida con las frases de la cítara. La estructura se desarrolla alternando las frases melismáticas de la voz femenina, los ataques rápidos de la cítara y los cantábiles de la flauta.
-  - **Crescendo, clímax y polifonía:** Hacia el minuto 2:00, la pista gana densidad con la suma de capas de sintetizadores analógicos (pads y leads suaves), un bajo redondo que enraíza la progresión en modo menor y una mayor energía en las vocalizaciones agudas. La flauta y la cítara se cruzan en un momento de intensidad climática expansiva.
-  - **Coda y disolución final:** La percusión y los coros rítmicos desaparecen gradualmente en el último medio minuto, dejando que los ecos de la cítara y los últimos melismas vocales se apaguen en un ambiente suspendido y meditativo.
+#### SURCO 14 — *A Single Spanish Step* (西班牙一步)
+- **Naturaleza:** Instrumental / Vocalizada (Worldbeat ambiental / Prog meditativo).
+- **Instrumentación destacada:** Guzheng, EWI lírico, bajo redondo, pads de sintetizador, batería sutil y vocalizaciones suspendidas.
+- **Carácter y emoción:** Añoranza elegante y búsqueda de horizonte.
+- **Ficha para libreto:** Puente estético entre la sobriedad acústica y la mística oriental. El EWI dibuja líneas cantables con aire pastoral sobre acordes menores sostenidos y arpegios cristalinos, marcando una despedida reflexiva y pausada.
+- **Estructura Sonora:** Arpegios limpios de cítara tradicional con escalas pentatónicas y bends meditativos. Hacia el segundo 0:25 entra una vocalización etérea femenina sobre reverberación amplia y groove downtempo orgánico. El EWI actúa como narrador lírico antes de retirarse en quietud contemplativa, sellando el primer paso del Tao.
 
 ---
 
-### SURCO 07 — *I Remain* (我依然在)
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Resiliencia, soledad estoica y consuelo íntimo.
-- **Qué evoca:** Es de las piezas más lentas y hondas del disco. Evoca la quietud de una casa vacía tras una marcha definitiva; el momento exacto en que te das cuenta de que, a pesar de la ausencia, uno sigue en pie, entero y en paz consigo mismo.
-- **Estructura Sonora y Análisis Musical:**
-  - **Introducción y atmósfera inicial:** Arranca con un pulso sintético suave y una atmósfera flotante donde una flauta tradicional expone el tema melódico principal. La articulación es melancólica y lírica, empleando trinos y portamentos de gran sensibilidad.
-  - **Versos (Introspección y pulso contenido):** La voz masculina principal entra en un registro grave/medio, con una dicción pausada, sobria y cercana. La instrumentación en la estrofa se vacía: se sostiene sobre un colchón de sintetizadores analógicos en tonos menores y pequeños detalles rítmicos secos, dejando espacio total a la narración.
-  - **Estribillos (Apertura y armonización coral):** La dinámica se eleva al llegar al estribillo: entra una base rítmica electrónica mid-tempo con bombo redondo y chasquidos marcados. La melodía vocal se expande con armonías vocales y coros que abren la imagen estéreo, aportando esa sensación de desahogo y nostalgia clásica del prog sinfónico británico.
-  - **Desarrollo instrumental y puente:** Tras los estribillos, la flauta solista reaparece como hilo conductor, retomando y variando el motivo melódico sobre la base rítmica activa. Hacia el minuto 2:30, la pieza introduce un puente donde la voz adopta un tono más resolutivo y dinámico, apoyada por sintetizadores rítmicos antes de volver al estribillo culminante.
-  - **Coda y desenlace:** El tema concluye desnudando progresivamente la base: los ritmos se silencian y la voz se apaga en una repetición íntima y reverberada (*"And I remain..."*), dejando que los acordes finales de sintetizador y los ecos de la flauta se extingan en una atmósfera de calma contemplativa, cerrando con gran belleza la Cara A del LP.
+### 🎙️ BLOQUE B: Las 8 Canciones Cantadas con Letra (La Narrativa y el Lirismo Prog)
+
+#### SURCO 02 — *Keep a Place for You* (为你留一席地)
+- **Naturaleza:** Canción con letra (Folk-Pop / Crossover Progresivo).
+- **Instrumentación destacada:** Guitarra acústica, voz masculina solista, EWI, armonías vocales/coros, bajo, batería y teclados analógicos.
+- **Carácter y emoción:** Ternura protectora y fidelidad melancólica.
+- **Ficha para libreto:** Construida sobre un rasgueo acústico de raíz folk y una interpretación vocal sobria y cercana. El estribillo se expande en ricas polifonías corales, con el EWI respondiendo con sutileza a la promesa de guardar un espacio intacto a quien partió.
+- **Estructura Sonora:** Preludio atmosférico con rasgueo nítido de guitarra acústica en modo menor. Voz sobria y cercana en registro medio sobre bajo redondo y articulado. Estribillos con apertura sinfónica y ricas armonías corales en registros altos, puente rítmico en staccato al 2:40 y fundido contemplativo.
 
 ---
 
-### SURCO 08 — *Angular A Minor* (棱角A小调)
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Melancolía cinematográfica y recogimiento.
-- **Qué evoca:** Un tono menor muy marcado que sugiere un viaje interior en solitario. Evoca la contemplación de un río o una montaña lejana con un poso agridulce, una emoción contenida que no desborda en llanto, sino en aceptación pacífica.
-- **Estructura Sonora y Análisis Musical:**
-  - **Atmósfera inicial y motivo de cuerda oriental:** Arranca sobre un fondo de pads sintéticos envolventes y espaciosos en modo menor. Rápidamente entra el instrumento de cuerda pulsada tradicional asiática (cítara oriental, tipo *guzheng* o *koto*), dibujando arpegios rápidos y escalas pentatónicas con inflexiones en las notas (*bends*) muy expresivas.
-  - **Línea vocal melismática:** Alrededor del medio minuto se incorpora una voz femenina etérea, tratada melódicamente como un instrumento solista más dentro del espacio estéreo cargado de reverberación. No articula texto léxico: canta sobre melismas, *aahs* y quejíos ondulantes en tesituras medias y agudas, aportando esa cualidad mística, ceremonial y evocadora del gran Worldbeat y el sinfonismo más lírico.
-  - **Base rítmica y percusión:** La percusión electrónica asienta un groove a medio-lento tempo (*downtempo / chillout* de raíz tribal), caracterizado por un bombo redondo y profundo junto a un golpe de rimshot seco y reverberado, complementado con shakers y percusión orgánica de madera que aportan calidez al compás.
-  - **Desarrollo tímbrico y flauta tradicional:** La cítara y los sintetizadores dan paso al diálogo con la flauta tradicional (*dizi*). Este instrumento de viento madera ejecuta frases líricas, fluidas y ornamentadas conectadas con el lirismo pastoral de la gran escuela sinfónica europea. Hacia el final, las capas melódicas de cuerda, flauta y coros se entrelazan en un clímax armónico antes de diluirse progresivamente en un fundido suave sobre el eco de la cítara.
+#### SURCO 04 — *Hold the Measure* (把握分寸)
+- **Naturaleza:** Canción con letra (Art-Pop sincopado / Sophisti-Pop).
+- **Instrumentación destacada:** Teclados en staccato, guitarras rítmicas, bajo melódico, batería con palmas/chasquidos, voz masculina y EWI en contrapunto.
+- **Carácter y emoción:** Tensión lúcida, dignidad y determinación rítmica.
+- **Ficha para libreto:** Corte angular y elegante con cortes métricos precisos. La voz adopta un fraseo casi hablado en las estrofas antes de abrirse hacia un estribillo de resistencia emocional sostenido por el pulso del bajo y líneas virtuosas de viento electrónico.
+- **Estructura Sonora:** Riff percusivo de teclado y guitarra en staccato sobre bajo ágil y melódico. Voz masculina contenida y EWI solista virtuoso ejecutando contrapuntos expresivos con vibrato y articulaciones dinámicas.
 
 ---
 
-### SURCO 09 — *Spanish Misty Guzheng* (西班牙迷雾古筝) — [3ª INSTRUMENTAL]
-- **Rol en el álbum:** Tercer oasis instrumental / Encuentro lírico entre el misticismo oriental y la atmósfera meditativa contemporánea.
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Paz nocturna, sosiego y disolución espiritual.
-- **Qué evoca:** El reposo absoluto tras un largo periplo. Sugiere el silencio de la noche donde las cuerdas del guzheng actúan como gotas de rocío que caen lentamente, dejando una sensación de purificación y quietud absoluta.
-- **Estructura Sonora y Análisis Musical:**
-  - **Introducción y motivo de cuerda asiática:** Arranca con arpegios fluidos y cristalinos de cítara oriental (*guzheng* o *koto*) sobre un colchón de sintetizadores en modo menor. La ejecución resalta por el uso de notas estiradas (*bending*) y microtonalidades pentatónicas que fijan un ambiente introspectivo y meditativo.
-  - **Base rítmica y percusión vocal:** Alrededor del segundo 0:25 entra un recurso rítmico distintivo: un coro rítmico en staccato (*"da-da-da..."*) que funciona a modo de percusión tonal humana. A continuación se asienta la base rítmica electrónica a medio-lento tempo (*downtempo / chillout*), con un bombo seco y profundo, chasquidos definidos y una línea de bajo sintético que ancla los cambios armónicos.
-  - **Melodía vocal y entrada de la flauta:** La voz femenina interviene mediante melismas etéreos y vocalizaciones sin texto léxico, proyectada con una amplia reverberación que genera sensación de espacio abierto. La flauta tradicional toma el liderazgo melódico, dibujando líneas cantables, trinos y arabescos de corte pastoral que dialogan con la cítara con gran expresividad y vibrato lírico.
-  - **Desarrollo tímbrico y polifonía climática:** En la parte central, la pieza incrementa su densidad sonora con la superposición de capas: las respuestas melódicas entre la flauta y la cítara se intensifican, respaldadas por sintetizadores analógicos (pads envolventes) y las inflexiones agudas de la voz. La combinación de los motivos tradicionales con la cadencia electrónica otorga un carácter majestuoso y ceremonial al clímax.
-  - **Coda y resolución:** En el tramo final, la batería electrónica y los patrones corales rítmicos van desapareciendo de forma progresiva. La composición concluye desnudando el arreglo hasta dejar únicamente las notas suspendidas de la cítara y los ecos lejanos de la flauta, disolviéndose suavemente en el silencio.
+#### SURCO 05 — *Paper Lantern River* (纸灯之河)
+- **Naturaleza:** Canción con letra (Art-Pop / Rock Progresivo Lírico).
+- **Instrumentación destacada:** EWI solista, guitarra acústica, voz masculina, coros en octavas y respuestas femeninas, sintetizadores y batería mid-tempo.
+- **Carácter y emoción:** Despedida luminosa y aceptación serena.
+- **Ficha para libreto:** Narración en torno al fluir del tiempo y los objetos cotidianos. El EWI asume el sello melódico a lo Latimer, contrastando con un estribillo expansivo y un puente dinámico de gran intensidad emocional.
+- **Estructura Sonora:** Apertura etérea que da paso a una base electrónica sincopada con caja seca y palmas. Estribillo expansivo (*"Lead me through..."*) con armonías vocales y respuestas corales estéreo, arropadas por arabescos del EWI y puente culminante.
 
 ---
 
-### SURCO 10 — *Li Ann, My Sunshine* (丽安，我的阳光)
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Alegría radiante, gratitud y entusiasmo desbordante.
-- **Qué evoca:** Es el rayo de sol directo del álbum. Evoca una sonrisa abierta, el agradecimiento a esa persona o recuerdo que ilumina los días grises y las ganas de celebrar y bailar sin reservas. Rompe cualquier atisbo de pesadumbre con una explosión coral llena de luz y júbilo.
-- **Estructura Sonora y Análisis Musical:**
-  - **Introducción y arranque:** Comienza con una breve vocalización etérea que rápidamente da paso a un estallido dinámico: una base electrónica a medio tiempo animada por palmas marcadas, un bombo rotundo y un groove de bajo sintetizado muy melódico y caminante. La flauta tradicional entra inmediatamente exponiendo el gancho temático con giros melódicos ágiles y festivos, estableciendo una tonalidad mayor luminosa.
-  - **Versos (Narrativa cercana y pulso bailable):** La voz masculina principal canta en su tesitura media habitual con una cadencia animada y rítmica. La instrumentación en la estrofa se despeja ligeramente para que el bombo y el bajo marquen el paso, acompañada por pequeños acordes de teclado y respuestas sutiles de la percusión.
-  - **Estribillos (Explosión coral y fuerza pop):** Al llegar al coro (*"You are my sunshine, you pull me through..."*), la canción alcanza su punto de máxima apertura: armonización vocal masiva que combina la voz masculina con coros y respuestas femeninas en registros altos que amplían el estéreo y dotan al estribillo de un tono eufórico y celebratorio arropado por sintetizadores y flauta al unísono.
-  - **El diálogo de la flauta:** La flauta no actúa como un mero adorno; es la contraparte melódica constante de la voz con arabescos rápidos, trinos y respuestas constantes a cada frase cantada, aportando textura acústica y orgánica que equilibra el pulso electrónico.
-  - **Puente y clímax final:** Alrededor del minuto 2:10 se abre un puente (*"If the world goes cold..."*) donde la percusión adopta acentos más sincopados y las voces se contestan en un formato de llamada y respuesta antes de volver al estribillo. El tema concluye en un clímax donde los coros repiten el estribillo con total entrega dinámica, cerrando finalmente en una caída suave donde la voz susurra las últimas notas sobre la reverberación y el eco de los sintetizadores.
+#### SURCO 07 — *I Remain* (我依然在)
+- **Naturaleza:** Balada cantada (Crossover Progresivo / Balada reflexiva).
+- **Instrumentación destacada:** Teclados analógicos suspendidos, voz masculina grave/media, EWI lírico, coros de apoyo, bajo y batería contenida.
+- **Carácter y emoción:** Resiliencia, soledad estoica y consuelo íntimo.
+- **Ficha para libreto:** La pieza más pausada e introspectiva del repertorio. Despojada de artificios rítmicos en los versos, descansa sobre la vulnerabilidad de la voz y el diálogo cálido del EWI, culminando en una afirmación serena de permanencia y dignidad.
+- **Estructura Sonora:** Atmósfera flotante con EWI solista melancólico. Versos íntimos sobre sintetizadores analógicos en tonos menores, estribillos de apertura luminosa con armonías vocales estéreo y coda íntima (*"And I remain..."*) en contemplación hacia el siguiente corte.
 
 ---
 
-### SURCO 11 — *Pause Before the Rain* (雨前伫足)
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Expectación suspendida y belleza agridulce.
-- **Qué evoca:** El aire cargado de ozono justo antes de que caiga el aguacero. Es la emoción del intervalo: un instante de silencio donde el tiempo parece detenerse para saborear lo que fue antes de que la lluvia lo limpie todo.
-- **Estructura Sonora y Análisis Musical:**
-  - **Apertura y motivo conductor:** Inicia con vocalizaciones etéreas que dan paso al ritmo electrónico a medio tiempo (*mid-tempo groove*), con un bombo seco y percusiones nítidas. La flauta tradicional toma de inmediato la iniciativa melódica, interpretando el motivo principal con articulaciones expresivas, portamentos y un aire pastoral característico del sinfonismo progresivo más lírico y elegante.
-  - **Versos y entrega vocal:** La voz masculina principal entra en un registro medio y narrativo, con un tono sobrio, cercano y sin dramatismos impostados. La instrumentación en las estrofas se vuelve diáfana: los sintetizadores analógicos en modo menor sostienen la armonía de fondo, dejando respirar el texto y el fraseo.
-  - **Estribillos (Apertura polifónica):** Al llegar al estribillo (*"Stay..."*), la intensidad asciende: la voz gana tesitura y se arropa con armonías vocales y coros que abren la imagen estéreo. Los sintetizadores expanden su rango armónico, reforzando ese contraste entre la melancolía del acorde menor y la luminosidad de la melodía.
-  - **Puente y desarrollo dinámico:** Tras los estribillos, la flauta solista vuelve a actuar como hilo conductor y contrapunto melódico a la voz. Alrededor del minuto 2:20, se introduce un puente con mayor impulso rítmico y tensión melódica que prepara la reentrada triunfal del estribillo.
-  - **Coda y desvanecimiento final:** La parte final despoja gradualmente la instrumentación: la voz atenúa su volumen hasta un tono reflexivo e íntimo, cediendo los últimos compases a los ecos de la flauta y los sintetizadores ambientales que se extinguen en reverberación.
+#### SURCO 10 — *Li Ann, My Sunshine* (丽安，我的阳光)
+- **Naturaleza:** Canción con letra (Sophisti-Pop / Crossover optimista).
+- **Instrumentación destacada:** Gran masa coral mixta, bajo caminante melódico, batería enérgica, palmas marcadas, guitarras, teclados y EWI festivo.
+- **Carácter y emoción:** Alegría radiante, gratitud y entusiasmo celebratorio.
+- **Ficha para libreto:** El cenit luminoso del álbum. Rompe la introspección con una celebración directa y bailable del afecto, donde el EWI realiza arabescos alegres en respuesta a un estribillo masivo y vital.
+- **Estructura Sonora:** Estallido dinámico a medio tiempo con palmas marcadas, bombo rotundo y groove de bajo caminante. EWI en tono luminoso y festivo con estribillo coral masivo (*"You are my sunshine, you pull me through..."*) en llamada y respuesta.
 
 ---
 
-### SURCO 12 — *Where the Pieces Fell* (碎片散落之处)
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Superación, fuerza interior y catarsis.
-- **Qué evoca:** La fuerza de quien mira el suelo roto y, en lugar de lamentarse, decide reconstruirse desde ahí con orgullo. La apertura del estribillo transmite una sensación de liberación triunfante, de sacudirse el polvo y recuperar la propia voz.
-- **Estructura Sonora y Análisis Musical:**
-  - **Arranque y pulso rítmico:** Arranca directamente con un motivo de percusión seca y rítmica junto a una línea de sintetizador en staccato, estableciendo un tempo medio ágil y bailable en modo menor. La base rítmica electrónica se complementa con chasquidos y palmas que marcan las síncopas, manteniendo el aire moderno y definido.
-  - **Versos y entrega vocal:** La voz masculina principal entra en un registro medio, sobrio y narrativo, con una articulación clara y contenida. En las estrofas, la instrumentación se aligera para darle protagonismo al texto: un bajo redondo sostiene los cambios armónicos mientras los teclados puntean notas cortas y espaciadas.
-  - **Estribillos (Fuerza polifónica y expansión):** Al llegar al estribillo (*"I can stand where the pieces fell..."*), la energía asciende con determinación. La voz gana brillo y se respalda con armonías vocales y coros que abren la imagen estéreo, transmitiendo una resolución dramática y luminosa sobre la armonía menor.
-  - **La flauta y los contrapuntos:** Entre las frases cantadas y en las transiciones vuelve a aparecer la flauta solista con su sonido pastoral y etéreo. Ejecuta trinos, arpegios rápidos y adornos melódicos que responden a la línea vocal, funcionando como el ancla tímbrica que conecta la pieza con el lirismo clásico y noble del gran rock progresivo melódico.
-  - **Puente, clímax y desenlace:** Alrededor del minuto 2:15, el tema aborda un puente de tensión creciente (*"If you meet me in the doorway..."*), donde la voz sube de intensidad y dramatismo rítmico. La canción desemboca en un estribillo culminante a pleno rendimiento de capas corales y melódicas, para luego resolver en una coda donde la flauta y los ecos vocales se despiden flotando sobre el pulso rítmico final.
+#### SURCO 11 — *Pause Before the Rain* (雨前伫足)
+- **Naturaleza:** Canción con letra (Art-Pop / Prog pastoral).
+- **Instrumentación destacada:** EWI como gancho temático, voz masculina narrativa, coros en capas estéreo, teclados, bajo y batería mid-tempo.
+- **Carácter y emoción:** Expectación suspendida y belleza agridulce.
+- **Ficha para libreto:** Centrada en la poética del intervalo y la calma que precede a la tormenta. El timbre expresivo del EWI enlaza las estrofas con un estribillo coral luminoso que se disuelve en un cierre íntimo casi susurrado.
+- **Estructura Sonora:** Vocalizaciones etéreas que dan paso al ritmo mid-tempo con bombo seco y percusión nítida. EWI solista de corte pastoral con portamentos expresivos y voz masculina sobria que asciende en el estribillo (*"Stay..."*) con coros estéreo.
 
 ---
 
-### SURCO 13 — *The Turning of the Tide* (潮汐回转)
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Transición existencial y paciencia sabia.
-- **Qué evoca:** Sentarse a la orilla del mar a esperar que cambie la marea. Transmite la calma de quien comprende los ciclos de la vida: que todo retroceso es solo la preparación para un nuevo avance. Cierra con una ternura infinita y despojada.
-- **Estructura Sonora y Análisis Musical:**
-  - **Apertura y motivo inicial:** Comienza con una breve introducción atmosférica y vocalizada que fija el tono menor y el espacio reflexivo. De inmediato entra una base rítmica electrónica limpia (*mid-tempo groove*), marcada por un bombo definido, caja/rimshot seco y un sutil bajo sintetizado que marca el pulso armónico sin sobrecargar la mezcla.
-  - **Versos (Introspección y pulso sobrio):** La voz masculina principal entra en un registro medio, narrativo y sosegado, con una afinación limpia y cercana que prescinde de artificios dramáticos. La instrumentación en las estrofas se vuelve diáfana: pequeños detalles de cuerda o sintetizador percusivo puntúan los compases, dejando que el bajo y la voz lleven el peso de la dinámica.
-  - **Estribillos (Apertura polifónica y elevación melódica):** En el coro (*"Stay for the turning of the tide..."*), la pista experimenta una apertura luminosa y nostálgica. La voz principal asciende en tesitura y se complementa con armonías vocales y coros en planos superiores que ensanchan la imagen estéreo, aportando esa calidez melancólica clásica del sinfonismo británico.
-  - **El papel de la flauta (Lirismo sinfónico):** Entre las secciones vocales y en los momentos de transición, la flauta solista vuelve a ser el eje melódico indiscutible. Ejecuta frases líricas, trinos y arabescos pastoriles con el timbre dulce y expresivo característico de las grandes obras de la escuela sinfónica europea, sirviendo de puente melódico entre estrofas y estribillos.
-  - **Puente dramático y tensión:** Alrededor del minuto 2:15 (*"If all we held was borrowed time..."*), la dinámica rítmica se detiene y la estructura entra en suspensión. La voz canta con mayor urgencia y dramatismo sobre acordes sostenidos de sintetizador, generando una tensión armónica que resuelve con fuerza en el retorno al estribillo final a pleno rendimiento.
-  - **Coda y resolución íntima:** El tema concluye desarmando el ritmo (*"Kettle cools, the clocks move on..."*): la batería electrónica cesa y la voz se queda casi a solas con un colchón de teclados analógicos y pequeños ecos de flauta reverberada, desvaneciéndose en un cierre reposado y contemplativo.
+#### SURCO 12 — *Where the Pieces Fell* (碎片散落之处)
+- **Naturaleza:** Canción con letra (Art-Pop progresivo / Catarsis rítmica).
+- **Instrumentación destacada:** Sintetizadores en staccato, bajo pulsante, batería con palmas/síncopas, voz masculina decidida, EWI y coros abiertos.
+- **Carácter y emoción:** Superación, fuerza interior y reconstrucción personal.
+- **Ficha para libreto:** Tracción rítmica decidida y espíritu catártico. Frente a la melancolía pasiva, la instrumentación impulsa a la voz hacia un estribillo triunfal que celebra levantarse desde los propios fragmentos rotos.
+- **Estructura Sonora:** Percusión seca con sintetizador en staccato en tempo ágil y bailable en modo menor. Versos despojados con bajo redondo y notas de teclado espaciadas. Estribillo ascendente y determinado (*"I can stand where the pieces fell..."*) arropado por respuestas del EWI y puente de tensión creciente hacia el 2:15.
 
 ---
 
-### SURCO 14 — *A Single Spanish Step* (西班牙一步) — [4ª INSTRUMENTAL & CLÍMAX CONCEPTUAL]
-- **Rol en el álbum:** Cierre del álbum y culminación filosófica del viaje (*千里之行 始于足下 - Un viaje de mil millas comienza con un solo paso*).
-- **Género & Estilo:** Crossover de Rock Progresivo Lírico / Art-Pop / Indie Folk, donde la arquitectura melódica y la atmósfera evocadora heredan directamente la sensibilidad del prog británico de los años 70, presentadas bajo un prisma de producción contemporánea con pulso rítmico electrónico.
-- **Emoción:** Añoranza elegante y búsqueda de horizonte.
-- **Qué evoca:** La pausa reflexiva previa a emprender una marcha o un cambio de rumbo. Tiene una sobriedad casi estoica, donde la dulzura de la flauta dialoga con el vacío en una emoción de despedida pausada y madura.
-- **Estructura Sonora y Análisis Musical:**
-  - **Introducción y motivo de cítara tradicional:** Arranca de forma limpia con arpegios brillantes de cítara asiática (*guzheng* o *koto*). La interpretación se mueve sobre escalas pentatónicas, alternando notas percusivas en staccato con estiramientos de cuerda (*bends*) y trinos que establecen de inmediato un carácter reflexivo y meditativo.
-  - **Entrada vocal melismática y base rítmica:** Hacia el segundo 0:25, entra una vocalización etérea femenina tratada como un instrumento de viento melancólico mediante reverberación amplia. No articula texto, sino giros melódicos ondulantes en registro medio y agudo. Paralelamente se asienta un groove electrónico a medio-lento tempo (*mid-tempo downtempo*), con un bombo profundo, un chasquido seco (*rimshot*) y capas sutiles de percusión orgánica de madera que marcan el pulso sin restar espacio al aire meditativo.
-  - **Aparición de la flauta (El hilo conductor lírico):** La flauta tradicional toma el relevo melódico principal. Ejecuta frases cantables de carácter pastoral, con portamentos y vibrato expresivo. Este tratamiento lírico del viento madera como narrador central de la melodía teje un puente entre la tradición acústica asiática y el sinfonismo lírico europeo.
-  - **Desarrollo tímbrico y clímax polifónico:** Alrededor del minuto 1:30, la instrumentación se densifica: se integran capas de sintetizadores analógicos (pads envolventes) y una línea de bajo redonda que afirma las progresiones en modo menor. La flauta, la cítara y las vocalizaciones femeninas se cruzan en un diálogo polifónico continuo, elevando la tensión dinámica y la carga emotiva de la pieza.
-  - **Coda y disolución espacial:** En el tramo final, la base rítmica electrónica se desvanece de forma progresiva. La obra concluye despojándose de percusión, dejando que las últimas frases suspendidas de la cítara y los ecos lejanos de la voz se apaguen suavemente en una atmósfera de quietud contemplativa, sellando el álbum con el primer paso del Tao.
+#### SURCO 13 — *The Turning of the Tide* (潮汐回转)
+- **Naturaleza:** Canción con letra (Sophisti-Prog / Canción de transición).
+- **Instrumentación destacada:** EWI melódico, guitarra acústica/eléctrica limpia, voz masculina sobria, coros amplios, teclados y batería pausada.
+- **Carácter y emoción:** Paciencia sabia y reconciliación existencial.
+- **Ficha para libreto:** Una oda a los ciclos y las esperas necesarias. El puente suspende el pulso rítmico para dar paso a un clímax vocal antes de regresar a una coda despojada donde el reloj y la tetera marcan el regreso a la quietud cotidiana.
+- **Estructura Sonora:** Introducción atmosférica en tono menor con groove limpio y bombo definido. Voz sosegada en los versos, apertura melódica en el coro (*"Stay for the turning of the tide..."*) con polifonía coral amplia, puente en suspensión armónica al 2:15 y coda desarmando el ritmo hasta quedar a solas con los teclados.
+
+---
+
+#### SURCO 14 — *A Single Spanish Step* (西班牙一步)
+- **Naturaleza:** Instrumental / Vocalizada (Worldbeat ambiental / Prog meditativo).
+- **Instrumentación destacada:** Guzheng, EWI lírico, bajo redondo, pads de sintetizador, batería sutil y vocalizaciones suspendidas.
+- **Carácter y emoción:** Añoranza elegante y búsqueda de horizonte.
+- **Ficha para libreto:** Puente estético entre la sobriedad acústica y la mística oriental. El EWI dibuja líneas cantables con aire pastoral sobre acordes menores sostenidos y arpegios cristalinos, marcando una despedida reflexiva y pausada.
+- **Estructura Sonora:** Entrada de guzheng arpegiado con bends y bajo profundo. El EWI entra con melodía pastoral de gran calado emotivo, secundado por teclados analógicos en suspensión y sutil base rítmica. Diálogo progresivo y disolución crepuscular hacia el silencio, culminando el viaje de los mil pasos.
 
 ---
 
