@@ -104,6 +104,8 @@ Todos los másters tienen los metadatos limpios (cero rastros de IA) y blindados
    - Archivo de referencia: `DICCIONARIO_FONETICO_SUNO_CASTELLANO.md`.
 3. **Limpieza Rigurosa de Metadatos:**  
    Todo audio destinado a SGAE o plataformas debe pasar por limpieza con `mutagen`: eliminar etiquetas `made with suno`, IDs temporales o títulos residuales, inyectando la ficha oficial de Khem Aura Records y SGAE Nº 29.751.
+4. **Rutas siempre visibles en texto plano (Ley Inviolable):**  
+   Nunca usar enlaces abstractos como «haz clic aquí» o enlaces markdown camuflados. Los enlaces de archivo dentro del panel de chat no funcionan al clic del usuario en su entorno. Dar **SIEMPRE la ruta física absoluta completa en texto claro** (ej. `C:\Users\Usuario\...`) para que Eduardo sepa exactamente dónde está, pueda copiarla y acceder cuando quiera.
 
 ---
 
