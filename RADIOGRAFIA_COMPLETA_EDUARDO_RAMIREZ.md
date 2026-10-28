@@ -15,6 +15,8 @@
 * **Web Oficial / Plataforma:** `trbandmusic.es` (desarrollada y alojada en su entorno de trabajo).
 * **Distribuidora Digital:** CD Baby.
 * **Editora Fija de Libros:** Amazon KDP.
+* **Colaboradores Históricos Clave:** 
+  - **Javier de Juan:** Amigo personal y colaborador musical histórico de The Research Band (carpeta de sesiones y pistas de saxo/audio en `MIS DISCOS\JAVIER_DE_JUAN`). NO es una web ni aplicación externa.
 
 ---
 
