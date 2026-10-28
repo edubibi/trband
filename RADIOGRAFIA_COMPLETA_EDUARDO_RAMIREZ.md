@@ -119,3 +119,47 @@ Todos los másters tienen los metadatos limpios (cero rastros de IA) y blindados
 4. **Producción del single de Nara Blue (*Down the Open Road*):** Edición de audio, metadatos y arte de portada.
 5. **Producción de *True Believer*:** Pulir el máster con el Guzheng y la modulación de 4 semitonos.
 6. **Audiolibros KDP en Voz Virtual:** Revisar en la Biblioteca de KDP cuando se active la opción para convertir sus obras escritas en audiolibros de Audible.
+7. **Migración del próximo dominio en Febrero de 2027:** Aplicar el protocolo maestro de traslado (Nominalia -> Interdominios -> GitHub Pages) para librarnos del siguiente cobro abusivo.
+
+---
+
+## 8. PROTOCOLO OPERATIVO MAESTRO: MIGRACIÓN DE DOMINIOS Y GESTIÓN DNS (NOMINALIA -> INTERDOMINIOS -> GITHUB PAGES)
+*Caso de éxito verificado el 28/10/2026 con `dudeduart.es`. Protocolo reutilizable para la próxima migración de Febrero de 2027.*
+
+1. **En Nominalia (Origen):**
+   - Panel de Control -> Localizar dominio -> Quitar bloqueo de transferencia.
+   - Solicitar Auth-Code / EPP.
+   - Cancelar renovación automática del dominio/hosting viejo.
+   - Confirmar el email de validación de Red.es (enviado a `ramirex00@gmail.com`).
+
+2. **En Interdominios (Destino):**
+   - Web de Interdominios -> Trasladar dominio -> Introducir dominio y Auth-Code.
+   - Método de pago: Bizum (control manual total, sin cobros sorpresa).
+   - En Extranet -> Listado de servicios -> Dominio -> Pestaña `DNS`:
+     * Servidor DNS 1: `dns1.interdominios.com`
+     * Servidor DNS 2: `dns2.interdominios.com`
+     * Servidores 3 y 4 en blanco -> Pulsar `Actualizar`.
+
+3. **Activar Panel Plesk Gratuito (0,00 €) en Interdominios:**
+   - Web Interdominios -> Servicios -> Redirecciones y Gestión DNS (`https://ayuda.interdominios.com/knowledgebase/contratar-un-redireccionamiento-gratuito/`).
+   - Plan: *Redirecciones web + 3 Redirecciones Email y Gestión DNS Gratis* (0,00 €).
+   - Opción clave: Seleccionar **«Utilizar mi dominio existente sin trasladar»** y escribir el nombre del dominio.
+   - Finalizar pedido con usuario existente (72838) a coste 0,00 €.
+
+4. **Configurar las 4 IPs de GitHub Pages en Plesk:**
+   - Extranet -> Listado de servicios -> Servicio de Redirección/DNS recién creado -> Acciones de servicio -> **`Acceso al Panel Plesk`**.
+   - En Hosting y DNS -> Clic en el globo terráqueo azul **`DNS`**.
+   - Modificar el registro `A` existente por la primera IP: `185.199.108.153` -> Aceptar.
+   - Pulsar `+ Añadir registro` 3 veces (Tipo: `A`, Host: vacío) para las otras 3 IPs:
+     * `185.199.109.153`
+     * `185.199.110.153`
+     * `185.199.111.153`
+   - Comprobar que `www` tiene CNAME apuntando a `dominio.es.`
+   - Pulsar el botón azul **`Actualizar`** en la barra amarilla superior para aplicar en firme.
+
+5. **En GitHub Pages:**
+   - Añadir archivo `CNAME` en la raíz del repositorio con el nombre del dominio.
+   - En 15-45 min la propagación queda lista y GitHub Pages emite el certificado SSL (HTTPS) gratis automáticamente.
+
+*Documento de referencia rápida en escritorio:* `C:\Users\Usuario\Desktop\PROTOCOLO_MIGRACION_DOMINIOS_Y_DNS.txt`
+
