@@ -13,9 +13,9 @@
 * **Grupo / Marca Musical:** **The Research Band (TRBAND)**.
 * **Email Oficial de Producción:** `eduardo@trbandmusic.es`
 * **Web Oficial / Plataforma:** `trbandmusic.es` (desarrollada y alojada en su entorno de trabajo).
-* **Gestión de Dominios:**
-  - `dudeduart.es`: **Trasladado de Nominalia a INTERDOMINIOS el 23/10/2026** (coste 0,00 €, con Auth-Code `ESZ664Onp0DUr`). Nominalia eliminada de la ecuación.
-  - `trbandmusic.es`: Dominio activo principal de la banda.
+* **Gestión de Dominios y Alojamiento:**
+  - `dudeduart.es`: **Trasladado de Nominalia a INTERDOMINIOS el 23/10/2026** (coste 0,00 €, con Auth-Code `ESZ664Onp0DUr`). Nominalia 100% eliminada de la ecuación. Servidores DNS cambiados a `dns1.interdominios.com` y `dns2.interdominios.com`. Ticket de soporte enviado el 28/10/2026 para apuntar registros A (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`) y CNAME (`edubibi.github.io`) al repositorio de GitHub Pages (`edubibi/galeria-dudeduart`). Alojamiento de por vida con coste 0,00 €.
+  - `trbandmusic.es`: Dominio activo principal de la banda (apuntando a GitHub Pages).
 * **Distribuidora Digital:** CD Baby.
 * **Editora Fija de Libros:** Amazon KDP.
 * **Colaboradores Históricos Clave:** 
