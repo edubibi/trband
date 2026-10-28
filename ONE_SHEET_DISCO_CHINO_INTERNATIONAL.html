@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>千里之行 始于足下 — A Journey of a Thousand Miles Begins with a Single Step | International EPK & One-Sheet</title>
+  <meta name="description" content="Official Electronic Press Kit & Industry Pitch for The Research Band. Sino-European Progressive Rock & Taoist Aesthetics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Noto+Serif+SC:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #0a0d14;
+      --bg-card: rgba(18, 23, 34, 0.85);
+      --border: rgba(229, 192, 123, 0.2);
+      --gold-tao: #e5c07b;
+      --gold-bright: #fcd34d;
+      --cyan-acc: #38bdf8;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-title: 'Cinzel', serif;
+      --font-cn: 'Noto Serif SC', serif;
+      --font-ui: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 50% 0%, rgba(229, 192, 123, 0.08) 0px, transparent 65%),
+        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.05) 0px, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .cn-subtitle {
+      font-family: var(--font-cn);
+      font-size: 2rem;
+      color: var(--gold-tao);
+      letter-spacing: 0.35rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(229, 192, 123, 0.3);
+    }
+
+    h1 {
+      font-family: var(--font-title);
+      font-size: 2.3rem;
+      font-weight: 900;
+      letter-spacing: 0.05rem;
+      color: #ffffff;
+      margin-bottom: 0.8rem;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(229, 192, 123, 0.1);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      color: var(--gold-bright);
+    }
+
+    /* HERO TWO-COLUMN */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 2.5rem;
+      margin: 3rem 0;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+
+    .cover-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      text-align: center;
+    }
+
+    .cover-card img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+      margin-bottom: 1.2rem;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      width: 100%;
+      background: linear-gradient(135deg, #d97706, #b45309);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.9rem 1.4rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.35);
+      margin-bottom: 0.6rem;
+    }
+
+    .btn-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(217, 119, 6, 0.5);
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: none;
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: none;
+    }
+
+    /* RIGHT COLUMN - METRICS & SOUND */
+    .specs-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .section-title {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      color: var(--gold-tao);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.5rem;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    @media (max-width: 550px) {
+      .specs-grid { grid-template-columns: 1fr; }
+    }
+
+    .spec-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+    }
+
+    .spec-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .spec-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .sound-chips {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 0.4rem;
+    }
+
+    .chip {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--cyan-acc);
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* PITCH NARRATIVE */
+    .narrative-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .narrative-p {
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+    }
+
+    .quote-box {
+      border-left: 3px solid var(--gold-tao);
+      padding-left: 1.2rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--gold-bright);
+      font-size: 1.1rem;
+    }
+
+    /* TRACKLIST ACCORDION / TABLE */
+    .track-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .track-table th {
+      text-align: left;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05rem;
+      color: var(--text-muted);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .track-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.95rem;
+    }
+
+    .track-table tr:hover td {
+      background: rgba(229, 192, 123, 0.04);
+    }
+
+    .track-num {
+      font-family: var(--font-mono);
+      color: var(--gold-tao);
+      font-weight: bold;
+    }
+
+    .track-title-en {
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .track-title-cn {
+      font-family: var(--font-cn);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-left: 0.4rem;
+    }
+
+    .track-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+    }
+
+    .track-badge.inst {
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--cyan-acc);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HEADER PITCH -->
+    <header>
+      <div class="cn-subtitle">千里之行 始于足下</div>
+      <h1>A Journey of a Thousand Miles Begins with a Single Step</h1>
+      <p class="tagline">An audiophile cross-cultural bridge fusing 70s European Progressive Rock architecture with traditional Chinese acoustic mysticism.</p>
+      
+      <div class="badge-bar">
+        <span class="badge">📦 UPC: 885000835513</span>
+        <span class="badge">🏛️ Khem Aura Records</span>
+        <span class="badge">📅 Official Release: Nov 07, 2026</span>
+        <span class="badge">⚡ Pre-Order: Oct 31, 2026</span>
+        <span class="badge">🌐 Global Distribution via CD Baby</span>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <div class="hero-grid">
+      <!-- COVER & CALL TO ACTIONS -->
+      <div class="cover-card">
+        <img src="00Portada_El viaje de mil millas LP_CDBABY_RGB.png" alt="Album Cover Artwork">
+        <a href="tocadiscos_virtual_tao.html" target="_blank" class="btn-action">
+          <span>🎧 Open Audiophile Turntable</span>
+        </a>
+        <a href="https://music.apple.com/artist/the-research-band/1406237751" target="_blank" class="btn-action btn-secondary">
+          <span>🍎 Apple Music Artist Profile</span>
+        </a>
+        <a href="https://trbandmusic.es" target="_blank" class="btn-action btn-secondary">
+          <span>🌐 Official Web: trbandmusic.es</span>
+        </a>
+      </div>
+
+      <!-- SPECS & AESTHETICS -->
+      <div class="specs-card">
+        <div class="section-title">💿 Executive Album Profile</div>
+        
+        <div class="specs-grid">
+          <div class="spec-item">
+            <div class="spec-label">Artist</div>
+            <div class="spec-value">The Research Band (TRBAND)</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Composer & Producer</div>
+            <div class="spec-value">Eduardo Ramírez de Cartagena</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">SGAE Rights ID</div>
+            <div class="spec-value">Member Nº 29.751 (100% Rights)</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Lead Focus Track</div>
+            <div class="spec-value">Dreams and Other Things (Surco 01)</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Primary Genre / Subgenre</div>
+            <div class="spec-value">Jazz / Jazz Fusion</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Secondary Genre</div>
+            <div class="spec-value">Jazz-Rock / Progressive Pop</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Format</div>
+            <div class="spec-value">Full-Length 14-Track LP (8 Vocal / 6 Inst)</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Target Delivery Ingestion</div>
+            <div class="spec-value">NetEase Cloud, Tencent (TME), Spotify, Apple</div>
+          </div>
+        </div>
+
+        <div class="section-title">🎸 Sonic References (Sounds Like)</div>
+        <div class="sound-chips">
+          <span class="chip">Camel (Symphonic Lyricism)</span>
+          <span class="chip">King Crimson (Dynamic Rigor)</span>
+          <span class="chip">Dirty Loops (Groove & Sophistication)</span>
+          <span class="chip">Guzheng & Erhu (Acoustic Eastern Roots)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NARRATIVE PITCH -->
+    <div class="narrative-block">
+      <div class="section-title">🌏 The Concept: East Meets West in High Fidelity</div>
+      <p class="narrative-p">
+        Conceived by Spanish veteran composer <strong>Eduardo Ramírez de Cartagena</strong> (founding member of iconic pop-rock band CADILLAC), 
+        <em>A Journey of a Thousand Miles Begins with a Single Step</em> draws its spirit directly from Chapter 64 of Lao Tzu’s <em>Tao Te Ching</em>.
+      </p>
+      <div class="quote-box">
+        "千里之行，始于足下 — A journey of a thousand miles begins beneath the feet."
+      </div>
+      <p class="narrative-p">
+        Rather than a casual blend, the album constructs an authentic acoustic bridge: pristine traditional pentatonic arpeggios on the <strong>Guzheng</strong>, 
+        expressive string bends, and meditative Asian wind textures dialoguing intimately with the melodic depth of European 70s art-rock and modern downtempo Worldbeat rhythms.
+      </p>
+    </div>
+
+    <!-- 14-TRACK REPERTOIRE -->
+    <div class="narrative-block">
+      <div class="section-title">🎼 Complete 14-Track Repertoire (Bilingual)</div>
+      
+      <table class="track-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title (English & Pinyin)</th>
+            <th>Type</th>
+            <th>Style / Mood</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="track-num">01</td>
+            <td><span class="track-title-en">Dreams and Other Things</span> <span class="track-title-cn">(Mèngjìng yǔ yúshì)</span></td>
+            <td><span class="track-badge inst">Instrumental</span></td>
+            <td>Worldbeat / Lyrical Fusion (Lead Single)</td>
+          </tr>
+          <tr>
+            <td class="track-num">02</td>
+            <td><span class="track-title-en">Keep a Place for You</span> <span class="track-title-cn">(Wèi nǐ liú yī xì dì)</span></td>
+            <td><span class="track-badge">Vocal</span></td>
+            <td>Folk-Pop / Progressive Crossover</td>
+          </tr>
+          <tr>
+            <td class="track-num">03</td>
+            <td><span class="track-title-en">Oriental Pagoda</span> <span class="track-title-cn">(Dōngfāng bǎotǎ)</span></td>
+            <td><span class="track-badge inst">Instrumental</span></td>
+            <td>Ethnic Ambient / Worldbeat</td>
+          </tr>
+          <tr>
+            <td class="track-num">04</td>
+            <td><span class="track-title-en">Hold the Measure</span> <span class="track-title-cn">(Bǎwò fēncùn)</span></td>
+            <td><span class="track-badge">Vocal</span></td>
+            <td>Syncopated Art-Pop / Sophisti-Pop</td>
+          </tr>
+          <tr>
+            <td class="track-num">05</td>
+            <td><span class="track-title-en">Paper Lantern River</span> <span class="track-title-cn">(Zhǐdēng zhī hé)</span></td>
+            <td><span class="track-badge">Vocal</span></td>
+            <td>Lyrical Progressive Rock / Art-Pop</td>
+          </tr>
+          <tr>
+            <td class="track-num">06</td>
+            <td><span class="track-title-en">In the Warmth of the Yangtze River</span> <span class="track-title-cn">(Chángjiāng de wēncún)</span></td>
+            <td><span class="track-badge inst">Instrumental</span></td>
+            <td>Ceremonial Worldbeat / Fusion</td>
+          </tr>
+          <tr>
+            <td class="track-num">07</td>
+            <td><span class="track-title-en">I Remain</span> <span class="track-title-cn">(Wǒ yīrán zài)</span></td>
+            <td><span class="track-badge">Vocal</span></td>
+            <td>Reflective Ballad / Prog Crossover</td>
+          </tr>
+          <tr>
+            <td class="track-num">08</td>
+            <td><span class="track-title-en">Angular A Minor</span> <span class="track-title-cn">(Léngjiǎo A xiǎodiào)</span></td>
+            <td><span class="track-badge inst">Instrumental</span></td>
+            <td>Contemplative Ethno-Ambient Prog</td>
+          </tr>
+          <tr>
+            <td class="track-num">09</td>
+            <td><span class="track-title-en">Spanish Misty Guzheng</span> <span class="track-title-cn">(Xībānyá mǐwù gǔzhēng)</span></td>
+            <td><span class="track-badge inst">Instrumental</span></td>
+            <td>Ambient Chillout / Meditative Coda</td>
+          </tr>
+          <tr>
+            <td class="track-num">10</td>
+            <td><span class="track-title-en">Li Ann, My Sunshine</span> <span class="track-title-cn">(Lì’ān, wǒ de yángguāng)</span></td>
+            <td><span class="track-badge">Vocal</span></td>
+            <td>Uplifting Sophisti-Pop / Crossover</td>
+          </tr>
+          <tr>
+            <td class="track-num">11</td>
+            <td><span class="track-title-en">Pause Before the Rain</span> <span class="track-title-cn">(Yǔ qián zhùzú)</span></td>
+            <td><span class="track-badge">Vocal</span></td>
+            <td>Pastoral Prog / Art-Pop</td>
+          </tr>
+          <tr>
+            <td class="track-num">12</td>
+            <td><span class="track-title-en">Where the Pieces Fell</span> <span class="track-title-cn">(Suìpiàn sànluò zhī chù)</span></td>
+            <td><span class="track-badge">Vocal</span></td>
+            <td>Dynamic Art-Pop / Rhythmic Catharsis</td>
+          </tr>
+          <tr>
+            <td class="track-num">13</td>
+            <td><span class="track-title-en">The Turning of the Tide</span> <span class="track-title-cn">(Cháoxī huízhuǎn)</span></td>
+            <td><span class="track-badge">Vocal</span></td>
+            <td>Sophisti-Prog / Transition Anthem</td>
+          </tr>
+          <tr>
+            <td class="track-num">14</td>
+            <td><span class="track-title-en">A Single Spanish Step</span> <span class="track-title-cn">(Xībānyá yī bù)</span></td>
+            <td><span class="track-badge inst">Instrumental</span></td>
+            <td>Acoustic Worldbeat / Meditative Finale</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CONTACT FOR LABELS -->
+    <div class="narrative-block" style="text-align: center;">
+      <div class="section-title" style="justify-content: center;">🤝 Licensing, Partnerships & Contact</div>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+        Available for Exclusive Physical Vinyl Distribution in Asia, DSP Playlist Editorial Features, and High-Resolution Sync Licensing.
+      </p>
+      <div class="badge-bar">
+        <span class="badge">Label: Khem Aura Records</span>
+        <span class="badge">Official Website: trbandmusic.es</span>
+        <span class="badge">Composer: Eduardo Ramírez de Cartagena</span>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 The Research Band / Khem Aura Records / Eduardo Ramírez de Cartagena (SGAE Nº 29.751). All Rights Reserved.
+    </footer>
+
+  </div>
+
+</body>
+</html>

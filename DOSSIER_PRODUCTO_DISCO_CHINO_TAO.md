@@ -6,6 +6,22 @@
 **Formato Oficial:** Álbum LP-Full-Length Vinyl LP con 14 cortes, 8 cantados y 6 instrumentales  
 **Plataforma Interactiva:** Tocadiscos Analógico Virtual Audiófilo (Vinilo Translúcido 33 ⅓ RPM con Cue Lever y Libreto Interactivo)  
 **Fecha de Producción:** Octubre 2026  
+**Fecha Oficial de Lanzamiento Mundial (CD Baby):** 7 de Noviembre de 2026  
+**Fecha de Preventa / Pre-Order:** 31 de Octubre de 2026  
+**Instant Gratification Track (1er Single de Preventa):** *Dreams and Other Things (Mèngjìng yǔ yúshì)* (Surco 01)  
+**Distribución:** CD Baby (Distribución Digital Mundial)  
+**Código UPC Oficial:** `885000835513`  
+**Estado Distribución:** Pagado y en cola de inspección (CD Baby)  
+**Pitch Internacional China:** ✅ Enviado el 23-10-2026 (Modern Sky, Taihe Music Group, NetEase Cloud Music)  
+**Género Principal / Subgénero:** Jazz / Jazz Fusion  
+**Género Secundario / Subgénero:** Jazz / Jazz-Rock  
+**Mood / Estilo:** Dreamy  
+**Artistas de Referencia (Sounds Like):** Camel, Dirty Loops, King Crimson  
+
+### 🔗 Perfiles Oficiales de Artista en Plataformas (The Research Band):
+- **Apple Music / iTunes:** [The Research Band (1406237751)](https://music.apple.com/artist/the-research-band/1406237751)
+- **Spotify:** `spotify:artist:13WJTJy2K8r5uRfslyP28T`
+- **YouTube Music:** `The Research Band (UCKDqakT8FpTa2AOQJrgrP8Q)`
 
 ---
 
