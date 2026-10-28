@@ -13,6 +13,9 @@
 * **Grupo / Marca Musical:** **The Research Band (TRBAND)**.
 * **Email Oficial de Producción:** `eduardo@trbandmusic.es`
 * **Web Oficial / Plataforma:** `trbandmusic.es` (desarrollada y alojada en su entorno de trabajo).
+* **Gestión de Dominios:**
+  - `dudeduart.es`: **Trasladado de Nominalia a INTERDOMINIOS el 23/10/2026** (coste 0,00 €, con Auth-Code `ESZ664Onp0DUr`). Nominalia eliminada de la ecuación.
+  - `trbandmusic.es`: Dominio activo principal de la banda.
 * **Distribuidora Digital:** CD Baby.
 * **Editora Fija de Libros:** Amazon KDP.
 * **Colaboradores Históricos Clave:** 
