@@ -546,12 +546,12 @@
 <body>
 
 <div class="nav-buttons">
-  <a href="../index.html" class="btn-back">← VOLVER A LA WEB</a>
+  <a href="../index.html" class="btn-back" id="btn-back">← VOLVER A LA WEB</a>
 </div>
 
 <div class="lang-toggle">
-  <button class="lang-btn active" onclick="setLang('es')">ES</button>
-  <button class="lang-btn" onclick="setLang('en')">EN</button>
+  <button class="lang-btn active" id="btn-lang-es" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
 </div>
 
 <!-- HERO -->
@@ -567,49 +567,23 @@
       <span class="audio-text" id="audio-status">Reproducir Single</span>
     </div>
 
-    <p class="label">The Research Band · New Single</p>
+    <p class="label" id="hero-label">The Research Band · Nuevo Single</p>
     <div class="glitch-wrapper">
       <h1 class="glitch-title">Wild and Free</h1>
     </div>
 
-    <div class="countdown" id="countdown">
-      <div class="countdown-item">
-        <span class="countdown-val" id="days">00</span>
-        <span class="countdown-label">Días</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-val" id="hours">00</span>
-        <span class="countdown-label">Horas</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-val" id="minutes">00</span>
-        <span class="countdown-label">Min</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-val" id="seconds">00</span>
-        <span class="countdown-label">Seg</span>
-      </div>
+    <div style="margin: 18px 0;">
+      <span id="hero-status" style="display: inline-block; background: rgba(0, 229, 255, 0.15); border: 1px solid var(--cyan); color: var(--cyan); font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.25em; font-size: 0.95rem; padding: 6px 18px; border-radius: 20px;">¡YA DISPONIBLE!</span>
     </div>
 
-    <p class="hero-desc">Funky Jazz Electrónico forjado en las sombras de neón. La última exploración sonora de The Research Band llega precisamente cuando el mundo necesita volver a sentirse humano.</p>
+    <p class="hero-desc" id="hero-desc">Funky Jazz Electrónico forjado en las sombras de neón. La última exploración sonora de The Research Band llega precisamente cuando el mundo necesita volver a sentirse humano.</p>
 
     <div class="hero-meta">
       <span><strong>Synth Rock</strong> · Jazz Noir · Electronic Funky Jazz</span>
     </div>
-    <div class="date-badge">⬡ 15 · 04 · 2026</div>
+    <div class="date-badge" id="hero-date">⬡ LANZAMIENTO OFICIAL: 15 · 04 · 2026</div>
   </div>
 </div>
-
-<!-- PRESS RECOGNITION -->
-<section class="press-recognition">
-  <div class="press-item" style="color:var(--cyan); font-size: 0.9rem; margin-bottom: 20px; letter-spacing: 3px;">MENCIONES EN PRENSA</div>
-  <div class="press-grid">
-    <div class="press-item">ROLLING STONE</div>
-    <div class="press-item">MONDO SONORO</div>
-    <div class="press-item">EFE EME</div>
-    <div class="press-item">ROCKDELUX</div>
-  </div>
-</section>
 
 <!-- SPANISH VERSION -->
 <div class="version active" id="ver-es">
@@ -824,42 +798,45 @@
 </footer>
 
 <script>
-// Countdown Logic
-const targetDate = new Date("April 15, 2026 00:00:00").getTime();
-
-function updateCountdown() {
-    const now = new Date().getTime();
-    const gap = targetDate - now;
-
-    if (gap < 0) {
-        if(document.getElementById("countdown")) document.getElementById("countdown").innerHTML = "<h3 style='color:var(--cyan)'>YA DISPONIBLE</h3>";
-        return;
-    }
-
-    const second = 1000;
-    const minute = second * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
-
-    const d = Math.floor(gap / day);
-    const h = Math.floor((gap % day) / hour);
-    const m = Math.floor((gap % hour) / minute);
-    const s = Math.floor((gap % minute) / second);
-
-    if(document.getElementById("days")) document.getElementById("days").innerText = d.toString().padStart(2, '0');
-    if(document.getElementById("hours")) document.getElementById("hours").innerText = h.toString().padStart(2, '0');
-    if(document.getElementById("minutes")) document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
-    if(document.getElementById("seconds")) document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
+let currentLang = 'es';
 
 function setLang(lang) {
+  currentLang = lang;
   document.querySelectorAll('.version').forEach(v => v.classList.remove('active'));
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('ver-' + lang).classList.add('active');
-  event.target.classList.add('active');
+  
+  const ver = document.getElementById('ver-' + lang);
+  if (ver) ver.classList.add('active');
+  
+  const btn = document.getElementById('btn-lang-' + lang);
+  if (btn) btn.classList.add('active');
+
+  const btnBack = document.getElementById('btn-back');
+  const heroLabel = document.getElementById('hero-label');
+  const heroDesc = document.getElementById('hero-desc');
+  const heroStatus = document.getElementById('hero-status');
+  const heroDate = document.getElementById('hero-date');
+  const audioStatus = document.getElementById('audio-status');
+
+  if (lang === 'en') {
+    if (btnBack) btnBack.innerText = '← BACK TO WEBSITE';
+    if (heroLabel) heroLabel.innerText = 'The Research Band · New Single';
+    if (heroDesc) heroDesc.innerText = 'Electronic Funky Jazz forged in neon shadows. The latest sonic exploration by The Research Band arrives precisely when the world needs to feel human again.';
+    if (heroStatus) heroStatus.innerText = 'OUT NOW';
+    if (heroDate) heroDate.innerText = '⬡ OFFICIAL RELEASE: APRIL 15, 2026';
+    if (audioStatus) {
+      audioStatus.innerText = audio.paused ? 'Play Single' : 'Playing...';
+    }
+  } else {
+    if (btnBack) btnBack.innerText = '← VOLVER A LA WEB';
+    if (heroLabel) heroLabel.innerText = 'The Research Band · Nuevo Single';
+    if (heroDesc) heroDesc.innerText = 'Funky Jazz Electrónico forjado en las sombras de neón. La última exploración sonora de The Research Band llega precisamente cuando el mundo necesita volver a sentirse humano.';
+    if (heroStatus) heroStatus.innerText = '¡YA DISPONIBLE!';
+    if (heroDate) heroDate.innerText = '⬡ LANZAMIENTO OFICIAL: 15 · 04 · 2026';
+    if (audioStatus) {
+      audioStatus.innerText = audio.paused ? 'Reproducir Single' : 'Sonando...';
+    }
+  }
 }
 
 const audio = document.getElementById('audio');
@@ -872,12 +849,12 @@ function toggleAudio() {
     audio.play();
     svgPlay.style.display = 'none';
     svgPause.style.display = 'block';
-    audioStatus.innerText = 'Sonando...';
+    audioStatus.innerText = currentLang === 'en' ? 'Playing...' : 'Sonando...';
   } else {
     audio.pause();
     svgPlay.style.display = 'block';
     svgPause.style.display = 'none';
-    audioStatus.innerText = 'Pausado';
+    audioStatus.innerText = currentLang === 'en' ? 'Paused' : 'Pausado';
   }
 }
 </script>
