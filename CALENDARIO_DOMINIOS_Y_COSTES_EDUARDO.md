@@ -22,18 +22,27 @@
 
 ---
 
-## 📅 3. Cronograma Escalonado de Traslados a IONOS (2027)
+## 📅 3. Cronograma Escalonado de Dominios Activos (A Conservar y Trasladar)
 
-| Mes de Vencimiento | Dominio | Registrador Actual | Acción / Traslado a IONOS | Coste Primer Año |
+| Mes de Caducidad | Dominio | Registrador Actual | Destino / Acción | Coste Previsto |
 | :---: | :--- | :--- | :--- | :---: |
-| **Febrero 2027** | `trbandmusic.es` | Nominalia | Iniciar traslado en **Enero 2027** | 6,00 € |
-| **18 Feb 2027** | `edusse.es` | **IONOS** | *Ya en IONOS* (Renueva automático a 10 €) | 10,00 € |
-| **18 Mar 2027** | `eduart-laboratory.com` | Nominalia | Iniciar traslado en **Febrero 2027** | 6,00 € |
-| **21 Mar 2027** | `jj-almela.com` | Nominalia | Iniciar traslado en **Febrero 2027** | 6,00 € |
-| **25 Abr 2027** | `eduart.group` | Nominalia | Iniciar traslado en **Marzo 2027** | Promo IONOS |
-| **24 May 2027** | `trbandcoleccion-musical.com` | Nominalia | Iniciar traslado en **Abril 2027** | 6,00 € |
-| **25 May 2027** | `votacionestrband.com` | Nominalia | Iniciar traslado en **Abril 2027** | 6,00 € |
-| *Por ubicar día:* | `khem.es`, `laboratorioeduardo.es`, `laesenciadeunpais.es`, `lamesadesalyolivo.es`, `thelagtrixlab-art.es` | Nominalia | Se colocarán según el mes de vencimiento | 6,00 € c/u |
+| **Febrero 2027** | **`trbandmusic.es`** | Nominalia | Trasladar a **IONOS** en Enero 2027 | 6,00 € |
+| **18 Feb 2027** | **`edusse.es`** | **IONOS** | *Conservar en IONOS* (Renovación auto) | 10,00 € |
+| **21 Mar 2027** | **`jj-almela.com`** | Nominalia | Trasladar a **IONOS** en Febrero 2027 | 6,00 € |
+| **25 Abr 2027** | **`eduart.group`** | Nominalia | Trasladar a **IONOS** en Marzo 2027 | Promo IONOS |
+| *19 Nov 2027* | **`dudeduart.es`** | Interdominios | *Blindado en Interdominios* | ~9-10 € |
+| *Por ubicar día:* | `khem.es`, `laboratorioeduardo.es`, `laesenciadeunpais.es`, `lamesadesalyolivo.es`, `thelagtrixlab-art.es` | Nominalia | Se decidirán traslados a IONOS según fecha | 6,00 € c/u |
+
+---
+
+## 🛑 4. Dominios a DAR DE BAJA (No Renovar / Dejar Expirar)
+*Estos dominios NO se renuevan y se dejan morir para no gastar ni un euro más en ellos:*
+
+1. **`eduart-laboratory.com`** (Caduca el 18/03/2027) ➔ **BAJA / NO RENOVAR**
+2. **`trbandcoleccion-musical.com`** (Caduca el 24/05/2027) ➔ **BAJA / NO RENOVAR**
+3. **`votacionestrband.com`** (Caduca el 25/05/2027) ➔ **BAJA / NO RENOVAR**
+
+> ⚠️ **Paso Importante en Nominalia:** Verificar en el panel de control de Nominalia que estos 3 dominios tengan la **«Renovación Automática» desactivada**, para que cuando llegue su fecha de vencimiento simplemente caduquen solos sin pasar cargos a tu tarjeta.
 
 ---
 
