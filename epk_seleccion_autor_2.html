@@ -827,11 +827,10 @@
             <h3 id="txt-prot-title">Need More Music Choices for Broadcast or Sync Licensing?</h3>
             <p id="txt-prot-desc">
                 We control a full repertoire of over 100 original registered works (Jazz Fusion, Smooth Funk,
-                Instrumental & Vocal). 100% One-Stop Master and Publishing rights. Full catalog access provided
-                exclusively upon request.
+                Instrumental & Vocal). 100% One-Stop Master and Publishing rights. Curated MP3 audition previews and full catalog
+                access provided exclusively upon request.
             </p>
-            <a href="mailto:eduardo@trbandmusic.es" class="contact-btn" id="txt-contact-btn">Request Full Catalog
-                Access</a>
+            <a href="mailto:eduardo@trbandmusic.es?subject=Request%20MP3%20Previews%20%26%20Full%20Catalog%20Access%20%7C%20The%20Research%20Band&body=Dear%20Eduardo,%0A%0AWe%20are%20reviewing%20the%20EPK%20of%20The%20Research%20Band%20and%20would%20like%20to%20request%20curated%20MP3%20previews%20and%20extended%20catalog%20access%20for%20broadcasting%20/%20sync%20licensing%20consideration.%0A%0A-%20Company%20/%20Network:%0A-%20Project%20Type%20(Film%20/%20Series%20/%20Commercial%20/%20Airplay):%0A-%20Musical%20Styles%20Desired:%0A%0ABest%20regards," class="contact-btn" id="txt-contact-btn">Request MP3 Previews & Catalog Access</a>
         </div>
 
         <footer>
@@ -973,8 +972,9 @@
                 },
                 protBadge: "🔒 Protected Catalog • 100% One-Stop SGAE",
                 protTitle: "Need More Music Choices for Broadcast or Sync Licensing?",
-                protDesc: "We control a full repertoire of over 100 original registered works (Jazz Fusion, Smooth Funk, Instrumental & Vocal). 100% One-Stop Master and Publishing rights. Full catalog access provided exclusively upon request.",
-                contactBtn: "Request Full Catalog Access"
+                protDesc: "We control a full repertoire of over 100 original registered works (Jazz Fusion, Smooth Funk, Instrumental & Vocal). 100% One-Stop Master and Publishing rights. Curated MP3 audition previews and full catalog access provided exclusively upon request.",
+                contactBtn: "Request MP3 Previews & Catalog Access",
+                contactHref: "mailto:eduardo@trbandmusic.es?subject=Request%20MP3%20Previews%20%26%20Full%20Catalog%20Access%20%7C%20The%20Research%20Band&body=Dear%20Eduardo,%0A%0AWe%20are%20reviewing%20the%20EPK%20of%20The%20Research%20Band%20and%20would%20like%20to%20request%20curated%20MP3%20previews%20and%20extended%20catalog%20access%20for%20broadcasting%20/%20sync%20licensing%20consideration.%0A%0A-%20Company%20/%20Network:%0A-%20Project%20Type%20(Film%20/%20Series%20/%20Commercial%20/%20Airplay):%0A-%20Musical%20Styles%20Desired:%0A%0ABest%20regards,"
             },
             es: {
                 subtitle: "Selección de Autor • Dossier de Prensa Electrónico (EPK)",
@@ -1018,8 +1018,9 @@
                 },
                 protBadge: "🔒 Catálogo Protegido • 100% One-Stop SGAE",
                 protTitle: "¿Necesitas más opciones para tu Emisora o Licencia Sync?",
-                protDesc: "Disponemos de un catálogo de más de 100 obras originales registradas en SGAE (Jazz Fusion, Smooth Funk, Instrumental y Vocal). Control absoluto de Derechos de Máster y Editorial (100% One-Stop). Disponible exclusivamente bajo petición previa.",
-                contactBtn: "Solicitar Acceso al Catálogo Completo"
+                protDesc: "Disponemos de un catálogo de más de 100 obras originales registradas en SGAE (Jazz Fusion, Smooth Funk, Instrumental y Vocal). Control absoluto de Derechos de Máster y Editorial (100% One-Stop). Muestras de audio en MP3 y acceso exclusivo bajo petición previa.",
+                contactBtn: "Solicitar Muestras MP3 y Catálogo Completo",
+                contactHref: "mailto:eduardo@trbandmusic.es?subject=Solicitud%20de%20Muestras%20MP3%20y%20Acceso%20a%20Cat%C3%A1logo%20%7C%20The%20Research%20Band&body=Estimado%20Eduardo,%0A%0ATras%20escuchar%20el%20EPK%20de%20The%20Research%20Band,%20nos%20gustar%C3%ADa%20solicitar%20muestras%20de%20audio%20en%20MP3%20y%20acceso%20a%20vuestro%20cat%C3%A1logo%20completo%20para%20valoraci%C3%B3n%20de%20emisi%C3%B3n%20/%20sincronizaci%C3%B3n.%0A%0A-%20Empresa%20/%20Productora%20/%20Medio:%0A-%20Tipo%20de%20Proyecto%20(Ficci%C3%B3n%20/%20Emisi%C3%B3n%20/%20Publicidad):%0A-%20Estilos%20musicales%20de%20inter%C3%A9s:%0A%0AUn%20cordial%20saludo,"
             }
         };
 
@@ -1055,6 +1056,7 @@
             document.getElementById('txt-prot-title').innerText = t.protTitle;
             document.getElementById('txt-prot-desc').innerText = t.protDesc;
             document.getElementById('txt-contact-btn').innerText = t.contactBtn;
+            if (t.contactHref) document.getElementById('txt-contact-btn').href = t.contactHref;
         }
     </script>
 </body>
