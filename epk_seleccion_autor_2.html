@@ -1,0 +1,1063 @@
+joder colega no se ya en que idioma decirtelo. aquí en el chat no puedo abrir nada
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Research Band - Author's Selection EPK</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: #121318;
+            --accent-orange: #ff5500;
+            /* SoundCloud Accent */
+            --accent-gold: #D4AF37;
+            --text-main: #f0f0f0;
+            --text-muted: #999;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 40px 20px 80px 20px;
+        }
+
+        /* Top Bar & Language Switcher */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .brand-tag {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: #1a1c23;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active,
+        .lang-btn:hover {
+            background: var(--accent-gold);
+            color: #000;
+            border-color: var(--accent-gold);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .hero-logo {
+            max-width: 220px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            margin: 0 0 10px 0;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .epk-bio {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ccc;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .epk-bio strong {
+            color: #fff;
+        }
+
+        /* Section Title */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 50px;
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: #fff;
+            margin: 0;
+        }
+
+        .badge-count {
+            background: rgba(255, 85, 0, 0.15);
+            color: var(--accent-orange);
+            border: 1px solid var(--accent-orange);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* SoundCloud Style Player Card */
+        .sc-player-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .sc-player-card:hover {
+            border-color: rgba(255, 85, 0, 0.4);
+        }
+
+        .sc-cover {
+            width: 140px;
+            height: 140px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .sc-main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sc-top-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .sc-play-btn {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--accent-orange);
+            border: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .sc-play-btn:hover {
+            transform: scale(1.08);
+            background: #ff6a1a;
+        }
+
+        .sc-play-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+        }
+
+        .sc-track-meta {
+            flex-grow: 1;
+        }
+
+        .sc-artist-name {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .sc-track-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+        }
+
+        .sc-genre-tag {
+            background: #1e2029;
+            color: #aaa;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* SoundCloud Waveform Display */
+        .sc-waveform-container {
+            margin: 12px 0;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .sc-waveform-bars {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            height: 38px;
+            width: 100%;
+        }
+
+        .sc-bar {
+            flex-grow: 1;
+            background: #333642;
+            border-radius: 1px;
+            transition: background 0.1s ease;
+        }
+
+        .sc-bar.played {
+            background: var(--accent-orange);
+        }
+
+        .sc-duration {
+            position: absolute;
+            right: 0;
+            bottom: -18px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Replacement for "Write a comment": Custom Metadata & Credits Box */
+        .sc-credits-box {
+            background: #181920;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 0.83rem;
+            color: #bbb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .sc-credits-box strong {
+            color: #fff;
+        }
+
+        .sc-role-badge {
+            color: var(--accent-gold);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Protected Catalog Banner Footer */
+        .protected-banner {
+            margin-top: 60px;
+            background: linear-gradient(135deg, #181a24, #0f1016);
+            border: 1px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .protected-banner h3 {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1.6rem;
+            margin: 0 0 10px 0;
+        }
+
+        .protected-banner p {
+            color: #ccc;
+            font-size: 1.05rem;
+            max-width: 750px;
+            margin: 0 auto 20px auto;
+        }
+
+        .protected-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: #000;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+            background: #e5c158;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 650px) {
+            .sc-player-card {
+                grid-template-columns: 1fr;
+            }
+
+            .sc-cover {
+                width: 100%;
+                height: 200px;
+            }
+
+            .sc-credits-box {
+                flex-direction: column;
+                gap: 5px;
+                align-items: flex-start;
+            }
+        }
+    
+        /* Band Members Grid Styling */
+        .members-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .member-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 10px;
+            padding: 16px 12px;
+            text-align: center;
+            width: 195px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.06);
+        }
+
+        .member-founder {
+            border: 1px solid var(--accent-gold);
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        .member-highlight-asian {
+            border: 1px solid rgba(255, 85, 0, 0.4);
+        }
+
+        .member-highlight-asian:hover {
+            border-color: #ff5500;
+        }
+
+        .member-img {
+            width: 125px;
+            height: 145px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .member-name {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .member-role {
+            color: var(--accent-gold);
+            font-size: 0.74rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .member-bio {
+            color: #999;
+            font-size: 0.72rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+    </style>
+    <!-- Open Graph Meta Preview -->
+    <meta property="og:title" content="The Research Band - Pop-Rock y Jazzrock">
+    <meta property="og:description"
+        content="Grupo musical The Research Band. Fusión de Jazz-Rock, Smooth Jazz y Pop-Rock avanzado.">
+    <meta property="og:image" content="https://trbandmusic.es/assets/logo_trb_icon.png">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:image" content="https://trbandmusic.es/assets/logo_trb_icon.png">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Top Bar with Language Switcher -->
+        <div class="top-bar">
+            <span class="brand-tag">The Research Band • Official EPK</span>
+            <div class="lang-switch">
+                <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">🇬🇧 English</button>
+                <button class="lang-btn" id="btn-es" onclick="setLanguage('es')">🇪🇸 Español</button>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <img src="assets/logo_trb_icon.png" alt="The Research Band Logo" class="hero-logo">
+            <h1>The Research Band</h1>
+            <div class="subtitle" id="txt-subtitle">Author's Selection • Electronic Press Kit</div>
+
+            <div class="epk-bio" id="txt-bio">
+                Created and produced by <strong>Eduardo Ramírez de Cartagena</strong>, <strong>The Research
+                    Band</strong> blends high-octane Modern Jazz-Funk, Fusion, and Smooth Jazz. Featuring top
+                international virtuosos and guest vocalists, TRB offers a rich, 100% One-Stop original catalog
+                registered with SGAE.
+            </div>
+        </header>
+
+        <!-- Section Header -->
+        <div class="section-header">
+            <h2 id="txt-section-title">Selección de Autor / Author's Curated Selection</h2>
+            <span class="badge-count">8 Selected Tracks</span>
+        </div>
+
+        <!-- TRACK 1: Medianoche en la terraza -->
+        <div class="sc-player-card">
+            <img src="assets/portada_medianoche.jpg" alt="Medianoche en la terraza Cover" class="sc-cover">
+            <div class="sc-main-content">
+                <div class="sc-top-row">
+                    <button class="sc-play-btn" onclick="togglePlay('audio1', this)">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </button>
+                    <div class="sc-track-meta">
+                        <div class="sc-artist-name">The Research Band • Smooth Jazz Selection</div>
+                        <h3 class="sc-track-title">Medianoche en la terraza</h3>
+                    </div>
+                    <span class="sc-genre-tag"># Smooth Jazz # Nocturno</span>
+                </div>
+
+                <div class="sc-waveform-container" onclick="seekAudio('audio1', event, this)">
+                    <div class="sc-waveform-bars" id="wf-audio1"></div>
+                    <span class="sc-duration" id="dur-audio1">0:00 / 0:00</span>
+                </div>
+
+                <div class="sc-credits-box">
+                    <div><strong id="lbl-c1-title">Composer & Producer:</strong> Eduardo Ramírez de Cartagena</div>
+                    <div class="sc-role-badge" id="lbl-t1">Nocturnal Smooth Jazz &amp; Saxophone</div>
+                </div>
+            </div>
+            <audio id="audio1" src="assets/audio/Medianoche en la Terraza.mp3" preload="metadata"></audio>
+        </div>
+
+        <!-- TRACK 2: Dreams and other things -->
+        <div class="sc-player-card">
+            <img src="assets/img/01_dreams.jpg" alt="Dreams and other things Cover"
+                class="sc-cover">
+            <div class="sc-main-content">
+                <div class="sc-top-row">
+                    <button class="sc-play-btn" onclick="togglePlay('audio2', this)">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </button>
+                    <div class="sc-track-meta">
+                        <div class="sc-artist-name">The Research Band • Khem Aura (Tao Series)</div>
+                        <h3 class="sc-track-title">Dreams and other things <span style="font-size: 0.85em; opacity: 0.8;">(梦境与余事)</span></h3>
+                    </div>
+                    <span class="sc-genre-tag"># Instrumental # Lirismo Fusión # Art-Rock</span>
+                </div>
+
+                <div class="sc-waveform-container" onclick="seekAudio('audio2', event, this)">
+                    <div class="sc-waveform-bars" id="wf-audio2"></div>
+                    <span class="sc-duration" id="dur-audio2">0:00 / 0:00</span>
+                </div>
+
+                <div class="sc-credits-box">
+                    <div><strong id="lbl-c2-title">Composer & Producer:</strong> Eduardo Ramírez de Cartagena</div>
+                    <div class="sc-role-badge" id="lbl-t2">Prog-Jazz / Art Rock (Featured on Radio)</div>
+                </div>
+            </div>
+            <audio id="audio2" src="catalogo_showcase/assets/audio_unificado/Dreams and other things.mp3"
+                preload="metadata"></audio>
+        </div>
+
+        <!-- TRACK 3: Wild and Free -->
+        <div class="sc-player-card">
+            <img src="assets/wild_and_free_cover.png" alt="Wild and Free Cover" class="sc-cover">
+            <div class="sc-main-content">
+                <div class="sc-top-row">
+                    <button class="sc-play-btn" onclick="togglePlay('audio3', this)">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </button>
+                    <div class="sc-track-meta">
+                        <div class="sc-artist-name">The Research Band • Electronic Funky Jazz</div>
+                        <h3 class="sc-track-title">Wild and Free (New Mix 2026)</h3>
+                    </div>
+                    <span class="sc-genre-tag"># Synth Rock # Funky Jazz</span>
+                </div>
+
+                <div class="sc-waveform-container" onclick="seekAudio('audio3', event, this)">
+                    <div class="sc-waveform-bars" id="wf-audio3"></div>
+                    <span class="sc-duration" id="dur-audio3">0:00 / 0:00</span>
+                </div>
+
+                <div class="sc-credits-box">
+                    <div><strong id="lbl-c3-title">Composer & Producer:</strong> Eduardo Ramírez de Cartagena</div>
+                    <div class="sc-role-badge" id="lbl-t3">New 2026 Mix / Electronic Rock &amp; Funk</div>
+                </div>
+            </div>
+            <audio id="audio3" src="wild-and-free/WILD AND FREE_new mix.mp3" preload="metadata"></audio>
+        </div>
+
+        <!-- TRACK 4: All Around If You Want -->
+        <div class="sc-player-card">
+            <img src="assets/img/lp1_covers/1.All-around-if-you-want.png" alt="All Around If You Want Cover"
+                class="sc-cover">
+            <div class="sc-main-content">
+                <div class="sc-top-row">
+                    <button class="sc-play-btn" onclick="togglePlay('audio4', this)">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </button>
+                    <div class="sc-track-meta">
+                        <div class="sc-artist-name">The Research Band • Smooth Jazz &amp; Groove</div>
+                        <h3 class="sc-track-title">All Around If You Want</h3>
+                    </div>
+                    <span class="sc-genre-tag"># Smooth Jazz # Groove</span>
+                </div>
+
+                <div class="sc-waveform-container" onclick="seekAudio('audio4', event, this)">
+                    <div class="sc-waveform-bars" id="wf-audio4"></div>
+                    <span class="sc-duration" id="dur-audio4">0:00 / 0:00</span>
+                </div>
+
+                <div class="sc-credits-box">
+                    <div><strong id="lbl-c4-title">Composer & Producer:</strong> Eduardo Ramírez de Cartagena</div>
+                    <div class="sc-role-badge" id="lbl-t4">Contemporary Smooth Jazz &amp; Mediterranean Vibe</div>
+                </div>
+            </div>
+            <audio id="audio4" src="catalogo_showcase/assets/audio_unificado/all around if you want.mp3"
+                preload="metadata"></audio>
+        </div>
+
+        <!-- TRACK 5: Bloody Lukas -->
+        <div class="sc-player-card">
+            <img src="assets/bloody_lukas_canvas.jpg" alt="Bloody Lukas Cover" class="sc-cover">
+            <div class="sc-main-content">
+                <div class="sc-top-row">
+                    <button class="sc-play-btn" onclick="togglePlay('audio5', this)">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </button>
+                    <div class="sc-track-meta">
+                        <div class="sc-artist-name">The Research Band • 80s Jazz-Rock</div>
+                        <h3 class="sc-track-title">Bloody Lukas</h3>
+                    </div>
+                    <span class="sc-genre-tag"># Jazz-Rock # Slap Funk</span>
+                </div>
+
+                <div class="sc-waveform-container" onclick="seekAudio('audio5', event, this)">
+                    <div class="sc-waveform-bars" id="wf-audio5"></div>
+                    <span class="sc-duration" id="dur-audio5">0:00 / 0:00</span>
+                </div>
+
+                <div class="sc-credits-box">
+                    <div><strong id="lbl-c5-title">Composer & Producer:</strong> Eduardo Ramírez de Cartagena</div>
+                    <div class="sc-role-badge" id="lbl-t5">Instrumental 80s Jazz-Rock &amp; Powerful Brass</div>
+                </div>
+            </div>
+            <audio id="audio5" src="assets/audio/cut_the_roll/Bloody Lukas.mp3" preload="metadata"></audio>
+        </div>
+
+        <!-- TRACK 6: Tanto trabajar -->
+        <div class="sc-player-card">
+            <img src="assets/img/fuga/portada-fuga-2026-3000.jpg" alt="Tanto trabajar Cover" class="sc-cover">
+            <div class="sc-main-content">
+                <div class="sc-top-row">
+                    <button class="sc-play-btn" onclick="togglePlay('audio6', this)">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </button>
+                    <div class="sc-track-meta">
+                        <div class="sc-artist-name">The Research Band • Canción de Autor (Español)</div>
+                        <h3 class="sc-track-title">Tanto trabajar (Álbum FUGA)</h3>
+                    </div>
+                    <span class="sc-genre-tag"># Canción de Autor # Pop-Jazz</span>
+                </div>
+
+                <div class="sc-waveform-container" onclick="seekAudio('audio6', event, this)">
+                    <div class="sc-waveform-bars" id="wf-audio6"></div>
+                    <span class="sc-duration" id="dur-audio6">0:00 / 0:00</span>
+                </div>
+
+                <div class="sc-credits-box">
+                    <div id="lbl-c6-container"><strong>Music & Lyrics:</strong> Pepe Torres &amp; Lola Torres •
+                        <strong>Arranger & Producer:</strong> Eduardo Ramírez</div>
+                    <div class="sc-role-badge" id="lbl-t6">Spanish Vocal Track / Album FUGA</div>
+                </div>
+            </div>
+            <audio id="audio6" src="assets/audio/fuga/Tanto trabajar.mp3" preload="metadata"></audio>
+        </div>
+
+        <!-- TRACK 7: Spanish Misty Guzheng -->
+        <div class="sc-player-card">
+            <img src="assets/img/portada_a_journey_of_a_thousand_miles.jpg" alt="Spanish Misty Guzheng Cover"
+                class="sc-cover">
+            <div class="sc-main-content">
+                <div class="sc-top-row">
+                    <button class="sc-play-btn" onclick="togglePlay('audio7', this)">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </button>
+                    <div class="sc-track-meta">
+                        <div class="sc-artist-name">The Research Band • Oriental Fusion Selection</div>
+                        <h3 class="sc-track-title">Spanish Misty Guzheng</h3>
+                    </div>
+                    <span class="sc-genre-tag"># Ethnic Fusion # Guzheng Chill</span>
+                </div>
+
+                <div class="sc-waveform-container" onclick="seekAudio('audio7', event, this)">
+                    <div class="sc-waveform-bars" id="wf-audio7"></div>
+                    <span class="sc-duration" id="dur-audio7">0:00 / 0:00</span>
+                </div>
+
+                <div class="sc-credits-box">
+                    <div><strong id="lbl-c7-title">Composer & Producer:</strong> Eduardo Ramírez de Cartagena</div>
+                    <div class="sc-role-badge" id="lbl-t7">Chinese Guzheng &amp; Spanish Guitar Fusion</div>
+                </div>
+            </div>
+            <audio id="audio7" src="catalogo_showcase/assets/audio_unificado/Spanish Misty Guzheng.mp3"
+                preload="metadata"></audio>
+        </div>
+
+        <!-- TRACK 8: Ganges Water -->
+        <div class="sc-player-card">
+            <img src="assets/img/12_ganges.jpg" alt="Ganges Water Cover"
+                class="sc-cover">
+            <div class="sc-main-content">
+                <div class="sc-top-row">
+                    <button class="sc-play-btn" onclick="togglePlay('audio8', this)">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </button>
+                    <div class="sc-track-meta">
+                        <div class="sc-artist-name">The Research Band • Atlas of Sound (Díptico 6B)</div>
+                        <h3 class="sc-track-title">Ganges Water</h3>
+                    </div>
+                    <span class="sc-genre-tag"># India &amp; Raga-Rock # World Fusion</span>
+                </div>
+
+                <div class="sc-waveform-container" onclick="seekAudio('audio8', event, this)">
+                    <div class="sc-waveform-bars" id="wf-audio8"></div>
+                    <span class="sc-duration" id="dur-audio8">0:00 / 0:00</span>
+                </div>
+
+                <div class="sc-credits-box">
+                    <div><strong id="lbl-c8-title">Composer & Producer:</strong> Eduardo Ramírez de Cartagena</div>
+                    <div class="sc-role-badge" id="lbl-t8">World Ethnic Fusion &amp; Raga-Rock (7/8 &amp; 12/8)</div>
+                </div>
+            </div>
+            <audio id="audio8" src="assets/audio/12_Ganges_Water.mp3"
+                preload="metadata"></audio>
+        </div>
+
+        <!-- Band Members & Musicians Section -->
+        <div class="musicians-section" style="margin-top: 50px;">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <h3 style="font-family: var(--font-serif); color: var(--accent-gold); margin: 0 0 8px 0; font-size: 1.6rem; letter-spacing: 1px;" id="txt-musicians-title">Musicians & Lineup / Músicos del Grupo</h3>
+                <p style="color: #aaa; font-size: 0.92rem; margin: 0 auto; max-width: 700px;" id="txt-musicians-sub">
+                    Ensemble internacional de 7 solistas bajo la dirección y producción de <strong>Eduardo Ramírez de Cartagena</strong>.
+                </p>
+            </div>
+
+            <div class="members-grid">
+                <!-- 1. Eduardo Ramírez -->
+                <div class="member-card member-founder">
+                    <img src="assets/miembros/EDUARDO/nova_bio_eduardo.jpg" alt="Eduardo Ramírez de Cartagena" class="member-img">
+                    <div class="member-name">Eduardo Ramírez</div>
+                    <div class="member-role" id="m-role-1">Dirección, Bajo, Guitarras &amp; Producción</div>
+                    <p class="member-bio" id="m-bio-1">Premio SGAE. Compositor, arreglista y productor musical. 100% One-Stop.</p>
+                </div>
+
+                <!-- 2. Luca Fiammetti -->
+                <div class="member-card">
+                    <img src="assets/miembros/Luca/luca_final.jpg" alt="Luca Alessandro Fiammetti" class="member-img">
+                    <div class="member-name">Luca Fiammetti</div>
+                    <div class="member-role" id="m-role-2">Guitarras / Jazz Fusion (Milán)</div>
+                    <p class="member-bio" id="m-bio-2">Virtuosismo armónico y fraseo contemporáneo de la escuela europea.</p>
+                </div>
+
+                <!-- 3. Erik Solberg -->
+                <div class="member-card">
+                    <img src="assets/miembros/Erik/sax_profile.jpg" alt="Erik Solberg Andrade" class="member-img">
+                    <div class="member-name">Erik Solberg</div>
+                    <div class="member-role" id="m-role-3">Saxofón &amp; EWI (Oslo)</div>
+                    <p class="member-bio" id="m-bio-3">Texturas nórdicas, viento acústico y controladores electrónicos EWI.</p>
+                </div>
+
+                <!-- 4. Alba Cisneros -->
+                <div class="member-card">
+                    <img src="assets/miembros/Alba/violin_profile.jpg" alt="Alba Cisneros Montalbán" class="member-img">
+                    <div class="member-name">Alba Cisneros</div>
+                    <div class="member-role" id="m-role-4">Violín, Viola &amp; Percusión (Valencia)</div>
+                    <p class="member-bio" id="m-bio-4">Cuerda clásica contemporánea y sensibilidad rítmica mediterránea.</p>
+                </div>
+
+                <!-- 5. Hiroshi Tanaka -->
+                <div class="member-card">
+                    <img src="assets/miembros/Hiroshi/hiroshi_profile.jpg" alt="Hiroshi Tanaka" class="member-img">
+                    <div class="member-name">Hiroshi Tanaka</div>
+                    <div class="member-role" id="m-role-5">Batería (Tokio)</div>
+                    <p class="member-bio" id="m-bio-5">Formado en UCLA. Polirritmias complejas y pulso orgánico híbrido.</p>
+                </div>
+
+                <!-- 6. Mei-Ling Zhou -->
+                <div class="member-card member-highlight-asian">
+                    <img src="assets/miembros/MeiLing/meiling_profile.jpg" alt="Mei-Ling Zhou" class="member-img" style="object-position: center 25%;">
+                    <div class="member-name">Mei-Ling Zhou (周美玲)</div>
+                    <div class="member-role" id="m-role-6">Erhu, Guzheng &amp; Dizi (Pekín)</div>
+                    <p class="member-bio" id="m-bio-6">Conservatorio de Pekín. Mística milenaria oriental fundida con el jazz modal de vanguardia.</p>
+                </div>
+
+                <!-- 7. Nara Blue -->
+                <div class="member-card">
+                    <img src="assets/miembros/Nara/Nara cantando.png" alt="Nara Blue" class="member-img">
+                    <div class="member-name">Nara Blue</div>
+                    <div class="member-role" id="m-role-7">Voz Solista, Armónica &amp; Teclados</div>
+                    <p class="member-bio" id="m-bio-7">Timbre vocal hipnótico, armónica bluesy y calidez escénica envolvente.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Protected Catalog Footer Banner -->
+        <div class="protected-banner">
+            <div class="protected-badge" id="txt-prot-badge">🔒 Protected Catalog • 100% One-Stop SGAE</div>
+            <h3 id="txt-prot-title">Need More Music Choices for Broadcast or Sync Licensing?</h3>
+            <p id="txt-prot-desc">
+                We control a full repertoire of over 100 original registered works (Jazz Fusion, Smooth Funk,
+                Instrumental & Vocal). 100% One-Stop Master and Publishing rights. Full catalog access provided
+                exclusively upon request.
+            </p>
+            <a href="mailto:eduardo@trbandmusic.es" class="contact-btn" id="txt-contact-btn">Request Full Catalog
+                Access</a>
+        </div>
+
+        <footer>
+            <p>© 2026 The Research Band — Eduardo Ramírez de Cartagena • www.trbandmusic.es</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Generate SoundCloud-like Waveform Bars
+        const numBars = 75;
+        ['audio1', 'audio2', 'audio3', 'audio4', 'audio5', 'audio6', 'audio7', 'audio8'].forEach(id => {
+            const container = document.getElementById('wf-' + id);
+            container.innerHTML = '';
+            for (let i = 0; i < numBars; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'sc-bar';
+                // Pseudo random height pattern for waveform aesthetic
+                const height = Math.floor(Math.sin(i * 0.18) * 15 + Math.cos(i * 0.4) * 10 + 20);
+                bar.style.height = Math.max(6, Math.min(38, height)) + 'px';
+                container.appendChild(bar);
+            }
+
+            const audio = document.getElementById(id);
+            audio.addEventListener('timeupdate', () => updateProgress(id));
+            audio.addEventListener('loadedmetadata', () => updateDurationText(id));
+        });
+
+        let currentAudio = null;
+
+        function togglePlay(id, btn) {
+            const audio = document.getElementById(id);
+            if (currentAudio && currentAudio !== audio) {
+                currentAudio.pause();
+                resetPlayButtons();
+            }
+
+            if (audio.paused) {
+                audio.play();
+                currentAudio = audio;
+                btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+            } else {
+                audio.pause();
+                btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+            }
+        }
+
+        function resetPlayButtons() {
+            document.querySelectorAll('.sc-play-btn').forEach(btn => {
+                btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+            });
+        }
+
+        function updateProgress(id) {
+            const audio = document.getElementById(id);
+            if (!audio.duration) return;
+
+            const progress = audio.currentTime / audio.duration;
+            const container = document.getElementById('wf-' + id);
+            const bars = container.children;
+            const playedBars = Math.floor(progress * bars.length);
+
+            for (let i = 0; i < bars.length; i++) {
+                if (i <= playedBars) {
+                    bars[i].classList.add('played');
+                } else {
+                    bars[i].classList.remove('played');
+                }
+            }
+
+            updateDurationText(id);
+        }
+
+        function updateDurationText(id) {
+            const audio = document.getElementById(id);
+            const durElem = document.getElementById('dur-' + id);
+            const curStr = formatTime(audio.currentTime);
+            const durStr = formatTime(audio.duration || 0);
+            durElem.innerText = curStr + ' / ' + durStr;
+        }
+
+        function seekAudio(id, event, container) {
+            const audio = document.getElementById(id);
+            const rect = container.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const percent = clickX / rect.width;
+            if (audio.duration) {
+                audio.currentTime = percent * audio.duration;
+            }
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return mins + ':' + (secs < 10 ? '0' : '') + secs;
+        }
+
+        // BILINGUAL TRANSLATIONS
+        const translations = {
+            en: {
+                subtitle: "Author's Selection • Electronic Press Kit",
+                bio: "Created and produced by <strong>Eduardo Ramírez de Cartagena</strong>, <strong>The Research Band</strong> blends high-octane Modern Jazz-Funk, Fusion, and Smooth Jazz. Featuring top international virtuosos and guest vocalists, TRB offers a rich, 100% One-Stop original catalog registered with SGAE.",
+                sectionTitle: "Author's Curated Selection",
+                t1: "Nocturnal Smooth Jazz & Saxophone",
+                t2: "Prog-Jazz / Art Rock (Featured on Radio)",
+                t3: "New 2026 Mix / Electronic Rock & Funk",
+                t4: "Contemporary Smooth Jazz & Mediterranean Vibe",
+                t5: "Instrumental 80s Jazz-Rock & Powerful Brass",
+                t6: "Spanish Vocal Track / Album FUGA",
+                t7: "Chinese Guzheng & Spanish Guitar Fusion",
+                t8: "World Ethnic Fusion & Raga-Rock (7/8 & 12/8)",
+                cTitle1: "Composer & Producer:",
+                cTitle2: "Composer & Producer:",
+                cTitle3: "Composer & Producer:",
+                cTitle4: "Composer & Producer:",
+                cTitle5: "Composer & Producer:",
+                cTitle6: "<strong>Music & Lyrics:</strong> Pepe Torres & Lola Torres • <strong>Arranger & Producer:</strong> Eduardo Ramírez",
+                cTitle7: "Composer & Producer:",
+                cTitle8: "Composer & Producer:",
+                musiciansTitle: "Musicians & International Lineup",
+                musiciansSub: "International 7-soloist ensemble directed and produced by <strong>Eduardo Ramírez de Cartagena</strong>.",
+                mRoles: {
+                    1: "Direction, Bass, Guitars & Production",
+                    2: "Jazz Fusion Guitars (Milan)",
+                    3: "Saxophone & EWI (Oslo)",
+                    4: "Violin, Viola & Percussion (Valencia)",
+                    5: "Drums (Tokyo)",
+                    6: "Erhu, Guzheng & Dizi (Beijing)",
+                    7: "Lead Vocals, Harmonica & Keyboards"
+                },
+                mBios: {
+                    1: "SGAE Award winner. Composer, arranger and producer. 100% One-Stop catalog.",
+                    2: "Harmonic virtuosity and cutting-edge phrasing from the European contemporary school.",
+                    3: "Nordic atmospheric textures, acoustic reeds, and electronic wind instruments (EWI).",
+                    4: "Contemporary classical strings and vibrant Mediterranean rhythmic sensitivity.",
+                    5: "Trained at UCLA. Complex polyrhythms, precision and organic hybrid pulse.",
+                    6: "Central Conservatory of Beijing. Millenary oriental mysticism blended with modal jazz.",
+                    7: "Hypnotic vocal timbre, bluesy harmonica nuances, and enveloping stage warmth."
+                },
+                protBadge: "🔒 Protected Catalog • 100% One-Stop SGAE",
+                protTitle: "Need More Music Choices for Broadcast or Sync Licensing?",
+                protDesc: "We control a full repertoire of over 100 original registered works (Jazz Fusion, Smooth Funk, Instrumental & Vocal). 100% One-Stop Master and Publishing rights. Full catalog access provided exclusively upon request.",
+                contactBtn: "Request Full Catalog Access"
+            },
+            es: {
+                subtitle: "Selección de Autor • Dossier de Prensa Electrónico (EPK)",
+                bio: "Creado y producido por <strong>Eduardo Ramírez de Cartagena</strong>, <strong>The Research Band</strong> fusiona el Jazz-Funk moderno, el Jazz-Rock y el Smooth Jazz. Con virtuosos internacionales e intérpretes invitados, TRB ofrece un catálogo original 100% One-Stop registrado en la SGAE.",
+                sectionTitle: "Selección de Autor",
+                t1: "Smooth Jazz Nocturno & Saxofón",
+                t2: "Prog-Jazz / Art Rock (Destacado en Radio)",
+                t3: "Nueva Mezcla 2026 / Rock Electrónico & Funk",
+                t4: "Smooth Jazz Contemporáneo & Esencia Mediterránea",
+                t5: "Jazz-Rock Instrumental de los 80 & Metales",
+                t6: "Voz Solista en Español / Álbum FUGA",
+                t7: "Fusión de Guzheng Oriental & Guitarra Española",
+                t8: "Fusión Étnica Mundial & Raga-Rock (7/8 & 12/8)",
+                cTitle1: "Compositor y Productor:",
+                cTitle2: "Compositor y Productor:",
+                cTitle3: "Compositor y Productor:",
+                cTitle4: "Compositor y Productor:",
+                cTitle5: "Compositor y Productor:",
+                cTitle6: "<strong>Música y Letra:</strong> Pepe Torres & Lola Torres • <strong>Arreglos y Producción:</strong> Eduardo Ramírez",
+                cTitle7: "Compositor y Productor:",
+                cTitle8: "Compositor y Productor:",
+                musiciansTitle: "Músicos del Grupo & Alineación Internacional",
+                musiciansSub: "Ensemble internacional de 7 solistas bajo la dirección y producción de <strong>Eduardo Ramírez de Cartagena</strong>.",
+                mRoles: {
+                    1: "Dirección, Bajo, Guitarras & Producción",
+                    2: "Guitarras / Jazz Fusion (Milán)",
+                    3: "Saxofón & EWI (Oslo)",
+                    4: "Violín, Viola & Percusión (Valencia)",
+                    5: "Batería (Tokio)",
+                    6: "Erhu, Guzheng & Dizi (Pekín)",
+                    7: "Voz Solista, Armónica & Teclados"
+                },
+                mBios: {
+                    1: "Premio SGAE. Compositor, arreglista y productor musical. 100% One-Stop.",
+                    2: "Virtuosismo armónico y fraseo contemporáneo de la escuela europea.",
+                    3: "Texturas nórdicas, viento acústico y controladores electrónicos EWI.",
+                    4: "Cuerda clásica contemporánea y sensibilidad rítmica mediterránea.",
+                    5: "Formado en UCLA. Polirritmias complejas y pulso orgánico híbrido.",
+                    6: "Conservatorio de Pekín. Mística milenaria oriental fundida con el jazz modal de vanguardia.",
+                    7: "Timbre vocal hipnótico, armónica bluesy y calidez escénica envolvente."
+                },
+                protBadge: "🔒 Catálogo Protegido • 100% One-Stop SGAE",
+                protTitle: "¿Necesitas más opciones para tu Emisora o Licencia Sync?",
+                protDesc: "Disponemos de un catálogo de más de 100 obras originales registradas en SGAE (Jazz Fusion, Smooth Funk, Instrumental y Vocal). Control absoluto de Derechos de Máster y Editorial (100% One-Stop). Disponible exclusivamente bajo petición previa.",
+                contactBtn: "Solicitar Acceso al Catálogo Completo"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+
+            const t = translations[lang];
+            document.getElementById('txt-subtitle').innerHTML = t.subtitle;
+            document.getElementById('txt-bio').innerHTML = t.bio;
+            document.getElementById('txt-section-title').innerHTML = t.sectionTitle;
+            
+            for (let i = 1; i <= 8; i++) {
+                const elT = document.getElementById('lbl-t' + i);
+                const elC = document.getElementById('lbl-c' + i + '-title');
+                if (elT && t['t' + i]) elT.innerText = t['t' + i];
+                if (elC && t['cTitle' + i]) elC.innerText = t['cTitle' + i];
+                
+                // Member cards
+                const mRole = document.getElementById('m-role-' + i);
+                const mBio = document.getElementById('m-bio-' + i);
+                if (mRole && t.mRoles[i]) mRole.innerText = t.mRoles[i];
+                if (mBio && t.mBios[i]) mBio.innerText = t.mBios[i];
+            }
+
+            const c6 = document.getElementById('lbl-c6-container');
+            if (c6 && t.cTitle6) c6.innerHTML = t.cTitle6;
+
+            document.getElementById('txt-musicians-title').innerText = t.musiciansTitle;
+            document.getElementById('txt-musicians-sub').innerHTML = t.musiciansSub;
+
+            document.getElementById('txt-prot-badge').innerText = t.protBadge;
+            document.getElementById('txt-prot-title').innerText = t.protTitle;
+            document.getElementById('txt-prot-desc').innerText = t.protDesc;
+            document.getElementById('txt-contact-btn').innerText = t.contactBtn;
+        }
+    </script>
+</body>
+
+</html>

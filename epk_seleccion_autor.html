@@ -502,7 +502,7 @@ joder colega no se ya en que idioma decirtelo. aquí en el chat no puedo abrir n
         <!-- Section Header -->
         <div class="section-header">
             <h2 id="txt-section-title">Selección de Autor / Author's Curated Selection</h2>
-            <span class="badge-count">7 Selected Tracks</span>
+            <span class="badge-count">8 Selected Tracks</span>
         </div>
 
         <!-- TRACK 1: Medianoche en la terraza -->
@@ -537,7 +537,7 @@ joder colega no se ya en que idioma decirtelo. aquí en el chat no puedo abrir n
 
         <!-- TRACK 2: Dreams and other things -->
         <div class="sc-player-card">
-            <img src="assets/img/portada_a_journey_of_a_thousand_miles.jpg" alt="Dreams and other things Cover"
+            <img src="assets/img/01_dreams.jpg" alt="Dreams and other things Cover"
                 class="sc-cover">
             <div class="sc-main-content">
                 <div class="sc-top-row">
@@ -547,10 +547,10 @@ joder colega no se ya en que idioma decirtelo. aquí en el chat no puedo abrir n
                         </svg>
                     </button>
                     <div class="sc-track-meta">
-                        <div class="sc-artist-name">The Research Band • Art Rock / Prog Selection</div>
-                        <h3 class="sc-track-title">Dreams and other things</h3>
+                        <div class="sc-artist-name">The Research Band • Khem Aura (Tao Series)</div>
+                        <h3 class="sc-track-title">Dreams and other things <span style="font-size: 0.85em; opacity: 0.8;">(梦境与余事)</span></h3>
                     </div>
-                    <span class="sc-genre-tag"># Art Rock # King Crimson Style</span>
+                    <span class="sc-genre-tag"># Instrumental # Lirismo Fusión # Art-Rock</span>
                 </div>
 
                 <div class="sc-waveform-container" onclick="seekAudio('audio2', event, this)">
@@ -722,6 +722,38 @@ joder colega no se ya en que idioma decirtelo. aquí en el chat no puedo abrir n
                 preload="metadata"></audio>
         </div>
 
+        <!-- TRACK 8: Ganges Water -->
+        <div class="sc-player-card">
+            <img src="assets/img/12_ganges.jpg" alt="Ganges Water Cover"
+                class="sc-cover">
+            <div class="sc-main-content">
+                <div class="sc-top-row">
+                    <button class="sc-play-btn" onclick="togglePlay('audio8', this)">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </button>
+                    <div class="sc-track-meta">
+                        <div class="sc-artist-name">The Research Band • Atlas of Sound (Díptico 6B)</div>
+                        <h3 class="sc-track-title">Ganges Water</h3>
+                    </div>
+                    <span class="sc-genre-tag"># India &amp; Raga-Rock # World Fusion</span>
+                </div>
+
+                <div class="sc-waveform-container" onclick="seekAudio('audio8', event, this)">
+                    <div class="sc-waveform-bars" id="wf-audio8"></div>
+                    <span class="sc-duration" id="dur-audio8">0:00 / 0:00</span>
+                </div>
+
+                <div class="sc-credits-box">
+                    <div><strong id="lbl-c8-title">Composer & Producer:</strong> Eduardo Ramírez de Cartagena</div>
+                    <div class="sc-role-badge" id="lbl-t8">World Ethnic Fusion &amp; Raga-Rock (7/8 &amp; 12/8)</div>
+                </div>
+            </div>
+            <audio id="audio8" src="assets/audio/12_Ganges_Water.mp3"
+                preload="metadata"></audio>
+        </div>
+
         <!-- Band Members & Musicians Section -->
         <div class="musicians-section" style="margin-top: 50px;">
             <div style="text-align: center; margin-bottom: 25px;">
@@ -812,7 +844,7 @@ joder colega no se ya en que idioma decirtelo. aquí en el chat no puedo abrir n
     <script>
         // Generate SoundCloud-like Waveform Bars
         const numBars = 75;
-        ['audio1', 'audio2', 'audio3', 'audio4', 'audio5', 'audio6', 'audio7'].forEach(id => {
+        ['audio1', 'audio2', 'audio3', 'audio4', 'audio5', 'audio6', 'audio7', 'audio8'].forEach(id => {
             const container = document.getElementById('wf-' + id);
             container.innerHTML = '';
             for (let i = 0; i < numBars; i++) {
@@ -911,6 +943,7 @@ joder colega no se ya en que idioma decirtelo. aquí en el chat no puedo abrir n
                 t5: "Instrumental 80s Jazz-Rock & Powerful Brass",
                 t6: "Spanish Vocal Track / Album FUGA",
                 t7: "Chinese Guzheng & Spanish Guitar Fusion",
+                t8: "World Ethnic Fusion & Raga-Rock (7/8 & 12/8)",
                 cTitle1: "Composer & Producer:",
                 cTitle2: "Composer & Producer:",
                 cTitle3: "Composer & Producer:",
@@ -918,6 +951,7 @@ joder colega no se ya en que idioma decirtelo. aquí en el chat no puedo abrir n
                 cTitle5: "Composer & Producer:",
                 cTitle6: "<strong>Music & Lyrics:</strong> Pepe Torres & Lola Torres • <strong>Arranger & Producer:</strong> Eduardo Ramírez",
                 cTitle7: "Composer & Producer:",
+                cTitle8: "Composer & Producer:",
                 musiciansTitle: "Musicians & International Lineup",
                 musiciansSub: "International 7-soloist ensemble directed and produced by <strong>Eduardo Ramírez de Cartagena</strong>.",
                 mRoles: {
@@ -954,6 +988,7 @@ joder colega no se ya en que idioma decirtelo. aquí en el chat no puedo abrir n
                 t5: "Jazz-Rock Instrumental de los 80 & Metales",
                 t6: "Voz Solista en Español / Álbum FUGA",
                 t7: "Fusión de Guzheng Oriental & Guitarra Española",
+                t8: "Fusión Étnica Mundial & Raga-Rock (7/8 & 12/8)",
                 cTitle1: "Compositor y Productor:",
                 cTitle2: "Compositor y Productor:",
                 cTitle3: "Compositor y Productor:",
@@ -961,6 +996,7 @@ joder colega no se ya en que idioma decirtelo. aquí en el chat no puedo abrir n
                 cTitle5: "Compositor y Productor:",
                 cTitle6: "<strong>Música y Letra:</strong> Pepe Torres & Lola Torres • <strong>Arreglos y Producción:</strong> Eduardo Ramírez",
                 cTitle7: "Compositor y Productor:",
+                cTitle8: "Compositor y Productor:",
                 musiciansTitle: "Músicos del Grupo & Alineación Internacional",
                 musiciansSub: "Ensemble internacional de 7 solistas bajo la dirección y producción de <strong>Eduardo Ramírez de Cartagena</strong>.",
                 mRoles: {
@@ -997,7 +1033,7 @@ joder colega no se ya en que idioma decirtelo. aquí en el chat no puedo abrir n
             document.getElementById('txt-bio').innerHTML = t.bio;
             document.getElementById('txt-section-title').innerHTML = t.sectionTitle;
             
-            for (let i = 1; i <= 7; i++) {
+            for (let i = 1; i <= 8; i++) {
                 const elT = document.getElementById('lbl-t' + i);
                 const elC = document.getElementById('lbl-c' + i + '-title');
                 if (elT && t['t' + i]) elT.innerText = t['t' + i];
