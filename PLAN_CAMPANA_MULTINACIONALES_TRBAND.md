@@ -99,9 +99,9 @@
   KEY LICENSING ADVANTAGE:
   All master recordings and publishing rights are 100% under my direct control (One-Stop deal) and registered with SGAE (Member Nº 29.751), ensuring swift, unencumbered licensing for global synchronization, digital distribution, and physical audiophile editions.
 
-  Broadcast WAV files (24-bit / 44.1 kHz), instrumental stems, and full metadata are available for immediate review.
+  Curated MP3 audition previews and track metadata are available upon request for your initial review (Broadcast WAV masters and stems provided upon licensing agreement).
 
-  Would you be open to reviewing our complete submission package for your current projects and catalog acquisitions?
+  Would you be open to reviewing our submission package for your current projects and catalog acquisitions?
 
   Best regards,
 
@@ -137,7 +137,7 @@
   VENTAJA CLAVE DE LICENCIAMIENTO ("ONE-STOP"):
   Todos los derechos de máster y editorial están 100% bajo mi control y registrados en la SGAE (Socio Nº 29.751). Esto garantiza un licenciamiento ágil, limpio y directo para sincronizaciones audiovisuales (cine, televisión, documentales), distribución digital estratégica o ediciones de vinilo para coleccionistas.
 
-  Disponemos de másteres en WAV Broadcast (24 bits), pistas instrumentales y stems para entrega inmediata.
+  Muestras de escucha en MP3 y fichas técnicas disponibles bajo petición para valoración previa (másteres en WAV Broadcast y stems disponibles tras acuerdo de licencia).
 
   Quedo a vuestra entera disposición para comentar cualquier oportunidad de distribución o licenciamiento.
 
@@ -164,3 +164,4 @@
    * **PIAS Group** (`info@pias.com`).
    * **BMG Europe** (`uk.sync@bmg.com`).
    * **Mushroom Group Australia** (`info@mushroomgroup.com`).
+
