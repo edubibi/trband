@@ -30,10 +30,10 @@
 
 | Empresa / Sello | Territorio / Sedes | Web | Correo / Contacto Sugerido | Enfoque de la Propuesta |
 | :--- | :--- | :--- | :--- | :--- |
-| **Altafonte Network** | Madrid, Miami, México DF, Bogotá, Buenos Aires, Santiago | [altafonte.com](https://altafonte.com) | `info@altafonte.com`<br>`publishing@altafonte.com` | **Máximo objetivo latino**. Líder independiente en distribución digital y sincronización iberoamericana. |
-| **Sony Music Entertainment Latin** | Miami / México / Cono Sur | [sonymusic.com](https://sonymusic.com) | `latin.sync@sonymusic.com` | Catálogo de autor europeo para streaming, catálogo y sincronizaciones. |
-| **Universal Music Latin Entertainment (UMLE)** | Miami / México / Bogotá | [universalmusic.com](https://universalmusic.com) | `sync.latam@umusic.com` | Distribución global y posicionamiento de playlists de autor. |
-| **Warner Music Latina** | Miami / México | [warnermusiclatina.com](https://warnermusiclatina.com) | `contacto@warnermusic.com` | Catálogo contemporáneo y licencias para cine y series. |
+| **Altafonte Network** | Madrid, Miami, México DF, Bogotá, Buenos Aires, Santiago | [altafonte.com](https://altafonte.com) | `info@altafonte.com` | **Máximo objetivo latino**. Líder independiente en distribución digital y sincronización iberoamericana. |
+| **Music Library & SFX** | Madrid (Carrera de San Jerónimo 16) | [musiclibrary.es](https://musiclibrary.es) | `music@musiclibrary.es` | **Líder Sync en España**. Proveedores de sincronización para RTVE, Movistar+, Netflix y cine. |
+| **Konga Music Agency** | Barcelona (Barrio de Gràcia) | [kongamusic.com](https://kongamusic.com) | `hello@kongamusic.com`<br>`laura@kongamusic.com` | **Supervisión Musical & Sync**. Especialistas en ficción, publicidad y Smooth Jazz. |
+| **Sony Music Publishing Spain** | Madrid (P.º Castellana 202) | [sonymusicpub.com](https://sonymusicpub.com) | Tel: `+34 91 902 65 10`<br>Centralita: `+34 91 388 00 02` | Vía telefónica para solicitar contacto directo con responsable de Sync de catálogo. |
 
 ---
 
