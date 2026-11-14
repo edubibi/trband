@@ -543,6 +543,45 @@
                 color: #D4AF37 !important;
             }
         }
+    
+        /* --- ESTILOS EMBED YOUTUBE Y MODAL VIDEOTECA --- */
+        .yt-embed-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            overflow: hidden;
+            background: #000;
+        }
+        .yt-play-btn-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .yt-embed-wrapper:hover .yt-play-btn-overlay {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        .yt-play-circle {
+            width: 56px;
+            height: 56px;
+            background: #e62117;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 20px rgba(230, 33, 23, 0.7);
+            transition: transform 0.25s ease;
+        }
+        .yt-embed-wrapper:hover .yt-play-circle {
+            transform: scale(1.12);
+        }
+
     </style>
 </head>
 <body>
@@ -736,24 +775,73 @@
         </div>
     </div>
 
-    <div class="player-container" id="cat-trband">
+        <div class="player-container" id="cat-trband">
         <button class="close-btn" onclick="closeVideoModal('cat-trband')">&times;</button>
         <div class="video-modal-content">
-            <h2 style="color: #D4AF37; margin-bottom: 30px; text-transform: uppercase; font-family: 'Playfair Display', serif;">Producciones TRBandMusic</h2>
+            <h2 style="color: #D4AF37; margin-bottom: 10px; text-transform: uppercase; font-family: 'Playfair Display', serif;">Producciones TRBandMusic</h2>
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 30px; text-align: center;">Videoclips oficiales y producciones musicales de Eduardo Ramírez de Cartagena</p>
             <div class="video-modal-grid">
+                
+                <!-- 1. MERRY CHRISTMAS FEEL SONG (Diciembre 2025) -->
+                <div class="video-card">
+                    <div class="yt-embed-wrapper" data-yt-id="9zcAxkehCuk" data-poster="assets/img/portada_video_merry_christmas.jpg" data-title="Merry Christmas Feel Song" onclick="playYouTubeEmbed(this)">
+                        <img src="assets/img/portada_video_merry_christmas.jpg" alt="Merry Christmas Feel Song" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="yt-play-btn-overlay">
+                            <div class="yt-play-circle">▶</div>
+                        </div>
+                    </div>
+                    <div class="video-title">Merry Christmas Feel Song<br><span style="font-size: 0.78rem; color: #D4AF37; font-weight: normal;">(The Boy of the Stars) · 20 Dic 2025</span></div>
+                </div>
+
+                <!-- 2. RISAS AL PASAR (Halloween 2026) -->
+                <div class="video-card">
+                    <div class="yt-embed-wrapper" data-yt-id="sDqkEyeNNzc" data-poster="assets/img/portada_video_risas_al_pasar.jpg" data-title="Risas al pasar" onclick="playYouTubeEmbed(this)">
+                        <img src="assets/img/portada_video_risas_al_pasar.jpg" alt="Risas al pasar" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="yt-play-btn-overlay">
+                            <div class="yt-play-circle">▶</div>
+                        </div>
+                    </div>
+                    <div class="video-title">Risas al pasar<br><span style="font-size: 0.78rem; color: #D4AF37; font-weight: normal;">Videoclip Oficial · Halloween 2026</span></div>
+                </div>
+
+                <!-- 3. ES EL VÉRTIGO DE VERTE (2K Oficial) -->
+                <div class="video-card">
+                    <video controls preload="metadata" poster="assets/img/portada_video_vertigo_de_verte.jpg">
+                        <source src="assets/video/trband/Es_El_Vertigo_De_Verte_Oficial_2K.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-title">Es el vértigo de verte<br><span style="font-size: 0.78rem; color: #D4AF37; font-weight: normal;">Videoclip Oficial 2K · Vuelo FPV</span></div>
+                </div>
+
+                <!-- 4. SIEMPRE TE AMARÉ -->
+                <div class="video-card">
+                    <div class="yt-embed-wrapper" data-yt-id="4Xmwxub8z-Y" data-poster="assets/img/portada_video_siempre_te_amare.jpg" data-title="Siempre Te Amaré" onclick="playYouTubeEmbed(this)">
+                        <img src="assets/img/portada_video_siempre_te_amare.jpg" alt="Siempre Te Amaré" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="yt-play-btn-overlay">
+                            <div class="yt-play-circle">▶</div>
+                        </div>
+                    </div>
+                    <div class="video-title">Siempre Te Amaré<br><span style="font-size: 0.78rem; color: #D4AF37; font-weight: normal;">Videoclip Oficial · Full HD</span></div>
+                </div>
+
+                <!-- 5. MEDIANOCHE EN LA TERRAZA -->
                 <div class="video-card">
                     <video controls preload="metadata" poster="assets/img/portada_video_medianoche.jpg">
                         <source src="assets/video/trband/Medianoche_En_La_Terraza_Oficial_MIN.mp4" type="video/mp4">
                     </video>
-                    <div class="video-title">Medianoche en la terraza | Cuando todo encaja</div>
+                    <div class="video-title">Medianoche en la terraza<br><span style="font-size: 0.78rem; color: #D4AF37; font-weight: normal;">Cuando todo encaja · Oficial</span></div>
                 </div>
+
+                <!-- 6. SUEÑOS EN PARÍS -->
                 <div class="video-card">
                     <video controls preload="metadata" poster="assets/video/trband/sueños en paris.webp">
                         <source src="assets/video/trband/Sueños En París - The Research Band COMP.mp4" type="video/mp4">
                     </video>
-                    <div class="video-title">Sueños en París - The Research Band</div>
+                    <div class="video-title">Sueños en París<br><span style="font-size: 0.78rem; color: #D4AF37; font-weight: normal;">The Research Band</span></div>
                 </div>
+
             </div>
+        </div>
+    </div>
         </div>
     </div>
 
@@ -767,14 +855,36 @@
 
     <!-- SCRIPTS INTERACTIVOS -->
     <script>
-        function openVideoModal(id) {
+                function openVideoModal(id) {
             document.getElementById(id).style.display = 'flex';
+        }
+
+        function playYouTubeEmbed(wrapper) {
+            const ytId = wrapper.dataset.ytId;
+            if (!ytId) return;
+            wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border: none;"></iframe>`;
         }
 
         function closeVideoModal(id) {
             const modal = document.getElementById(id);
+            if (!modal) return;
+            // Pausar vídeos HTML5 locales
             const videos = modal.querySelectorAll('video');
             videos.forEach(v => v.pause());
+            // Restaurar y detener reproductores YouTube incrustados
+            const wrappers = modal.querySelectorAll('.yt-embed-wrapper');
+            wrappers.forEach(w => {
+                if (w.querySelector('iframe')) {
+                    const poster = w.dataset.poster;
+                    const title = w.dataset.title || '';
+                    w.innerHTML = `
+                        <img src="${poster}" alt="${title}" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="yt-play-btn-overlay">
+                            <div class="yt-play-circle">▶</div>
+                        </div>
+                    `;
+                }
+            });
             modal.style.display = 'none';
         }
 
