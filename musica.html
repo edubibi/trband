@@ -377,12 +377,12 @@
         }
 
         .grid-catalogo {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            max-width: 1350px;
-            margin: 50px auto 0 auto;
-        }
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 25px;
+        max-width: 1550px;
+        margin: 50px auto 0 auto;
+    }
 
         .disco-card {
             background: #050505;
@@ -769,7 +769,7 @@
             <h1 class="main-title">El Estudio de Escucha</h1>
             <div class="main-sub">Reproductor Maestro TRBandMusic</div>
 
-            <!-- FILA HORIZONTAL DE PORTADAS EN MINIATURA (TABS DE ÁLBUMES REALES) -->
+                        <!-- FILA HORIZONTAL DE PORTADAS EN MINIATURA (TABS DE ÁLBUMES REALES) -->
             <div class="tabs-albumes">
                 
                 <div class="tab-album-btn active" id="tab-album-0" onclick="cargarAlbum(0)">
@@ -801,6 +801,14 @@
                     <div class="tab-info">
                         <div class="tab-name">Selección de Autor</div>
                         <div class="tab-tag">Vocales & Exclusivos</div>
+                    </div>
+                </div>
+
+                <div class="tab-album-btn" id="tab-album-4" onclick="cargarAlbum(4)">
+                    <img src="assets/img/portada_a_journey_of_a_thousand_miles.jpg" alt="千里之行 · TAO">
+                    <div class="tab-info">
+                        <div class="tab-name">千里之行 · TAO</div>
+                        <div class="tab-tag">14 Canciones</div>
                     </div>
                 </div>
 
@@ -848,7 +856,7 @@
             <h2 class="main-title" style="font-size: 2.4rem; margin-bottom: 20px;">Catálogo Discográfico</h2>
             <div class="main-sub">Ediciones Digitales & Colección</div>
 
-            <div class="grid-catalogo">
+                        <div class="grid-catalogo">
                 
                 <!-- DISCO 1: ONE THOUSAND OF COLOR NOTES -->
                 <div class="disco-card">
@@ -890,6 +898,17 @@
                     <div class="disco-year">2026 • Vocales & Exclusivos (8 Tracks)</div>
                     <div class="btn-disco-row">
                         <button class="btn-disco btn-cargar" onclick="cargarAlbumYSubir(3)">🎵 Cargar en Reproductor</button>
+                        <button class="btn-disco btn-comprar" onclick="alert('Álbum disponible en descarga digital de alta calidad. Contacta con nosotros para adquirir el máster original.')">🛒 Comprar Digital · 9€</button>
+                    </div>
+                </div>
+
+                <!-- DISCO 5: 千里之行 · A JOURNEY OF A THOUSAND MILES (TAO) -->
+                <div class="disco-card">
+                    <img src="assets/img/portada_a_journey_of_a_thousand_miles.jpg" class="disco-cover" alt="千里之行 · A Journey of a Thousand Miles (TAO)">
+                    <h3 class="disco-titulo">千里之行 · A Journey of a Thousand Miles</h3>
+                    <div class="disco-year">11/2026 • Jazz-Rock / Worldbeat Tao (14 Tracks)</div>
+                    <div class="btn-disco-row">
+                        <button class="btn-disco btn-cargar" onclick="cargarAlbumYSubir(4)">🎵 Cargar en Reproductor</button>
                         <button class="btn-disco btn-comprar" onclick="alert('Álbum disponible en descarga digital de alta calidad. Contacta con nosotros para adquirir el máster original.')">🛒 Comprar Digital · 9€</button>
                     </div>
                 </div>
@@ -1044,6 +1063,28 @@
                     { name: "A Donde Bass (Slap Bass Funk)", url: "assets/audio/seleccion_autor/02_a_donde_bass.mp3" },
                     { name: "Duck, Frog and Me (Jazz Fusion)", url: "assets/audio/seleccion_autor/01_Duck_Frog_and_me.mp3" }
                 ]
+            },
+{
+                id: 4,
+                titulo: "千里之行 · A Journey of a Thousand Miles (TAO)",
+                cover: "assets/img/portada_a_journey_of_a_thousand_miles.jpg",
+                tag: "11/2026 · Jazz-Rock / Worldbeat Tao",
+                tracks: [
+                    { name: "01. Dreams and Other Things (梦境与余事)", url: "assets/audio_tao/Dreams and other things (instrumental).mp3" },
+                    { name: "02. Keep a Place for You (为你留一席地)", url: "assets/audio_tao/Keep a Place for You.mp3" },
+                    { name: "03. Oriental Pagoda (东方宝塔)", url: "assets/audio_tao/Oriental pagoda (instrumental).mp3" },
+                    { name: "04. Hold the Measure (把握分寸)", url: "assets/audio_tao/Hold the Measure.mp3" },
+                    { name: "05. Paper Lantern River (纸灯之河)", url: "assets/audio_tao/Paper Lantern River.mp3" },
+                    { name: "06. In the Warmth of the Yangtze (长江的温存)", url: "assets/audio_tao/In the warmth of the Yangtze River (instrumental).mp3" },
+                    { name: "07. I Remain (我依然在)", url: "assets/audio_tao/I Remain.mp3" },
+                    { name: "08. Angular A Minor (棱角A小调)", url: "assets/audio_tao/Angular A Minor.mp3" },
+                    { name: "09. Spanish Misty Guzheng (西班牙迷雾古筝)", url: "assets/audio_tao/Spanish Misty Guzheng (instrumental chillout).mp3" },
+                    { name: "10. Li Ann, My Sunshine (丽安，我的阳光)", url: "assets/audio_tao/Li Ann, my sunshine.mp3" },
+                    { name: "11. Pause Before the Rain (雨前伫足)", url: "assets/audio_tao/Pause Before the Rain.mp3" },
+                    { name: "12. Where the Pieces Fell (碎片散落之处)", url: "assets/audio_tao/Where the Pieces Fell.mp3" },
+                    { name: "13. The Turning of the Tide (潮汐回转)", url: "assets/audio_tao/The Turning of the Tide .mp3" },
+                    { name: "14. A Single Spanish Step (一步西风)", url: "assets/audio_tao/A Single Spanish Step (instrumental).mp3" }
+                ]
             }
         ];
 
@@ -1063,7 +1104,7 @@
             const alb = baseAlbumes[albumIndex];
 
             // 1. Actualizar pestañas activas
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < baseAlbumes.length; i++) {
                 const btn = document.getElementById(`tab-album-${i}`);
                 if (btn) btn.classList.toggle('active', i === albumIndex);
             }
