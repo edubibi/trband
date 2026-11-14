@@ -1,5 +1,19 @@
 const musicCatalog = [
   {
+    "genre": "Worldbeat Ambiental / Meditativo",
+    "wav": null,
+    "mood": "Zen / Coda Final",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/A Single Spanish Step.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3450500019",
+    "title": "A Single Spanish Step"
+  },
+  {
     "genre": "Funky Pop",
     "wav": null,
     "mood": "Premium",
@@ -71,6 +85,20 @@ const musicCatalog = [
     "authors": "Eduardo Ramírez",
     "iswc": "T3425342270",
     "title": "and there you are"
+  },
+  {
+    "genre": "Ethno-Ambient / Prog Contemplativo",
+    "wav": null,
+    "mood": "Angular / Sophisticated",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/Angular A Minor.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3450499959",
+    "title": "Angular A Minor"
   },
   {
     "genre": "Jazz",
@@ -434,6 +462,30 @@ const musicCatalog = [
     "title": "deprisa, ven despacio"
   },
   {
+    "genre": "Desconocido",
+    "wav": null,
+    "mood": "Premium",
+    "regDate": "2026/10/23",
+    "folders": [],
+    "registered": true,
+    "mp3": null,
+    "authors": "Eduardo Ramírez",
+    "iswc": "SGAE:34.368.557",
+    "title": "Desconocido"
+  },
+  {
+    "genre": "Desconocido",
+    "wav": null,
+    "mood": "Premium",
+    "regDate": "2026/10/23",
+    "folders": [],
+    "registered": true,
+    "mp3": null,
+    "authors": "Eduardo Ramírez",
+    "iswc": "SGAE:34.163.360",
+    "title": "Desconocido"
+  },
+  {
     "genre": "Alternativo",
     "wav": null,
     "mood": "Premium",
@@ -492,6 +544,20 @@ const musicCatalog = [
     "authors": "Eduardo Ramírez",
     "iswc": "T3410912613",
     "title": "dragon lands"
+  },
+  {
+    "genre": "Worldbeat / Jazz-Rock",
+    "wav": null,
+    "mood": "Atmospheric / Poetic",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/Dreams and other things.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3448673874",
+    "title": "Dreams and Other Things"
   },
   {
     "genre": "Jazz",
@@ -711,6 +777,20 @@ const musicCatalog = [
     "title": "heavens glow"
   },
   {
+    "genre": "Art-Pop / Sophisti-Pop",
+    "wav": null,
+    "mood": "Syncopated / Energetic",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/Hold the Measure.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3450499915",
+    "title": "Hold the Measure"
+  },
+  {
     "genre": "Jazz",
     "wav": null,
     "mood": "Premium",
@@ -723,6 +803,34 @@ const musicCatalog = [
     "title": "how many times sheep"
   },
   {
+    "genre": "Jazz Fusión",
+    "wav": null,
+    "mood": "Pastoral / Mediterranean",
+    "regDate": "2026/10/25",
+    "folders": [
+      "SGAE_OCT_2026"
+    ],
+    "registered": true,
+    "mp3": null,
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3449349724",
+    "title": "Huerto de Hinojos"
+  },
+  {
+    "genre": "Jazz Noir / Cool Jazz",
+    "wav": null,
+    "mood": "Moody / Film Noir",
+    "regDate": "2026/10/25",
+    "folders": [
+      "SGAE_OCT_2026"
+    ],
+    "registered": true,
+    "mp3": null,
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3449349462",
+    "title": "Humo y Sombras"
+  },
+  {
     "genre": "Jazz",
     "wav": null,
     "mood": "Premium",
@@ -733,6 +841,20 @@ const musicCatalog = [
     "authors": "Eduardo Luis Ramírez",
     "iswc": "T3417150422",
     "title": "i m in the kitchen"
+  },
+  {
+    "genre": "Crossover Prog / Balada",
+    "wav": null,
+    "mood": "Intimate / Reflective",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/I Remain.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3450499800",
+    "title": "I Remain"
   },
   {
     "genre": "Alternativo",
@@ -759,6 +881,20 @@ const musicCatalog = [
     "title": "impracticable"
   },
   {
+    "genre": "Worldbeat / Fusión Étnica",
+    "wav": null,
+    "mood": "Ceremonial / Expansive",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/In the Warmth of the Yangtze.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3450499993",
+    "title": "In the Warmth of the Yangtze"
+  },
+  {
     "genre": "Alternativo",
     "wav": null,
     "mood": "Premium",
@@ -771,6 +907,20 @@ const musicCatalog = [
     "title": "jungle bells"
   },
   {
+    "genre": "Folk-Pop / Crossover Prog",
+    "wav": null,
+    "mood": "Warm / Emotional",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/Keep a Place for You.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3450499891",
+    "title": "Keep a Place for You"
+  },
+  {
     "genre": "Alternativo",
     "wav": null,
     "mood": "Premium",
@@ -781,6 +931,20 @@ const musicCatalog = [
     "authors": "Eduardo Ramírez",
     "iswc": "",
     "title": "leftover fries and midnight lies"
+  },
+  {
+    "genre": "Sophisti-Pop / Crossover Optimista",
+    "wav": null,
+    "mood": "Uplifting / Bright",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/Li Ann My Sunshine.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3450499595",
+    "title": "Li Ann My Sunshine"
   },
   {
     "genre": "Pop",
@@ -1071,6 +1235,48 @@ const musicCatalog = [
     "title": "orange & yellow"
   },
   {
+    "genre": "Ambient / Worldbeat",
+    "wav": null,
+    "mood": "Mystical / Serene",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/Oriental pagoda.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3449349097",
+    "title": "Oriental Pagoda"
+  },
+  {
+    "genre": "Art-Pop / Prog Lírico",
+    "wav": null,
+    "mood": "Contemplative / Lyrical",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/Paper Lantern River.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3450499857",
+    "title": "Paper Lantern River"
+  },
+  {
+    "genre": "Art-Pop / Prog Pastoral",
+    "wav": null,
+    "mood": "Pastoral / Dramatic",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/Pause Before the Rain.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3450499755",
+    "title": "Pause Before the Rain"
+  },
+  {
     "genre": "Pop",
     "wav": "assets/Piso el acelerador.wav",
     "mood": "Premium",
@@ -1178,6 +1384,20 @@ const musicCatalog = [
     "authors": "Eduardo Ramírez",
     "iswc": "T3375032610",
     "title": "saxophone serenade"
+  },
+  {
+    "genre": "Rock Sinfónico / Prog Camel Style",
+    "wav": null,
+    "mood": "Epic / Soaring Mountains",
+    "regDate": "2026/11/01",
+    "folders": [
+      "NUEVAS_CHINAS_VOCAL"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/Sea of Clouds.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "En trámite (SGAE)",
+    "title": "Sea of Clouds (Yun Hai Qian Shan)"
   },
   {
     "genre": "Jazz",
@@ -1310,6 +1530,20 @@ const musicCatalog = [
     "authors": "Eduardo Ramírez",
     "iswc": "T3375033453",
     "title": "soft corners"
+  },
+  {
+    "genre": "Ambient Chillout / Coda Meditativa",
+    "wav": null,
+    "mood": "Meditative / Spanish-Asian Fusion",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/Spanish Misty Guzheng.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3450499971",
+    "title": "Spanish Misty Guzheng"
   },
   {
     "genre": "Jazz",
@@ -1458,6 +1692,20 @@ const musicCatalog = [
     "title": "the scent of velvet"
   },
   {
+    "genre": "Sophisti-Prog / Crossover",
+    "wav": null,
+    "mood": "Epic / Ocean / Transición",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/The Turning of the Tide.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3450499675",
+    "title": "The Turning of the Tide"
+  },
+  {
     "genre": "Jazz",
     "wav": null,
     "mood": "Premium",
@@ -1492,6 +1740,20 @@ const musicCatalog = [
     "authors": "Eduardo Ramírez",
     "iswc": "T3429625327",
     "title": "this is verse no poem"
+  },
+  {
+    "genre": "Jazz Contemporáneo",
+    "wav": null,
+    "mood": "Lyrical / Mediterranean",
+    "regDate": "2026/10/25",
+    "folders": [
+      "SGAE_OCT_2026"
+    ],
+    "registered": true,
+    "mp3": null,
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3449349291",
+    "title": "Tiempo Suspendido"
   },
   {
     "genre": "Jazz",
@@ -1540,6 +1802,20 @@ const musicCatalog = [
     "authors": "Eduardo Ramírez",
     "iswc": "T3427878506",
     "title": "tujazzy socu"
+  },
+  {
+    "genre": "Folk-Pop / Balada Mandarín",
+    "wav": null,
+    "mood": "Intimate / Warm Dawn",
+    "regDate": "2026/11/01",
+    "folders": [
+      "NUEVAS_CHINAS_VOCAL"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/Until the Morning Light.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "En trámite (SGAE)",
+    "title": "Until the Morning Light"
   },
   {
     "genre": "Jazz",
@@ -1636,6 +1912,20 @@ const musicCatalog = [
     "authors": "Eduardo Ramírez",
     "iswc": "T3390173470",
     "title": "when the wind is pink"
+  },
+  {
+    "genre": "Art-Pop Progresivo / Catarsis",
+    "wav": null,
+    "mood": "Defiant / Rhythmic",
+    "regDate": "2026/10/25",
+    "folders": [
+      "ALBUM_CHINO"
+    ],
+    "registered": true,
+    "mp3": "assets/audio_unificado/Where the Pieces Fell.mp3",
+    "authors": "Eduardo Ramírez",
+    "iswc": "T3450499459",
+    "title": "Where the Pieces Fell"
   },
   {
     "genre": "Funky",
@@ -1744,29 +2034,5 @@ const musicCatalog = [
     "authors": "Eduardo Ramírez",
     "iswc": "T3408172743",
     "title": "¿a donde bass?"
-  },
-  {
-    "genre": "Desconocido",
-    "wav": null,
-    "mood": "Premium",
-    "regDate": "2026/10/23",
-    "folders": [],
-    "registered": true,
-    "mp3": null,
-    "authors": "Eduardo Ramírez",
-    "iswc": "SGAE:34.368.557",
-    "title": "Desconocido"
-  },
-  {
-    "genre": "Desconocido",
-    "wav": null,
-    "mood": "Premium",
-    "regDate": "2026/10/23",
-    "folders": [],
-    "registered": true,
-    "mp3": null,
-    "authors": "Eduardo Ramírez",
-    "iswc": "SGAE:34.163.360",
-    "title": "Desconocido"
   }
 ];

@@ -26,8 +26,8 @@ BANDO A: DISSONANCE CREW (La Calle y el Barro)
 BANDO B: LOS FROZEN (The Frozen Ice / La Torre de Cristal)
 - Territorio: Planta 60 del rascacielos financiero.
 - Sonido: Rap oscuro de barítono, guitarras agresivas de rock teatral, percusión contundente, contraste melódico femenino.
-- Donald (El Tiburón Financiero): Voz oscura de barítono, rápido flow rítmico, implacable, cínico, calculador.
-- Megan (La Heredera / La Oveja Negra): Voz femenina melódica, afinada, dulce y vulnerable. Educada en la élite pero ahogándose en su jaula de cristal.
+- Donald (El Tiburón Financiero): Voz oscura de barítono, rápido flow rítmico, implacable, cínico, calculador. Regla de oro fija: **Donald SIEMPRE rapea, jamás canta melódico**. (ADN: `deep dark male baritone spoken rap, strictly no singing for male, zero melody, rhythmic spoken word`).
+- Megan (La Heredera / La Oveja Negra): Voz femenina melódica, afinada, dulce, cristalina y juvenil. Educada en la élite pero ahogándose en su jaula de cristal. (ADN: `sweet crystalline female soprano, completely clean youthful female voice, pure sweet lyrical tone, no rasp, no grit`).
 
 EL CRUCE ROMÁNTICO:
 - Laura & Megan: Fuego contra hielo. Se encuentran en una gala benéfica y su conexión dinamita las lealtades de ambos clanes.
@@ -40,7 +40,7 @@ PLANTILLA DE SONIDO GLOBAL DEL ACTO I (Rock de Estadio & Dúos):
 ### 3. ESTADO DE LAS ESCENAS (ACTO I)
 
 ESCENA 1: PRELUDIO - LA AUDICIÓN DE HUGO (15 AÑOS)
-- Duración: 00:40 (Versión operística confirmada en Suno)
+- Duración consolidada: **01:18** (Versión unificada y editada en Audacity en una sola pieza completa)
 - Personaje: Hugo (15 años) y tribunal académico.
 - Acción: Final abrupto de audición clásica, expulsión a la calle bajo la lluvia y estallido operístico a lo Queen.
 - Letra clave:
@@ -662,55 +662,316 @@ En el desenlace, el conflicto trasciende el muelle: ya no es una disputa por un 
 ---
 
 #### ESCENA 14: LA MARCHA DE LOS INVISIBLES (EL CERCO A LA TORRE)
-- Duración estimada: ~04:30
-- Personajes: Hugo, Laura, Megan y Jóvenes de los barrios periféricos.
-- Acción: Al amanecer del día de la supuesta demolición, la resistencia no se atrinchera en el puerto: avanza hacia el corazón financiero. Convocados mediante transmisiones clandestinas y el boca a boca, miles de jóvenes descienden hacia la Torre de Cristal portando instrumentos, baquetas, megáfonos y amplificadores portátiles. Rodean el rascacielos en una manifestación artística pacífica pero imparable.
-- Estilo musical: Stadium rock marcial y enérgico, base rítmica de pisadas y palmas estilo *"We Will Rock You"* combinada con funk-rock pesado (120 BPM), metales agresivos y coros multitudinarios de estadio.
-- Gancho dramático: *"Si no queríais música en el muelle... ¡la tendréis en vuestra propia puerta!"*
+- Duración consolidada: **05:22** (Master definitivo consolidado en Suno con estribillo extendido)
+- Personajes: Hugo, Laura, Megan y Ensamble / Dissonance Crew.
+- Acción: Al amanecer, la resistencia avanza hacia el corazón financiero. Miles de jóvenes rodean la Torre de Cristal en una manifestación artística y coreográfica de modern jazz / jazz-rock imparable con sutil cadencia bossa-jazz. Ruptura de estilo radical respecto a los actos anteriores: del rock de estadio al jazz-rock sofisticado y descarado con bailarines en escena mientras los solistas cantan y narran el asedio.
+- Estilo musical: Jazz-rock fusion sofisticado a 122 BPM, groove funk-jazz sincopado con ghost notes, bajo slap, Fender Rhodes, Hammond B3, guitarras con comping afilado y tríada vocal en diálogo.
+- Rueda armónica central: Vamps modales dóricos (`Dm9 - G13`), puentes con tensiones (`Bbmaj7 - Am7 - Gm9 - A7#9`) y estribillo monumental extendido.
+- Remate escénico: Cierre en seco con acorde suspendido en Rhodes y frase lapidaria de Megan en altavoz: *«Emitiendo en directo para toda la red. Subo a tu despacho, Donald»*.
 
 ---
 
 #### ESCENA 15: LA GRIETA EN EL ALGORITMO (MEGAN VS. DONALD)
-- Duración estimada: ~04:00
+- Duración consolidada: **04:34** (Master definitivo consolidado en Suno con estribillo extendido y cola final natural)
 - Personajes: Megan y Donald (Encaramiento final en la cumbre).
 - Acción: Megan burla el control de accesos y sube a la planta 60 acompañada de cámaras y señales de audio abiertas a la red. Entra en el sancta sanctórum de Donald. Donald, viéndose rodeado abajo por la multitud, intenta amenazarla, chantajearla con desheredarla y silenciar la señal. Megan se niega a callar y transmite en vivo los documentos confidenciales que demuestran la especulación ilegal de The Frozen.
-- Estilo musical: Duelo dramático de alto contraste: rap oscuro, entrecortado y crecientemente desesperado de Donald contra una melodía pura, lírica e inquebrantable de Megan, sobre un lecho de sintetizadores analógicos tensos y arpegios de piano afilados.
+- Estilo musical: Duelo dramático de alto contraste a 72 BPM: balada pesada y lenta de rock (tipo Aerosmith) sobre piano de cola y guitarras con bends blueseros, sin orquestación ni cuerdas.
+- ADN Vocal Consolidado (Regla de Oro):
+  * **Donald:** `deep dark male baritone spoken rap, strictly no singing for male, zero melody for male, fast aggressive spoken flow, cold spoken snarl, Castilian diction`.
+  * **Megan:** `sweet crystalline female soprano, completely clean youthful female voice, pure sweet lyrical tone, innocent and emotional, no female rasp, no grit, no screaming` (entrada estilo Barbra Streisand).
+- Style Prompt Maestro:
+  `Male and female duet, dual lead vocalists trading parts, deep dark male baritone spoken rap and sweet crystalline female soprano, slow heavy rock ballad, 72 bpm, explosive hard-hitting intro, heavy punchy drums, dramatic grand piano, crying blues-rock electric guitar bends, Hammond B3, strictly no singing for male, completely clean youthful female voice, no strings, no orchestra, European Spanish pronunciation, Castilian diction, dry studio mix, long sustained final chord decay, ringing piano sustain, natural reverb tail, slow decay to silence`
 
 ---
 
 #### ESCENA 16: LA CAÍDA DEL TIBURÓN (EL DESMORONAMIENTO)
-- Duración estimada: ~04:15
-- Personajes: Donald (Soliloquio de colapso) y Coro de ejecutivos / inversores.
+- Duración consolidada: **03:17** (Master definitivo consolidado en Suno - Estructura rítmica y lírica perfeccionada por Eduardo)
+- Personajes: Donald (Soliloquio de colapso, rap barítono agresivo).
 - Acción: Con las pruebas emitidas a toda la metrópoli, las pantallas de cotización de la planta 60 se desploman y parpadean en rojo. Los consejeros delegados e inversores recogen sus maletines y abandonan a Donald. El tiburón implacable se queda solo en su inmenso salón acristalado. Comprende que su dinero no puede comprar la dignidad ni la voz de la gente.
-- Estilo musical: Rock progresivo oscuro y tenso, tempo medio-lento, solo de bajo y batería desestructurada; rap de barítono que va perdiendo la métrica y la compostura hasta convertirse en un grito ronco de impotencia ante el vacío.
+- Estilo musical: Rock progresivo oscuro a 82 BPM, bajo pesado sincopado, batería punchy, acordes de piano fríos y rap barítono agresivo con caída dramática al vacío.
+- Style Prompt Maestro:
+  Male rapper, deep baritone male rap, aggressive rhythmic hip hop flow, strictly rap delivery, dark progressive rock, 82 BPM, heavy syncopated bass, punchy drums, cold piano, fast spoken flow, no singing, no melody, no female vocals
+- Letra y Estructura Definitiva (03:17 - Edición Audacity):
+  `	ext
+  [Intro - Heavy syncopated bass, cold piano, ticking clock]
+
+  [Rap Verse 1 - Donald - Fast Rhythmic Hip Hop Flow]
+  ¡Contesta el teléfono, Miller!
+  ¿Dónde coño está la mesa de Frankfurt?
+  Las pantallas no pueden marcar ese rojo...
+  ¡Meted diez millones más al cortafuegos!
+  Comprad el rebote. Parad la señal.
+  ¡Nadie cancela un contrato a mi nombre!
+  ...¿Hola?
+  ¿Miller?...
+  ¿Por qué no hay nadie en la línea?
+
+  [Beat Drop - Hard punchy drums, heavy bassline]
+
+  [Rap Verse 2 - Donald - Aggressive Baritone Flow]
+  Se van.
+  Cierran los maletines despacio.
+  Ni una sola mirada a la cara.
+  Veinte años comiendo de mi mano,
+  firmando las primas que yo les servía...
+  y ahora bajan la cabeza
+  y corren como ratas hacia el ascensor.
+  ¡Eh, cobardes! ¡Volved a esa sala!
+  ¡Yo os saqué del barro!
+  ¡Yo os hice millonarios!
+
+  [Rap Chorus - Donald - Heavy Rock Rap Flow]
+  ¿Quién manda ahora en el piso sesenta?
+  El silencio me come la piel.
+  Todo este imperio, todo este imperio...
+  y ni un solo perro que me sea fiel.
+
+  ¿Quién manda ahora en el piso sesenta?
+  El silencio me come la piel.
+  Todo este imperio, todo este imperio...
+  y ni un solo perro que me sea fiel.
+
+  ¿Quién manda ahora en el piso sesenta?
+  El silencio me come la piel.
+  Todo este imperio, todo este imperio...
+  y ni un solo perro que me sea fiel.
+  ¿Quién manda ahora? ¿Quién tiene el control?
+  Si apagas la máquina...
+  se apaga mi voz.
+
+  [Rap Verse 3 - Donald - Furious Fast Flow]
+  ¡Era una mocosa! ¡Una niña de coro!
+  ¡Y ese muerto de hambre con su cable pelado!
+  ¿Cómo han saltado el algoritmo?
+  ¿Cómo coño han abierto la grieta?
+  ¡Yo compré a los jueces! ¡Compré los canales!
+  ¡Os di melodías que pudierais tragar!
+  ¡Yo os di la comida! ¡Yo inventé vuestro puto futuro!
+
+  [Bridge - Tense rhythmic spoken rap, breakdown]
+  Y ahora abajo... cantan.
+  Escucho el temblor en las paredes.
+  El cristal está vibrando.
+  No es un fallo del sistema...
+  es que la ciudad entera se ha puesto a cantar.
+
+  [Outro - Slow broken rap decay, breathing]
+  Tanto dinero...
+  tanto cristal...
+  tanto frío.
+  Y nadie...
+  ...al otro lado.
+  `
 
 ---
 
 #### ESCENA 17: FUEGO Y SAL (EL ABRAZO EN LA ESCALINATA)
-- Duración estimada: ~04:30
-- Personajes: Laura y Megan (Dúo de victoria y consolidación).
-- Acción: Megan desciende a la calle y se reencuentra con Laura en las escalinatas de la torre, rodeadas por la multitud que celebra. Es el momento de consagración de su relación: el barro de la calle y la luz recuperada de Megan se funden en un himno lírico de triunfo y amor libre que rompe para siempre las barreras de clase.
-- Estilo musical: Power ballad épica de estadio (Queen meets Aerosmith), guitarras armonizadas estilo Brian May cantando al unísono, batería triunfal y armonías vocales femeninas a dos voces en su registro más brillante y emotivo.
+- Duración consolidada: **03:28** (Master definitivo consolidado en Suno - Rhythm & Blues estilo Gospel con modulación armónica)
+- Personajes: Megan y Laura (Dúo de amor libre, redención y victoria).
+- Acción: Megan desciende a la calle y se reencuentra con Laura en las escalinatas de la torre, rodeadas por la multitud que celebra. Es el momento de consagración de su relación: el barro de la calle y la luz recuperada de Megan se funden en un himno festivo y triunfal de Rhythm & Blues estilo Gospel que rompe para siempre las barreras de clase.
+- Estilo musical definitivo: Synth-Pop / Dance-Pop melódico a 118 BPM con estética ochentera, pulso four-on-the-floor, bajo sintetizado pulsante, arpegio de sintetizador brillante y armonías vocales radiantes.
+- Ficha / Reseña Técnica Oficial del Master (03:28 - 118 BPM):
+  * **Tempo / Métrica:** 118 BPM (compás de 4/4).
+  * **1. Estilo y Género:** Synth-Pop / Dance-Pop melódico en español, con estética de producción inspirada en el pop electrónico ochentero y el sonido radiofónico contemporáneo. Pulso bailable, dinámico y muy directo, articulado alrededor de un gancho vocal claro y pegadizo.
+  * **2. Instrumentación y Arreglos:**
+    - *Secuencias y Sintetizadores:* Arpegio brillante y ágil abre el tema y funciona como leitmotiv a lo largo de las transiciones. Colchones de sintetizador y acordes rítmicos definidos que marcan los tiempos con precisión.
+    - *Línea de Bajo:* Bajo sintetizado con mucho groove, pegado al bombo en patrón de semicorcheas o corcheas pulsantes, otorgándole un empuje constante al tema.
+    - *Batería y Percusión:* Bombo a cuatro (*four-on-the-floor*), caja nítida con reverb controlada en los tiempos 2 y 4, y aperturas de charles que dan aire en los estribillos.
+    - *Voz y Arreglos Vocales:* Voz femenina solista de timbre limpio, ágil y expresivo, con dicción cuidada. En el estribillo (*«Somos el fuego y la sal...»*) se refuerza con dobles tomas y armonías vocales que aportan brillo y contundencia. Fraseos melismáticos y juegos vocales de corte rítmico hacia la coda final.
+  * **3. Sensaciones y Atmósfera:**
+    - *Liberación y Rompimiento:* Transmite la huida del entorno opresivo (*«dejando arriba mi jaula de oro... rompiste el cable de sus pantallas»*).
+    - *Conexión y Complicidad:* Unión incondicional frente al exterior (*«dos corazones cruzando la niebla... no hay algoritmo que dure un segundo»*).
+    - *Luminosidad y Fortaleza:* Optimista, enérgico y vibrante, invita al movimiento físico a la vez que transmite calor y resistencia ante cualquier obstáculo.
+- Style Prompt Maestro:
+  Driving Rhythm & Blues, Gospel soul-rock, 106 BPM, upbeat rhythmic groove, tight punchy drums, walking bassline, funky rhythmic blues guitar, pumping Hammond B3 organ, grand piano, dominant 7th chords, key change modulation, dual female lead vocalists, sweet crystalline clean soprano and powerful soulful gritty R&B female singer, vibrant gospel blues harmonies, strictly no male vocals, Castilian Spanish pronunciation
+- Letra Definitiva (03:28):
+  `	ext
+  [Intro - Driving Rhythm & Blues groove, 106 BPM, pumping Hammond B3 organ, punchy piano, upbeat blues guitar riff]
+
+  [Verse 1 - Megan - Sweet Clean Soprano - Pure Voice - R&B Groove]
+  Bajo lentamente los escalones,
+  dejando arriba mi jaula de oro.
+  Toda la thiudad me está mirando,
+  pero no me importa, mis ojos te buscan a ti.
+
+  [Verse 2 - Laura - Soulful Gritty R&B Voice - Powerful Soul Alto]
+  Rompiste el cable 
+  de sus pantallas,
+  ya no me asusta 
+  volver a sentir.
+  Todo su imperio
+  no vale nada
+  frente a la luth que guardé por ti.
+
+  [Drum Fill - Modulation Pivot Chord - Key Change Up]
+
+  [Chorus - Dramatic Key Change Up +4 Semitones - Upbeat Rhythm & Blues Harmony - Both Females - Dominant 7ths - No Male]
+  Somos el fuego y la sal,
+  dos corathones cruthando la niebla.
+  Nadie nos puede apagar,
+  la luth se abre camino en la piedra.
+  Somos el fuego y la sal,
+  el juramento que quema el invierno.
+  Si estamos juntas, mi amor,
+  no hay algoritmo que dure un segundo.
+
+  [Guitar & Organ Solo - Energetic blues guitar solo trading licks with Hammond B3, driving beat]
+
+  [Bridge - Upbeat R&B Breakdown]
+  [Megan - Sweet Clean Soprano]
+  Que miren arriba: la torre está hueca,
+  el miedo ahogado en las alturas.
+  [Laura - Soulful R&B Voice]
+  Que miren abajo: la vida empethó,
+  y en esta escalera... 
+  ganamos las dos.
+
+  [Drum Fill - Modulation Pivot Chord - Key Change Up]
+
+  [Chorus Final - Full Band Rhythm & Blues Explosion - High Energy - Key Change Up - Both Females]
+  ¡Somos el fuego y la sal!
+  Dos corathones cruthando la niebla.
+  Nadie nos puede apagar,
+  la luth se abre camino en la piedra.
+  Somos el fuego y la sal,
+  el juramento que quema el invierno...
+  Si estamos juntas, mi amor...
+  si estamos juntas...
+
+  [Outro - Driving R&B rhythm, Hammond B3 and blues guitar riffing together, punchy final chord hit]
+  Fuego y sal...
+  Tú y yo.
+  `
 
 ---
 
-#### ESCENA 18: ¿ES QUE NO NOS OÍS? (GRAN FINAL APOTEÓSICO DE LOS 90')
-- Duración estimada: ~06:15
-- Personajes: Hugo, Laura, Megan, Dissonance Crew y Gran Ensamble Multitudinario (Toda la Compañía).
-- Acción: En lo alto del escenario improvisado frente a la torre corporativa, Hugo toma el micrófono. Mira a Laura, mira a Megan y mira a la marea de gente reunida. Arranca el piano con los acordes melancólicos de aquel preludio de hace diez años cuando lo expulsaron de la audición académica (*«¿Es que no me oís?»*)... pero ahora la frase se transforma en un grito unánime y plural: **«¡¿ES QUE NO NOS OÍS?!»**. La Crew y la ciudad entera se funden en una apoteosis coral y sinfónica de rock que hace temblar los cristales del distrito financiero. La música vence al algoritmo. Caída final de telón.
-- Estilo musical: Obra cumbre de rock operístico (estilo *Bohemian Rhapsody* / *The Who* / *We Are the Champions*), arranque íntimo a piano y voz, crescendo descomunal con toda la banda, coros polifónicos masivos a cuatro voces, solos de guitarra abrasadores y final en compás mayor apoteósico.
+#### ESCENA 18: EPÍLOGO FINAL: ¿ES QUE NO NOS OÍS?
+- Duración consolidada: **05:02** (Edición y master definitivo en Audacity) (Versión definitiva de máxima potencia) (Master definitivo consolidado - 18 de 18 escenas cerradas)
+- Personajes: Hugo (estilo Michael McDonald soul-rock), Laura, Megan, Donald (rap sereno de redención) y Gran Ensamble Multitudinario (Toda la Compañía).
+- Acción: La multitud abarrota la plaza frente a la torre corporativa. Se apagan las pantallas y cae el sistema. Hugo toma el micrófono liderando la victoria de la música humana frente al algoritmo. Laura y Megan celebran el amor en libertad, y Donald baja a la calle, despojado de su soberbia, para unirse a ellos con un rap sincero y en paz. La compañía y la ciudad entera estallan en el grito unánime: «¡¿ES QUE NO NOS OÍS?!... ¡YA NOS HABÉIS OÍDO!». Caída final de telón de los 90 minutos del musical.
+- Estilo musical: Himno triunfal de soul-rock de estadio a 122 BPM, guitarras eléctricas abrasadoras desde el segundo cero, batería enérgica, Hammond B3 bombeando, modulaciones gospel (+4 semitonos) y coro multitudinario apoteósico.
+- Style Prompt Maestro:
+  Triumphant driving soul-rock anthem, 122 BPM, Michael McDonald style husky soulful male lead vocals, explosive dual electric guitars, driving rock drums, pumping Hammond B3 organ, sweet pure soprano, soulful rock alto, and calm deep spoken baritone rap (Donald strictly spoken, no melody), massive energetic singalong chorus, no slow intro, Castilian Spanish pronunciation
+- Letra Definitiva (con 2 partes extendidas y modulaciones Gospel):
+  `	ext
+  [Intro - Explosive triumphant rock guitar riff, driving 122 BPM drums, Hammond B3 organ roaring from second zero]
+
+  [Verse 1 - Hugo - Michael McDonald Style Husky Soulful Voice - Rich Warm Chest Tone - No Opera]
+  ¡Se apagaron sus pantallas,
+  se encendió la thiudad!
+  ¡Aquí estamos en la calle,
+  nadie nos va a callar!
+  Diez años esperando
+  este fuego en la piel...
+  ¡hoy la música manda,
+  hoy rompimos la red!
+
+  [Verse 2 - Laura & Megan together - Energetic Rock Vocals]
+  [Megan - Sweet young voice]
+  La muralla de cristal se vino abajo...
+  [Laura - Soulful Rock Alto]
+  ¡Y en el barro
+   florethió el amor!
+  [DUET Laura & Megan]
+  ¡Ya no somos invisibles,
+  se ha callado el opresor!
+
+  [Donald enters - Steady rock groove - Donald drops his calm, grounded rap]
+
+  [Donald - Deep Warm Baritone - Calm Conscious Rap Flow - Grounded & Sincere - No Anger - Strictly Spoken Flow]
+  Tantos años calculando 
+  el prethio de las cosas,
+  y me olvidé del aire 
+  que respiran vuestras rosas.
+  Creí que el algoritmo 
+  gobernaba este lugar,
+  pero el latido humano 
+  nunca se podrá comprar.
+  Tiré el traje en el suelo, rompí el puto cristal...
+  hoy no busco negothio, hoy solo quiero escuchar.
+  Tenías rathón, chaval... el futuro era esto:
+  un fuego entre las manos y un sólo corathón.
+
+  [Pre-Chorus - Huge Triumphant Build-up - Hugo, Laura & Megan]
+  ¡Que resuene en cada esquina!
+  ¡Que retumbe hasta el final!
+  ¡Porque hoy habla la gente!
+  ¡Porque hoy habla la verdad!
+
+  [change +4 semitones, gospel style]
+  [Chorus - Triumphant Stadium Soul-Rock Anthem - Massive Singalong Chorus - Full Band Power]
+  ¡¿ES QUE NO NOS OÍS?!
+  ¡¿ES QUE NO NOS OÍS?!
+  La música vive, la música estalla,
+  el latido del hombre derriba la muralla.
+  ¡¿ES QUE NO NOS OÍS?!
+  Gritando az-zia el sol...
+  ¡Aquí no manda el código, aquí manda el amor!
+
+  [Guitar Solo - Blazing rock electric guitar solo, fast heroic leads, driving rhythm]
+
+  [Bridge - Triumphant Call & Response - Maximum Energy]
+  [Hugo - Michael McDonald Soulful Belt] ¡Nuestra voth es el trueno!
+  [Megan - High Pure Note] ¡Nuestra luth en la niebla!
+  [Laura - Gritty Soul] ¡El tambor en el pecho!
+  [Donald - Deep Spoken] ¡Y un pueblo que despierta!
+
+  [change +4 semitones, gospel style]
+  [Chorus Final - Ultimate Stadium Climax - Key Change - Massive Rock Singalong]
+  ¡¿ES QUE NO NOS OÍS?!
+  ¡¿ES QUE NO NOS OÍS?!
+  La música vive, la música estalla,
+  el latido del hombre derriba la muralla.
+  ¡¿ES QUE NO NOS OÍS?!
+  Gritando hathia el sol...
+  ¡Aquí no manda el código, aquí manda el amor!
+
+  [Outro - Victorious Stadium Climax - Huge final rock chant]
+  [All]
+  ¡¿Es que no nos oís?!...
+  ¡YA NOS HABÉIS OÍDO!
+
+  [Massive final stadium rock chord hit, roaring guitar sustain, ringing cymbals, triumphant end]
+
+  [change +4 semitones, gospel style]
+  [Chorus Final - Ultimate Stadium Climax - Key Change - Massive Rock Singalong]
+  ¡¿ES QUE NO NOS OÍS?! oh oh oh
+  ¡¿ES QUE NO NOS OÍS?! oh oh oh
+  La música vive, la música estalla,
+  el latido del hombre derriba la muralla.
+  ¡¿ES QUE NO NOS OÍS?! oh oh oh
+  Gritando hathia el sol...
+  ¡Aquí no manda el código, aquí manda el amor!
+
+  [change +4 semitones, gospel style]
+  [Chorus Final - Ultimate Stadium Climax - Key Change - Massive Rock Singalong]
+  ¡¿ES QUE NO NOS OÍS?! oh oh oh
+  ¡¿ES QUE NO NOS OÍS?! oh oh oh
+  La música vive, la música estalla,
+  el latido del hombre derriba la muralla.
+  ¡¿ES QUE NO NOS OÍS?!
+  Gritando hathia el sol...
+  ¡Aquí no manda el código, aquí manda el amor!
+
+  [Outro - Victorious Stadium Climax - Huge final rock chant]
+  [All]
+  ¡¿Es que no nos oís?!...
+  ¡YA NOS HABÉIS OÍDO!
+
+  [Massive final stadium rock chord hit, roaring guitar sustain, ringing cymbals, triumphant end]
+  `
 
 ---
 
 ### ⏱️ BALANCE ESTIMADO DEL ACTO III:
-* Escena 14 (*La marcha de los invisibles*): **~04:30**
-* Escena 15 (*La grieta en el algoritmo*): **~04:00**
-* Escena 16 (*La caída del tiburón*): **~04:15**
-* Escena 17 (*Fuego y sal*): **~04:30**
-* Escena 18 (*¿Es que no nos oís? - Gran Final*): **~06:15**
+* Escena 14 (*La marcha de los invisibles*): **05:22** (Master definitivo consolidado Suno)
+* Escena 15 (*La grieta en el algoritmo*): **04:34** (Master definitivo consolidado Suno)
+* Escena 16 (*La caída del tiburón*): **03:17** (Master definitivo consolidado)
+* Escena 17 (*Fuego y sal*): **03:28** (Master definitivo consolidado)
+* Escena 18 (*Epílogo final: ¿Es que no nos oís?*): **05:02** (Master definitivo consolidado)
 ---
-* **Total Música Acto III:** **~23:30**
-* **Total Escénico con transiciones:** **~28:00**
+* **Total Música Acto III:** **21:43**
+* **Total Escénico con transiciones:** **~27:30**
 
 ====================================================================
 
@@ -719,7 +980,7 @@ En el desenlace, el conflicto trasciende el muelle: ya no es una disputa por un 
 | Acto | Tema Central | Duración Música Pura | Duración Escénica (con diálogos) | Estado |
 | :--- | :--- | :---: | :---: | :---: |
 | **ACTO I** | *La Semilla y el Flechazo* (Escenas 1 a 7) | **27:46** | **~32:00** | **100% Cerrado y Masterizado** |
-| **ACTO II** | *La Grieta y el Fuego* (Escenas 8 a 13) | **~29:07** | **~32:00** | **En producción** (Esc. 8 y 9 consolidadas) |
-| **ACTO III** | *La Batalla y el Despertar* (Escenas 14 a 18) | **~23:30** | **~28:00** | **Estructurado y Bocetado** |
-| **TOTAL** | **ÓPERA ROCK COMPLETA** | **~80:23** | **~92:00** | **Arquitectura Global Cerrada (90')** |
+| **ACTO II** | *La Grieta y el Fuego* (Escenas 8 a 13) | **27:46** | **~32:00** | **100% Cerrado y Masterizado** |
+| **ACTO III** | *La Batalla y el Despertar* (Escenas 14 a 18) | **21:16** | **~27:30** | **100% Cerrado y Masterizado** |
+| **TOTAL** | **MUSICAL COMPLETO** | **75:53** | **~91:30** | **¡100% CERRADO Y MASTERIZADO (18 DE 18 ESCENAS)!** |
 

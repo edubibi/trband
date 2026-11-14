@@ -49,23 +49,49 @@ Este proyecto no es un disco convencional de rock: es un **puente cultural y mus
 
 ---
 
-## 📋 2. Ficha Técnica para Registro SGAE (Socio 29.751)
+## 📋 2. Registro Oficial de Obras y Códigos Internacionales ISWC (SGAE / CISAC)
 
-| Nº | Título Oficial (EN) | Título en Chino | Naturaleza / Tipo | Minutaje | Género / Estilo | Autor / Compositor |
-|---|---|---|---|---|---|---|
-| **01** | Dreams and Other Things | 梦境与余事 | Instrumental / Vocalizada | 04:37 | Worldbeat / Lirismo Fusión | Eduardo Ramírez de Cartagena (100%) |
-| **02** | Keep a Place for You | 为你留一席地 | Canción con letra | 04:54 | Folk-Pop / Crossover Progresivo | Eduardo Ramírez de Cartagena (100%) |
-| **03** | Oriental Pagoda | 东方宝塔 | Instrumental / Vocalizada | 03:53 | Ambient Étnico / Worldbeat | Eduardo Ramírez de Cartagena (100%) |
-| **04** | Hold the Measure | 把握分寸 | Canción con letra | 03:51 | Art-Pop sincopado / Sophisti-Pop | Eduardo Ramírez de Cartagena (100%) |
-| **05** | Paper Lantern River | 纸灯之河 | Canción con letra | 04:22 | Art-Pop / Rock Progresivo Lírico | Eduardo Ramírez de Cartagena (100%) |
-| **06** | In the Warmth of the Yangtze River | 长江的温存 | Instrumental / Vocalizada | 04:11 | Worldbeat ceremonial / Fusión | Eduardo Ramírez de Cartagena (100%) |
-| **07** | I Remain | 我依然在 | Balada cantada | 06:16 | Crossover Prog / Balada reflexiva | Eduardo Ramírez de Cartagena (100%) |
-| **08** | Angular A Minor | 棱角A小调 | Instrumental / Vocalizada | 04:11 | Ethno-Ambient / Prog contemplativo | Eduardo Ramírez de Cartagena (100%) |
-| **09** | Spanish Misty Guzheng | 西班牙迷雾古筝 | Instrumental / Vocalizada | 04:27 | Ambient Chillout / Coda meditativa | Eduardo Ramírez de Cartagena (100%) |
-| **10** | Li Ann, My Sunshine | 丽安，我的阳光 | Canción con letra | 05:33 | Sophisti-Pop / Crossover optimista | Eduardo Ramírez de Cartagena (100%) |
-| **11** | Pause Before the Rain | 雨前伫足 | Canción con letra | 05:41 | Art-Pop / Prog pastoral | Eduardo Ramírez de Cartagena (100%) |
-| **12** | Where the Pieces Fell | 碎片散落之处 | Canción con letra | 04:53 | Art-Pop progresivo / Catarsis rítmica | Eduardo Ramírez de Cartagena (100%) |
-| **13** | The Turning of the Tide | 潮汐回转 | Canción con letra | 05:50 | Sophisti-## 🎼 3. Las Fichas Oficiales del Libreto y Análisis por Surcos
+> **Titular de los Derechos:** Eduardo Luis Ramírez de Cartagena (100% Derechos de Autor y Composición)  
+> **Nº Socio SGAE:** 29.751 | **Código Internacional IPI / CAE:** 131.673.400  
+> **Certificados Oficiales SGAE:**
+> - Registro General Salida Nº 1.051.798 (Madrid, 25 de Octubre de 2026)
+> - Registro General Salida Nº 1.056.474 (Madrid, 8 de Noviembre de 2026)  
+> **Claves de Reparto:** 100,00 % Comunicación Pública (C) / 100,00 % Reproducción y Distribución (R)
+
+| Nº | Título Oficial (EN) | Título en Chino | Código SGAE | Código ISWC (Mundial) | Duración | Naturaleza / Tipo | Titularidad |
+|:---:|---|---|:---:|:---:|:---:|---|:---:|
+| **01** | Dreams and Other Things | 梦境与余事 | **34.462.943** | **T3448673874** | 04:24 | Instrumental / Vocalizada | 100% C / 100% R |
+| **02** | Keep a Place for You | 为你留一席地 | **34.514.100** | **T3450499891** | 04:54 | Canción con letra | 100% C / 100% R |
+| **03** | Oriental Pagoda | 东方宝塔 | **34.493.996** | **T3449349097** | 03:52 | Instrumental / Vocalizada | 100% C / 100% R |
+| **04** | Hold the Measure | 把握分寸 (持节) | **34.514.102** | **T3450499915** | 03:51 | Canción con letra | 100% C / 100% R |
+| **05** | Paper Lantern River | 纸灯之河 | **34.514.096** | **T3450499857** | 04:22 | Canción con letra | 100% C / 100% R |
+| **06** | In the Warmth of the Yangtze | 长江的温存 | **34.514.110** | **T3450499993** | 04:11 | Instrumental / Vocalizada | 100% C / 100% R |
+| **07** | I Remain | 我依然在 (我心犹在) | **34.572.140** | **T3454146426** | 06:16 | Canción con letra | 100% C / 100% R |
+| **08** | Angular A Minor | 棱角A小调 | **34.514.106** | **T3450499959** | 04:11 | Instrumental / Vocalizada | 100% C / 100% R |
+| **09** | Spanish Misty Guzheng | 西班牙迷雾古筝 | **34.514.108** | **T3450499971** | 04:27 | Instrumental / Vocalizada | 100% C / 100% R |
+| **10** | Li Ann My Sunshine | 丽安，我的阳光 | **34.514.074** | **T3450499595** | 05:33 | Canción con letra | 100% C / 100% R |
+| **11** | Pause Before the Rain | 雨前伫足 | **34.514.090** | **T3450499755** | 05:41 | Canción con letra | 100% C / 100% R |
+| **12** | Where the Pieces Fell | 碎片散落之处 | **34.514.060** | **T3450499459** | 04:53 | Canción con letra | 100% C / 100% R |
+| **13** | The Turning of the Tide | 潮汐回转 | **34.514.082** | **T3450499675** | 05:50 | Canción con letra | 100% C / 100% R |
+| **14** | A Single Spanish Step | 西班牙一步 (一步西风) | **34.514.112** | **T3450500019** | 03:32 | Instrumental / Vocalizada | 100% C / 100% R |
+
+### 🎼 Anexo: Obras de Fusión Oriental Registradas en SGAE (Acuse 1.056.474 - 08/11/2026)
+*Obras y temas complementarios registrados al 100% de titularidad (Compositor/Autor):*
+
+| Nº | Título Original (EN) | Título en Chino (Pinyin) | Código SGAE | Código ISWC | Género | Duración | Titularidad |
+|:---:|---|---|:---:|:---:|:---:|:---:|:---:|
+| **A1** | **Sea of Clouds** | 云海千山 (*Yun Hai Qian Shan*) | **34.572.175** | **T3454146802** | JAZZ | 04:45 | 100% C / 100% R |
+| **A2** | **A Friend Across a Thousand Miles** | 千里知音 (*Qian Li Zhi Yin*) | **34.595.198** | **T3455172273** | JAZZ | 04:49 | 100% C / 100% R |
+| **A3** | **Light the Galaxy** | 点亮星河 (*Dian Liang Xing He*) | **34.595.149** | **T3455172240** | JAZZ | 03:52 | 100% C / 100% R |
+| **A4** | **Until the Morning Light** | 直到晨光亮起 (*Zhi Dao Chen Guang Liang Qi*) | **34.572.200** | **T3454147098** | JAZZ | 03:47 | 100% C / 100% R |
+| **A5** | **Pocketful of Warmth** | 口袋里的温度 (*Kou Dai Li De Wen Du*) | **34.595.047** | **T3455141405** | JAZZ | 04:17 | 100% C / 100% R |
+| **A6** | **In the Warmth of the Yangtze River** | 长江的温存 (*Changjiang De Wencun*) | **34.572.230** | **T3454147430** | JAZZ | 04:11 | 100% C / 100% R |
+| **A7** | **Down the Open Road** | 辽阔长路 (*Liao Kuo Chang Lu*) | **34.595.142** | **T3455141483** | JAZZ | 04:47 | 100% C / 100% R |
+| **A8** | **Hold the Light Keep the Groove Alive** | 握紧微光 (*Wo Jin Wei Guang*) | **34.595.056** | **T3455141427** | JAZZ | 03:49 | 100% C / 100% R |
+
+---
+
+## 🎼 3. Las Fichas Oficiales del Libreto y Análisis por Surcos
 
 ### 🏮 BLOQUE A: Las 6 Piezas Instrumentales / Vocalizadas (Paisaje y Atmósfera)
 
